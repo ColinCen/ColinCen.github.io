@@ -1,0 +1,725 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="ZOJ,数据结构," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/tango.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="DescriptionA tree (i.e. a connected graph without cycles) with vertices numbered by the integers 1, 2, …, n is given. The “Prufer” code of such a tree is built as follows: the leaf (a vertex that is i">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Code the tree">
+<meta property="og:url" content="http://yoursite.com/2016/06/20/Code-the-tree/index.html">
+<meta property="og:site_name" content="Colin's blog">
+<meta property="og:description" content="DescriptionA tree (i.e. a connected graph without cycles) with vertices numbered by the integers 1, 2, …, n is given. The “Prufer” code of such a tree is built as follows: the leaf (a vertex that is i">
+<meta property="og:image" content="http://o8engxb28.bkt.clouddn.com/code%20the%20tree.jpg">
+<meta property="og:image" content="http://o8engxb28.bkt.clouddn.com/code%20the%20tree2.JPG">
+<meta property="og:updated_time" content="2016-06-20T13:23:44.766Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Code the tree">
+<meta name="twitter:description" content="DescriptionA tree (i.e. a connected graph without cycles) with vertices numbered by the integers 1, 2, …, n is given. The “Prufer” code of such a tree is built as follows: the leaf (a vertex that is i">
+<meta name="twitter:image" content="http://o8engxb28.bkt.clouddn.com/code%20the%20tree.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/06/20/Code-the-tree/"/>
+
+  <title> Code the tree | Colin's blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Colin's blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">A football fan,an English lover and a coder</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Code the tree
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-06-20T20:44:45+08:00" content="2016-06-20">
+              2016-06-20
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/acm/" itemprop="url" rel="index">
+                    <span itemprop="name">acm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/06/20/Code-the-tree/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/20/Code-the-tree/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><strong>Description</strong><br>A tree (i.e. a connected graph without cycles) with vertices numbered by the integers 1, 2, …, n is given. The “Prufer” code of such a tree is built as follows: the leaf (a vertex that is incident to only one edge) with the minimal number is taken. This leaf, together with its incident edge is removed from the graph, while the number of the vertex that was adjacent to the leaf is written down. In the obtained graph, this procedure is repeated, until there is only one vertex left (which, by the way, always has number n). The written down sequence of n-1 numbers is called the Prufer code of the tree.<br>Your task is, given a tree, to compute its Prufer code. The tree is denoted by a word of the language specified by the following grammar: </p>
+<p><em>T ::= “(“ N S “)”<br>S ::= “ “ T S<br>    | empty<br>N ::= number</em></p>
+<p>That is, trees have parentheses around them, and a number denoting the identifier of the root vertex, followed by arbitrarily many (maybe none) subtrees separated by a single space character. As an example, take a look at the tree in the figure below which is denoted in the first line of the sample input. To generate further sample input, you may use your solution to Problem 2568.<br>Note that, according to the definition given above, the root of a tree may be a leaf as well. It is only for the ease of denotation that we designate some vertex to be the root. Usually, what we are dealing here with is called an “unrooted tree”.<br><strong>Input</strong><br>The input contains several test cases. Each test case specifies a tree as described above on one line of the input file. Input is terminated by EOF. You may assume that 1&lt;=n&lt;=50.<br><strong>Output</strong><br>For each test case generate a single line containing the Prufer code of the specified tree. Separate numbers by a single space. Do not print any spaces at the end of the line.<br><img src="http://o8engxb28.bkt.clouddn.com/code%20the%20tree.jpg" alt="Figure"><br><strong>Sample Input</strong><br>(2 (6 (7)) (3) (5 (1) (4)) (8))<br>(1 (2 (3)))<br>(6 (1 (4)) (2 (3) (5)))<br><strong>Sample Output</strong><br>5 2 5 2 6 2 8<br>2 3<br>2 1 6 2 6</p>
+<h2 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a>题目大意</h2><p>树的顶点,用整数1,2,3,n……编号.Prufer码是按如下构造:找到编号最小的叶结点(只有一条边与之相连).将该叶结点,及其相连的边从图中删除,记下与之相连的节点编号,重复上述步骤,直至剩下最后一个节点.</p>
+<h2 id="算法分析"><a href="#算法分析" class="headerlink" title="算法分析"></a>算法分析</h2><ol>
+<li><p>分析<br>就拿上图举例,首先找到编号最小的叶结点,编号是1;将该叶结点及所在边去掉,并记下与之相连的节点编号:5.<br>接着去找编号最小的叶结点,编号是3;将该叶结点及所在边去掉,并记下与之相连的节点编号:2.<br>不断重复知道输出完(输出的结果个数应该比原输入的个数小1).</p>
+</li>
+<li><p>数据结构<br><img src="http://o8engxb28.bkt.clouddn.com/code%20the%20tree2.JPG" alt="节点的相邻节点"><br>需要用到STL里的Vector()和Set()(详见代码注释中)</p>
+</li>
+<li><p>实现Prufer码<br>当某节点只有一个相邻节点时,它就是叶子节点.将所有这些叶子节点放到一个优先队列中,选出节点编号最小的那个节点,输出其相邻的节点编号,就是该节点的Prufer码.对于上表而言,初始状态的叶子节点是<br>1,3,4,7,8<br>将这些节点放到优先队列中排序,就获得了编号最小的叶子节点1,输出相邻的节点编号5,同时将5相邻的节点1删除,如果5只有一个节点,则进入优先队列.</p>
+</li>
+</ol>
+<h2 id="程序代码"><a href="#程序代码" class="headerlink" title="程序代码"></a>程序代码</h2><pre><code>#include &lt;iostream&gt;
+#include &lt;set&gt;
+#include &lt;vector&gt;
+#include &lt;queue&gt; 
+using namespace std;
+void parse(    vector&lt;set&lt;int&gt; &gt;&amp;adj,unsigned int p=0)
+{
+    unsigned int x;
+    cin&gt;&gt;ws&gt;&gt;x;                //x表示当前读的数 
+    if(p)                    //p表示前一个数 
+    {
+        adj[x].insert(p);    //set容器没有重复的数据,若多次插入相同数据,容器内只有一种 
+
+        adj[p].insert(x);    //此处节点相邻是对称的 
+    }
+    //递归读取数据 
+    while(true)                //为了不断读取同样级别 
+    {
+        char ch;            //读符号 
+        cin&gt;&gt;ws&gt;&gt;ch;
+        if(ch==&apos;)&apos;)
+            break;
+        parse(adj,x);
+    }
+    return ; 
+}
+int main()
+{
+    char ch;
+    while(cin&gt;&gt;ws&gt;&gt;ch)        //ws是ios的控制符,读空格的意思(不止读一个,有才读,没有不读) 
+    {
+        int n=0;//节点数 
+        vector&lt;set&lt;int&gt;/*有空格区别于&quot;&gt;&gt;&quot;*/ &gt;adj (1024,set&lt;int&gt;());//vector里的每一个数据都set&lt;int&gt;初始化 
+        parse(adj);
+        priority_queue&lt;int,vector&lt;int&gt;,greater&lt;int&gt; &gt;leafs;//优先队列 
+        for(unsigned int i=0;i&lt;adj.size();i++)
+        {
+            if(adj[i].size())
+            {
+                n++;
+                if(adj[i].size()==1)//如果只有一个成员就放入队列 
+                    leafs.push(i); 
+            }
+        }
+        //处理优先队列 
+        for(unsigned int i=1;i&lt;n;i++)//n次输出,永远比输入少1 
+        {
+            unsigned int x,p;
+            x=leafs.top();
+            leafs.pop();
+            p=*(adj[x].begin());//数组adj元素是集合,获取集合的元素用指针
+            if(i&gt;1)//第一个数前没空格,后面的数之间有空格 
+                cout&lt;&lt;&quot; &quot;;
+            cout&lt;&lt;p;
+            adj[p].erase(x);//删除对应节点p中的x 
+            //如果p节点也成为叶子节点,则进入优先队列
+            if(adj[p].size()==1)
+                leafs.push(p); 
+        }
+        cout&lt;&lt;endl;
+    }
+    return 0;
+}
+</code></pre>
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/ZOJ/" rel="tag">#ZOJ</a>
+          
+            <a href="/tags/数据结构/" rel="tag">#数据结构</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/06/19/Matrix-Chain-Multiplication/" rel="next" title="Matrix Chain Multiplication">
+                <i class="fa fa-chevron-left"></i> Matrix Chain Multiplication
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/06/24/Channel-Allocation/" rel="prev" title="Channel Allocation">
+                Channel Allocation <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/06/20/Code-the-tree/"
+           data-title="Code the tree" data-url="http://yoursite.com/2016/06/20/Code-the-tree/">
+      </div>
+
+
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/assassin.jpg"
+               alt="Shen Hao" />
+          <p class="site-author-name" itemprop="name">Shen Hao</p>
+          <p class="site-description motion-element" itemprop="description">Colin's blog | acm |c++</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">23</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/colincen" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目大意"><span class="nav-number">1.</span> <span class="nav-text">题目大意</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法分析"><span class="nav-number">2.</span> <span class="nav-text">算法分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#程序代码"><span class="nav-number">3.</span> <span class="nav-text">程序代码</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Shen Hao</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name: "colincen2"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,798 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="ZOJ,bfs," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/tango.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="原题Language:Alien SecurityTime Limit: 1000MS        Memory Limit: 10000KTotal Submissions: 2898        Accepted: 1064Description
+You are in charge of security at a top-secret government research facili">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Alien Security">
+<meta property="og:url" content="http://yoursite.com/2016/06/26/Alien-Security/index.html">
+<meta property="og:site_name" content="Colin's blog">
+<meta property="og:description" content="原题Language:Alien SecurityTime Limit: 1000MS        Memory Limit: 10000KTotal Submissions: 2898        Accepted: 1064Description
+You are in charge of security at a top-secret government research facili">
+<meta property="og:image" content="http://o8engxb28.bkt.clouddn.com/alien1.gif">
+<meta property="og:updated_time" content="2016-06-26T02:44:14.823Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Alien Security">
+<meta name="twitter:description" content="原题Language:Alien SecurityTime Limit: 1000MS        Memory Limit: 10000KTotal Submissions: 2898        Accepted: 1064Description
+You are in charge of security at a top-secret government research facili">
+<meta name="twitter:image" content="http://o8engxb28.bkt.clouddn.com/alien1.gif">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/06/26/Alien-Security/"/>
+
+  <title> Alien Security | Colin's blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Colin's blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">A football fan,an English lover and a coder</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Alien Security
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-06-26T09:48:56+08:00" content="2016-06-26">
+              2016-06-26
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/acm/" itemprop="url" rel="index">
+                    <span itemprop="name">acm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/06/26/Alien-Security/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/26/Alien-Security/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="原题"><a href="#原题" class="headerlink" title="原题"></a>原题</h2><p>Language:<br>Alien Security<br>Time Limit: 1000MS        Memory Limit: 10000K<br>Total Submissions: 2898        Accepted: 1064<br>Description</p>
+<p>You are in charge of security at a top-secret government research facility. Recently your government has captured a live extra-terrestrial (ET) life form, and is hosting an open day for fellow researchers. Of course, not all the guests can be trusted, so they are assigned different security clearance levels. Only guests with a level 5 rating will be allowed into the lab where the extra-terrestrial is being held; other than that, everyone is free to roam throughout the rest of the facility. Each room in the facility is connected via one-way airlocks, so that you can pass through the door in only one direction. </p>
+<p>To protect your precious ET you will put in place enhanced security measures (in the form of armed guards) on the route leading to the room containing the ET, but not in the room itself ?the guards do not have sufficient clearance to enter the room containing the ET. </p>
+<p>The guards will check the identity and the security rating of all guests trying to pass through the room in which they are stationed, so you would like to place the guards where they will cause the minimum amount of irritation to the guests who have no intention of visiting the ET. The room where the guards must be placed thus satisfies the following two conditions: </p>
+<ol>
+<li><p>In order to get to the room containing the ET, the guests must pass through the room containing the guards; </p>
+</li>
+<li><p>There is no other room with this property that is closer to the room containing the ET ?remember, the guards cannot be placed in the room containing the ET itself. </p>
+</li>
+</ol>
+<p>The diagram below illustrates one possible map of your facility: </p>
+<p><img src="http://o8engxb28.bkt.clouddn.com/alien1.gif" alt="The diagram"></p>
+<p>Note that placing the guards in room 2 would satisfy the first condition, but room 3 is closer to the ET, so the guards must be placed in room 3.<br>Input</p>
+<p>All guests enter through room 0, the entrance to your facility. Your program accepts a sequence of lines containing integers. The first line consists of two integers: the number of rooms, and the room in which the ET is being held (out of his own free will, of course). </p>
+<p>The rest of the input is a sequence of lines consisting of only two integers, specifying where the airlock-doors are located. The first number on these lines specifies the source room, and the second the destination room. Remember: you can pass only from the source room to the destination room.<br>Output</p>
+<p>The output of your program consists only of a single line: </p>
+<p>Put guards in room N. </p>
+<p>where N is the room you’ve decided to place the guards.<br><strong>Sample Input</strong></p>
+<p>9 4<br>0 2<br>2 3<br>3 4<br>5 3<br>5 4<br>3 6<br>6 5<br>6 7<br>6 8<br>4 7<br>0 1<br>1 7<br>7 0</p>
+<p><strong>Sample Output</strong></p>
+<p>Put guards in room 3.</p>
+<h2 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a>题目大意</h2><p>研究机构的每个房间由单向密封过渡仓连接，所以进去只能一个方向通过。</p>
+<p>设置守卫室的位置，使其满足一下条件：</p>
+<ol>
+<li><p>要到达et位置，客人必须通过守卫室的房间</p>
+</li>
+<li><p>没有其他房间更接近放有et的房间，守卫室不能设在et所在的位置</p>
+</li>
+</ol>
+<p>所有客人必须首先进入0号房间，这是入口</p>
+<p>程序输入有多行，第一行有两个整数：房间的数目，et所在的位置</p>
+<p>其余各行也有两个整数，指明通向，第一个源房间，第二个目标房间，单向。</p>
+<p>程序输出只有一行 Put guards in room N.              N是守卫室的位置</p>
+<p>题目包含多组数据，第一行是N，表示N组测试数据，每组数据格式与问题描述一样，组数据间有一个空行</p>
+<h2 id="算法分析"><a href="#算法分析" class="headerlink" title="算法分析"></a>算法分析</h2><p>本题需要用到广度和深度搜索.</p>
+<ol>
+<li><p>构造邻接矩阵<br>使用数组data表示研究机构的邻接矩阵:</p>
+<pre><code>const int MaxN = 100;
+bool data[MaxN][MaxN];
+</code></pre><p>房间数目是n,ET所在房间是变量et;<br>另外,因为要输入一空行区别组间数据,所以用字符串处理,用到sscanf函数.</p>
+</li>
+<li><p>广度优先搜索,搜索各个房间到et的房间的最近距离<br>如果站在et的房间看,将过渡舱反一下,就成了单源最短路径问题(Shortest Path Faster Algorithm,SPFA)问题,这时用广搜能得到很高的效率.</p>
+<pre><code>void shortest()
+</code></pre><p>实现bfs(广搜)的重要一步是建立队列,可以使用链表,数组,C++的string和Vector模拟队列,最简单的是用queue()函数:</p>
+<pre><code>queue&lt;int&gt; q;
+</code></pre><p>从当前房间x向四周扩展,如果到房间i有通路,且能够获得更短的距离,则经过房间i,并将i入栈.</p>
+</li>
+<li>枚举<br>去掉房间i后还能到达et房间的就舍去.</li>
+</ol>
+<h2 id="程序代码"><a href="#程序代码" class="headerlink" title="程序代码"></a>程序代码</h2><pre><code>#include &lt;iostream&gt;
+#include &lt;string.h&gt;
+#include &lt;queue&gt;
+#include &lt;memory.h&gt;
+using namespace std;
+
+const int MaxN = 100;
+bool data[MaxN][MaxN];    //表示邻接的矩阵
+bool used[MaxN];        //dfs搜索标志,表示已经搜索过了
+int n, et;                //房间数和机器人所在的房间 
+int dis[MaxN];            //表示从其它房间到et房间的距离
+//广度优先搜索
+void shortest()
+{
+    queue&lt;int&gt; q;    //搜索队列
+    q.push(et);        //起始搜索位置
+    dis[et]=0;
+    int x;
+    while(!q.empty())
+    {
+        x=q.front();        //取头结点
+        q.pop();
+        for(int i=0;i&lt;n;i++)
+        {
+            //从et房间出发是逆向行走
+            //经过房间x到et比经过i到et房间更近
+            if(data[i][x]&amp;&amp;dis[x]&lt;dis[i])
+            {
+                q.push(i);
+                dis[i]=dis[x]+1;
+            }
+        }
+    }
+}
+//深搜
+bool search(int i)
+{
+    if(i==et)    return true;    //成功到达et的标志
+    used[i]=true;
+    //搜索下一个出口
+    for(int j=0;j&lt;n;++j)
+    {
+        if(!used[j]&amp;&amp;data[i][j])
+            if(search(j))
+                return true;
+    }
+    return false;
+}
+int main()
+{
+    int cases;//几组数据
+    int room;
+    int d;
+    scanf(&quot;%d&quot;,&amp;cases);
+    for(int l=0;l&lt;cases;++l)
+    {
+        scanf(&quot;%d%d\n&quot;,&amp;n,&amp;et);        //&quot;\n&quot;不能少 
+        memset(data,0,sizeof(data));
+        for(int m=0;m&lt;MaxN;m++)
+        {
+            dis[m]=INT_MAX;
+        }
+        char line[10];
+        int a,b;
+        while(gets(line))
+        {
+            if(strcmp(line,&quot;&quot;)==0) break;
+            sscanf(line,&quot;%d%d&quot;,&amp;a,&amp;b);
+            data[a][b]=true;
+        }
+        shortest();    
+    //枚举,除房间et外,逐个房间设置守卫,搜索最优解
+    room=0;
+    d=dis[0];
+    for(int i=1;i&lt;n;i++)
+    {
+        if(i==et)    continue;
+        memset(used,0,sizeof(used));
+        //设置在i房间,就是将i拿掉
+        used[i]=1;
+        //从入口0不能到达et,说明0是必经之路
+        //而且能获得到房间et更短的距离
+        if(!search(0)&amp;&amp;dis[i]&lt;d)
+        {
+            room=i;
+            d=dis[i];    
+        }    
+    }
+    if(l) cout&lt;&lt;endl;
+        cout&lt;&lt; &quot;Put guards in room &quot;&lt;&lt;room&lt;&lt;&quot;.&quot;&lt;&lt;endl;    
+    }
+    return 0;
+}
+</code></pre><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>首先,这是第一次接触bfs,bfs一般用队列.<br>其次,了解了sscanf这个函数<br>    sscanf() - 从一个字符串中读进与指定格式相符的数据.<br>同时,消除了一个误区,本以为memset可以整体赋值任何数据,结果百度后发现:</p>
+<p><em>memset是计算机中C/C++语言函数。将s所指向的某一块内存中的前n个 字节的内容全部设置为ch指定的ASCII值， 第一个值为指定的内存地址，块的大小由第三个参数指定，这个函数通常为新申请的内存做初始化工作， 其返回值为指向s的指针。</em></p>
+<p>但可以用这个函数清零:</p>
+<pre><code>memset(used,0,sizeof(used));
+</code></pre>
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/ZOJ/" rel="tag">#ZOJ</a>
+          
+            <a href="/tags/bfs/" rel="tag">#bfs</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/06/24/Channel-Allocation/" rel="next" title="Channel Allocation">
+                <i class="fa fa-chevron-left"></i> Channel Allocation
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/06/26/Knight-Moves/" rel="prev" title="Knight Moves">
+                Knight Moves <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/06/26/Alien-Security/"
+           data-title="Alien Security" data-url="http://yoursite.com/2016/06/26/Alien-Security/">
+      </div>
+
+
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/assassin.jpg"
+               alt="Shen Hao" />
+          <p class="site-author-name" itemprop="name">Shen Hao</p>
+          <p class="site-description motion-element" itemprop="description">Colin's blog | acm |c++</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">23</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/colincen" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#原题"><span class="nav-number">1.</span> <span class="nav-text">原题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#题目大意"><span class="nav-number">2.</span> <span class="nav-text">题目大意</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法分析"><span class="nav-number">3.</span> <span class="nav-text">算法分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#程序代码"><span class="nav-number">4.</span> <span class="nav-text">程序代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Shen Hao</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name: "colincen2"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>

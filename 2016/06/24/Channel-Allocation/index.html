@@ -1,0 +1,753 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="ZOJ,dfs," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/tango.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="原题Description
+When a radio station is broadcasting over a very large area, repeaters are used to retransmit the signal so that every receiver has a strong signal. However, the channels used by each re">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Channel Allocation">
+<meta property="og:url" content="http://yoursite.com/2016/06/24/Channel-Allocation/index.html">
+<meta property="og:site_name" content="Colin's blog">
+<meta property="og:description" content="原题Description
+When a radio station is broadcasting over a very large area, repeaters are used to retransmit the signal so that every receiver has a strong signal. However, the channels used by each re">
+<meta property="og:image" content="http://o8engxb28.bkt.clouddn.com/channel1.JPG">
+<meta property="og:image" content="http://o8engxb28.bkt.clouddn.com/channel2.JPG">
+<meta property="og:updated_time" content="2016-06-24T09:22:47.009Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Channel Allocation">
+<meta name="twitter:description" content="原题Description
+When a radio station is broadcasting over a very large area, repeaters are used to retransmit the signal so that every receiver has a strong signal. However, the channels used by each re">
+<meta name="twitter:image" content="http://o8engxb28.bkt.clouddn.com/channel1.JPG">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/06/24/Channel-Allocation/"/>
+
+  <title> Channel Allocation | Colin's blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Colin's blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">A football fan,an English lover and a coder</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Channel Allocation
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-06-24T16:34:25+08:00" content="2016-06-24">
+              2016-06-24
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/acm/" itemprop="url" rel="index">
+                    <span itemprop="name">acm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/06/24/Channel-Allocation/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/24/Channel-Allocation/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="原题"><a href="#原题" class="headerlink" title="原题"></a>原题</h2><p><strong>Description</strong></p>
+<p>When a radio station is broadcasting over a very large area, repeaters are used to retransmit the signal so that every receiver has a strong signal. However, the channels used by each repeater must be carefully chosen so that nearby repeaters do not interfere with one another. This condition is satisfied if adjacent repeaters use different channels. </p>
+<p>Since the radio frequency spectrum is a precious resource, the number of channels required by a given network of repeaters should be minimised. You have to write a program that reads in a description of a repeater network and determines the minimum number of channels required.<br><strong>Input</strong></p>
+<p>The input consists of a number of maps of repeater networks. Each map begins with a line containing the number of repeaters. This is between 1 and 26, and the repeaters are referred to by consecutive upper-case letters of the alphabet starting with A. For example, ten repeaters would have the names A,B,C,…,I and J. A network with zero repeaters indicates the end of input. </p>
+<p>Following the number of repeaters is a list of adjacency relationships. Each line has the form: </p>
+<p>A:BCDH </p>
+<p>which indicates that the repeaters B, C, D and H are adjacent to the repeater A. The first line describes those adjacent to repeater A, the second those adjacent to B, and so on for all of the repeaters. If a repeater is not adjacent to any other, its line has the form </p>
+<p>A: </p>
+<p>The repeaters are listed in alphabetical order. </p>
+<p>Note that the adjacency is a symmetric relationship; if A is adjacent to B, then B is necessarily adjacent to A. Also, since the repeaters lie in a plane, the graph formed by connecting adjacent repeaters does not have any line segments that cross.<br><strong>Output</strong></p>
+<p>For each map (except the final one with no repeaters), print a line containing the minumum number of channels needed so that no adjacent channels interfere. The sample output shows the format of this line. Take care that channels is in the singular form when only one channel is required.<br>Sample Input</p>
+<p>2<br>A:<br>B:<br>4<br>A:BC<br>B:ACD<br>C:ABD<br>D:BC<br>4<br>A:BCD<br>B:ACD<br>C:ABD<br>D:ABC<br>0</p>
+<p><strong>Sample Output</strong></p>
+<p>1 channel needed.<br>3 channels needed.<br>4 channels needed. </p>
+<h2 id="原题大意"><a href="#原题大意" class="headerlink" title="原题大意"></a>原题大意</h2><p>当无线电台在一个非常大的区域上传播信号时,为了每个接收器都能得到较强的信号,使用转发器转发信号.然而,需要仔细地选择每个转发器使用的频道,以使附近的转发器不彼此干扰.如果附近的转发器使用不同的频道,条件就得到满足.<br>因为无线电波的频道是宝贵的资源,转发器所需的频道数应减到最少.编程任务:读取转发器的信息,并计算所需频道的最小使用量.</p>
+<ul>
+<li><p>输入格式<br>输入包含许多转发器的网络图.每幅图的第一行是转发器数目(1~26).转发器用连续的大写字母表示,从A开始.例如,10个转发器的名称是A,B,C,D……,I,J.当转发器的个数是0,表示输入结束.<br>转发器的数目之后,是其邻近关系的列表.每行的格式为</p>
+<p>  A:BCDH</p>
+<p>  表示BCDH与A邻近.若某个转发器不与其他转发器邻近,它的形式为</p>
+<p>  A:</p>
+<p>  转发器按字母顺序列出(注意:相邻是对称的,A与B相邻同时B与A也相邻).</p>
+</li>
+<li><p>输出格式<br>对于每幅图(除了最后一个没有转发器),输出一行,是转发器不互相干扰所需的最小频道数.</p>
+</li>
+</ul>
+<h2 id="算法分析"><a href="#算法分析" class="headerlink" title="算法分析"></a>算法分析</h2><p>将本题抽象成无向图</p>
+<ol>
+<li><p>样例分析<br> <img src="http://o8engxb28.bkt.clouddn.com/channel1.JPG" alt="样例1"><br> 转发器A,B,C各不一样,A和D一样,所以需要3个转发器.</p>
+<p> <img src="http://o8engxb28.bkt.clouddn.com/channel2.JPG" alt="样例2"><br> 转发器A,B,C,D各不一样,所以需要4个转发器.</p>
+</li>
+<li><p>构造无向图<br> 用数组g保存图,表示两点间是否关联</p>
+<pre><code>bool g[26][26];
+</code></pre><p> 转发器的数量</p>
+<pre><code>int n;
+</code></pre></li>
+<li><p>着色的实现<br> 因为颜色不超过4种,所以分两种情况:</p>
+<ol>
+<li>所有转发器互不相邻,只要着一种色;</li>
+<li><p>用两种或三种颜色去着色,如果不能成功就是需要4种颜色.<br> 使用dfs()实现算法:</p>
+<pre><code>bool dfs(int id,int color)
+</code></pre><p> id是着色的起点,color是限制的颜色数量.<br> 当某一结点id时,在已经着色的结点中,搜索是否该颜色已经被使用.如果是,就换种颜色,继续搜索.<br> 当所有的着色完成,返回true,否则返回false. </p>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="程序代码"><a href="#程序代码" class="headerlink" title="程序代码"></a>程序代码</h2><pre><code>#include &lt;stdio.h&gt;
+#include &lt;memory.h&gt;
+bool g[30][30];//无向图的存储
+int used[30]; //每个点所用的颜色的存储
+int n;//转发器的数量
+bool dfs(int id,int color)//m为当前的点 
+{
+        bool flag;
+        int i,j;
+        for(i=0;i&lt;color;i++)
+        {
+            flag=true;
+            //结点颜色 
+            used[id]=i;
+            //判断相邻是否用同一种颜色 
+            for(j=0;j&lt;id;j++)
+            {
+                if(g[id][j]&amp;&amp;used[id]==used[j])//是否相邻,若相邻是否颜色相同
+                {
+                    flag=false;
+                    break;
+                 } 
+            }
+            if(flag&amp;&amp;(id==n||dfs(id+1,color)))
+                return true;
+        }
+        return false;
+} 
+int main()
+{
+    int i,j;
+    bool one;//只需要一种颜色的标记
+    char adj[60]; 
+    while(scanf(&quot;%d&quot;,&amp;n)&amp;&amp;n)
+    {
+        one=true;
+        memset(g,0,sizeof(g));
+        memset(used,0,sizeof(used));
+        for(i=0;i&lt;n;i++)
+        {
+            scanf(&quot;%s&quot;,adj);
+            for(j=2;adj[j];j++,one=false)
+            {
+                g[adj[j]-&apos;A&apos;][i]=true;//对称存储 
+                g[i][adj[j]-&apos;A&apos;]=true;
+            }
+
+        }
+        if(one)    printf(&quot;1 channel needed.\n&quot;);
+        else if(dfs(1,2)) printf(&quot;2 channels needed.\n&quot;); 
+        else if(dfs(1,3)) printf(&quot;3 channels needed.\n&quot;);
+        else printf(&quot;4 channels needed.\n&quot;);  
+    }
+    return 0;
+}
+</code></pre>
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/ZOJ/" rel="tag">#ZOJ</a>
+          
+            <a href="/tags/dfs/" rel="tag">#dfs</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/06/20/Code-the-tree/" rel="next" title="Code the tree">
+                <i class="fa fa-chevron-left"></i> Code the tree
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/06/26/Alien-Security/" rel="prev" title="Alien Security">
+                Alien Security <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/06/24/Channel-Allocation/"
+           data-title="Channel Allocation" data-url="http://yoursite.com/2016/06/24/Channel-Allocation/">
+      </div>
+
+
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/assassin.jpg"
+               alt="Shen Hao" />
+          <p class="site-author-name" itemprop="name">Shen Hao</p>
+          <p class="site-description motion-element" itemprop="description">Colin's blog | acm |c++</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">23</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/colincen" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#原题"><span class="nav-number">1.</span> <span class="nav-text">原题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#原题大意"><span class="nav-number">2.</span> <span class="nav-text">原题大意</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法分析"><span class="nav-number">3.</span> <span class="nav-text">算法分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#程序代码"><span class="nav-number">4.</span> <span class="nav-text">程序代码</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Shen Hao</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name: "colincen2"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>

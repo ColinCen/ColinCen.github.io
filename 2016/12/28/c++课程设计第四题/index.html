@@ -1,0 +1,784 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="stl,c++文件流," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/tango.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="原题要求：设计一个保留字的统计程序建立保留字文件；从源数据文件（C或C++语言程序）中，读取字符或字符串，与保留字文件中的保留字进行匹配比较，并统计计数。输出两张表文件：保留字计数，扫描程序的次数，非保留字计数。
+想法我先说说我是第一天是怎么弄的，第一天。。。什么也没写出来，我连 保留字 是什么都不知道，后来百度后才知道 保留字就是c/c++关键字比如 int short while for,然后">
+<meta property="og:type" content="article">
+<meta property="og:title" content="c++课程设计">
+<meta property="og:url" content="http://yoursite.com/2016/12/28/c++课程设计第四题/index.html">
+<meta property="og:site_name" content="Colin's blog">
+<meta property="og:description" content="原题要求：设计一个保留字的统计程序建立保留字文件；从源数据文件（C或C++语言程序）中，读取字符或字符串，与保留字文件中的保留字进行匹配比较，并统计计数。输出两张表文件：保留字计数，扫描程序的次数，非保留字计数。
+想法我先说说我是第一天是怎么弄的，第一天。。。什么也没写出来，我连 保留字 是什么都不知道，后来百度后才知道 保留字就是c/c++关键字比如 int short while for,然后">
+<meta property="og:updated_time" content="2016-12-29T06:30:11.404Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="c++课程设计">
+<meta name="twitter:description" content="原题要求：设计一个保留字的统计程序建立保留字文件；从源数据文件（C或C++语言程序）中，读取字符或字符串，与保留字文件中的保留字进行匹配比较，并统计计数。输出两张表文件：保留字计数，扫描程序的次数，非保留字计数。
+想法我先说说我是第一天是怎么弄的，第一天。。。什么也没写出来，我连 保留字 是什么都不知道，后来百度后才知道 保留字就是c/c++关键字比如 int short while for,然后">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/12/28/c++课程设计第四题/"/>
+
+  <title> c++课程设计 | Colin's blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Colin's blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">A football fan,an English lover and a coder</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                c++课程设计
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-12-28T22:18:02+08:00" content="2016-12-28">
+              2016-12-28
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/12/28/c++课程设计第四题/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/28/c++课程设计第四题/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="原题"><a href="#原题" class="headerlink" title="原题"></a>原题</h1><p>要求：设计一个保留字的统计程序<br>建立保留字文件；<br>从源数据文件（C或C++语言程序）中，读取字符或字符串，与保留字文件中的保留字进行匹配比较，并统计计数。<br>输出两张表文件：保留字计数，扫描程序的次数，非保留字计数。</p>
+<h1 id="想法"><a href="#想法" class="headerlink" title="想法"></a>想法</h1><p>我先说说我是第一天是怎么弄的，第一天。。。什么也没写出来，我连 <strong>保留字</strong> 是什么都不知道，后来百度后才知道 <strong>保留字就是c/c++关键字</strong>比如 <em>int short while for</em>,然后再看看题目，要求已经很明确了，建一个保留字文件以及一个c/cpp的源代码（任意的），通过程序筛选出保留字与非保留字，并且计数，最后分别用两个文件输出。所以，这个程序可以分成3部分：</p>
+<ol>
+<li>文件读取</li>
+<li>筛选以及计数</li>
+<li>文件输出</li>
+</ol>
+<p>先说文件输入输出，这个我是有点头疼的，之前c里面是用fread，fwrite两个函数，但这里显然不合适，你无法预测文档的大小。无奈，拿起上学期的c++书，翻到了文件输入输出流，书上的太简略，没有合适的代码，于是就先放在了这里。再来想一想第二个步骤，第二个步骤也是最难的部分，首先看筛选，如何将保留字与非保留字从源码里区分开来，和周围同学讨论后，他们是这样想的：通过文件操作将源码读到一个大的字符数组里，然后再把保留表再读到一个字符数组里，然后通过模式匹配（比如KMP）完成计数。可是这只是保留字啊，剩下的非保留字怎么办呢？<br>继续讨论后决定通过字符串分割，将源码按 <strong>空格</strong> 分割下来，这样除保留字以外的所有字符都是非保留字。可是我又有了疑问：如何保证分割的精确性呢，要知道源码里还有大量的 <em>括号，引号……</em> </p>
+<p>而且，我觉得这个肯定不是上佳的方案，先不考虑可行性，这个算法的时间成本太高了，保留字差不多快50个，光统计这个就得把源码扫50遍？？？<br>所以，要想尽量时间成本的话，就得边读边统计。</p>
+<p>不过，关于计数我倒有个想法，我想用stl里的map，据说map内部里是由 <strong>红黑树</strong>维护的（一种非严格意义上的平衡二叉树），用了map就非常方便，这样就可以直接将 <strong>字符串</strong>映射成 <strong>整型</strong>来计数了。</p>
+<p>最后来重新总结一下需要解决的问题：</p>
+<ol>
+<li>找到合适的方式使得将源码边读边计数</li>
+<li>确保分割的精确性</li>
+<li>文件输出</li>
+</ol>
+<p>好了，第一天就这样结束了，虽然代码一行没写，但是有了目标。<br>下面简单介绍一下map。</p>
+<p>使用map首先要加头文件</p>
+<pre><code>#include &lt;map&gt;
+</code></pre><p>map就是从键（key)到值（value）的映射。因为重载了 <strong>[]</strong>运算符，map像数组的“高级版”<br>。例如我们可以用一个 <strong>map&lt; string,int&gt;month_name</strong>来表示“月份名字到月份编号”的映射，然后用 <strong>month_name[“July”]=7</strong>这样的方式来赋值。<br>本程序的具体操作下面再讲。</p>
+<p>第二天，是取得重大突破的一天，因为我想到了以前做的一道Acm竞赛题，完整题目如下：<a href="https://vjudge.net/problem/UVA-10815" target="_blank" rel="external">安迪的第一个字典 UVa 10815</a><br>大意就是输入一个文本，找出所有不同的单词，按字典序从小到大输出，单词不区分大小写。<br>代码如下：</p>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;cstdio&gt;
+#include &lt;string&gt;
+#include &lt;set&gt;
+#include &lt;sstream&gt;
+using namespace std;
+
+set&lt;string&gt; dict;
+
+int main(){
+//  freopen(&quot;input.txt&quot;,&quot;r&quot;,stdin);
+    string s,buf;
+    while(cin &gt;&gt; s){
+        for(int i = 0; i &lt; s.length(); i++){
+            if(isalpha(s[i])) s[i] = tolower(s[i]);
+            else s[i] = &apos; &apos;;
+        }
+            //注意下面两行
+            stringstream ss(s);
+            while(ss &gt;&gt; buf) dict.insert(buf);
+
+    }
+    for(set&lt;string&gt;::iterator it = dict.begin(); it != dict.end(); it++){
+        cout &lt;&lt; *it &lt;&lt;&quot;\n&quot;; 
+    }
+    return 0;
+}
+</code></pre><p>其中用到了 <strong>stringstream</strong>（需要头文件 <strong>#include&lt; sstream&gt;</strong>),这个stringstream是字符串输入输出流，我先给这个流取了个名字叫 <strong>ss</strong>然后用这个流读一篇文章，这个流式读取有个好处，就是自动按空格给你读，也就是说能以空格来一个一个的读单词。<br>这样的话，我联想到本次任务， <strong>我可以先用文件流读取源码，然后再将所有非字母以及‘_’（保留字仅有的类型）用空格覆盖，再用这个字符串流读取</strong>这样，就实现了边读边筛选的功能了。<br>而且，切割相对精确。想到这里，我的思路已经很明确了，再去百度了一下文件流的操作，算法就出来了。</p>
+<h1 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h1><p>用两个map&lt; string,int&gt;，分别存储保留字与非保留字。<br>将保留字的表保存至一个txt文档，再保存一个源代码文档，用文件流先读保留字文档，读一个string，就放到第一个map里，并且赋值为0，然后再用文件输入流读源码，每读一次将其他干扰字符用空格覆盖，再用字符串流再读一次，若在保留的map里找到了匹配的，该字符串对应值就自加一次，若没有找到，再放到非保留字的map里匹配，若匹配成功，该字符串对应的值自加一次，否则将该字符串当作新的键值加入到非保留字的map里并赋值为0。</p>
+<h1 id="代码程序"><a href="#代码程序" class="headerlink" title="代码程序"></a>代码程序</h1><pre><code>#include &quot;stdafx.h&quot;
+#include &lt;iostream&gt;
+#include &lt;map&gt;
+#include &lt;string&gt;
+#include &lt;fstream&gt;
+#include &lt;sstream&gt;
+using namespace std;
+
+map&lt;string, int&gt; reserved_word_dict;  //用map保存保留字和非保留字最终统计结果
+map&lt;string, int&gt; unreserved_word_dict;
+
+//将数字转化成字符
+string ChangeIntIntoString(int num) {
+    if (num == 0) return &quot;0&quot;;
+    string str;
+    while (num != 0) {
+        int t = num % 10;
+        str += (t + &apos;0&apos;);
+        num /= 10;
+    }
+    for (int i = 0; i &lt; str.length() / 2; i++)
+    {
+        char c = str[i];
+        str[i] = str[str.length() - i - 1];
+        str[str.length() - i - 1] = c;
+    }
+    return str;
+}
+
+int main(){
+    string reserved_word;
+    ifstream Reserved_word_dict_file(&quot;保留字表.txt&quot;); //文件流读入保留字表并记录到map中
+    while (Reserved_word_dict_file &gt;&gt; reserved_word) {
+        reserved_word_dict[reserved_word] = 0;        //读一个保留字就赋值为0
+    }
+    Reserved_word_dict_file.close();
+
+
+    ifstream source_code(&quot;测试源程序代码.cpp&quot;);
+    string temp, buf;
+    while (source_code &gt;&gt; temp) {
+        int i;
+        for ( i = 0; temp[i] != &apos;\0&apos;; i++)
+            //将干扰的字符全变为空格
+            if (temp[i] == &apos;/&apos; &amp;&amp; temp[i + 1] == &apos;/&apos;) {
+                for (; temp[i] != &apos;\0&apos;; i++)
+                temp[i] = &apos; &apos;;
+                break;
+            }
+            else if (temp[i] != &apos;_&apos; &amp;&amp; !isalpha(temp[i]))
+                temp[i] = &apos; &apos;;
+
+        stringstream ss(temp);     //字符串流读写
+        while (ss &gt;&gt; buf) {
+            cout &lt;&lt; buf &lt;&lt; endl;
+            if (reserved_word_dict.count(buf)) reserved_word_dict[buf]++;
+            else {
+                //非保留字的计数
+                if (!unreserved_word_dict.count(buf)) unreserved_word_dict[buf] = 0;
+                unreserved_word_dict[buf]++;
+            }
+        }
+    }
+    source_code.close();
+
+    //文件写操作
+    ofstream reserved_word_calculation(&quot;保留字统计表.txt&quot;);
+    //遍历map
+    for (map&lt;string, int&gt;::reverse_iterator it = reserved_word_dict.rbegin(); it != reserved_word_dict.rend(); it++) {
+        string t, p;
+        t = it-&gt;first;
+        t += &apos;:&apos;;
+        p = ChangeIntIntoString(it-&gt;second);
+        t += p;
+        reserved_word_calculation &lt;&lt; t &lt;&lt; endl;
+    }
+    reserved_word_calculation.close();
+
+
+    ofstream unreserved_word_calculation(&quot;非保留字统计表.txt&quot;);
+    for (map&lt;string, int&gt;::reverse_iterator it = unreserved_word_dict.rbegin(); it != unreserved_word_dict.rend(); it++) {
+        string t, p;
+        t = it-&gt;first;
+        t += &apos;:&apos;;
+        p = ChangeIntIntoString(it-&gt;second);
+        t += p;
+        unreserved_word_calculation &lt;&lt; t &lt;&lt; endl;
+    }
+    unreserved_word_calculation.close();
+
+    return 0;
+}
+</code></pre><h1 id="补充说明"><a href="#补充说明" class="headerlink" title="补充说明"></a>补充说明</h1><ol>
+<li><p>string为stl库里的一个类，非常方便,需要头文件 <strong>#include&lt; string&gt;</strong>，string类里重载了‘<strong>+</strong>’，可以实现字符串的拼接，同时也重载了‘<strong>[]</strong>’，可以以下标访问，string里的length()用来求字符串的长度。</p>
+</li>
+<li><p>文件输入输出的流文件需要加头文件 <strong>#include&lt; fstream&gt;</strong>，具体使用时要注意输入流类型是 <strong>ifstream</strong>，输出流类型是 <strong>ofstream</strong>，在这里ifstream/ostream等同于 int，定义了变量名后可以用 “<strong>变量名&gt;&gt;</strong>”这种方式读文件，写文件也是同样的道理，如：</p>
+<pre><code>string s;
+ifstream  myfile(&quot;input.cpp&quot;);
+while(myfile &gt;&gt; s){……} 
+</code></pre></li>
+<li><p>我在map里用了count()函数，这个函数可以用来找键（key），如果找到了就返回1，否则返回0。<br>另外看一下这段代码：</p>
+</li>
+</ol>
+<pre><code>        for (map&lt; string, int&gt;::reverse_iterator it = unreserved_word_dict.rbegin(); it != unreserved_word_dict.rend(); it++)
+
+这里的 **iterator**是迭代器，这句话的意思就是遍历map里的值，如果取key值的话就用 **it-&gt;first** 取value值的话就用 **it-&gt;second**，若要输出要在前面加上“*”。
+</code></pre><p>好了，这就是这个程序的设计过程了，如果大家有意见或者问题欢迎留言。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/stl/" rel="tag">#stl</a>
+          
+            <a href="/tags/c-文件流/" rel="tag">#c++文件流</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/12/28/hello-world/" rel="next" title="Hello World">
+                <i class="fa fa-chevron-left"></i> Hello World
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/12/28/c++课程设计第四题/"
+           data-title="c++课程设计" data-url="http://yoursite.com/2016/12/28/c++课程设计第四题/">
+      </div>
+
+
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/assassin.jpg"
+               alt="Shen Hao" />
+          <p class="site-author-name" itemprop="name">Shen Hao</p>
+          <p class="site-description motion-element" itemprop="description">Colin's blog | acm |c++</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">23</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/colincen" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#原题"><span class="nav-number">1.</span> <span class="nav-text">原题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#想法"><span class="nav-number">2.</span> <span class="nav-text">想法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#算法"><span class="nav-number">3.</span> <span class="nav-text">算法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#代码程序"><span class="nav-number">4.</span> <span class="nav-text">代码程序</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#补充说明"><span class="nav-number">5.</span> <span class="nav-text">补充说明</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Shen Hao</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name: "colincen2"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>

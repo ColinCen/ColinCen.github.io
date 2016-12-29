@@ -1,0 +1,873 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/tango.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="第一题原题:hdoj 5971算法思想dfs二分染色,先将已知身份的人涂色,再从剩下的人中开始染色,最后如果还有剩下的人未被染色,那就是NO,否则是YES
+程序代码//#define LOCAL
+#include &amp;lt;iostream&amp;gt;
+#include &amp;lt;cstdio&amp;gt;
+#include &amp;lt;cstring&amp;gt;
+#include &amp;lt;vector&amp;gt;
+#in">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ACM周练-10.30">
+<meta property="og:url" content="http://yoursite.com/2016/11/21/ACM周练-10-30/index.html">
+<meta property="og:site_name" content="Colin's blog">
+<meta property="og:description" content="第一题原题:hdoj 5971算法思想dfs二分染色,先将已知身份的人涂色,再从剩下的人中开始染色,最后如果还有剩下的人未被染色,那就是NO,否则是YES
+程序代码//#define LOCAL
+#include &amp;lt;iostream&amp;gt;
+#include &amp;lt;cstdio&amp;gt;
+#include &amp;lt;cstring&amp;gt;
+#include &amp;lt;vector&amp;gt;
+#in">
+<meta property="og:updated_time" content="2016-11-21T08:29:27.174Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ACM周练-10.30">
+<meta name="twitter:description" content="第一题原题:hdoj 5971算法思想dfs二分染色,先将已知身份的人涂色,再从剩下的人中开始染色,最后如果还有剩下的人未被染色,那就是NO,否则是YES
+程序代码//#define LOCAL
+#include &amp;lt;iostream&amp;gt;
+#include &amp;lt;cstdio&amp;gt;
+#include &amp;lt;cstring&amp;gt;
+#include &amp;lt;vector&amp;gt;
+#in">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/11/21/ACM周练-10-30/"/>
+
+  <title> ACM周练-10.30 | Colin's blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Colin's blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">A football fan,an English lover and a coder</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                ACM周练-10.30
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-21T15:42:49+08:00" content="2016-11-21">
+              2016-11-21
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/acm/" itemprop="url" rel="index">
+                    <span itemprop="name">acm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/11/21/ACM周练-10-30/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/21/ACM周练-10-30/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="第一题"><a href="#第一题" class="headerlink" title="第一题"></a>第一题</h1><h2 id="原题-hdoj-5971"><a href="#原题-hdoj-5971" class="headerlink" title="原题:hdoj 5971"></a><strong>原题:<a href="http://acm.split.hdu.edu.cn/showproblem.php?pid=5971" target="_blank" rel="external">hdoj 5971</a></strong></h2><h2 id="算法思想"><a href="#算法思想" class="headerlink" title="算法思想"></a>算法思想</h2><p>dfs二分染色,先将已知身份的人涂色,再从剩下的人中开始染色,最后如果还有剩下的人未被染色,那就是NO,否则是YES</p>
+<h2 id="程序代码"><a href="#程序代码" class="headerlink" title="程序代码"></a>程序代码</h2><pre><code>//#define LOCAL
+#include &lt;iostream&gt;
+#include &lt;cstdio&gt;
+#include &lt;cstring&gt;
+#include &lt;vector&gt;
+#include &lt;memory.h&gt;
+#define  mem(a,b)    memset(a,b,sizeof(a))
+using namespace std;
+const int MAX=1010;
+vector&lt;int&gt; G[MAX];
+int color[MAX];
+int n,m,x,y;
+bool dfs(int v,int c)
+{
+    color[v]=c;
+    for(int i=0;i&lt;G[v].size();i++)
+    {
+        if(color[G[v][i]]==c) return false;
+        if(color[G[v][i]]==0&amp;&amp;!dfs(G[v][i],-c)) return false;
+    }
+    return true;
+}
+void solve()
+{
+    for(int i=1;i&lt;=n;i++)
+    {
+        if(color[i]==1)
+        {
+            if(!dfs(i,1))
+            {
+                puts(&quot;NO&quot;);
+                return ;
+            }
+        }
+        else if(color[i]==-1)
+        {
+            if(!dfs(i,-1))
+            {
+                puts(&quot;NO&quot;);
+                return ;
+            }    
+        }
+    }
+    for(int i=1;i&lt;=n;i++)
+    {
+        if(color[i]==0)
+            if(!dfs(i,1))
+            {
+                puts(&quot;NO&quot;);
+                return ;
+            }    
+    }
+    for(int i=1;i&lt;=n;i++)
+    {
+        if(color[i]==-5)
+            {
+                puts(&quot;NO&quot;);
+                return ;
+            }
+    }
+    puts(&quot;YES&quot;);
+}
+int main()
+{
+#ifdef LOCAL
+    freopen(&quot;input.txt&quot;,&quot;r&quot;,stdin);
+    freopen(&quot;output.txt&quot;,&quot;w&quot;,stdout);
+#endif
+
+    while(scanf(&quot;%d%d%d%d&quot;,&amp;n,&amp;m,&amp;x,&amp;y)!=EOF)
+    {
+        int a,b;
+
+        for(int i=0;i&lt;=n;i++)
+        {
+            G[i].clear();
+            color[i]=-5;
+        }
+        for(int i=1;i&lt;=m;i++)
+        {
+            scanf(&quot;%d%d&quot;,&amp;a,&amp;b);
+            G[a].push_back(b);
+            G[b].push_back(a);
+            color[a]=color[b]=0;
+        }
+        for(int i=1;i&lt;=x;i++)
+        {
+            scanf(&quot;%d&quot;,&amp;a);
+            color[a]=1;
+        }
+        for(int i=1;i&lt;=y;i++)
+        {
+            scanf(&quot;%d&quot;,&amp;a);
+            color[a]=-1;
+        }
+        solve();
+    }
+    return 0;
+}
+</code></pre><h1 id="第二题"><a href="#第二题" class="headerlink" title="第二题"></a>第二题</h1><h2 id="原题-hdoj-5978"><a href="#原题-hdoj-5978" class="headerlink" title="原题:hdoj 5978"></a><strong>原题:<a href="http://acm.split.hdu.edu.cn/showproblem.php?pid=5978" target="_blank" rel="external">hdoj 5978</a></strong></h2><h2 id="算法思想-1"><a href="#算法思想-1" class="headerlink" title="算法思想"></a>算法思想</h2><p>奇偶判断题,先算前几项的概率,就会发现规律</p>
+<h2 id="程序代码-1"><a href="#程序代码-1" class="headerlink" title="程序代码"></a>程序代码</h2><pre><code>#include &lt;cstdio&gt;
+#define  ll long long
+using namespace std;
+int main()
+{
+    long t;
+    while(scanf(&quot;%ld&quot;,&amp;t)!=EOF)
+    {
+         if(t%2==0) printf(&quot;1\n&quot;);
+         else printf(&quot;0\n&quot;);
+    }
+    return 0;
+}
+</code></pre><h1 id="第三题"><a href="#第三题" class="headerlink" title="第三题"></a>第三题</h1><h2 id="原题-hdoj-5969"><a href="#原题-hdoj-5969" class="headerlink" title="原题:hdoj 5969"></a><strong>原题:<a href="http://acm.split.hdu.edu.cn/showproblem.php?pid=5969" target="_blank" rel="external">hdoj 5969</a></strong></h2><h2 id="算法思想-2"><a href="#算法思想-2" class="headerlink" title="算法思想"></a>算法思想</h2><p>位运算,最大位或考虑二进制数位全为1.</p>
+<h2 id="程序代码-2"><a href="#程序代码-2" class="headerlink" title="程序代码"></a>程序代码</h2><pre><code>#include &lt;cstdio&gt;
+#define  ll long long
+using namespace std;
+int main()
+{
+    int T;
+    ll l,r;
+    scanf(&quot;%d&quot;,&amp;T);
+    while(T--)
+    {
+        scanf(&quot;%lld%lld&quot;,&amp;l,&amp;r);
+        ll i;
+        for(i=1;(l|i)&lt;=r;i&lt;&lt;=1)
+            l|=i;
+        if(l+1&lt;=r)
+        {
+            printf(&quot;%lld\n&quot;,l|i);
+        }
+        else
+            printf(&quot;%lld\n&quot;,l);
+    }
+    return 0;
+}
+</code></pre><h1 id="第四题"><a href="#第四题" class="headerlink" title="第四题"></a>第四题</h1><h2 id="原题-hdoj-5979"><a href="#原题-hdoj-5979" class="headerlink" title="原题:hdoj 5979"></a><strong>原题:<a href="http://acm.split.hdu.edu.cn/showproblem.php?pid=5979" target="_blank" rel="external">hdoj 5979</a></strong></h2><h2 id="算法思想-3"><a href="#算法思想-3" class="headerlink" title="算法思想"></a>算法思想</h2><p>水题,用三角函数即可</p>
+<h2 id="程序代码-3"><a href="#程序代码-3" class="headerlink" title="程序代码"></a>程序代码</h2><pre><code>#include &lt;cstdio&gt;
+#include &lt;iostream&gt;
+#include &lt;cmath&gt;
+using namespace std;
+
+const float pi=3.1415926;
+
+int main()
+{
+    int len,point;
+    int angle[1000];
+    double t=0.0;
+    while(scanf(&quot;%d&quot;,&amp;point)!=EOF)
+    {
+        t=0.0;
+
+        scanf(&quot;%d&quot;,&amp;len);
+
+        for(int i=1;i&lt;=point;i++)
+            scanf(&quot;%d&quot;,&amp;angle[i]);
+
+
+
+        for(int i=1;i&lt;=point;i++)
+            t+=len*len*sin(angle[i]/180.0*pi)*0.5;
+
+        printf(&quot;%.3lf\n&quot;,t);
+    }
+    return 0;
+}
+</code></pre><h1 id="第五题"><a href="#第五题" class="headerlink" title="第五题"></a>第五题</h1><h2 id="原题-hdoj-5410"><a href="#原题-hdoj-5410" class="headerlink" title="原题:hdoj 5410"></a><strong>原题:<a href="http://acm.split.hdu.edu.cn/showproblem.php?pid=5410" target="_blank" rel="external">hdoj 5410</a></strong></h2><h2 id="算法思想-4"><a href="#算法思想-4" class="headerlink" title="算法思想"></a>算法思想</h2><p>0/1背包问题+无限背包.<br>推荐背包问题的博客</p>
+<blockquote>
+<blockquote>
+<p><a href="http://www.cppblog.com/tanky-woo/archive/2010/07/31/121803.html" target="_blank" rel="external">http://www.cppblog.com/tanky-woo/archive/2010/07/31/121803.html</a></p>
+</blockquote>
+</blockquote>
+<h2 id="程序代码-4"><a href="#程序代码-4" class="headerlink" title="程序代码"></a>程序代码</h2><pre><code>//#define LOCAL
+#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+#include &lt;cstdio&gt;
+#include &lt;memory.h&gt;
+#define Maxsize 0x1fffffff
+#define mem(a,x) memset(a,x,sizeof(a))
+using namespace std;
+int main()
+{
+#ifdef LOCAL
+ freopen(&quot;input.txt&quot;,&quot;r&quot;,stdin);
+ freopen(&quot;output.txt&quot;,&quot;w&quot;,stdout);
+#endif
+
+    int dp[2002];
+    int T,value[2002],volume[2002],extra[2002],M,N;
+    scanf(&quot;%d&quot;,&amp;T);
+    while(T--)
+    {
+        mem(dp,0);
+        scanf(&quot;%d%d&quot;,&amp;M,&amp;N);
+        for(int i=0;i&lt;N;i++)
+            scanf(&quot;%d%d%d&quot;,&amp;volume[i],&amp;value[i],&amp;extra[i]);
+        for(int i=0;i&lt;N;i++)
+        {
+            for(int j=M;j&gt;=volume[i];j--)
+                dp[j]=max(dp[j],dp[j-volume[i]]+value[i]+extra[i]);
+            for(int j=volume[i];j&lt;=M;j++)
+                dp[j]=max(dp[j],dp[j-volume[i]]+value[i]);
+        }
+        printf(&quot;%d\n&quot;,dp[M]);
+    }
+    return 0;
+}
+</code></pre><h1 id="第六题"><a href="#第六题" class="headerlink" title="第六题"></a>第六题</h1><h2 id="原题-hdoj-5952"><a href="#原题-hdoj-5952" class="headerlink" title="原题:hdoj 5952"></a><strong>原题:<a href="http://acm.split.hdu.edu.cn/showproblem.php?pid=5952" target="_blank" rel="external">hdoj 5952</a></strong></h2><h2 id="算法思想-5"><a href="#算法思想-5" class="headerlink" title="算法思想"></a>算法思想</h2><p>dfs暴力搜索,如何防止重复走是关键.<br>详见博客</p>
+<blockquote>
+<blockquote>
+<p><a href="http://blog.csdn.net/yuanjunlai141/article/details/52972715" target="_blank" rel="external">http://blog.csdn.net/yuanjunlai141/article/details/52972715</a></p>
+</blockquote>
+</blockquote>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/10/08/No-names-no-bias/" rel="next" title="No names,no bias?">
+                <i class="fa fa-chevron-left"></i> No names,no bias?
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/11/28/蓝桥杯周练/" rel="prev" title="蓝桥杯周练(部分题)">
+                蓝桥杯周练(部分题) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/11/21/ACM周练-10-30/"
+           data-title="ACM周练-10.30" data-url="http://yoursite.com/2016/11/21/ACM周练-10-30/">
+      </div>
+
+
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/assassin.jpg"
+               alt="Shen Hao" />
+          <p class="site-author-name" itemprop="name">Shen Hao</p>
+          <p class="site-description motion-element" itemprop="description">Colin's blog | acm |c++</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">23</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/colincen" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#第一题"><span class="nav-number">1.</span> <span class="nav-text">第一题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#原题-hdoj-5971"><span class="nav-number">1.1.</span> <span class="nav-text">原题:hdoj 5971</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法思想"><span class="nav-number">1.2.</span> <span class="nav-text">算法思想</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#程序代码"><span class="nav-number">1.3.</span> <span class="nav-text">程序代码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第二题"><span class="nav-number">2.</span> <span class="nav-text">第二题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#原题-hdoj-5978"><span class="nav-number">2.1.</span> <span class="nav-text">原题:hdoj 5978</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法思想-1"><span class="nav-number">2.2.</span> <span class="nav-text">算法思想</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#程序代码-1"><span class="nav-number">2.3.</span> <span class="nav-text">程序代码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第三题"><span class="nav-number">3.</span> <span class="nav-text">第三题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#原题-hdoj-5969"><span class="nav-number">3.1.</span> <span class="nav-text">原题:hdoj 5969</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法思想-2"><span class="nav-number">3.2.</span> <span class="nav-text">算法思想</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#程序代码-2"><span class="nav-number">3.3.</span> <span class="nav-text">程序代码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第四题"><span class="nav-number">4.</span> <span class="nav-text">第四题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#原题-hdoj-5979"><span class="nav-number">4.1.</span> <span class="nav-text">原题:hdoj 5979</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法思想-3"><span class="nav-number">4.2.</span> <span class="nav-text">算法思想</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#程序代码-3"><span class="nav-number">4.3.</span> <span class="nav-text">程序代码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第五题"><span class="nav-number">5.</span> <span class="nav-text">第五题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#原题-hdoj-5410"><span class="nav-number">5.1.</span> <span class="nav-text">原题:hdoj 5410</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法思想-4"><span class="nav-number">5.2.</span> <span class="nav-text">算法思想</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#程序代码-4"><span class="nav-number">5.3.</span> <span class="nav-text">程序代码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第六题"><span class="nav-number">6.</span> <span class="nav-text">第六题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#原题-hdoj-5952"><span class="nav-number">6.1.</span> <span class="nav-text">原题:hdoj 5952</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法思想-5"><span class="nav-number">6.2.</span> <span class="nav-text">算法思想</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Shen Hao</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name: "colincen2"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>
