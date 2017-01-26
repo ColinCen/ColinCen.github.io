@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo," />
+  <meta name="keywords" content="线性回归," />
 
 
 
@@ -84,18 +84,49 @@
 
 
 
-<meta name="description" content="Colin&apos;s blog | acm |c++">
+<meta name="description" content="第一次上机作业的任务：
+warmUpExercise.m
+plotData.m
+gradientDescent.m
+computeCost.m
+gradientDescentMulti.m
+computeCostMulti.m
+featureNormalize.m
+normalEqn.m
+warmUpExercise.m热身练习很简单，就是写一个单位矩阵：
+A = eye(5);
+plotData">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hello,博客">
-<meta property="og:url" content="http://yoursite.com/2016/06/07/hello-博客/index.html">
+<meta property="og:title" content="machine learning exercise - Coursera">
+<meta property="og:url" content="http://yoursite.com/2017/01/26/machine-learning-exercise-Coursera/index.html">
 <meta property="og:site_name" content="Colin's blog">
-<meta property="og:description" content="Colin&apos;s blog | acm |c++">
-<meta property="og:image" content="http://o8engxb28.bkt.clouddn.com/assassin.jpg">
-<meta property="og:updated_time" content="2016-06-09T12:52:02.263Z">
+<meta property="og:description" content="第一次上机作业的任务：
+warmUpExercise.m
+plotData.m
+gradientDescent.m
+computeCost.m
+gradientDescentMulti.m
+computeCostMulti.m
+featureNormalize.m
+normalEqn.m
+warmUpExercise.m热身练习很简单，就是写一个单位矩阵：
+A = eye(5);
+plotData">
+<meta property="og:updated_time" content="2017-01-26T08:42:06.815Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="hello,博客">
-<meta name="twitter:description" content="Colin&apos;s blog | acm |c++">
-<meta name="twitter:image" content="http://o8engxb28.bkt.clouddn.com/assassin.jpg">
+<meta name="twitter:title" content="machine learning exercise - Coursera">
+<meta name="twitter:description" content="第一次上机作业的任务：
+warmUpExercise.m
+plotData.m
+gradientDescent.m
+computeCost.m
+gradientDescentMulti.m
+computeCostMulti.m
+featureNormalize.m
+normalEqn.m
+warmUpExercise.m热身练习很简单，就是写一个单位矩阵：
+A = eye(5);
+plotData">
 
 
 
@@ -116,9 +147,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/06/07/hello-博客/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/01/26/machine-learning-exercise-Coursera/"/>
 
-  <title> hello,博客 | Colin's blog </title>
+  <title> machine learning exercise - Coursera | Colin's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -258,7 +289,7 @@
             
             
               
-                hello,博客
+                machine learning exercise - Coursera
               
             
           </h1>
@@ -270,8 +301,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-06-07T16:08:05+08:00" content="2016-06-07">
-              2016-06-07
+            <time itemprop="dateCreated" datetime="2017-01-26T16:08:49+08:00" content="2017-01-26">
+              2017-01-26
             </time>
           </span>
 
@@ -284,8 +315,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/随笔/" itemprop="url" rel="index">
-                    <span itemprop="name">随笔</span>
+                  <a href="/categories/机器学习/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
                   </a>
                 </span>
 
@@ -300,8 +331,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/06/07/hello-博客/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/07/hello-博客/" itemprop="commentsCount"></span>
+                <a href="/2017/01/26/machine-learning-exercise-Coursera/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/01/26/machine-learning-exercise-Coursera/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -322,25 +353,50 @@
 
       
       
-        <div class="post-gallery" itemscope itemtype="http://schema.org/ImageGallery">
-          
-          
-            <div class="post-gallery-row">
-              <a class="post-gallery-img fancybox"
-                 href="http://o8engxb28.bkt.clouddn.com/assassin.jpg" rel="gallery_ciye4sruj001ob8o0hilnwqdy"
-                 itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
-                <img src="http://o8engxb28.bkt.clouddn.com/assassin.jpg" itemprop="contentUrl"/>
-              </a>
-            
-          
-
-          
-          </div>
-        </div>
-      
 
       
-        
+        <p>第一次上机作业的任务：</p>
+<pre><code>warmUpExercise.m
+plotData.m
+gradientDescent.m
+computeCost.m
+gradientDescentMulti.m
+computeCostMulti.m
+featureNormalize.m
+normalEqn.m
+</code></pre><h1 id="warmUpExercise-m"><a href="#warmUpExercise-m" class="headerlink" title="warmUpExercise.m"></a><strong>warmUpExercise.m</strong></h1><p>热身练习很简单，就是写一个单位矩阵：</p>
+<pre><code>A = eye(5);
+</code></pre><h1 id="plotData-m"><a href="#plotData-m" class="headerlink" title="plotData.m"></a><strong>plotData.m</strong></h1><p>画图题，标上x，y轴的变量意义。</p>
+<pre><code>plot(x, y, &apos;rx&apos;, &apos;MarkerSize&apos;, 10); % Plot the data
+ylabel(&apos;Profit in $10,000s&apos;); % Set the y?axis label
+xlabel(&apos;Population of City in 10,000s&apos;); % Set the x?axis label
+</code></pre><h1 id="computeCost-m"><a href="#computeCost-m" class="headerlink" title="computeCost.m"></a><strong>computeCost.m</strong></h1><p>代价函数</p>
+<pre><code>J = sum((X * theta - y).^2)/(2*m);
+</code></pre><h1 id="gradientDescent-m"><a href="#gradientDescent-m" class="headerlink" title="gradientDescent.m"></a><strong>gradientDescent.m</strong></h1><p>梯度下降求系数</p>
+<pre><code>temp1 = 0;
+temp2 = 0;
+for mter = 1:m
+        temp1 += (theta(1, 1) * X(mter, 1) + theta(2, 1) * X(mter, 2) - y(mter, 1)) * X(mter,1);
+        temp2 += (theta(1, 1) * X(mter, 1) + theta(2, 1) * X(mter, 2) - y(mter, 1)) * X(mter,2);
+end
+
+theta(1, 1) = theta(1, 1) - (alpha * temp1) / m;
+theta(2, 1) = theta(2, 1) - (alpha * temp2) / m;
+</code></pre><p>#<strong>featureNormalize.m</strong><br>将特征值规范，用到公式 <strong>X = (X-mean(X)./std(X))</strong>，mean是求均值，std是求标准差。</p>
+<pre><code>mu = mean(X);
+sigma = std(X);
+for i = 1:length(X)
+  X(i,:) -= mu;
+  X(i,:)./= sigma;
+end
+X_norm = X;
+</code></pre><h1 id="computeCostMulti-m"><a href="#computeCostMulti-m" class="headerlink" title="computeCostMulti.m"></a><strong>computeCostMulti.m</strong></h1><p>同上单变量的代价函数</p>
+<h1 id="gradientDescentMulti-m"><a href="#gradientDescentMulti-m" class="headerlink" title="gradientDescentMulti.m"></a><strong>gradientDescentMulti.m</strong></h1><p>多变量的梯度下降，</p>
+<pre><code> S = (1 / m) * (X&apos; * (X * theta - y));
+theta = theta - alpha .* S;
+</code></pre><h1 id="normalEqn-m"><a href="#normalEqn-m" class="headerlink" title="normalEqn.m"></a><strong>normalEqn.m</strong></h1><p>正规方程求解，pinv里有两个括号。</p>
+<pre><code>theta = pinv((X&apos;*X))*X&apos;*y;
+</code></pre>
       
     </div>
 
@@ -361,7 +417,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Hexo/" rel="tag">#Hexo</a>
+            <a href="/tags/线性回归/" rel="tag">#线性回归</a>
           
         </div>
       
@@ -370,13 +426,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2017/01/23/STL的总结/" rel="next" title="STL习题">
+                <i class="fa fa-chevron-left"></i> STL习题
+              </a>
+            
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/06/09/blog的搭建/" rel="prev" title="blog的搭建(一)">
-                blog的搭建(一) <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -402,8 +458,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/06/07/hello-博客/"
-           data-title="hello,博客" data-url="http://yoursite.com/2016/06/07/hello-博客/">
+      <div class="ds-thread" data-thread-key="2017/01/26/machine-learning-exercise-Coursera/"
+           data-title="machine learning exercise - Coursera" data-url="http://yoursite.com/2017/01/26/machine-learning-exercise-Coursera/">
       </div>
 
 
@@ -507,7 +563,7 @@
               
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#warmUpExercise-m"><span class="nav-number">1.</span> <span class="nav-text">warmUpExercise.m</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#plotData-m"><span class="nav-number">2.</span> <span class="nav-text">plotData.m</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#computeCost-m"><span class="nav-number">3.</span> <span class="nav-text">computeCost.m</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#gradientDescent-m"><span class="nav-number">4.</span> <span class="nav-text">gradientDescent.m</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#computeCostMulti-m"><span class="nav-number">5.</span> <span class="nav-text">computeCostMulti.m</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#gradientDescentMulti-m"><span class="nav-number">6.</span> <span class="nav-text">gradientDescentMulti.m</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#normalEqn-m"><span class="nav-number">7.</span> <span class="nav-text">normalEqn.m</span></a></li></ol></div>
             
           </div>
         </section>
