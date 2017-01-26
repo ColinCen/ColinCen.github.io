@@ -1,0 +1,1089 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="stl," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/tango.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="复合词原题：UVa 10391
+算法这题我一开始是拼接来做的结果超时，部分代码如下：
+for(int i = 0; i &amp;lt; cnt; i++){
+   for(int j = i + 1; j &amp;lt; cnt; j++){
+     s1 = words[i] + words[j];
+     s2 = words[j] + words[i];
+     if(dict.count(s1)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="STL习题">
+<meta property="og:url" content="http://yoursite.com/2017/01/23/STL的总结/index.html">
+<meta property="og:site_name" content="Colin's blog">
+<meta property="og:description" content="复合词原题：UVa 10391
+算法这题我一开始是拼接来做的结果超时，部分代码如下：
+for(int i = 0; i &amp;lt; cnt; i++){
+   for(int j = i + 1; j &amp;lt; cnt; j++){
+     s1 = words[i] + words[j];
+     s2 = words[j] + words[i];
+     if(dict.count(s1)">
+<meta property="og:updated_time" content="2017-01-26T05:07:38.494Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="STL习题">
+<meta name="twitter:description" content="复合词原题：UVa 10391
+算法这题我一开始是拼接来做的结果超时，部分代码如下：
+for(int i = 0; i &amp;lt; cnt; i++){
+   for(int j = i + 1; j &amp;lt; cnt; j++){
+     s1 = words[i] + words[j];
+     s2 = words[j] + words[i];
+     if(dict.count(s1)">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/01/23/STL的总结/"/>
+
+  <title> STL习题 | Colin's blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Colin's blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">A football fan,an English lover and a coder</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                STL习题
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-01-23T17:04:21+08:00" content="2017-01-23">
+              2017-01-23
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/acm/" itemprop="url" rel="index">
+                    <span itemprop="name">acm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/01/23/STL的总结/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/01/23/STL的总结/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="复合词"><a href="#复合词" class="headerlink" title="复合词"></a>复合词</h1><p><strong>原题：</strong><a href="https://vjudge.net/problem/UVA-10391" target="_blank" rel="external">UVa 10391</a></p>
+<h2 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h2><p>这题我一开始是拼接来做的结果超时，部分代码如下：</p>
+<pre><code>for(int i = 0; i &lt; cnt; i++){
+   for(int j = i + 1; j &lt; cnt; j++){
+     s1 = words[i] + words[j];
+     s2 = words[j] + words[i];
+     if(dict.count(s1)) cout &lt;&lt; s1 &lt;&lt; &quot;\n&quot;;
+     if(dict.count(s2)) cout &lt;&lt; s2 &lt;&lt; &quot;\n&quot;;
+   }
+ }
+</code></pre><p>这里的时间复杂度有O(n²)了，换一种思考方式，改成字符串分割，因为每个字符串长度不一，所以时间复杂度为O(mn)，结果通过了，其中用到了 <strong>string</strong>类里面的 <strong>substr()</strong>函数,具体用法参见下面的代码</p>
+<h2 id="程序代码"><a href="#程序代码" class="headerlink" title="程序代码"></a>程序代码</h2><pre><code>#include &lt;iostream&gt;
+#include &lt;string&gt;
+#include &lt;cstring&gt;
+#include &lt;set&gt;
+#include &lt;algorithm&gt;
+using namespace std;
+
+const int maxn = 120000 + 5;
+set&lt;string&gt; dict;
+string words[maxn];
+int main(){
+//  freopen(&quot;input.txt&quot;, &quot;r&quot;, stdin);
+  string s;
+  int cnt = 0;
+  dict.clear();
+  while(cin &gt;&gt; s){ 
+    dict.insert(s);
+    words[cnt] = s;
+    cnt++;
+  }
+  string a, b;
+  for(int i = 0; i &lt; cnt; i++){
+    for(int j = 0; j &lt; words[i].size() - 1; j++){
+      a = words[i].substr(0,j + 1);//从下标为0的元素开始到长度为j+1的元素结束
+      if(!dict.count(a)) continue;
+      b = words[i].substr(j + 1);//从下标为j+1的元素开始，到字符串结束
+      if(!dict.count(b)) continue;
+      cout &lt;&lt; words[i]&lt;&lt;&quot;\n&quot;;
+      break;
+    }
+  }
+  return 0;
+}
+</code></pre><h1 id="打印队列"><a href="#打印队列" class="headerlink" title="打印队列"></a>打印队列</h1><p><strong>原题：</strong><a href="https://vjudge.net/problem/UVA-12100" target="_blank" rel="external">UVa 12100</a></p>
+<h2 id="算法-1"><a href="#算法-1" class="headerlink" title="算法"></a>算法</h2><p>用一个普通队列来放任务，用一个优先队列来按优先级放任务，如果普通队列里的队首元素在优先级队列里也是队首，则出列，否则放到队尾。</p>
+<h2 id="程序代码-1"><a href="#程序代码-1" class="headerlink" title="程序代码"></a>程序代码</h2><pre><code>#include &lt;cstdio&gt;
+#include &lt;queue&gt;
+using namespace std;
+
+struct project{
+  int x;
+  int flag;
+};
+queue&lt;project&gt; q;
+priority_queue&lt;int&gt; pq;
+
+int main(int argc, char const *argv[])
+{
+  int T;
+  scanf(&quot;%d&quot;, &amp;T);
+  while(T--){
+  while(!q.empty()) q.pop();
+  while(!pq.empty()) pq.pop();
+  int n,t;
+  project m;
+  scanf(&quot;%d%d&quot;, &amp;n, &amp;t);
+  for(int i = 0; i &lt; n; i++){
+    scanf(&quot;%d&quot;, &amp;m.x);
+    m.flag = 0;
+    if(i == t) m.flag = 1;//记录关注的任务
+    q.push(m);
+    pq.push(m.x); 
+  }
+  int cnt = 0;
+  while(1){
+    project t1;
+    int t2;
+    t1 = q.front();
+    t2 = pq.top();
+    if(t1.x == t2 &amp;&amp; t1.flag) {cnt++; printf(&quot;%d\n&quot;, cnt);break;}
+    else if(t1.x == t2 &amp;&amp; !t1.flag){
+      cnt++;
+      q.pop();
+      pq.pop();
+    }
+    else{
+      q.pop();
+      q.push(t1);
+    }
+  }
+  }
+  return 0;
+}
+</code></pre><h1 id="图书馆管理系统"><a href="#图书馆管理系统" class="headerlink" title="图书馆管理系统"></a>图书馆管理系统</h1><p><strong>原题：</strong><a href="https://vjudge.net/problem/UVA-230" target="_blank" rel="external">UVa 230</a></p>
+<h2 id="算法-2"><a href="#算法-2" class="headerlink" title="算法"></a>算法</h2><p>字符串变成数字来处理，这个思想很重要！！！将字符串变成数字后，无论是排序，还是插入删除，都会简单不少，而且速度更快；其他其实没什么算法，不过有点烦而已，要细心。</p>
+<h2 id="程序代码-2"><a href="#程序代码-2" class="headerlink" title="程序代码"></a>程序代码</h2><pre><code>#include &lt;iostream&gt;
+#include &lt;map&gt;
+#include &lt;string&gt;
+#include &lt;vector&gt;
+#include &lt;algorithm&gt;
+using namespace std;
+
+struct book{
+  string title;
+  string author;
+  //重载图书排序方式
+  bool operator &lt; (const book&amp; ob){
+    if(this-&gt;author == ob.author) return this-&gt;title &lt; ob.title;
+    return this-&gt;author &lt; ob.author;    
+  }
+};
+
+vector&lt;book&gt; All_books;// 存储所有图书信息
+map&lt;string, int&gt; ID;//每本书对应一个唯一的ID
+vector&lt;int &gt; LIB;//图书馆中现存的书
+vector&lt;int &gt; SHELVE;//已经还来的书，还未上架
+int main(int argc, char const *argv[])
+{
+ // freopen(&quot;input.txt&quot;, &quot;r&quot;, stdin);
+  string s;
+  book tb;
+
+  while(getline(cin, s)){
+    if(s[0] == &apos;E&apos;) break;
+
+    int t = s.find(&quot;by&quot;, 0);
+    tb.title = s.substr(0, t - 1);
+    tb.author = s.substr(t + 3);
+    All_books.push_back(tb);//按格式分割字符串后存储每一本图书
+  }
+  sort(All_books.begin(), All_books.end());
+  for(int i = 0; i &lt; All_books.size(); i++){
+    ID[All_books[i].title] = i;//未每本书建立唯一的ID，作者可能相同但书名不会
+    LIB.push_back(i);
+  }
+  while(getline(cin, s)){
+    //结束操作
+    if(s[0] == &apos;E&apos;) break;
+    //借书
+    if(s[0] == &apos;B&apos;){
+      string temp = s.substr(7);
+      int t = ID[temp];
+      int i = 0,size = LIB.size();
+      while(LIB[i] != t) i++;//找到目标书籍的ID
+      for(; i &lt; size - 1; i++){
+        LIB[i] = LIB[i + 1];
+      }
+      LIB.resize(size - 1);//更改现存的书的数量
+    }
+    //还书
+    if(s[0] == &apos;R&apos;){
+      string temp = s.substr(7);
+      int t = ID[temp];
+      SHELVE.push_back(t);//放到待还书架上
+    }
+    if(s[0] == &apos;S&apos;){
+      sort(SHELVE.begin(), SHELVE.end());
+      for(int i = 0; i &lt; SHELVE.size(); i++){
+        //如果图书馆没书了
+        if(LIB.size()== 0){
+          LIB.push_back(SHELVE[i]);
+          cout &lt;&lt; &quot;Put &quot; &lt;&lt; All_books[SHELVE[i]].title &lt;&lt;&quot; first&quot; &lt;&lt; &quot;\n&quot;;
+        }
+        else{
+            int size = LIB.size();
+            int j = 0;
+            while(SHELVE[i] &gt; LIB[j] &amp;&amp; j &lt; size) j++;//找到插入位置
+            LIB.push_back(-1);//为放上来的书预留一个空位
+            for( int k = size; k &gt; j; k--){
+              LIB[k] = LIB[k - 1];
+            }    
+            LIB[j] = SHELVE[i];
+            if(j &gt; 0)//插入的位置不是首位
+            cout &lt;&lt; &quot;Put &quot; &lt;&lt; All_books[LIB[j]].title &lt;&lt; &quot; after &quot;
+            &lt;&lt; All_books[LIB[j - 1]].title &lt;&lt; &quot;\n&quot;;
+            else//放在首位
+            cout &lt;&lt; &quot;Put &quot; &lt;&lt; All_books[SHELVE[j]].title &lt;&lt;&quot; first&quot; &lt;&lt; &quot;\n&quot;;   
+        } 
+      }
+      SHELVE.clear();//清空书架
+      cout &lt;&lt;&quot;END\n&quot;;
+    }
+  }
+  return 0;
+}
+</code></pre><h1 id="集合栈计算机"><a href="#集合栈计算机" class="headerlink" title="集合栈计算机"></a>集合栈计算机</h1><p><strong>原题：</strong><a href="https://vjudge.net/problem/UVA-12096" target="_blank" rel="external">UVa 12096</a></p>
+<h2 id="算法-3"><a href="#算法-3" class="headerlink" title="算法"></a>算法</h2><p>同样是字符串变成数字来处理</p>
+<h2 id="程序代码-3"><a href="#程序代码-3" class="headerlink" title="程序代码"></a>程序代码</h2><pre><code>#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+#include &lt;cstdio&gt;
+#include &lt;string&gt;
+#include &lt;set&gt;
+#include &lt;vector&gt;
+#include &lt;stack&gt;
+#include &lt;map&gt;
+using namespace std;
+
+typedef set&lt;int&gt; Set;
+map&lt;Set,int&gt; IDcache;
+vector&lt;Set&gt; Setcache;
+
+int ID(Set x){
+    if(IDcache.count(x)) return IDcache[x];
+    Setcache.push_back(x);
+    return IDcache[x] = Setcache.size()-1;
+}
+
+#define ALL(x) x.begin(), x.end()
+#define INS(x) inserter(x,x.begin())
+
+stack&lt;int&gt; s;
+
+int main(){
+    int n,T;
+    scanf(&quot;%d&quot;, &amp;T);
+    while(T--){
+        scanf(&quot;%d&quot;, &amp;n);
+        while(!s.empty()) s.pop();
+        for(int i = 0; i &lt; n; i++){
+            string op;
+            cin &gt;&gt; op;
+            if (op[0] == &apos;P&apos;) s.push(ID(Set()));
+            else if (op[0] == &apos;D&apos;) s.push(s.top());
+            else {
+                Set x1 = Setcache[s.top()]; s.pop();
+                Set x2 = Setcache[s.top()]; s.pop();
+                Set x;
+                if (op[0] == &apos;U&apos;) set_union (ALL(x1), ALL(x2), INS(x));
+                if (op[0] == &apos;I&apos;) set_intersection (ALL(x1), ALL(x2), INS(x));
+                if (op[0] == &apos;A&apos;) { x = x2; x.insert(ID(x1));}
+                s.push(ID(x));
+            }
+            cout &lt;&lt; Setcache[s.top()].size()  &lt;&lt; endl;
+        }
+        cout &lt;&lt; &quot;***&quot; &lt;&lt;endl;
+    }
+    return 0;
+}
+</code></pre><h1 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h1><p><strong>原题：</strong><a href="https://vjudge.net/problem/UVA-1592" target="_blank" rel="external">UVa 1592</a></p>
+<h2 id="算法-4"><a href="#算法-4" class="headerlink" title="算法"></a>算法</h2><p>算法同上，用数字编号进行预处理</p>
+<h2 id="程序代码-4"><a href="#程序代码-4" class="headerlink" title="程序代码"></a>程序代码</h2><pre><code>#include &lt;iostream&gt;
+#include &lt;cstdio&gt;
+#include &lt;string&gt;
+#include &lt;map&gt;
+#include &lt;algorithm&gt;
+#include &lt;sstream&gt;
+using namespace std;
+
+typedef pair&lt;int, int&gt; PII;
+
+const int maxcol = 10 + 5;
+const int maxrow = 10000 + 5;
+
+int n, m, cnt, db[maxrow][maxcol];
+map&lt;string, int&gt; id;
+
+int ID(const string&amp; s){
+    if(!id.count(s)){
+      id[s] = ++cnt;
+    }
+    return id[s];
+}
+
+void find(){
+  for(int c1 = 0; c1 &lt; m; c1++)
+    for(int c2 = c1 + 1; c2 &lt; m; c2++){
+    map&lt;PII,int&gt; d;
+    for(int r = 0; r &lt; n; r++){
+      PII p = make_pair(db[r][c1], db[r][c2]);
+      if(d.count(p))
+      {
+        printf(&quot;NO\n&quot;);
+        printf(&quot;%d %d\n&quot;, d[p] + 1, r + 1);
+        printf(&quot;%d %d\n&quot;, c1 + 1, c2 + 1);
+        return ;
+      } 
+      d[p] = r;
+    }
+  }
+  printf(&quot;YES\n&quot;);
+}
+
+int main(){
+ // freopen(&quot;input.txt&quot;, &quot;r&quot;, stdin);
+  string s;
+  while(getline(cin, s)){
+    stringstream ss(s);
+    if(!(ss &gt;&gt; n &gt;&gt; m)) break;
+    cnt = 0;
+    id.clear();
+    for(int i = 0; i &lt; n; i++){
+      getline(cin, s);
+      int lastpos = -1;
+      for(int j = 0; j &lt; m; j++){
+          int p = s.find(&apos;,&apos;,lastpos + 1);
+          if(p == string::npos) p = s.length();
+          db[i][j] = ID(s.substr(lastpos + 1, p - lastpos -1));
+          lastpos = p;
+        }
+    }  
+     find();
+  }
+}
+</code></pre><h1 id="找bug"><a href="#找bug" class="headerlink" title="找bug"></a>找bug</h1><p><strong>原题：</strong><a href="https://vjudge.net/problem/UVA-1596" target="_blank" rel="external">UVa 1596</a></p>
+<h2 id="算法-5"><a href="#算法-5" class="headerlink" title="算法"></a>算法</h2><p>用栈来保存 <strong>[]</strong>，用 <strong>map</strong>来保存数组，这一题比较繁琐，首先考虑是赋值语句还是定义语句，就是看有没有“=”，定义语句比较简单，变量名直接放到map里，再用一个map保存该数组的长度。如果是赋值语句，就要考虑一下情况：</p>
+<ul>
+<li>是否存在变量名</li>
+<li>如果是嵌套的话，每一层嵌套的值在外层的数组中有没有超过外层数组的长度</li>
+<li>如果没有超过长度，每一层嵌套的值在外层的数组中是否被赋值</li>
+</ul>
+<h2 id="程序代码-5"><a href="#程序代码-5" class="headerlink" title="程序代码"></a>程序代码</h2><pre><code>#include &lt;iostream&gt;
+#include &lt;map&gt;
+#include &lt;string&gt;
+#include &lt;stack&gt;
+using namespace std;
+
+map&lt;char, map&lt;int, int&gt; &gt; dict;
+map&lt;char, int&gt; d2;
+stack&lt;char &gt; nameache;
+
+int main(int argc, char const *argv[])
+{
+
+  string s;
+  int flag = 0;//用来识别是否为.的标志
+  int bug_flag = 0;//是否出现bug
+  int line = 0;
+  while(getline(cin, s))
+  {
+    if(bug_flag == 1 &amp;&amp; s[0] != &apos;.&apos;) continue;
+    if(s == &quot;.&quot; &amp;&amp; flag == 0){
+      flag++;
+      if(!bug_flag) cout &lt;&lt;&quot;0\n&quot;;
+      bug_flag = 0;
+      dict.clear();
+      d2.clear();
+      line = 0;
+      while(!nameache.empty()) nameache.pop();
+      continue;
+    }
+    if(s == &quot;.&quot; &amp;&amp; flag == 1){break;}
+    flag = 0;
+    ++line;
+    //定义
+    if(s.find(&quot;=&quot;) == string::npos)
+     {
+
+      int k = 2, num = 0;
+      while(s[k] != &apos;]&apos;){
+        num *= 10;
+        num += s[k] - &apos;0&apos;;
+        ++k;
+      }
+      d2[s[0]] = num;
+    }
+    //赋值
+    else{
+      int pos = s.find(&quot;=&quot;);
+      int i = 0, num = 0;
+      while(s[i] != &apos;]&apos;){
+        if(isalpha(s[i])) {
+          if(!d2.count(s[i])) {cout &lt;&lt; line &lt;&lt; endl; bug_flag = 1; break;}
+          nameache.push(s[i]);
+          }
+        else if(s[i] == &apos;[&apos;) {i++;continue;}
+        else if(s[i] &gt;= &apos;0&apos; &amp;&amp; s[i] &lt;= &apos;9&apos;){
+          num *= 10;
+          num += s[i] - &apos;0&apos;;
+        }
+        i++;
+      }
+      if(bug_flag) continue;
+      int t = num, left;
+      char ch, chleft;
+      while(nameache.size() &gt; 1){
+        ch = nameache.top();
+        if(!d2.count(ch)){cout &lt;&lt; line &lt;&lt; endl; bug_flag = 1; break;}
+        if(t &gt;= d2[ch]) {cout &lt;&lt; line &lt;&lt; endl; bug_flag = 1; break;}
+        if(!dict[ch].count(t)){cout &lt;&lt; line &lt;&lt; endl; bug_flag = 1; break;}
+        nameache.pop();
+        t = dict[ch][t];
+      }
+      if(bug_flag) continue;
+      ch = nameache.top(); nameache.pop();
+      if(!d2.count(ch)){cout &lt;&lt; line &lt;&lt; endl; bug_flag = 1; continue;}
+      if(t &gt;= d2[ch]) {cout &lt;&lt; line &lt;&lt; endl; bug_flag = 1; continue;}
+      left = t;
+      chleft = ch;
+      i = pos + 1;
+
+      num = 0;
+
+      if(s[i] &gt;= &apos;0&apos; &amp;&amp; s[i] &lt;= &apos;9&apos;){
+        while(s[i]!=&apos;\0&apos;){
+          num *= 10;
+          num += s[i] - &apos;0&apos;;
+          ++i;
+        }
+        dict[chleft][left] = num;
+        continue;
+      }
+      while(s[i] != &apos;]&apos;){
+        if(isalpha(s[i])) {
+          if(!d2.count(s[i])) {cout &lt;&lt; line &lt;&lt; endl; bug_flag = 1; break;}
+          nameache.push(s[i]);
+          }
+        else if(s[i] == &apos;[&apos;) {i++;continue;}
+        else if(s[i] &gt;= &apos;0&apos; &amp;&amp; s[i] &lt;= &apos;9&apos;){
+          num *= 10;
+          num += s[i] - &apos;0&apos;;
+        }
+        i++;
+      }
+      if(bug_flag) continue;
+      t = num;
+      while(!nameache.empty()){
+        ch = nameache.top();
+        if(!d2.count(ch)){cout &lt;&lt; line &lt;&lt; endl; bug_flag = 1; break;}
+        if(t &gt;= d2[ch]) {cout &lt;&lt; line &lt;&lt; endl; bug_flag = 1; break;}
+        if(!dict[ch].count(t)){cout &lt;&lt; line &lt;&lt; endl; bug_flag = 1; break;}
+        nameache.pop();
+        t = dict[ch][t];
+      }
+      if(!bug_flag)
+      dict[chleft][left] = t;
+    }
+  }
+  return 0;
+}
+</code></pre>
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/stl/" rel="tag">#stl</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/12/28/c++课程设计第四题/" rel="next" title="c++课程设计">
+                <i class="fa fa-chevron-left"></i> c++课程设计
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/01/23/STL的总结/"
+           data-title="STL习题" data-url="http://yoursite.com/2017/01/23/STL的总结/">
+      </div>
+
+
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/assassin.jpg"
+               alt="Shen Hao" />
+          <p class="site-author-name" itemprop="name">Shen Hao</p>
+          <p class="site-description motion-element" itemprop="description">Colin's blog | acm |c++</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">23</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/colincen" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#复合词"><span class="nav-number">1.</span> <span class="nav-text">复合词</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#算法"><span class="nav-number">1.1.</span> <span class="nav-text">算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#程序代码"><span class="nav-number">1.2.</span> <span class="nav-text">程序代码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#打印队列"><span class="nav-number">2.</span> <span class="nav-text">打印队列</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#算法-1"><span class="nav-number">2.1.</span> <span class="nav-text">算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#程序代码-1"><span class="nav-number">2.2.</span> <span class="nav-text">程序代码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#图书馆管理系统"><span class="nav-number">3.</span> <span class="nav-text">图书馆管理系统</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#算法-2"><span class="nav-number">3.1.</span> <span class="nav-text">算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#程序代码-2"><span class="nav-number">3.2.</span> <span class="nav-text">程序代码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#集合栈计算机"><span class="nav-number">4.</span> <span class="nav-text">集合栈计算机</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#算法-3"><span class="nav-number">4.1.</span> <span class="nav-text">算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#程序代码-3"><span class="nav-number">4.2.</span> <span class="nav-text">程序代码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数据库"><span class="nav-number">5.</span> <span class="nav-text">数据库</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#算法-4"><span class="nav-number">5.1.</span> <span class="nav-text">算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#程序代码-4"><span class="nav-number">5.2.</span> <span class="nav-text">程序代码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#找bug"><span class="nav-number">6.</span> <span class="nav-text">找bug</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#算法-5"><span class="nav-number">6.1.</span> <span class="nav-text">算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#程序代码-5"><span class="nav-number">6.2.</span> <span class="nav-text">程序代码</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Shen Hao</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name: "colincen2"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>
