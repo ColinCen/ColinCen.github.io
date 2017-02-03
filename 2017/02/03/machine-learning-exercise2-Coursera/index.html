@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="bfs,dfs,Hdoj,Floyd," />
+  <meta name="keywords" content="逻辑回归," />
 
 
 
@@ -84,37 +84,57 @@
 
 
 
-<meta name="description" content="原题:hdoj 1372
-算法分析本题有个算法的实现bfs,dfs,Floyd都可以.
+<meta name="description" content="第二次上机作业：
+sigmoid.m
+costFunction.m
+predict.m
+costFunctionReg.m
+sigmoid.m这是逻辑回归的假设函数计算
+t = ones(size(z));
+g = 1 ./ (exp(-z) + t);
+costFunction.m and costFunctionReg计算代价函数和梯度
+无正规化：
 
-dfs  用深搜的话就是向8个方向递归,计算从起点到终点的最短距离.
-bfs  广搜也是向8个方向搜索,不过是把值都放进队列里,这样避免重复搜.
-Floyd  这是解决表格问题最常用的算法,将棋盘上任意两点的距离全都保存起来,对所有的输入直接查表.
-
-程序代码dfs#include &amp;lt;stdio.h&amp;g">
+J = sum(-y .* log(sig">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Knight Moves">
-<meta property="og:url" content="http://yoursite.com/2016/06/26/Knight-Moves/index.html">
+<meta property="og:title" content="machine learning exercise2 Coursera">
+<meta property="og:url" content="http://yoursite.com/2017/02/03/machine-learning-exercise2-Coursera/index.html">
 <meta property="og:site_name" content="Colin's blog">
-<meta property="og:description" content="原题:hdoj 1372
-算法分析本题有个算法的实现bfs,dfs,Floyd都可以.
+<meta property="og:description" content="第二次上机作业：
+sigmoid.m
+costFunction.m
+predict.m
+costFunctionReg.m
+sigmoid.m这是逻辑回归的假设函数计算
+t = ones(size(z));
+g = 1 ./ (exp(-z) + t);
+costFunction.m and costFunctionReg计算代价函数和梯度
+无正规化：
 
-dfs  用深搜的话就是向8个方向递归,计算从起点到终点的最短距离.
-bfs  广搜也是向8个方向搜索,不过是把值都放进队列里,这样避免重复搜.
-Floyd  这是解决表格问题最常用的算法,将棋盘上任意两点的距离全都保存起来,对所有的输入直接查表.
-
-程序代码dfs#include &amp;lt;stdio.h&amp;g">
-<meta property="og:updated_time" content="2016-09-01T06:55:35.227Z">
+J = sum(-y .* log(sig">
+<meta property="og:image" content="http://o8engxb28.bkt.clouddn.com/sigmoid.PNG">
+<meta property="og:image" content="http://o8engxb28.bkt.clouddn.com/costfunction.PNG">
+<meta property="og:image" content="http://o8engxb28.bkt.clouddn.com/grad.PNG">
+<meta property="og:image" content="http://o8engxb28.bkt.clouddn.com/costreg.PNG">
+<meta property="og:image" content="http://o8engxb28.bkt.clouddn.com/gradreg1.PNG">
+<meta property="og:image" content="http://o8engxb28.bkt.clouddn.com/gradreg2.PNG">
+<meta property="og:image" content="http://o8engxb28.bkt.clouddn.com/mapfeature.PNG">
+<meta property="og:updated_time" content="2017-02-03T04:39:46.490Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Knight Moves">
-<meta name="twitter:description" content="原题:hdoj 1372
-算法分析本题有个算法的实现bfs,dfs,Floyd都可以.
+<meta name="twitter:title" content="machine learning exercise2 Coursera">
+<meta name="twitter:description" content="第二次上机作业：
+sigmoid.m
+costFunction.m
+predict.m
+costFunctionReg.m
+sigmoid.m这是逻辑回归的假设函数计算
+t = ones(size(z));
+g = 1 ./ (exp(-z) + t);
+costFunction.m and costFunctionReg计算代价函数和梯度
+无正规化：
 
-dfs  用深搜的话就是向8个方向递归,计算从起点到终点的最短距离.
-bfs  广搜也是向8个方向搜索,不过是把值都放进队列里,这样避免重复搜.
-Floyd  这是解决表格问题最常用的算法,将棋盘上任意两点的距离全都保存起来,对所有的输入直接查表.
-
-程序代码dfs#include &amp;lt;stdio.h&amp;g">
+J = sum(-y .* log(sig">
+<meta name="twitter:image" content="http://o8engxb28.bkt.clouddn.com/sigmoid.PNG">
 
 
 
@@ -135,9 +155,9 @@ Floyd  这是解决表格问题最常用的算法,将棋盘上任意两点的距
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/06/26/Knight-Moves/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/02/03/machine-learning-exercise2-Coursera/"/>
 
-  <title> Knight Moves | Colin's blog </title>
+  <title> machine learning exercise2 Coursera | Colin's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -277,7 +297,7 @@ Floyd  这是解决表格问题最常用的算法,将棋盘上任意两点的距
             
             
               
-                Knight Moves
+                machine learning exercise2 Coursera
               
             
           </h1>
@@ -289,8 +309,8 @@ Floyd  这是解决表格问题最常用的算法,将棋盘上任意两点的距
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-06-26T15:40:40+08:00" content="2016-06-26">
-              2016-06-26
+            <time itemprop="dateCreated" datetime="2017-02-03T11:55:03+08:00" content="2017-02-03">
+              2017-02-03
             </time>
           </span>
 
@@ -303,8 +323,8 @@ Floyd  这是解决表格问题最常用的算法,将棋盘上任意两点的距
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/acm/" itemprop="url" rel="index">
-                    <span itemprop="name">acm</span>
+                  <a href="/categories/机器学习/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
                   </a>
                 </span>
 
@@ -319,8 +339,8 @@ Floyd  这是解决表格问题最常用的算法,将棋盘上任意两点的距
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/06/26/Knight-Moves/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/26/Knight-Moves/" itemprop="commentsCount"></span>
+                <a href="/2017/02/03/machine-learning-exercise2-Coursera/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/03/machine-learning-exercise2-Coursera/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -343,133 +363,53 @@ Floyd  这是解决表格问题最常用的算法,将棋盘上任意两点的距
       
 
       
-        <p><strong>原题:<a href="http://acm.split.hdu.edu.cn/showproblem.php?pid=1372" target="_blank" rel="external">hdoj 1372</a></strong></p>
-<h1 id="算法分析"><a href="#算法分析" class="headerlink" title="算法分析"></a>算法分析</h1><p>本题有个算法的实现bfs,dfs,Floyd都可以.</p>
-<ul>
-<li><strong>dfs</strong><br>  用深搜的话就是向8个方向递归,计算从起点到终点的最短距离.</li>
-<li><strong>bfs</strong><br>  广搜也是向8个方向搜索,不过是把值都放进队列里,这样避免重复搜.</li>
-<li><strong>Floyd</strong><br>  这是解决表格问题最常用的算法,将棋盘上任意两点的距离全都保存起来,对所有的输入直接查表.</li>
-</ul>
-<h1 id="程序代码"><a href="#程序代码" class="headerlink" title="程序代码"></a>程序代码</h1><h2 id="dfs"><a href="#dfs" class="headerlink" title="dfs"></a>dfs</h2><pre><code>#include &lt;stdio.h&gt;
-#include &lt;memory.h&gt; 
-int knight[8][8];//棋盘
-int x[]={-1,1,2,2,1,-1,-2,-2};//八个方向 
-int y[]={2,2,1,-1,-2,-2,-1,1};
-void DFS(int si,int sj,int moves)
-{
-    if(si&lt;0||sj&lt;0||si&gt;=8||sj&gt;=8||moves&gt;=knight[si][sj])    return ;
-    knight[si][sj]=moves;
-    int i;
-    for(i=0;i&lt;8;i++)
-    {
-        DFS(si+x[i],sj+y[i],moves+1);
-    }
-}
-int main()
-{
-    int i,j;
-    char a[10],b[10];
-    while(scanf(&quot;%s%s&quot;,a,b)!=EOF)
-    {
-        memset(knight,10,sizeof(knight));
-        DFS(a[0]-&apos;a&apos;,a[1]-&apos;1&apos;,0);
-        printf(&quot;To get from %s to %s takes %d knight moves.\n&quot;,a,b,knight[b[0]-&apos;a&apos;][b[1]-&apos;1&apos;]);
-    }
-    return 0;
-}
-</code></pre><h2 id="bfs"><a href="#bfs" class="headerlink" title="bfs"></a>bfs</h2><pre><code>#include &lt;iostream&gt;
-#include &lt;queue&gt;
-#include &lt;string&gt;
-using namespace std;
-int dx[]={1,2,2,1,-1,-2,-2,-1};
-int dy[]={2,1,-1,-2,-2,-1,1,2};
-struct Point{
-    int x,y;
-    int move; 
-};
-Point a,b;
-void bfs()
-{
+        <p>第二次上机作业：</p>
+<pre><code>sigmoid.m
+costFunction.m
+predict.m
+costFunctionReg.m
+</code></pre><h1 id="sigmoid-m"><a href="#sigmoid-m" class="headerlink" title="sigmoid.m"></a><strong>sigmoid.m</strong></h1><p>这是逻辑回归的假设函数计算<br><img src="http://o8engxb28.bkt.clouddn.com/sigmoid.PNG" alt="sigmoid"></p>
+<pre><code>t = ones(size(z));
+g = 1 ./ (exp(-z) + t);
+</code></pre><h1 id="costFunction-m-and-costFunctionReg"><a href="#costFunction-m-and-costFunctionReg" class="headerlink" title="costFunction.m and costFunctionReg"></a><strong>costFunction.m and costFunctionReg</strong></h1><p>计算代价函数和梯度</p>
+<h2 id="无正规化："><a href="#无正规化：" class="headerlink" title="无正规化："></a>无正规化：</h2><p><img src="http://o8engxb28.bkt.clouddn.com/costfunction.PNG" alt="costFunction"></p>
+<p><img src="http://o8engxb28.bkt.clouddn.com/grad.PNG" alt="gradient"></p>
+<pre><code>J = sum(-y .* log(sigmoid(X * theta)) - (1 - y) .* log(1 - sigmoid(X * theta))) / m;
 
-    queue&lt;Point&gt; q;
-    while(!q.empty())q.pop();
-    q.push(a);
-    while(true)
-    {
-        Point p=q.front();
-        q.pop();
-        if(p.x==b.x&amp;&amp;p.y==b.y){b.move=p.move;break;}
-        for(int i=0;i&lt;8;i++)
-        {
-            Point k;
-            k.x=p.x+dx[i];
-            k.y=p.y+dy[i];
-            if(k.x&gt;7||k.x&lt;0||k.y&gt;7||k.y&lt;0)    continue;
-            k.move=p.move+1;
-            q.push(k);            
-        }
-    }
+p = X&apos; * (sigmoid(X * theta) - y);
+grad = p / m
+</code></pre><h2 id="正规化："><a href="#正规化：" class="headerlink" title="正规化："></a>正规化：</h2><p><img src="http://o8engxb28.bkt.clouddn.com/costreg.PNG" alt="costFunctionReg"></p>
+<p><img src="http://o8engxb28.bkt.clouddn.com/gradreg1.PNG" alt="gradientReg1"></p>
+<p><img src="http://o8engxb28.bkt.clouddn.com/gradreg2.PNG" alt="gradientReg2"></p>
+<pre><code>J = sum(- y .* log(sigmoid(X * theta)) - (1 - y) .* log(1 - sigmoid(X * theta))) / m
+J += (lambda /(2 *m)) * sum(theta(2:end) .^2);
 
-}
-int main()
-{
-    char ch1[3],ch2[3];
-    while(scanf(&quot;%s%s&quot;,ch1,ch2)!=EOF)
-    {
-        a.x=ch1[1]-&apos;1&apos;; a.y=ch1[0]-&apos;a&apos;;
-        b.x=ch2[1]-&apos;1&apos;; b.y=ch2[0]-&apos;a&apos;;
-        a.move=b.move=0;
-    bfs();
-    cout&lt;&lt;&quot;To get from &quot;&lt;&lt;ch1&lt;&lt;&quot; to &quot;&lt;&lt;ch2&lt;&lt;&quot; takes &quot;&lt;&lt;b.move&lt;&lt;&quot; knight moves.&quot;&lt;&lt;endl; 
-    }
-    return 0;
-}
-</code></pre><h2 id="Floyd"><a href="#Floyd" class="headerlink" title="Floyd"></a>Floyd</h2><pre><code>#include &lt;stdio.h&gt;
-int i,j,m;
-//计算棋盘上任意两格之间的最短路径 
-void shortested(int k[][64])
-{
-    //计算骑士走一步可以到达的位置 
-    int x,y;
-    for(i=0;i&lt;64;k[i][i]=0,++i)
-        for(j=0;j&lt;64;++j)
-        //棋盘上两格之间的相对位置 
-        {
-            x=abs(i/8-j/8);
-            y=abs(i%8-j%8);
-            if(x==1&amp;&amp;y==2||x==2&amp;&amp;y==1)
-                k[i][j]=k[j][i]=1;//只需要跳一步 
-        }
-    //通过Floyd算法,计算棋盘上其他两格之间的最短路径
-    for(m=0;m&lt;64;++m)
-        for(i=0;i&lt;64;++i)
-            for(j=0;j&lt;64;++j)
-                if(k[i][m]+k[m][j]&lt;k[i][j])
-                    k[i][j]=k[i][m]+k[m][j]; 
-}
-int main()
-{
-    //保存棋盘上任意两点之间的最短路径
-    int knight[64][64];
-    //初始为∞
-    for(i=0;i&lt;64;++i)
-        for(j=0;j&lt;64;++j)
-            knight[i][j]=10;
-    shortested(knight);
 
-    char s[5],t[5];
-    while(scanf(&quot;%s%s&quot;,s,t)!=EOF)
-    {
-        int x=(s[0]-&apos;a&apos;)+(s[1]-&apos;1&apos;)*8;
-        int y=(t[0]-&apos;a&apos;)+(t[1]-&apos;1&apos;)*8;
-        printf(&quot;To get from %s to %s &quot;,s,t);
-        //直接查表输出结果
-        printf(&quot;takes %d knight moves.\n&quot;,knight[x][y]); 
-    }
-    return 0;
-}    
-</code></pre><h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p> 开始这个问题之前,要知道骑士是怎么走的,我百度了下才知道是走斜对角线的.<br> 至于bfs算法,我一开始有点搞不懂,因为算最短路径,应该有比较函数呀!,但后来我想明白了,因为是枚举式的检索,只要到达终点,就一定是最短路径.</p>
+t =X&apos;*(sigmoid(X * theta) - y) / m;
+grad(1) = t(1);
+grad(2 : end) = t(2 : end) + (lambda / m) * theta(2 : end);
+</code></pre><h1 id="predict-m"><a href="#predict-m" class="headerlink" title="predict.m"></a><strong>predict.m</strong></h1><p>预测的函数</p>
+<pre><code>p_medium = sigmoid( X * theta);
+pos = find(p_medium &gt;= 0.5)
+p(pos, 1) = 1;
+</code></pre><h1 id="fminunc函数"><a href="#fminunc函数" class="headerlink" title=" fminunc函数"></a><strong> fminunc函数</strong></h1><p>使用octave自带的算法，找出theta 和 cost</p>
+<pre><code>% Set options for fminunc
+options = optimset(&apos;GradObj&apos;, &apos;on&apos;, &apos;MaxIter&apos;, 400);
+% Run fminunc to obtain the optimal theta
+% This function will return theta and the cost
+[theta, cost] = ...
+fminunc(@(t)(costFunction(t, X, y)), initial theta, options);
+</code></pre><h1 id="mapfeature-m"><a href="#mapfeature-m" class="headerlink" title="mapfeature.m"></a><strong>mapfeature.m</strong></h1><p>增加多项式函数<br><img src="http://o8engxb28.bkt.clouddn.com/mapfeature.PNG" alt="feature mapping"> </p>
+<pre><code>degree = 6;
+out = ones(size(X1(:,1)));
+for i = 1:degree
+    for j = 0:i
+        out(:, end+1) = (X1.^(i-j)).*(X2.^j);
+    end
+end
 
+end
+</code></pre>
       
     </div>
 
@@ -490,13 +430,7 @@ int main()
       
         <div class="post-tags">
           
-            <a href="/tags/bfs/" rel="tag">#bfs</a>
-          
-            <a href="/tags/dfs/" rel="tag">#dfs</a>
-          
-            <a href="/tags/Hdoj/" rel="tag">#Hdoj</a>
-          
-            <a href="/tags/Floyd/" rel="tag">#Floyd</a>
+            <a href="/tags/逻辑回归/" rel="tag">#逻辑回归</a>
           
         </div>
       
@@ -505,17 +439,13 @@ int main()
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/06/26/Alien-Security/" rel="next" title="Alien Security">
-                <i class="fa fa-chevron-left"></i> Alien Security
+              <a href="/2017/01/26/machine-learning-exercise-Coursera/" rel="next" title="machine learning exercise - Coursera">
+                <i class="fa fa-chevron-left"></i> machine learning exercise - Coursera
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/06/27/Prime-Ring-Problem/" rel="prev" title="Prime Ring Problem">
-                Prime Ring Problem <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -541,8 +471,8 @@ int main()
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/06/26/Knight-Moves/"
-           data-title="Knight Moves" data-url="http://yoursite.com/2016/06/26/Knight-Moves/">
+      <div class="ds-thread" data-thread-key="2017/02/03/machine-learning-exercise2-Coursera/"
+           data-title="machine learning exercise2 Coursera" data-url="http://yoursite.com/2017/02/03/machine-learning-exercise2-Coursera/">
       </div>
 
 
@@ -646,7 +576,7 @@ int main()
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#算法分析"><span class="nav-number">1.</span> <span class="nav-text">算法分析</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#程序代码"><span class="nav-number">2.</span> <span class="nav-text">程序代码</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#dfs"><span class="nav-number">2.1.</span> <span class="nav-text">dfs</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bfs"><span class="nav-number">2.2.</span> <span class="nav-text">bfs</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Floyd"><span class="nav-number">2.3.</span> <span class="nav-text">Floyd</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结"><span class="nav-number">3.</span> <span class="nav-text">总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#sigmoid-m"><span class="nav-number">1.</span> <span class="nav-text">sigmoid.m</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#costFunction-m-and-costFunctionReg"><span class="nav-number">2.</span> <span class="nav-text">costFunction.m and costFunctionReg</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#无正规化："><span class="nav-number">2.1.</span> <span class="nav-text">无正规化：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#正规化："><span class="nav-number">2.2.</span> <span class="nav-text">正规化：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#predict-m"><span class="nav-number">3.</span> <span class="nav-text">predict.m</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#fminunc函数"><span class="nav-number">4.</span> <span class="nav-text"> fminunc函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#mapfeature-m"><span class="nav-number">5.</span> <span class="nav-text">mapfeature.m</span></a></li></ol></div>
             
           </div>
         </section>

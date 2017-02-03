@@ -258,6 +258,153 @@
             
               
                 
+                <a class="post-title-link" href="/2016/08/12/Ignatius-and-the-Princess-I/" itemprop="url">
+                  Ignatius and the Princess I
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-12T17:36:59+08:00" content="2016-08-12">
+              2016-08-12
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/acm/" itemprop="url" rel="index">
+                    <span itemprop="name">acm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/12/Ignatius-and-the-Princess-I/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/12/Ignatius-and-the-Princess-I/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          原题:hdoj 1026
+原题大意迷宫题,要求求出最短时间,同时打印每一个步骤.
+算法分析看到这题,我的第一反应就是bfs,但是,还要打印每一步,我没什么办法,百度后普遍算法是,用优先队列bfs得出最小路径后,递归打印.首先优先队列的优先级别要能改
+struct Point{
+int x,y;
+int time;
+friend bool operator&lt;(Point a,Point b)
+{
+    return a.time&gt;b.time;
+}
+};
+注意:stl里优先队列只能对&lt;重载.记录路径的方法是:用数组Point,当前数组的值为上一步的坐标,打印时递归.
+程序代码#include &lt;iostream&gt;
+#include &lt;queue&gt;
+using namespace std;
+int n,m;//对应N,M 
+int dx[]={1,-1,0,0};
+int dy[]={0,0,1,-1};
+char lab[110][110];//迷宫
+struct Point{
+    int x,y;
+    int time;
+    fr
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/08/12/Ignatius-and-the-Princess-I/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/08/11/Tempter-of-the-Bones/" itemprop="url">
                   Tempter of the Bones
                 </a>
@@ -808,148 +955,6 @@ bool used[12]
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/07/08/Nightmare/" itemprop="url">
-                  Nightmare
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-07-08T21:39:08+08:00" content="2016-07-08">
-              2016-07-08
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/acm/" itemprop="url" rel="index">
-                    <span itemprop="name">acm</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/07/08/Nightmare/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/08/Nightmare/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          原题:hdoj 1072
-原题大意走迷宫,用数组表示迷宫,0表示墻,1表示空房间,2表示起点,3表示终点,4表示可重新设置时间的房间.限时6s,每走一步算1s,走到4房间后可以将时间重新设为6s.
-算法分析bfs检索,从2开始,若时间用光后没能走出,输出-1,否则输出最少的步数.注意:当走过任何一个4号房间后,其重新设置时间的功能应当取消,否则走不出来.
-程序代码#include &lt;iostream&gt;
-#include &lt;queue&gt;
-#include &lt;memory.h&gt;
-using namespace std;
-const int N=8;
-int dx[]={0,0,1,-1};//8个方向 
-int dy[]={1,-1,0,0};
-int labyrinth[N][N];//记录迷宫 
-int used[N][N];//记录房间4是否被走过 
-int row,col;//迷宫实际占用的行与列 
-int flag=0;//能否成功走出的标志 
-struct Point{
-    int x,y;
-    int time;//记录剩余时间 
-
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/07/08/Nightmare/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -995,7 +1000,7 @@ struct Point{
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">24</span>
+              <span class="site-state-item-count">25</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1012,7 +1017,7 @@ struct Point{
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-count">17</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
