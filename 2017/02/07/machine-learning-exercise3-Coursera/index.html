@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="bfs,Hdoj," />
+  <meta name="keywords" content="神经网络," />
 
 
 
@@ -84,36 +84,40 @@
 
 
 
-<meta name="description" content="原题:hdoj 1252
-原题大意三个棋子,通过棋盘移到同一点,只有当标线的颜色与两个对手棋子之间的标线颜色一样时,棋子才能移动.求出最少移动的步数.
-算法分析广搜计算最小步数.结点本身自循环,是有边的,广搜时要排除
-程序代码#include &amp;lt;stdio.h&amp;gt;
-#include &amp;lt;memory.h&amp;gt;
-#include &amp;lt;ctype.h&amp;gt;
-int main()">
+<meta name="description" content="第三次上机作业：
+lrCostFunction.m (logistic regression cost function)
+oneVsAll.m
+predictOneVsAll.m
+predict.m
+lrCostFunction.m正规化的逻辑回归代价函数和梯度，这是之前的内容，算是复习吧
+J = sum(-y .* log(sigmoid(X * theta)) - (1 - y) .* lo">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hike on a Graph">
-<meta property="og:url" content="http://yoursite.com/2016/08/09/Hike-on-a-Graph/index.html">
+<meta property="og:title" content="machine learning exercise3 Coursera">
+<meta property="og:url" content="http://yoursite.com/2017/02/07/machine-learning-exercise3-Coursera/index.html">
 <meta property="og:site_name" content="Colin's blog">
-<meta property="og:description" content="原题:hdoj 1252
-原题大意三个棋子,通过棋盘移到同一点,只有当标线的颜色与两个对手棋子之间的标线颜色一样时,棋子才能移动.求出最少移动的步数.
-算法分析广搜计算最小步数.结点本身自循环,是有边的,广搜时要排除
-程序代码#include &amp;lt;stdio.h&amp;gt;
-#include &amp;lt;memory.h&amp;gt;
-#include &amp;lt;ctype.h&amp;gt;
-int main()">
-<meta property="og:image" content="http://o8engxb28.bkt.clouddn.com/Hike%20on%20a%20graph.JPG">
-<meta property="og:updated_time" content="2016-09-01T06:55:16.263Z">
+<meta property="og:description" content="第三次上机作业：
+lrCostFunction.m (logistic regression cost function)
+oneVsAll.m
+predictOneVsAll.m
+predict.m
+lrCostFunction.m正规化的逻辑回归代价函数和梯度，这是之前的内容，算是复习吧
+J = sum(-y .* log(sigmoid(X * theta)) - (1 - y) .* lo">
+<meta property="og:image" content="http://o8engxb28.bkt.clouddn.com/machine%20learning%20pic1.PNG">
+<meta property="og:image" content="http://o8engxb28.bkt.clouddn.com/machine%20learning%20pic2.PNG">
+<meta property="og:image" content="http://o8engxb28.bkt.clouddn.com/machine%20learning%20pic3.PNG">
+<meta property="og:image" content="http://o8engxb28.bkt.clouddn.com/machine%20learning%20pic4.PNG">
+<meta property="og:image" content="http://o8engxb28.bkt.clouddn.com/machine%20learning%20pic5.PNG">
+<meta property="og:updated_time" content="2017-02-07T14:15:38.168Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hike on a Graph">
-<meta name="twitter:description" content="原题:hdoj 1252
-原题大意三个棋子,通过棋盘移到同一点,只有当标线的颜色与两个对手棋子之间的标线颜色一样时,棋子才能移动.求出最少移动的步数.
-算法分析广搜计算最小步数.结点本身自循环,是有边的,广搜时要排除
-程序代码#include &amp;lt;stdio.h&amp;gt;
-#include &amp;lt;memory.h&amp;gt;
-#include &amp;lt;ctype.h&amp;gt;
-int main()">
-<meta name="twitter:image" content="http://o8engxb28.bkt.clouddn.com/Hike%20on%20a%20graph.JPG">
+<meta name="twitter:title" content="machine learning exercise3 Coursera">
+<meta name="twitter:description" content="第三次上机作业：
+lrCostFunction.m (logistic regression cost function)
+oneVsAll.m
+predictOneVsAll.m
+predict.m
+lrCostFunction.m正规化的逻辑回归代价函数和梯度，这是之前的内容，算是复习吧
+J = sum(-y .* log(sigmoid(X * theta)) - (1 - y) .* lo">
+<meta name="twitter:image" content="http://o8engxb28.bkt.clouddn.com/machine%20learning%20pic1.PNG">
 
 
 
@@ -134,9 +138,9 @@ int main()">
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/08/09/Hike-on-a-Graph/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/02/07/machine-learning-exercise3-Coursera/"/>
 
-  <title> Hike on a Graph | Colin's blog </title>
+  <title> machine learning exercise3 Coursera | Colin's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -276,7 +280,7 @@ int main()">
             
             
               
-                Hike on a Graph
+                machine learning exercise3 Coursera
               
             
           </h1>
@@ -288,8 +292,8 @@ int main()">
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-08-09T20:57:10+08:00" content="2016-08-09">
-              2016-08-09
+            <time itemprop="dateCreated" datetime="2017-02-07T21:22:52+08:00" content="2017-02-07">
+              2017-02-07
             </time>
           </span>
 
@@ -302,8 +306,8 @@ int main()">
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/acm/" itemprop="url" rel="index">
-                    <span itemprop="name">acm</span>
+                  <a href="/categories/机器学习/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
                   </a>
                 </span>
 
@@ -318,8 +322,8 @@ int main()">
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/08/09/Hike-on-a-Graph/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/09/Hike-on-a-Graph/" itemprop="commentsCount"></span>
+                <a href="/2017/02/07/machine-learning-exercise3-Coursera/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/07/machine-learning-exercise3-Coursera/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -342,100 +346,42 @@ int main()">
       
 
       
-        <p><strong>原题:<a href="http://acm.split.hdu.edu.cn/showproblem.php?pid=1252" target="_blank" rel="external">hdoj 1252</a></strong></p>
-<h1 id="原题大意"><a href="#原题大意" class="headerlink" title="原题大意"></a>原题大意</h1><p>三个棋子,通过棋盘移到同一点,只有当标线的颜色与两个对手棋子之间的标线颜色一样时,棋子才能移动.<br>求出最少移动的步数.</p>
-<h1 id="算法分析"><a href="#算法分析" class="headerlink" title="算法分析"></a>算法分析</h1><p>广搜计算最小步数.<br><img src="http://o8engxb28.bkt.clouddn.com/Hike%20on%20a%20graph.JPG" alt="无向图"><br>结点本身自循环,是有边的,广搜时要排除</p>
-<h1 id="程序代码"><a href="#程序代码" class="headerlink" title="程序代码"></a>程序代码</h1><pre><code>#include &lt;stdio.h&gt;
-#include &lt;memory.h&gt;
-#include &lt;ctype.h&gt;
-int main()
-{
-    char g[51][51];//无向图中边的颜色
-    unsigned int step[51][51][51];//棋子到达不同位置是所走的步骤
-    struct str{
-        char a,b,c;
-    }list[51*51*51];//广搜的链表
-    int i,j;
-    int n;//无向图的结点数
-    int a,b,c;//三个棋子的起始位置
-    int flag;//能否实现目标的标志
-    while(scanf(&quot;%d&quot;,&amp;n)&amp;&amp;n)
-    {
-        scanf(&quot;%d%d%d&quot;,&amp;a,&amp;b,&amp;c);
-        memset(step,255,sizeof(step));
-        int h=0;//链表头结点的编号 
-        int t=0;//链表尾结点的编号
-        //链表的第一个结点
-        list[0].a=a;
-        list[0].b=b;
-        list[0].c=c;
-        step[a][b][c]=0;
-        char arrow;
-        //构造无向图中边的颜色矩阵
-        for(i=1;i&lt;=n;i++)
-            for(j=1;j&lt;=n;j++)
-            {
-                while(scanf(&quot;%c&quot;,&amp;arrow)&amp;&amp;!isalpha(arrow));
-                g[i][j]=arrow;
-            } 
-        flag=0;
-        //广搜
-        while(h&lt;=t)
-        {
-            a=list[h].a;//取出头结点 
-            b=list[h].b;
-            c=list[h].c;
-            //判断三个棋子是否在同一位置,如果是,计算结束
-            if((a==b)&amp;&amp;(a==c)){flag=1;break;}
-            //头结点的步数值
-            unsigned int current=step[a][b][c];
-            current++;//移动一步
-            char abcColor=g[b][c];//结点bc的颜色
-            //结点a与其他各项相临边的颜色
-            char *color=g[a];
-            color++;
-            //搜所每个相邻边
-            for(i=1;i&lt;=n;i++,color++)
-            //如果不是结点a自身,该边与bc之间边颜色相同
-            //而且存储的步数比当前所需步数要大
-            if(i!=a&amp;&amp;*color==abcColor&amp;&amp;step[i][b][c]&gt;current)
-            {
-                step[i][b][c]=current;
-                t++;
-                list[t].a=i;
-                list[t].b=b;
-                list[t].c=c;
-             } 
-             abcColor=g[a][c];
-             color=g[b],color++;
-             for(int i=1;i&lt;=n;i++,color++)
-                 if(i!=b&amp;&amp;*color==abcColor&amp;&amp;step[a][i][c]&gt;current)
-                 {
-                     step[a][i][c]=current;
-                     t++;
-                     list[t].a=a;
-                     list[t].b=i;
-                     list[t].c=c;    
-                }
-            abcColor=g[a][b];
-             color=g[c],color++;
-             for(int i=1;i&lt;=n;i++,color++)
-                 if(i!=c&amp;&amp;*color==abcColor&amp;&amp;step[a][b][i]&gt;current)
-                 {
-                     step[a][b][i]=current;
-                     t++;
-                     list[t].a=a;
-                     list[t].b=b;
-                     list[t].c=i;    
-                }
-            h++;//头结点后移 
-        } 
-        if(flag)printf(&quot;%u\n&quot;,step[a][b][c]);
-        else printf(&quot;impossible\n&quot;);
-    }
+        <p>第三次上机作业：</p>
+<pre><code>lrCostFunction.m (logistic regression cost function)
+oneVsAll.m
+predictOneVsAll.m
+predict.m
+</code></pre><h1 id="lrCostFunction-m"><a href="#lrCostFunction-m" class="headerlink" title="lrCostFunction.m"></a><strong>lrCostFunction.m</strong></h1><p>正规化的逻辑回归代价函数和梯度，这是之前的内容，算是复习吧</p>
+<pre><code>J = sum(-y .* log(sigmoid(X * theta)) - (1 - y) .* log(1 - sigmoid(X * theta))) / m;
+J += lambda / (2 * m) * sum(theta(2 : end).^2);
 
-    return 0;
-}
+t = ( X&apos; * (sigmoid(X * theta) - y)) / m;
+
+grad(1) = t(1);
+grad(2 : end) = t(2 : end) + (lambda / m) * theta(2 : end);
+</code></pre><h1 id="oneVsAll-m"><a href="#oneVsAll-m" class="headerlink" title="oneVsAll.m"></a><strong>oneVsAll.m</strong></h1><p>这是“一对多”求出theta即各个参数，这里的theta是矩阵方式存在的，不像之前的只有一列。<br>这里的任务是识别1-10，这几个数，num_labels就是10，y是输出的结果向量，所以1&lt;=y&lt;=10，<br>在octave里，假设是如下的向量：</p>
+<p><img src="http://o8engxb28.bkt.clouddn.com/machine%20learning%20pic1.PNG" alt=""></p>
+<p>y==i会得到如下结果：</p>
+<p><img src="http://o8engxb28.bkt.clouddn.com/machine%20learning%20pic2.PNG" alt=""></p>
+<p>这样就与 <strong>lrCostFunction(t, X, y, lambda))</strong>这个代价函数接口一致了。</p>
+<pre><code>initial_theta = zeros(n + 1, 1);
+options = optimset(&apos;GradObj&apos;, &apos;on&apos;, &apos;MaxIter&apos;, 50);
+for i = 1:num_labels 
+   [all_theta(i,:)] = ...
+       fmincg (@(t)(lrCostFunction(t, X, (y == i), lambda)), ...
+                initial_theta, options);
+</code></pre><h1 id="predictOneVsAll-m"><a href="#predictOneVsAll-m" class="headerlink" title="predictOneVsAll.m"></a><strong>predictOneVsAll.m</strong></h1><p>预测函数，先要注意这个地方的 <strong>X*all_theta’</strong>,先假设 <strong>X</strong>是一个1x(n+1)的输入值，也就是说只有一组训练样本，经过 <strong>X*all_theta’</strong>后，会得到一个1x(n+1)的输出值，由于是逻辑回归分析，得到的值要么接近0，要么接近1，得到1的值就是分类结果，所以用了max这个函数，max此处的功能是这样的：</p>
+<p><img src="http://o8engxb28.bkt.clouddn.com/machine%20learning%20pic3.PNG" alt=""></p>
+<p><img src="http://o8engxb28.bkt.clouddn.com/machine%20learning%20pic4.PNG" alt=""></p>
+<p>当max(a,[],1)时，这里的val表示每一列的最大值，col表示最大值所在的行；<br>当max(a,[],2)时，这里的val表示每一行的最大值，col表示最大值所在的列，<br>如果不需要求出值，可以用 <strong>~</strong>来代替。</p>
+<pre><code>p = zeros(size(X, 1), 1);
+[~, p]= max(X*all_theta&apos;, [], 2);
+</code></pre><h1 id="predict-m"><a href="#predict-m" class="headerlink" title="predict.m"></a><strong>predict.m</strong></h1><p>神经网络有三层时的预测函数，将第二层求出的值当成新的 <strong>X</strong>带入第三层。</p>
+<p><img src="http://o8engxb28.bkt.clouddn.com/machine%20learning%20pic5.PNG" alt=""></p>
+<pre><code>X = [ones(m, 1), X];
+X1 = sigmoid(X * Theta1&apos;)
+X1 = [ones(size(X1,1),1),X1];
+[~,p] = max(X1 * Theta2&apos;, [], 2);
 </code></pre>
       
     </div>
@@ -457,9 +403,7 @@ int main()
       
         <div class="post-tags">
           
-            <a href="/tags/bfs/" rel="tag">#bfs</a>
-          
-            <a href="/tags/Hdoj/" rel="tag">#Hdoj</a>
+            <a href="/tags/神经网络/" rel="tag">#神经网络</a>
           
         </div>
       
@@ -468,17 +412,13 @@ int main()
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/08/08/Gamblers/" rel="next" title="Gamblers">
-                <i class="fa fa-chevron-left"></i> Gamblers
+              <a href="/2017/02/03/machine-learning-exercise2-Coursera/" rel="next" title="machine learning exercise2 Coursera">
+                <i class="fa fa-chevron-left"></i> machine learning exercise2 Coursera
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/08/11/Tempter-of-the-Bones/" rel="prev" title="Tempter of the Bones">
-                Tempter of the Bones <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -504,8 +444,8 @@ int main()
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/08/09/Hike-on-a-Graph/"
-           data-title="Hike on a Graph" data-url="http://yoursite.com/2016/08/09/Hike-on-a-Graph/">
+      <div class="ds-thread" data-thread-key="2017/02/07/machine-learning-exercise3-Coursera/"
+           data-title="machine learning exercise3 Coursera" data-url="http://yoursite.com/2017/02/07/machine-learning-exercise3-Coursera/">
       </div>
 
 
@@ -609,7 +549,7 @@ int main()
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#原题大意"><span class="nav-number">1.</span> <span class="nav-text">原题大意</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#算法分析"><span class="nav-number">2.</span> <span class="nav-text">算法分析</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#程序代码"><span class="nav-number">3.</span> <span class="nav-text">程序代码</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#lrCostFunction-m"><span class="nav-number">1.</span> <span class="nav-text">lrCostFunction.m</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#oneVsAll-m"><span class="nav-number">2.</span> <span class="nav-text">oneVsAll.m</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#predictOneVsAll-m"><span class="nav-number">3.</span> <span class="nav-text">predictOneVsAll.m</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#predict-m"><span class="nav-number">4.</span> <span class="nav-text">predict.m</span></a></li></ol></div>
             
           </div>
         </section>
