@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="bfs,Hdoj," />
+  <meta name="keywords" content="神经网络，后向传播算法," />
 
 
 
@@ -84,25 +84,50 @@
 
 
 
-<meta name="description" content="原题:hdoj 1072
-原题大意走迷宫,用数组表示迷宫,0表示墻,1表示空房间,2表示起点,3表示终点,4表示可重新设置时间的房间.限时6s,每走一步算1s,走到4房间后可以将时间重新设为6s.
-算法分析bfs检索,从2开始,若时间用光后没能走出,输出-1,否则输出最少的步数.注意:当走过任何一个4号房间后,其重新设置时间的功能应当取消,否则走不出来.
-程序代码#include &amp;lt;iost">
+<meta name="description" content="第四次上机作业：
+sigmoidGradient.m
+randInitializeWeights.m
+nnCostFunction.m
+sigmoidGradient.m一个简单的求偏导数的公式
+
+g = sigmoid(z) .* (1 - sigmoid(z));
+randInitializeWeights.m随机初始权重函数。
+epsilon_init = 0.12;
+W = rand(L_">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Nightmare">
-<meta property="og:url" content="http://yoursite.com/2016/07/08/Nightmare/index.html">
+<meta property="og:title" content="machine learning exercise4 Coursera">
+<meta property="og:url" content="http://yoursite.com/2017/02/11/machine-learning-exercise4-Coursera/index.html">
 <meta property="og:site_name" content="Colin's blog">
-<meta property="og:description" content="原题:hdoj 1072
-原题大意走迷宫,用数组表示迷宫,0表示墻,1表示空房间,2表示起点,3表示终点,4表示可重新设置时间的房间.限时6s,每走一步算1s,走到4房间后可以将时间重新设为6s.
-算法分析bfs检索,从2开始,若时间用光后没能走出,输出-1,否则输出最少的步数.注意:当走过任何一个4号房间后,其重新设置时间的功能应当取消,否则走不出来.
-程序代码#include &amp;lt;iost">
-<meta property="og:updated_time" content="2016-09-01T06:55:48.720Z">
+<meta property="og:description" content="第四次上机作业：
+sigmoidGradient.m
+randInitializeWeights.m
+nnCostFunction.m
+sigmoidGradient.m一个简单的求偏导数的公式
+
+g = sigmoid(z) .* (1 - sigmoid(z));
+randInitializeWeights.m随机初始权重函数。
+epsilon_init = 0.12;
+W = rand(L_">
+<meta property="og:image" content="http://o8engxb28.bkt.clouddn.com/machine%20learning%20ex4%20-1.PNG">
+<meta property="og:image" content="http://o8engxb28.bkt.clouddn.com/machine%20learning%20ex4%20-3.PNG">
+<meta property="og:image" content="http://o8engxb28.bkt.clouddn.com/machine%20learning%20ex4%20-4.PNG">
+<meta property="og:image" content="http://o8engxb28.bkt.clouddn.com/machine%20learning%20ex4%20-7.PNG">
+<meta property="og:image" content="http://o8engxb28.bkt.clouddn.com/machine%20learning%20ex4%20-5.PNG">
+<meta property="og:image" content="http://o8engxb28.bkt.clouddn.com/machine%20learning%20ex4%20-6.PNG">
+<meta property="og:updated_time" content="2017-02-11T04:40:59.127Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Nightmare">
-<meta name="twitter:description" content="原题:hdoj 1072
-原题大意走迷宫,用数组表示迷宫,0表示墻,1表示空房间,2表示起点,3表示终点,4表示可重新设置时间的房间.限时6s,每走一步算1s,走到4房间后可以将时间重新设为6s.
-算法分析bfs检索,从2开始,若时间用光后没能走出,输出-1,否则输出最少的步数.注意:当走过任何一个4号房间后,其重新设置时间的功能应当取消,否则走不出来.
-程序代码#include &amp;lt;iost">
+<meta name="twitter:title" content="machine learning exercise4 Coursera">
+<meta name="twitter:description" content="第四次上机作业：
+sigmoidGradient.m
+randInitializeWeights.m
+nnCostFunction.m
+sigmoidGradient.m一个简单的求偏导数的公式
+
+g = sigmoid(z) .* (1 - sigmoid(z));
+randInitializeWeights.m随机初始权重函数。
+epsilon_init = 0.12;
+W = rand(L_">
+<meta name="twitter:image" content="http://o8engxb28.bkt.clouddn.com/machine%20learning%20ex4%20-1.PNG">
 
 
 
@@ -123,9 +148,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/07/08/Nightmare/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/02/11/machine-learning-exercise4-Coursera/"/>
 
-  <title> Nightmare | Colin's blog </title>
+  <title> machine learning exercise4 Coursera | Colin's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -265,7 +290,7 @@
             
             
               
-                Nightmare
+                machine learning exercise4 Coursera
               
             
           </h1>
@@ -277,8 +302,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-07-08T21:39:08+08:00" content="2016-07-08">
-              2016-07-08
+            <time itemprop="dateCreated" datetime="2017-02-11T12:09:28+08:00" content="2017-02-11">
+              2017-02-11
             </time>
           </span>
 
@@ -291,8 +316,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/acm/" itemprop="url" rel="index">
-                    <span itemprop="name">acm</span>
+                  <a href="/categories/机器学习/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
                   </a>
                 </span>
 
@@ -307,8 +332,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/07/08/Nightmare/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/08/Nightmare/" itemprop="commentsCount"></span>
+                <a href="/2017/02/11/machine-learning-exercise4-Coursera/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/11/machine-learning-exercise4-Coursera/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -331,97 +356,56 @@
       
 
       
-        <p><strong>原题:<a href="http://acm.split.hdu.edu.cn/showproblem.php?pid=1072" target="_blank" rel="external">hdoj 1072</a></strong></p>
-<h1 id="原题大意"><a href="#原题大意" class="headerlink" title="原题大意"></a>原题大意</h1><p>走迷宫,用数组表示迷宫,0表示墻,1表示空房间,2表示起点,3表示终点,4表示可重新设置时间的房间.限时6s,每走一步算1s,走到4房间后可以将时间重新设为6s.</p>
-<h1 id="算法分析"><a href="#算法分析" class="headerlink" title="算法分析"></a>算法分析</h1><p>bfs检索,从2开始,若时间用光后没能走出,输出-1,否则输出最少的步数.<br><strong>注意</strong>:当走过任何一个4号房间后,其重新设置时间的功能应当取消,否则走不出来.</p>
-<h1 id="程序代码"><a href="#程序代码" class="headerlink" title="程序代码"></a>程序代码</h1><pre><code>#include &lt;iostream&gt;
-#include &lt;queue&gt;
-#include &lt;memory.h&gt;
-using namespace std;
-const int N=8;
-int dx[]={0,0,1,-1};//8个方向 
-int dy[]={1,-1,0,0};
-int labyrinth[N][N];//记录迷宫 
-int used[N][N];//记录房间4是否被走过 
-int row,col;//迷宫实际占用的行与列 
-int flag=0;//能否成功走出的标志 
-struct Point{
-    int x,y;
-    int time;//记录剩余时间 
-    int len; //走的步数,实际是已用的时间 
-};
-Point from,to;//起点与终点 
-void bfs()
-{
-    queue&lt;Point&gt; q;
-    Point a=from;
-    q.push(a);
-    while(!q.empty())
-    {
-        Point tmp;
-        tmp=q.front();
-        q.pop();
-        if(tmp.x==to.x&amp;&amp;tmp.y==to.y&amp;&amp;tmp.time&gt;=1)//到达终点且时间够用 
-        {
-            to.len=tmp.len;
-            flag=1;
-            break;
-        }
-        for(int i=0;i&lt;4;i++)
-        {
-            Point k;
-            k.x=tmp.x+dx[i];
-            k.y=tmp.y+dy[i];
-            k.time=tmp.time-1;
-            k.len=tmp.len+1;
-            if(k.time&lt;=0)             //如果时间不够 
-                continue;
-            if(k.x&lt;0||k.x&gt;=row||k.y&lt;0||k.y&gt;=col)    continue;//边界处理 
-            if(labyrinth[k.x][k.y]==0)    continue;//撞墙舍去 
-            if(labyrinth[k.x][k.y]==4&amp;&amp;!used[k.x][k.y])//如果进入房间4,且是第一次走 
-                {
-                    k.time=6;
-                    used[k.x][k.y]=1;
-                }
-            q.push(k);
-        }
-    }
-    if(!flag)
-        to.len=-1;
-}
-int main()
-{
-    int n;
-    scanf(&quot;%d&quot;,&amp;n);
-    while(n--)
-    {
-        memset(used,0,sizeof(used));
-        flag=0;
-        scanf(&quot;%d%d&quot;,&amp;row,&amp;col);
-        for(int i=0;i&lt;row;i++)
-            for(int j=0;j&lt;col;j++)
-                scanf(&quot;%d&quot;,&amp;labyrinth[i][j]);
-        for(int i=0;i&lt;row;i++)
-            for(int j=0;j&lt;col;j++)
-            {
-                if(labyrinth[i][j]==2)//记录起点 
-                {
-                    from.x=i;
-                    from.y=j;
-                    from.time=6;
-                    from.len=0;
-                }
-                if(labyrinth[i][j]==3)//记录终点 
-                {
-                    to.x=i;
-                    to.y=j;
-                }
-            }
-        bfs();
-        printf(&quot;%d\n&quot;,to.len);
-    }
-    return 0;
-}
+        <p>第四次上机作业：</p>
+<pre><code>sigmoidGradient.m
+randInitializeWeights.m
+nnCostFunction.m
+</code></pre><h1 id="sigmoidGradient-m"><a href="#sigmoidGradient-m" class="headerlink" title="sigmoidGradient.m"></a><strong>sigmoidGradient.m</strong></h1><p>一个简单的求偏导数的公式</p>
+<p><img src="http://o8engxb28.bkt.clouddn.com/machine%20learning%20ex4%20-1.PNG" alt=""></p>
+<pre><code>g = sigmoid(z) .* (1 - sigmoid(z));
+</code></pre><h1 id="randInitializeWeights-m"><a href="#randInitializeWeights-m" class="headerlink" title="randInitializeWeights.m"></a><strong>randInitializeWeights.m</strong></h1><p>随机初始权重函数。</p>
+<pre><code>epsilon_init = 0.12;
+W = rand(L_out, 1 + L_in) * 2 * epsilon_init - epsilon_init;
+</code></pre><h1 id="nnCostFunction-m"><a href="#nnCostFunction-m" class="headerlink" title="nnCostFunction.m"></a><strong>nnCostFunction.m</strong></h1><p>后向传播算法的应用</p>
+<p><img src="http://o8engxb28.bkt.clouddn.com/machine%20learning%20ex4%20-3.PNG" alt=""></p>
+<p>第一步，先用前向传播求出各层的特征值；</p>
+<p><img src="http://o8engxb28.bkt.clouddn.com/machine%20learning%20ex4%20-4.PNG" alt=""></p>
+<pre><code>a1 = [ones(m,1), X];
+z2 = a1 * Theta1&apos;;
+a2 = sigmoid(z2);
+a2 = [ones(m, 1),a2];
+z3 = a2 * Theta2&apos;;
+a3 = sigmoid(z3);
+Y = zeros(m, num_labels);
+%将y变成矩阵形式
+for i = 1:m
+  Y(i, y(i)) = 1;
+end
+</code></pre><p>第二步，求出代价函数；</p>
+<p><img src="http://o8engxb28.bkt.clouddn.com/machine%20learning%20ex4%20-7.PNG" alt=""></p>
+<pre><code>Jk = zeros(m, 1);
+
+Jk = sum(-Y.* log(a3) - (1 - Y) .* log(1 - a3), 2);
+
+J = sum(Jk) /m;
+
+J += lambda / (2 * m) *(sum(sum(Theta1(:, 2:end).^2)) + sum(sum(Theta2(:, 2:end).^2)));
+</code></pre><p>第三步，用后向传播算法得出梯度。</p>
+<p><img src="http://o8engxb28.bkt.clouddn.com/machine%20learning%20ex4%20-5.PNG" alt=""></p>
+<p><img src="http://o8engxb28.bkt.clouddn.com/machine%20learning%20ex4%20-6.PNG" alt=""></p>
+<pre><code>delta3 = a3 - Y;
+delta2 = delta3 * Theta2 .* (a2.*(1-a2));
+delta2 = delta2(:, 2 : end);
+Delta2 = zeros(size(delta3, 2), size(a2, 2));
+Delta1 = zeros(size(delta2, 2), size(a1, 2));
+for i = 1:m
+    Delta2 = Delta2 + delta3(i, :).&apos; * a2(i, :);
+    Delta1 = Delta1 + delta2(i, :).&apos; * a1(i, :);
+end
+Theta1_grad = Delta1 / m;
+Theta1_grad(:, 2 : end) = Theta1_grad(:, 2 : end) + Theta1(:, 2:end) *(lambda / m);
+Theta2_grad = Delta2 / m;
+Theta2_grad(:, 2 : end) = Theta2_grad(:, 2 : end) + Theta2(:, 2:end) *(lambda / m);
 </code></pre>
       
     </div>
@@ -443,9 +427,7 @@ int main()
       
         <div class="post-tags">
           
-            <a href="/tags/bfs/" rel="tag">#bfs</a>
-          
-            <a href="/tags/Hdoj/" rel="tag">#Hdoj</a>
+            <a href="/tags/神经网络，后向传播算法/" rel="tag">#神经网络，后向传播算法</a>
           
         </div>
       
@@ -454,17 +436,13 @@ int main()
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/06/27/Prime-Ring-Problem/" rel="next" title="Prime Ring Problem">
-                <i class="fa fa-chevron-left"></i> Prime Ring Problem
+              <a href="/2017/02/07/machine-learning-exercise3-Coursera/" rel="next" title="machine learning exercise3 Coursera">
+                <i class="fa fa-chevron-left"></i> machine learning exercise3 Coursera
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/07/08/Collect-More-Jewels/" rel="prev" title="Collect More Jewels">
-                Collect More Jewels <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -490,8 +468,8 @@ int main()
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/07/08/Nightmare/"
-           data-title="Nightmare" data-url="http://yoursite.com/2016/07/08/Nightmare/">
+      <div class="ds-thread" data-thread-key="2017/02/11/machine-learning-exercise4-Coursera/"
+           data-title="machine learning exercise4 Coursera" data-url="http://yoursite.com/2017/02/11/machine-learning-exercise4-Coursera/">
       </div>
 
 
@@ -595,7 +573,7 @@ int main()
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#原题大意"><span class="nav-number">1.</span> <span class="nav-text">原题大意</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#算法分析"><span class="nav-number">2.</span> <span class="nav-text">算法分析</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#程序代码"><span class="nav-number">3.</span> <span class="nav-text">程序代码</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#sigmoidGradient-m"><span class="nav-number">1.</span> <span class="nav-text">sigmoidGradient.m</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#randInitializeWeights-m"><span class="nav-number">2.</span> <span class="nav-text">randInitializeWeights.m</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#nnCostFunction-m"><span class="nav-number">3.</span> <span class="nav-text">nnCostFunction.m</span></a></li></ol></div>
             
           </div>
         </section>
