@@ -258,6 +258,154 @@
             
               
                 
+                <a class="post-title-link" href="/2017/02/03/machine-learning-exercise2-Coursera/" itemprop="url">
+                  machine learning exercise2 Coursera
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-02-03T11:55:03+08:00" content="2017-02-03">
+              2017-02-03
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/机器学习/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/02/03/machine-learning-exercise2-Coursera/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/03/machine-learning-exercise2-Coursera/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          第二次上机作业：
+sigmoid.m
+costFunction.m
+predict.m
+costFunctionReg.m
+sigmoid.m这是逻辑回归的假设函数计算
+t = ones(size(z));
+g = 1 ./ (exp(-z) + t);
+costFunction.m and costFunctionReg计算代价函数和梯度
+无正规化：
+
+J = sum(-y .* log(sigmoid(X * theta)) - (1 - y) .* log(1 - sigmoid(X * theta))) / m;
+
+p = X&apos; * (sigmoid(X * theta) - y);
+grad = p / m
+正规化：
+
+
+J = sum(- y .* log(sigmoid(X * theta)) - (1 - y) .* log(1 - sigmoid(X * theta))) / m
+J += (lambda /(2 *m)) * sum(theta(2:end) .^2);
+
+
+t =X&apos;*(sigmoid(X * theta) - y) / m;
+
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/02/03/machine-learning-exercise2-Coursera/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/01/26/machine-learning-exercise-Coursera/" itemprop="url">
                   machine learning exercise - Coursera
                 </a>
@@ -783,155 +931,6 @@ int main()
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/11/28/蓝桥杯周练/" itemprop="url">
-                  蓝桥杯周练(部分题)
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-28T15:18:29+08:00" content="2016-11-28">
-              2016-11-28
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/lanqiao/" itemprop="url" rel="index">
-                    <span itemprop="name">lanqiao</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/11/28/蓝桥杯周练/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/28/蓝桥杯周练/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          线段和点算法思想贪心
-代码程序#include &lt;iostream&gt;
-#include &lt;cstdio&gt;
-#include &lt;memory.h&gt;
-#include &lt;algorithm&gt;
-#define mem(a,b) memset(a,b,sizeof(a))
-bool vis[11000],dian[51000];
-using namespace std;
-int n,m;
-struct s{
-    int l,r;
-}str[11000];
-bool cmp(s a,s b)
-{
-    return ((a.l&lt;b.l)||(a.l==b.l&amp;&amp;a.r&lt;b.r));
-}
-int main()
-{
-    mem(dian,false);
-    mem(vis,false);
-    scanf(&quot;%d%d&quot;,&amp;n,&amp;m);
-    for(int i=0;i&lt;n;i++)
-    {
-        int x;
-        scanf(&quot;%
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/11/28/蓝桥杯周练/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -977,7 +976,7 @@ int main()
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">29</span>
+              <span class="site-state-item-count">30</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -994,7 +993,7 @@ int main()
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-count">21</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
