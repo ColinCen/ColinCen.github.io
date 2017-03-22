@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="dfs,Hdoj," />
+  <meta name="keywords" content="离散化，区间的移动，二分," />
 
 
 
@@ -84,36 +84,46 @@
 
 
 
-<meta name="description" content="原题:hdoj 1010
-原题大意又是走迷宫的题目,不过这题有点不一样,因为要求狗狗要在T时刻恰好走到D处.
-算法分析明显dfs,不过直接深搜很快就会发现超时了,所以一定得剪枝,百度了下,除了剩余最短步数大于剩余时间外还有一个奇偶剪枝.
-程序代码#include &amp;lt;iostream&amp;gt;
-#include &amp;lt;math.h&amp;gt;
-#include &amp;lt;memory.h&amp;gt;
-u">
+<meta name="description" content="区间价值
+原题大意给定n个数A1…An，小Ho想了解AL..AR中有多少对元素值相同。小Ho把这个数目定义为区间[L,R]的价值，用v[L,R]表示。
+例如1 1 1 2 2这五个数所组成的区间的价值为4。
+现在小Ho想知道在所有的的v[L,R] (1 &amp;lt;= L &amp;lt;= R &amp;lt;= n)中，第k小的值是多少。
+输入：
+2
+4 7
+1 1 2 3
+3 6
+100 100 100
+输出：">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Tempter of the Bones">
-<meta property="og:url" content="http://yoursite.com/2016/08/11/Tempter-of-the-Bones/index.html">
+<meta property="og:title" content="区间价值">
+<meta property="og:url" content="http://yoursite.com/2017/03/22/区间价值/index.html">
 <meta property="og:site_name" content="Colin's blog">
-<meta property="og:description" content="原题:hdoj 1010
-原题大意又是走迷宫的题目,不过这题有点不一样,因为要求狗狗要在T时刻恰好走到D处.
-算法分析明显dfs,不过直接深搜很快就会发现超时了,所以一定得剪枝,百度了下,除了剩余最短步数大于剩余时间外还有一个奇偶剪枝.
-程序代码#include &amp;lt;iostream&amp;gt;
-#include &amp;lt;math.h&amp;gt;
-#include &amp;lt;memory.h&amp;gt;
-u">
-<meta property="og:image" content="http://o8engxb28.bkt.clouddn.com/temper.JPG">
-<meta property="og:updated_time" content="2016-09-01T06:56:06.309Z">
+<meta property="og:description" content="区间价值
+原题大意给定n个数A1…An，小Ho想了解AL..AR中有多少对元素值相同。小Ho把这个数目定义为区间[L,R]的价值，用v[L,R]表示。
+例如1 1 1 2 2这五个数所组成的区间的价值为4。
+现在小Ho想知道在所有的的v[L,R] (1 &amp;lt;= L &amp;lt;= R &amp;lt;= n)中，第k小的值是多少。
+输入：
+2
+4 7
+1 1 2 3
+3 6
+100 100 100
+输出：">
+<meta property="og:updated_time" content="2017-03-22T09:53:31.126Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Tempter of the Bones">
-<meta name="twitter:description" content="原题:hdoj 1010
-原题大意又是走迷宫的题目,不过这题有点不一样,因为要求狗狗要在T时刻恰好走到D处.
-算法分析明显dfs,不过直接深搜很快就会发现超时了,所以一定得剪枝,百度了下,除了剩余最短步数大于剩余时间外还有一个奇偶剪枝.
-程序代码#include &amp;lt;iostream&amp;gt;
-#include &amp;lt;math.h&amp;gt;
-#include &amp;lt;memory.h&amp;gt;
-u">
-<meta name="twitter:image" content="http://o8engxb28.bkt.clouddn.com/temper.JPG">
+<meta name="twitter:title" content="区间价值">
+<meta name="twitter:description" content="区间价值
+原题大意给定n个数A1…An，小Ho想了解AL..AR中有多少对元素值相同。小Ho把这个数目定义为区间[L,R]的价值，用v[L,R]表示。
+例如1 1 1 2 2这五个数所组成的区间的价值为4。
+现在小Ho想知道在所有的的v[L,R] (1 &amp;lt;= L &amp;lt;= R &amp;lt;= n)中，第k小的值是多少。
+输入：
+2
+4 7
+1 1 2 3
+3 6
+100 100 100
+输出：">
 
 
 
@@ -134,9 +144,9 @@ u">
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/08/11/Tempter-of-the-Bones/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/03/22/区间价值/"/>
 
-  <title> Tempter of the Bones | Colin's blog </title>
+  <title> 区间价值 | Colin's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -276,7 +286,7 @@ u">
             
             
               
-                Tempter of the Bones
+                区间价值
               
             
           </h1>
@@ -288,8 +298,8 @@ u">
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-08-11T16:44:29+08:00" content="2016-08-11">
-              2016-08-11
+            <time itemprop="dateCreated" datetime="2017-03-22T17:34:27+08:00" content="2017-03-22">
+              2017-03-22
             </time>
           </span>
 
@@ -318,8 +328,8 @@ u">
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/08/11/Tempter-of-the-Bones/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/11/Tempter-of-the-Bones/" itemprop="commentsCount"></span>
+                <a href="/2017/03/22/区间价值/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/22/区间价值/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -342,86 +352,81 @@ u">
       
 
       
-        <p><strong>原题:<a href="http://acm.split.hdu.edu.cn/showproblem.php?pid=1010" target="_blank" rel="external">hdoj 1010</a></strong></p>
-<h1 id="原题大意"><a href="#原题大意" class="headerlink" title="原题大意"></a>原题大意</h1><p>又是走迷宫的题目,不过这题有点不一样,因为要求狗狗要在T时刻恰好走到D处.</p>
-<h1 id="算法分析"><a href="#算法分析" class="headerlink" title="算法分析"></a>算法分析</h1><p>明显dfs,不过直接深搜很快就会发现超时了,所以一定得剪枝,百度了下,除了剩余最短步数大于剩余时间外还有一个奇偶剪枝.<br><img src="http://o8engxb28.bkt.clouddn.com/temper.JPG" alt="奇偶剪枝"></p>
+        <p><strong><a href="http://hihocoder.com/problemset/problem/1483" target="_blank" rel="external">区间价值</a></strong></p>
+<h1 id="原题大意"><a href="#原题大意" class="headerlink" title="原题大意"></a>原题大意</h1><p>给定n个数A1…An，小Ho想了解AL..AR中有多少对元素值相同。小Ho把这个数目定义为区间[L,R]的价值，用v[L,R]表示。</p>
+<p>例如1 1 1 2 2这五个数所组成的区间的价值为4。</p>
+<p>现在小Ho想知道在所有的的v[L,R] (1 &lt;= L &lt;= R &lt;= n)中，第k小的值是多少。</p>
+<p>输入：</p>
+<p>2</p>
+<p>4 7</p>
+<p>1 1 2 3</p>
+<p>3 6</p>
+<p>100 100 100</p>
+<p>输出：</p>
+<p>0<br>3</p>
+<h1 id="算法分析"><a href="#算法分析" class="headerlink" title="算法分析"></a>算法分析</h1><p>因为比较数字之间是否相同，所以与数字大小没有关系，先通过离散化将数据规模压缩，然后又因为最大的价值为 n*(n+1)/2，最小价值为 0，所以通过二分枚举价值，看是否有k个区间满足，然后通过区间的移动（尺取法），找到满足的解。</p>
 <h1 id="程序代码"><a href="#程序代码" class="headerlink" title="程序代码"></a>程序代码</h1><pre><code>#include &lt;iostream&gt;
-#include &lt;math.h&gt;
-#include &lt;memory.h&gt;
+#include &lt;cstdio&gt;
+#include &lt;map&gt;
+#include &lt;algorithm&gt;
+#define ll long long
 using namespace std;
-int dx[]={0,0,1,-1};
-int dy[]={1,-1,0,0};
-int n,m,t;//对应N,M,T 
-char maze[7][7];//迷宫 
-bool used[7][7];
-struct Point{
-    int x,y;
-};
-Point start,door;
-int flag;
-void dfs(int x,int y,int time)
-{
 
-    if(flag) return ;//如果找到就return!否则容易超时     
-    if(time&gt;t) return;
-    if(x==door.x&amp;&amp;y==door.y&amp;&amp;time==t) 
+const int maxn = 200000+5;
+ll n, k, a[maxn];
+ll tot;
+map&lt;ll, ll&gt; dict;
+
+bool solve(ll x){
+    ll l = 0, num[tot],sum = 0, rk = 0;
+    for(ll i = 0; i &lt; tot; i++)
+        num[i] = 0;//num记录当前区间内i的个数
+    //移动区间,尺取法
+    for(ll i = 0; i &lt; n; i++)
     {
-        flag=1;
-        return ;
-    }
-    for(int i=0;i&lt;4;i++)
-    {
-        Point tt;
-        tt.x=x+dx[i];
-        tt.y=y+dy[i];
-        if(tt.x&lt;0||tt.y&lt;0||tt.x&gt;=n||tt.y&gt;=m) continue;
-        if(maze[tt.x][tt.y]==&apos;X&apos;) continue;
-        if(!used[tt.x][tt.y])
+        sum += num[a[i]];//加上原有的值
+        num[a[i]]++;//因为多了一个，所以值加一
+        while(sum &gt; x)//使得sum &lt;= x的区间
         {
-            used[tt.x][tt.y]=1;
-            dfs(tt.x,tt.y,time+1);    
-            used[tt.x][tt.y]=0;
-        }    
+            sum -= --num[a[l++]];//l++，因为枚举的是i，所以左边界向右移动
+                                //--num是因为抛弃左边界时，要减去它的值
+        }
+        rk += i-l+1;//因为最左边是l，如果l成立，那么t（l~i）到i的价值也一定满足。
     }
-    return ;
+    return rk &gt;= k;
 }
-int main()
-{
-    while(scanf(&quot;%d%d%d&quot;,&amp;n,&amp;m,&amp;t)&amp;&amp;n&amp;&amp;m&amp;&amp;t)
-    {
-        for(int i=0;i&lt;n;i++)
-                scanf(&quot;%s&quot;,maze[i]);
-        for(int i=0;i&lt;n;i++)
 
-            for(int j=0;j&lt;m;j++)
-                {
-                    if(maze[i][j]==&apos;S&apos;)
-                        {
-                            start.x=i;
-                            start.y=j;
-                        }        
-                    else if(maze[i][j]==&apos;D&apos;)
-                        {
-                            door.x=i;
-                            door.y=j;
-                        }
-                }
-    if(abs(start.x-door.x)+abs(start.y-door.y)&gt;t||(start.x+start.y+door.x+door.y+t)%2==1)//剪枝
+
+int main(){
+    int T;
+    scanf(&quot;%d&quot;, &amp;T);
+    while(T--)
     {
-        printf(&quot;NO\n&quot;);
-        continue;
-    }
-    memset(used,0,sizeof(used));
-    flag=0;
-    used[start.x][start.y]=1;
-    dfs(start.x,start.y,0);
-    if(flag) printf(&quot;YES&quot;);
-    else printf(&quot;NO&quot;);
-    printf(&quot;\n&quot;);
+        dict.clear();
+        scanf(&quot;%lld%lld&quot;, &amp;n, &amp;k);
+        tot = 0;
+        for(int i = 0; i &lt; n; i++){
+            scanf(&quot;%lld&quot;, &amp;a[i]);
+            if(!dict.count(a[i])) dict[a[i]] = tot++;//离散化
+            a[i] = dict[a[i]];
+        }
+        ll l = 0, r = n * (n + 1) / 2 ,mid;
+        while(l &lt;= r){            
+            mid = (l + r) &gt;&gt; 1;
+            if(solve(mid))
+                r = mid - 1;
+            else
+                l = mid + 1;
+        }
+        printf(&quot;%lld\n&quot;, l);
     }
     return 0;
 }
-</code></pre>
+</code></pre><blockquote>
+<p><a href="http://www.cnblogs.com/wangyiming/p/6581359.html" target="_blank" rel="external">http://www.cnblogs.com/wangyiming/p/6581359.html</a></p>
+<p><a href="http://blog.csdn.net/xishisugan/article/details/63812566" target="_blank" rel="external">http://blog.csdn.net/xishisugan/article/details/63812566</a></p>
+</blockquote>
+
       
     </div>
 
@@ -442,9 +447,7 @@ int main()
       
         <div class="post-tags">
           
-            <a href="/tags/dfs/" rel="tag">#dfs</a>
-          
-            <a href="/tags/Hdoj/" rel="tag">#Hdoj</a>
+            <a href="/tags/离散化，区间的移动，二分/" rel="tag">#离散化，区间的移动，二分</a>
           
         </div>
       
@@ -453,17 +456,13 @@ int main()
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/08/09/Hike-on-a-Graph/" rel="next" title="Hike on a Graph">
-                <i class="fa fa-chevron-left"></i> Hike on a Graph
+              <a href="/2017/03/22/出勤记录2/" rel="next" title="出勤记录2">
+                <i class="fa fa-chevron-left"></i> 出勤记录2
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/08/12/Ignatius-and-the-Princess-I/" rel="prev" title="Ignatius and the Princess I">
-                Ignatius and the Princess I <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -489,8 +488,8 @@ int main()
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/08/11/Tempter-of-the-Bones/"
-           data-title="Tempter of the Bones" data-url="http://yoursite.com/2016/08/11/Tempter-of-the-Bones/">
+      <div class="ds-thread" data-thread-key="2017/03/22/区间价值/"
+           data-title="区间价值" data-url="http://yoursite.com/2017/03/22/区间价值/">
       </div>
 
 
