@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="支持向量机," />
+  <meta name="keywords" content="动态规划," />
 
 
 
@@ -84,46 +84,28 @@
 
 
 
-<meta name="description" content="第六次上机作业：
-gaussianKernel.m
-dataset3Params.m
-processEmail.m
-emailFeatures.m
-gaussianKernel.m高斯核函数
-
-sim = exp(-sum((x1 - x2) .^ 2) / (2 * sigma * sigma));
-dataset3Params.m求最优的C和sigma
-function [C, sigma]">
+<meta name="description" content="区间价值Ⅱ
+原题大意小Hi的算法课老师每次上课都会统计小Hi的出勤记录。迟到会被记录一个L，缺席会被记录一个A，按时上课会被记录一个O。
+一学期结束，小Hi的出勤记录可以看成是一个只包含LAO的字符串，例如”OOOOLOOOLALLO……”。
+如果小Hi整学期缺席不超过1次，并且没有连续3次迟到，小Hi的出勤记录就算合格。  
+现在给出字符串的长度N，小Hi想知道长度为N的出勤记录中，合格的记录总">
 <meta property="og:type" content="article">
-<meta property="og:title" content="machine learning exercise6 Coursera">
-<meta property="og:url" content="http://yoursite.com/2017/02/18/machine-learning-exercise6-Coursera/index.html">
+<meta property="og:title" content="出勤记录2">
+<meta property="og:url" content="http://yoursite.com/2017/03/22/出勤记录2/index.html">
 <meta property="og:site_name" content="Colin's blog">
-<meta property="og:description" content="第六次上机作业：
-gaussianKernel.m
-dataset3Params.m
-processEmail.m
-emailFeatures.m
-gaussianKernel.m高斯核函数
-
-sim = exp(-sum((x1 - x2) .^ 2) / (2 * sigma * sigma));
-dataset3Params.m求最优的C和sigma
-function [C, sigma]">
-<meta property="og:image" content="http://o8engxb28.bkt.clouddn.com/machine%20learning%20ex6_1.png">
-<meta property="og:image" content="http://o8engxb28.bkt.clouddn.com/machine%20learning%20ex6_2.png">
-<meta property="og:updated_time" content="2017-02-18T13:45:18.252Z">
+<meta property="og:description" content="区间价值Ⅱ
+原题大意小Hi的算法课老师每次上课都会统计小Hi的出勤记录。迟到会被记录一个L，缺席会被记录一个A，按时上课会被记录一个O。
+一学期结束，小Hi的出勤记录可以看成是一个只包含LAO的字符串，例如”OOOOLOOOLALLO……”。
+如果小Hi整学期缺席不超过1次，并且没有连续3次迟到，小Hi的出勤记录就算合格。  
+现在给出字符串的长度N，小Hi想知道长度为N的出勤记录中，合格的记录总">
+<meta property="og:updated_time" content="2017-03-22T09:31:23.464Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="machine learning exercise6 Coursera">
-<meta name="twitter:description" content="第六次上机作业：
-gaussianKernel.m
-dataset3Params.m
-processEmail.m
-emailFeatures.m
-gaussianKernel.m高斯核函数
-
-sim = exp(-sum((x1 - x2) .^ 2) / (2 * sigma * sigma));
-dataset3Params.m求最优的C和sigma
-function [C, sigma]">
-<meta name="twitter:image" content="http://o8engxb28.bkt.clouddn.com/machine%20learning%20ex6_1.png">
+<meta name="twitter:title" content="出勤记录2">
+<meta name="twitter:description" content="区间价值Ⅱ
+原题大意小Hi的算法课老师每次上课都会统计小Hi的出勤记录。迟到会被记录一个L，缺席会被记录一个A，按时上课会被记录一个O。
+一学期结束，小Hi的出勤记录可以看成是一个只包含LAO的字符串，例如”OOOOLOOOLALLO……”。
+如果小Hi整学期缺席不超过1次，并且没有连续3次迟到，小Hi的出勤记录就算合格。  
+现在给出字符串的长度N，小Hi想知道长度为N的出勤记录中，合格的记录总">
 
 
 
@@ -144,9 +126,9 @@ function [C, sigma]">
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/02/18/machine-learning-exercise6-Coursera/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/03/22/出勤记录2/"/>
 
-  <title> machine learning exercise6 Coursera | Colin's blog </title>
+  <title> 出勤记录2 | Colin's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -286,7 +268,7 @@ function [C, sigma]">
             
             
               
-                machine learning exercise6 Coursera
+                出勤记录2
               
             
           </h1>
@@ -298,8 +280,8 @@ function [C, sigma]">
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-02-18T20:51:57+08:00" content="2017-02-18">
-              2017-02-18
+            <time itemprop="dateCreated" datetime="2017-03-22T17:14:11+08:00" content="2017-03-22">
+              2017-03-22
             </time>
           </span>
 
@@ -312,8 +294,8 @@ function [C, sigma]">
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/机器学习/" itemprop="url" rel="index">
-                    <span itemprop="name">机器学习</span>
+                  <a href="/categories/acm/" itemprop="url" rel="index">
+                    <span itemprop="name">acm</span>
                   </a>
                 </span>
 
@@ -328,8 +310,8 @@ function [C, sigma]">
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2017/02/18/machine-learning-exercise6-Coursera/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/18/machine-learning-exercise6-Coursera/" itemprop="commentsCount"></span>
+                <a href="/2017/03/22/出勤记录2/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/22/出勤记录2/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -352,60 +334,45 @@ function [C, sigma]">
       
 
       
-        <p>第六次上机作业：</p>
-<pre><code>gaussianKernel.m
-dataset3Params.m
-processEmail.m
-emailFeatures.m
-</code></pre><h1 id="gaussianKernel-m"><a href="#gaussianKernel-m" class="headerlink" title="gaussianKernel.m"></a><strong>gaussianKernel.m</strong></h1><p>高斯核函数</p>
-<p><img src="http://o8engxb28.bkt.clouddn.com/machine%20learning%20ex6_1.png" alt=""></p>
-<pre><code>sim = exp(-sum((x1 - x2) .^ 2) / (2 * sigma * sigma));
-</code></pre><h1 id="dataset3Params-m"><a href="#dataset3Params-m" class="headerlink" title="dataset3Params.m"></a><strong>dataset3Params.m</strong></h1><p>求最优的C和sigma</p>
-<pre><code>function [C, sigma] = dataset3Params(X, y, Xval, yval)
-C = 1;
-sigma = 0.3;
+        <p><strong><a href="http://hihocoder.com/problemset/problem/1482" target="_blank" rel="external">区间价值Ⅱ</a></strong></p>
+<h1 id="原题大意"><a href="#原题大意" class="headerlink" title="原题大意"></a>原题大意</h1><p>小Hi的算法课老师每次上课都会统计小Hi的出勤记录。迟到会被记录一个L，缺席会被记录一个A，按时上课会被记录一个O。</p>
+<p>一学期结束，小Hi的出勤记录可以看成是一个只包含LAO的字符串，例如”OOOOLOOOLALLO……”。</p>
+<p>如果小Hi整学期缺席不超过1次，并且没有连续3次迟到，小Hi的出勤记录就算合格。  </p>
+<p>现在给出字符串的长度N，小Hi想知道长度为N的出勤记录中，合格的记录总共有多少种。  </p>
+<p>例如长度为3的合格出勤记录有19种：OOO OOL OOA OLO OAO LOO AOO OLL OLA OAL LOL LOA AOL LLO LAO ALO LLA LAL ALL。</p>
+<h1 id="算法分析"><a href="#算法分析" class="headerlink" title="算法分析"></a>算法分析</h1><p>状态dp[i][j][k]表示长度为i的组合中合格的个数，i表示长度，j表示A出现的个数，k表示连续L出现的个数。</p>
+<h1 id="程序代码"><a href="#程序代码" class="headerlink" title="程序代码"></a>程序代码</h1><pre><code>#include &lt;cstdio&gt;
+using namespace std;
 
-right_c = C;
-right_sigma = sigma;
-error = 1;
+const int mod = 1e9 + 7;
+int dp[100005][2][3];
 
-predictions = zeros(size(yval),1);
-t = [0.01;0.03;0.1;0.3;1;3;10;30];
-for i = 1:8
-  for j = 1:8
-    C = t(i);
-    sigma = t(j);
-    %调用包里的svmTrain函数
-    model = svmTrain(X, y , C, @(x1, x2) gaussianKernel(x1, x2, sigma));
-    %交叉验证
-    predictions = svmPredict(model, Xval);
-    temp = mean(double(predictions ~= yval));
-    %取错最小的C和sigma
-      if(temp &lt; error)
-        error = temp;
-        right_c = C;
-        right_sigma = sigma;
-      end
-  end
-end
-C = right_c;
-sigma = right_sigma;
-end
-</code></pre><h1 id="processEmail-m"><a href="#processEmail-m" class="headerlink" title="processEmail.m"></a><strong>processEmail.m</strong></h1><p>将切分后邮件里的每个关键词的索引号放进一个矩阵里</p>
-<pre><code>for   i = 1 : size(vocabList)
-  if strcmp(vocabList{i}, str) == 1;
-    word_indices = [word_indices; i];
-    break;
-   end;
- end;
-</code></pre><h1 id="emailFeatures-m"><a href="#emailFeatures-m" class="headerlink" title="emailFeatures.m"></a><strong>emailFeatures.m</strong></h1><p>将存在的词记为1，否则为0</p>
-<p><img src="http://o8engxb28.bkt.clouddn.com/machine%20learning%20ex6_2.png" alt=""></p>
-<pre><code>x = zeros(n, 1);%n为词的总个数
-for i = 1 : size(word_indices)
-    if(x(word_indices(i)) == 0)
-      x(word_indices(i)) = 1;
-    end
-end
+int up(int &amp;a, int b){
+    a += b;
+    if(a &gt;= mod) a -= mod;
+}
+int main(){
+
+    dp[0][0][0] = 1;
+    for(int i = 0; i &lt; 100005; i++)
+        for(int j = 0; j &lt;  2; j++)
+            for(int k = 0; k &lt; 3; k++)
+                {
+                    up(dp[i+1][j][0],dp[i][j][k]);
+                    //如果下一个是&apos;O&apos;
+                    if(j != 1)up(dp[i+1][j+1][0],dp[i][j][k]);
+                    //如果下一个是&apos;A&apos;，而且前面一次都没出现过
+                    if(k != 2)up(dp[i+1][j][k+1],dp[i][j][k]);
+                    //如果下一个是&apos;L&apos;，而且连续长度不超过2
+                }
+    int t,ans = 0;
+    scanf(&quot;%d&quot;,&amp;t);
+    for(int i = 0; i &lt; 2; i++)
+        for(int j =0; j &lt; 3; j++)
+            up(ans,dp[t][i][j]);
+    printf(&quot;%d\n&quot;, ans);
+    return 0;
+}
 </code></pre>
       
     </div>
@@ -427,7 +394,7 @@ end
       
         <div class="post-tags">
           
-            <a href="/tags/支持向量机/" rel="tag">#支持向量机</a>
+            <a href="/tags/动态规划/" rel="tag">#动态规划</a>
           
         </div>
       
@@ -436,17 +403,13 @@ end
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/02/18/machine-learning-exercise5-Coursera/" rel="next" title="machine learning exercise5 Coursera">
-                <i class="fa fa-chevron-left"></i> machine learning exercise5 Coursera
+              <a href="/2017/03/18/Chosing-Recipes/" rel="next" title="Chosing Recipes">
+                <i class="fa fa-chevron-left"></i> Chosing Recipes
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/03/18/Chosing-Recipes/" rel="prev" title="Chosing Recipes">
-                Chosing Recipes <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -472,8 +435,8 @@ end
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/02/18/machine-learning-exercise6-Coursera/"
-           data-title="machine learning exercise6 Coursera" data-url="http://yoursite.com/2017/02/18/machine-learning-exercise6-Coursera/">
+      <div class="ds-thread" data-thread-key="2017/03/22/出勤记录2/"
+           data-title="出勤记录2" data-url="http://yoursite.com/2017/03/22/出勤记录2/">
       </div>
 
 
@@ -577,7 +540,7 @@ end
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#gaussianKernel-m"><span class="nav-number">1.</span> <span class="nav-text">gaussianKernel.m</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#dataset3Params-m"><span class="nav-number">2.</span> <span class="nav-text">dataset3Params.m</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#processEmail-m"><span class="nav-number">3.</span> <span class="nav-text">processEmail.m</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#emailFeatures-m"><span class="nav-number">4.</span> <span class="nav-text">emailFeatures.m</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#原题大意"><span class="nav-number">1.</span> <span class="nav-text">原题大意</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#算法分析"><span class="nav-number">2.</span> <span class="nav-text">算法分析</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#程序代码"><span class="nav-number">3.</span> <span class="nav-text">程序代码</span></a></li></ol></div>
             
           </div>
         </section>

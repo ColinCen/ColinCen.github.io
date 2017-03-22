@@ -258,6 +258,144 @@
             
               
                 
+                <a class="post-title-link" href="/2017/02/07/machine-learning-exercise3-Coursera/" itemprop="url">
+                  machine learning exercise3 Coursera
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-02-07T21:22:52+08:00" content="2017-02-07">
+              2017-02-07
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/机器学习/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/02/07/machine-learning-exercise3-Coursera/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/07/machine-learning-exercise3-Coursera/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          第三次上机作业：
+lrCostFunction.m (logistic regression cost function)
+oneVsAll.m
+predictOneVsAll.m
+predict.m
+lrCostFunction.m正规化的逻辑回归代价函数和梯度，这是之前的内容，算是复习吧
+J = sum(-y .* log(sigmoid(X * theta)) - (1 - y) .* log(1 - sigmoid(X * theta))) / m;
+J += lambda / (2 * m) * sum(theta(2 : end).^2);
+
+t = ( X&apos; * (sigmoid(X * theta) - y)) / m;
+
+grad(1) = t(1);
+grad(2 : end) = t(2 : end) + (lambda / m) * theta(2 : end);
+oneVsAll.m这是“一对多”求出theta即各个参数，这里的theta是矩阵方式存在的，不像之前的只有一列。这里的任务是识别1-10，这几个数，num_labels就是10，y是输出的
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/02/07/machine-learning-exercise3-Coursera/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/02/03/machine-learning-exercise2-Coursera/" itemprop="url">
                   machine learning exercise2 Coursera
                 </a>
@@ -778,164 +916,11 @@ for(int i = 0; i &lt; cnt; i++){
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/11/29/16哈理工新生网络赛/" itemprop="url">
-                  16哈理工新生网络赛
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-29T22:39:40+08:00" content="2016-11-29">
-              2016-11-29
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/acm/" itemprop="url" rel="index">
-                    <span itemprop="name">acm</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/11/29/16哈理工新生网络赛/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/29/16哈理工新生网络赛/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          本次新生赛题目还是很难的,部分题解还未看懂,先贴上来.
-棋盘村原题:棋盘村
-算法思想递推,比赛时用了bfs结果超时了,赛后看来还是递推简单明了.另外递推时要处理边界.
-程序代码#include &lt;iostream&gt;
-#include &lt;memory.h&gt;
-using namespace std;
-int n,m,x,y;
-int g[100][100];
-long long ans[100][100];
-void robber_cover()
-{
-    g[x][y]=0;
-    g[x+2][y+1]=0;
-    g[x+2][y-1]=0;
-    g[x+1][y+2]=0;
-    g[x+1][y-2]=0;
-    g[x-2][y+1]=0;
-    g[x-2][y-1]=0;
-    g[x-1][y+2]=0;
-    g[x-1][y-2]=0;
-
-}
-int main()
-{
-    int T;
-    scanf(&quot;%d&quot;,&amp;T);
-    while(T--)
-    {
-        memse
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/11/29/16哈理工新生网络赛/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -976,7 +961,7 @@ int main()
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">30</span>
+              <span class="site-state-item-count">31</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
