@@ -1,0 +1,767 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="博弈论,bfs,Uva," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/tango.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="原题：The Problem to Make You Happy
+原题大意　　Bob和Alice在有向图内玩游戏，n个顶点，m条边。　　每人一颗棋子，初始位置分别是x，y。　　Bob先手，轮流操作，每次只能走一条有向边。　　结束条件: 1.不能操作的人输 2.两个棋子重合Bob输 3.游戏没有尽头Alice输　　问 Bob 能不能赢？　　2 &amp;lt;= n &amp;lt;= 100. 1 &amp;lt;= m">
+<meta property="og:type" content="article">
+<meta property="og:title" content="The Problem to Make You Happy">
+<meta property="og:url" content="http://yoursite.com/2017/04/02/The-Problem-to-Make-You-Happy/index.html">
+<meta property="og:site_name" content="Colin's blog">
+<meta property="og:description" content="原题：The Problem to Make You Happy
+原题大意　　Bob和Alice在有向图内玩游戏，n个顶点，m条边。　　每人一颗棋子，初始位置分别是x，y。　　Bob先手，轮流操作，每次只能走一条有向边。　　结束条件: 1.不能操作的人输 2.两个棋子重合Bob输 3.游戏没有尽头Alice输　　问 Bob 能不能赢？　　2 &amp;lt;= n &amp;lt;= 100. 1 &amp;lt;= m">
+<meta property="og:updated_time" content="2017-04-02T06:07:44.476Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="The Problem to Make You Happy">
+<meta name="twitter:description" content="原题：The Problem to Make You Happy
+原题大意　　Bob和Alice在有向图内玩游戏，n个顶点，m条边。　　每人一颗棋子，初始位置分别是x，y。　　Bob先手，轮流操作，每次只能走一条有向边。　　结束条件: 1.不能操作的人输 2.两个棋子重合Bob输 3.游戏没有尽头Alice输　　问 Bob 能不能赢？　　2 &amp;lt;= n &amp;lt;= 100. 1 &amp;lt;= m">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/04/02/The-Problem-to-Make-You-Happy/"/>
+
+  <title> The Problem to Make You Happy | Colin's blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Colin's blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">A football fan,an English lover and a coder</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                The Problem to Make You Happy
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-04-02T13:44:28+08:00" content="2017-04-02">
+              2017-04-02
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/acm/" itemprop="url" rel="index">
+                    <span itemprop="name">acm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/04/02/The-Problem-to-Make-You-Happy/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/04/02/The-Problem-to-Make-You-Happy/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><strong>原题：<a href="https://vjudge.net/problem/UVALive-7042" target="_blank" rel="external">The Problem to Make You Happy</a></strong></p>
+<h1 id="原题大意"><a href="#原题大意" class="headerlink" title="原题大意"></a>原题大意</h1><p>　　Bob和Alice在有向图内玩游戏，n个顶点，m条边。<br>　　每人一颗棋子，初始位置分别是x，y。<br>　　Bob先手，轮流操作，每次只能走一条有向边。<br>　　结束条件: 1.不能操作的人输 2.两个棋子重合Bob输 3.游戏没有尽头Alice输<br>　　问 Bob 能不能赢？<br>　　2 &lt;= n &lt;= 100. 1 &lt;= m &lt;= n &lt;= n*(n-1) 1 &lt;= x , y &lt;= n, x != y.</p>
+<h1 id="算法分析"><a href="#算法分析" class="headerlink" title="算法分析"></a>算法分析</h1><ol>
+<li>状态设计：两颗棋子的位置，下一步棋是谁走。因子我们可以用<br>dp[x][y] [0/1]表示两枚棋子的状态,Alice在x，Bob在y处，0是下一步Alice走，1是下一步Bob走。</li>
+<li>思路：通过BFS，进行状态之间的转移。</li>
+<li>初始状态：两颗棋子重叠为必败状态，先令这些状态在dp数组中的<br>值为0，其它的为1</li>
+<li>状态转移：<br>a) 若是选手A打算行动，那么在他之前行动的是B，要让B能GG<br>必须B能到达的所有状态均为必败。<br>b) 若是选手B打算行动，那么在他之前行动的是A，时光倒流，<br>A行动时的那个状态一定可以让B输掉比赛</li>
+</ol>
+<h1 id="程序代码"><a href="#程序代码" class="headerlink" title="程序代码"></a>程序代码</h1><pre><code>#include &lt;cstdio&gt;
+#include &lt;vector&gt;
+#include &lt;queue&gt;
+using namespace std;
+const int maxn = 105;
+
+struct Pair{
+    int x, y, s;
+    //简化赋初值
+    Pair(int x_, int y_, int s_){
+        x = x_;
+        y = y_;
+        s = s_;
+    }
+};
+int T, Bob_pos, Alice_pos, m, n, kase, u, v;
+vector&lt;int&gt; G1[maxn];//记录有向图
+vector&lt;int&gt; G2[maxn];//逆着记录有向图，便于由必败叶子节点状态转移回来
+int dp[maxn][maxn][2], vis[maxn][maxn][2], cnt[maxn][maxn][2], deg[maxn];
+//vis记录Bob必败的状态是否确定，若确定记为1，否则为0
+//cnt与deg组合使用，cnt记录当前状态被访问的次数，deg为出度，若两者相等则此状态为Bob必败状态
+queue&lt;Pair&gt;q;
+
+//初始化
+void Init(){
+    for(int i = 1; i &lt;= n; i++)
+    {
+        deg[i] = 0;
+        for(int j = 1; j &lt;= n; j++)
+        {
+            for(int k = 0; k &lt; 2; k++)
+            {
+                dp[i][j][k] = 1;
+                vis[i][j][k] = cnt[i][j][k] = 0;
+            }
+        }
+        G1[i].clear();
+        G2[i].clear();
+    }
+    while(!q.empty()) q.pop();
+}
+int main(){
+    scanf(&quot;%d&quot;, &amp;T);
+    kase = 0;
+    while(T--){
+        scanf(&quot;%d %d&quot;, &amp;n, &amp;m);
+        Init();
+        for(int i = 0; i &lt; m; i++){
+            scanf(&quot;%d %d&quot;, &amp;u, &amp;v);
+            G1[u].push_back(v);
+            G2[v].push_back(u);
+            deg[u]++;
+        }
+        scanf(&quot;%d %d&quot;, &amp;Bob_pos, &amp;Alice_pos);
+        for(int i = 1;i &lt;= n; i++)
+            for(int j = 1; j &lt;= n; j++)
+                for(int k = 0; k &lt; 2; k++){
+                    if(i == j || (k == 1 &amp;&amp; G1[j].size() == 0))
+                    {
+                        dp[i][j][k] = 0;
+                        Pair t(i, j, k);
+                        q.push(t);
+                        vis[i][j][k] = 1;
+                    }
+                }
+        while(!q.empty()){
+            Pair  now = q.front(); q.pop();
+            int cx = now.x, cy = now.y, cs = now.s;
+            if(cs == 0)
+            {
+                for(int i = 0; i &lt; G2[cy].size(); i++)
+                {
+                    int pre = G2[cy][i];
+                    if(vis[cx][pre][1] == 1) continue;
+                    cnt[cx][pre][1]++;
+                    if(cnt[cx][pre][1] == deg[pre]) 
+                    {
+                        dp[cx][pre][1] = 0;
+                        vis[cx][pre][1] = 1;
+                        Pair t(cx, pre, 1);
+                        q.push(t);
+                    }  
+                }
+            }
+            else if(cs == 1)
+            {
+                for(int i = 0; i &lt; G2[cx].size(); i++)
+                {
+                    int pre = G2[cx][i];
+                    if(vis[pre][cy][0] == 1) continue;
+                    dp[pre][cy][0] = 0;
+                    vis[pre][cy][0] = 1;
+                    Pair t(pre, cy, 0);
+                    q.push(t);
+                }
+            }
+        }
+        if(dp[Alice_pos][Bob_pos][1] == 1)
+            printf(&quot;Case #%d: Yes\n&quot;, ++kase);
+        else
+            printf(&quot;Case #%d: No\n&quot;, ++kase);
+    }
+    return 0;
+}
+</code></pre><blockquote>
+<p><a href="http://www.cnblogs.com/wmrv587/p/6653779.html" target="_blank" rel="external">http://www.cnblogs.com/wmrv587/p/6653779.html</a></p>
+</blockquote>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/博弈论/" rel="tag">#博弈论</a>
+          
+            <a href="/tags/bfs/" rel="tag">#bfs</a>
+          
+            <a href="/tags/Uva/" rel="tag">#Uva</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/03/31/Anton-and-School-2/" rel="next" title="Anton and School - 2">
+                <i class="fa fa-chevron-left"></i> Anton and School - 2
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/04/02/A-Lot-of-Games/" rel="prev" title="A Lot of Games">
+                A Lot of Games <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/04/02/The-Problem-to-Make-You-Happy/"
+           data-title="The Problem to Make You Happy" data-url="http://yoursite.com/2017/04/02/The-Problem-to-Make-You-Happy/">
+      </div>
+
+
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/assassin.jpg"
+               alt="Shen Hao" />
+          <p class="site-author-name" itemprop="name">Shen Hao</p>
+          <p class="site-description motion-element" itemprop="description">Colin's blog | acm |c++</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">35</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">28</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/colincen" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#原题大意"><span class="nav-number">1.</span> <span class="nav-text">原题大意</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#算法分析"><span class="nav-number">2.</span> <span class="nav-text">算法分析</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#程序代码"><span class="nav-number">3.</span> <span class="nav-text">程序代码</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Shen Hao</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name: "colincen2"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>
