@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="bfs,Hdoj," />
+  <meta name="keywords" content="动态规划,Hdoj," />
 
 
 
@@ -84,25 +84,19 @@
 
 
 
-<meta name="description" content="原题:hdoj 1072
-原题大意走迷宫,用数组表示迷宫,0表示墻,1表示空房间,2表示起点,3表示终点,4表示可重新设置时间的房间.限时6s,每走一步算1s,走到4房间后可以将时间重新设为6s.
-算法分析bfs检索,从2开始,若时间用光后没能走出,输出-1,否则输出最少的步数.注意:当走过任何一个4号房间后,其重新设置时间的功能应当取消,否则走不出来.
-程序代码#include &amp;lt;iost">
+<meta name="description" content="原题：Gems Fight
+原题大意有 G 种颜色的宝石，放在 B 个袋子里（每种颜色可以放多个）。两人轮流选袋子（每个袋子只能被选 1 次），每次将选出来的袋子中的宝石放到 cooker 中，cooker 可能会起反应。反应条件是 cooker 中出现 S 个一样颜色的宝石，而且一旦起反应，每 S 个一样颜色的宝石就会获得 1 个魔法石（同时反应）。作为奖励，每次反应结束后当前玩家可以再选一个袋">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Nightmare">
-<meta property="og:url" content="http://yoursite.com/2016/07/08/Nightmare/index.html">
+<meta property="og:title" content="Gems Fight">
+<meta property="og:url" content="http://yoursite.com/2017/04/05/Gems-Fight/index.html">
 <meta property="og:site_name" content="Colin's blog">
-<meta property="og:description" content="原题:hdoj 1072
-原题大意走迷宫,用数组表示迷宫,0表示墻,1表示空房间,2表示起点,3表示终点,4表示可重新设置时间的房间.限时6s,每走一步算1s,走到4房间后可以将时间重新设为6s.
-算法分析bfs检索,从2开始,若时间用光后没能走出,输出-1,否则输出最少的步数.注意:当走过任何一个4号房间后,其重新设置时间的功能应当取消,否则走不出来.
-程序代码#include &amp;lt;iost">
-<meta property="og:updated_time" content="2016-09-01T06:55:48.720Z">
+<meta property="og:description" content="原题：Gems Fight
+原题大意有 G 种颜色的宝石，放在 B 个袋子里（每种颜色可以放多个）。两人轮流选袋子（每个袋子只能被选 1 次），每次将选出来的袋子中的宝石放到 cooker 中，cooker 可能会起反应。反应条件是 cooker 中出现 S 个一样颜色的宝石，而且一旦起反应，每 S 个一样颜色的宝石就会获得 1 个魔法石（同时反应）。作为奖励，每次反应结束后当前玩家可以再选一个袋">
+<meta property="og:updated_time" content="2017-04-05T02:40:19.954Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Nightmare">
-<meta name="twitter:description" content="原题:hdoj 1072
-原题大意走迷宫,用数组表示迷宫,0表示墻,1表示空房间,2表示起点,3表示终点,4表示可重新设置时间的房间.限时6s,每走一步算1s,走到4房间后可以将时间重新设为6s.
-算法分析bfs检索,从2开始,若时间用光后没能走出,输出-1,否则输出最少的步数.注意:当走过任何一个4号房间后,其重新设置时间的功能应当取消,否则走不出来.
-程序代码#include &amp;lt;iost">
+<meta name="twitter:title" content="Gems Fight">
+<meta name="twitter:description" content="原题：Gems Fight
+原题大意有 G 种颜色的宝石，放在 B 个袋子里（每种颜色可以放多个）。两人轮流选袋子（每个袋子只能被选 1 次），每次将选出来的袋子中的宝石放到 cooker 中，cooker 可能会起反应。反应条件是 cooker 中出现 S 个一样颜色的宝石，而且一旦起反应，每 S 个一样颜色的宝石就会获得 1 个魔法石（同时反应）。作为奖励，每次反应结束后当前玩家可以再选一个袋">
 
 
 
@@ -123,9 +117,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/07/08/Nightmare/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/04/05/Gems-Fight/"/>
 
-  <title> Nightmare | Colin's blog </title>
+  <title> Gems Fight | Colin's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -265,7 +259,7 @@
             
             
               
-                Nightmare
+                Gems Fight
               
             
           </h1>
@@ -277,8 +271,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-07-08T21:39:08+08:00" content="2016-07-08">
-              2016-07-08
+            <time itemprop="dateCreated" datetime="2017-04-05T10:32:48+08:00" content="2017-04-05">
+              2017-04-05
             </time>
           </span>
 
@@ -307,8 +301,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/07/08/Nightmare/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/08/Nightmare/" itemprop="commentsCount"></span>
+                <a href="/2017/04/05/Gems-Fight/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/04/05/Gems-Fight/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -331,94 +325,75 @@
       
 
       
-        <p><strong>原题:<a href="http://acm.split.hdu.edu.cn/showproblem.php?pid=1072" target="_blank" rel="external">hdoj 1072</a></strong></p>
-<h1 id="原题大意"><a href="#原题大意" class="headerlink" title="原题大意"></a>原题大意</h1><p>走迷宫,用数组表示迷宫,0表示墻,1表示空房间,2表示起点,3表示终点,4表示可重新设置时间的房间.限时6s,每走一步算1s,走到4房间后可以将时间重新设为6s.</p>
-<h1 id="算法分析"><a href="#算法分析" class="headerlink" title="算法分析"></a>算法分析</h1><p>bfs检索,从2开始,若时间用光后没能走出,输出-1,否则输出最少的步数.<br><strong>注意</strong>:当走过任何一个4号房间后,其重新设置时间的功能应当取消,否则走不出来.</p>
-<h1 id="程序代码"><a href="#程序代码" class="headerlink" title="程序代码"></a>程序代码</h1><pre><code>#include &lt;iostream&gt;
-#include &lt;queue&gt;
-#include &lt;memory.h&gt;
+        <p><strong>原题：<a href="http://acm.hdu.edu.cn/showproblem.php?pid=4778" target="_blank" rel="external">Gems Fight</a></strong></p>
+<h1 id="原题大意"><a href="#原题大意" class="headerlink" title="原题大意"></a>原题大意</h1><p>有 G 种颜色的宝石，放在 B 个袋子里（每种颜色可以放多个）。<br>两人轮流选袋子（每个袋子只能被选 1 次），每次将选出来的袋子中的宝石放到 cooker 中，cooker 可能会起反应。<br>反应条件是 cooker 中出现 S 个一样颜色的宝石，而且一旦起反应，每 S 个一样颜色的宝石就会获得 1 个魔法石（同时反应）。<br>作为奖励，每次反应结束后当前玩家可以再选一个袋子继续游戏。<br>游戏目标是自己获得的魔法石尽量多，双方都采取最优策略的情况下，问最终两个玩家的魔法石之差。</p>
+<h1 id="算法分析"><a href="#算法分析" class="headerlink" title="算法分析"></a>算法分析</h1><p>数据范围很小，毫不犹豫地状压。<br>dp[S]：集合S被取走，此景此境，先手最多能赢后手多少分。<br>遍历不在集合中的袋子，如果拿了i号袋子后不能合成魔法石，<br>那么dp[S] = max(dp[S], -dp[S|1 &lt;&lt; i]), 否则就可以连<br>任dp[S] = max(dp[S], dp[S|1 &lt;&lt; i] + 拿i号袋子获得的收益。</p>
+<h1 id="程序代码"><a href="#程序代码" class="headerlink" title="程序代码"></a>程序代码</h1><pre><code>#include &lt;cstdio&gt;
+#include &lt;algorithm&gt;
 using namespace std;
-const int N=8;
-int dx[]={0,0,1,-1};//8个方向 
-int dy[]={1,-1,0,0};
-int labyrinth[N][N];//记录迷宫 
-int used[N][N];//记录房间4是否被走过 
-int row,col;//迷宫实际占用的行与列 
-int flag=0;//能否成功走出的标志 
-struct Point{
-    int x,y;
-    int time;//记录剩余时间 
-    int len; //走的步数,实际是已用的时间 
-};
-Point from,to;//起点与终点 
-void bfs()
-{
-    queue&lt;Point&gt; q;
-    Point a=from;
-    q.push(a);
-    while(!q.empty())
-    {
-        Point tmp;
-        tmp=q.front();
-        q.pop();
-        if(tmp.x==to.x&amp;&amp;tmp.y==to.y&amp;&amp;tmp.time&gt;=1)//到达终点且时间够用 
-        {
-            to.len=tmp.len;
-            flag=1;
-            break;
-        }
-        for(int i=0;i&lt;4;i++)
-        {
-            Point k;
-            k.x=tmp.x+dx[i];
-            k.y=tmp.y+dy[i];
-            k.time=tmp.time-1;
-            k.len=tmp.len+1;
-            if(k.time&lt;=0)             //如果时间不够 
-                continue;
-            if(k.x&lt;0||k.x&gt;=row||k.y&lt;0||k.y&gt;=col)    continue;//边界处理 
-            if(labyrinth[k.x][k.y]==0)    continue;//撞墙舍去 
-            if(labyrinth[k.x][k.y]==4&amp;&amp;!used[k.x][k.y])//如果进入房间4,且是第一次走 
-                {
-                    k.time=6;
-                    used[k.x][k.y]=1;
-                }
-            q.push(k);
+const int INF = 1e8+7;
+int dp[1&lt;&lt;21], res[1&lt;&lt;21][10];
+int cnt[21][10], vis[1&lt;&lt;21];
+int b, g, n, s, c;
+
+
+int dfs(int S){
+    if(dp[S] != -INF) return dp[S];
+    if(S == ((1&lt;&lt;b) - 1)) return dp[S] = 0;
+    for(int i = 0; i &lt; b; i++){
+        if(!((1&lt;&lt;i)&amp;S)){
+            int val = 0;
+            for(int j = 1; j &lt;= g; j++)
+                val += (res[S][j] + cnt[i][j]) / s;
+            if(val &gt; 0)
+                dp[S] = max(dp[S], val + dfs(S+(1&lt;&lt;i)));
+            else
+                dp[S] = max(dp[S], val - dfs(S+(1&lt;&lt;i)));
         }
     }
-    if(!flag)
-        to.len=-1;
+    return dp[S];
 }
-int main()
-{
-    int n;
-    scanf(&quot;%d&quot;,&amp;n);
-    while(n--)
-    {
-        memset(used,0,sizeof(used));
-        flag=0;
-        scanf(&quot;%d%d&quot;,&amp;row,&amp;col);
-        for(int i=0;i&lt;row;i++)
-            for(int j=0;j&lt;col;j++)
-                scanf(&quot;%d&quot;,&amp;labyrinth[i][j]);
-        for(int i=0;i&lt;row;i++)
-            for(int j=0;j&lt;col;j++)
+
+
+void dfs1(int x){
+    if(vis[x]) return;
+    vis[x] = 1;
+    for(int i = 0; i &lt; b; i++){
+        if(!(x&amp;(1&lt;&lt;i)))
+        {
+            for(int j = 1; j &lt;= g; j++)
             {
-                if(labyrinth[i][j]==2)//记录起点 
-                {
-                    from.x=i;
-                    from.y=j;
-                    from.time=6;
-                    from.len=0;
-                }
-                if(labyrinth[i][j]==3)//记录终点 
-                {
-                    to.x=i;
-                    to.y=j;
-                }
+                res[x+(1&lt;&lt;i)][j] = (res[x][j] + cnt[i][j]) % s;
             }
-        bfs();
-        printf(&quot;%d\n&quot;,to.len);
+            dfs1(x+(1&lt;&lt;i));
+        }
+    }
+}
+
+
+int main(){
+    while(~scanf(&quot;%d %d %d&quot;, &amp;g, &amp;b, &amp;s) &amp;&amp; (b+g+s)){
+        for(int i = 0; i &lt; (1&lt;&lt;b); i++)
+        {
+            vis[i] = 0;
+            dp[i] = -INF;
+            for(int j = 0; j &lt;= g; j++)
+                res[i][j] = 0;
+        }
+        for(int i = 0; i &lt; b; i++)
+            for(int j = 0; j&lt;=g; j++)
+                cnt[i][j] = 0;
+        for(int i = 0; i &lt; b; i++)
+        {
+            scanf(&quot;%d&quot;, &amp;n);
+            for(int j = 1; j &lt;= n; j++)
+            {
+                scanf(&quot;%d&quot;, &amp;c);
+                cnt[i][c]++;
+            }
+        }
+        dfs1(0);dfs(0);
+        printf(&quot;%d\n&quot;, dp[0]);
     }
     return 0;
 }
@@ -443,7 +418,7 @@ int main()
       
         <div class="post-tags">
           
-            <a href="/tags/bfs/" rel="tag">#bfs</a>
+            <a href="/tags/动态规划/" rel="tag">#动态规划</a>
           
             <a href="/tags/Hdoj/" rel="tag">#Hdoj</a>
           
@@ -454,17 +429,13 @@ int main()
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/06/27/Prime-Ring-Problem/" rel="next" title="Prime Ring Problem">
-                <i class="fa fa-chevron-left"></i> Prime Ring Problem
+              <a href="/2017/04/02/A-Lot-of-Games/" rel="next" title="A Lot of Games">
+                <i class="fa fa-chevron-left"></i> A Lot of Games
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/07/08/Collect-More-Jewels/" rel="prev" title="Collect More Jewels">
-                Collect More Jewels <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -490,8 +461,8 @@ int main()
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/07/08/Nightmare/"
-           data-title="Nightmare" data-url="http://yoursite.com/2016/07/08/Nightmare/">
+      <div class="ds-thread" data-thread-key="2017/04/05/Gems-Fight/"
+           data-title="Gems Fight" data-url="http://yoursite.com/2017/04/05/Gems-Fight/">
       </div>
 
 
