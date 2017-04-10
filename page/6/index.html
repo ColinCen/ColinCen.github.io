@@ -258,6 +258,150 @@
             
               
                 
+                <a class="post-title-link" href="/2016/08/09/Hike-on-a-Graph/" itemprop="url">
+                  Hike on a Graph
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-09T20:57:10+08:00" content="2016-08-09">
+              2016-08-09
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/acm/" itemprop="url" rel="index">
+                    <span itemprop="name">acm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/09/Hike-on-a-Graph/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/09/Hike-on-a-Graph/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          原题:hdoj 1252
+原题大意三个棋子,通过棋盘移到同一点,只有当标线的颜色与两个对手棋子之间的标线颜色一样时,棋子才能移动.求出最少移动的步数.
+算法分析广搜计算最小步数.结点本身自循环,是有边的,广搜时要排除
+程序代码#include &lt;stdio.h&gt;
+#include &lt;memory.h&gt;
+#include &lt;ctype.h&gt;
+int main()
+{
+    char g[51][51];//无向图中边的颜色
+    unsigned int step[51][51][51];//棋子到达不同位置是所走的步骤
+    struct str{
+        char a,b,c;
+    }list[51*51*51];//广搜的链表
+    int i,j;
+    int n;//无向图的结点数
+    int a,b,c;//三个棋子的起始位置
+    int flag;//能否实现目标的标志
+    while(scanf(&quot;%d&quot;,&amp;n)&amp;&amp;n)
+    {
+        scan
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/08/09/Hike-on-a-Graph/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/08/08/Gamblers/" itemprop="url">
                   Gamblers
                 </a>
@@ -809,148 +953,6 @@ int check(int t,int m)//检查有没有与之前的数重复
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/06/26/Knight-Moves/" itemprop="url">
-                  Knight Moves
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-06-26T15:40:40+08:00" content="2016-06-26">
-              2016-06-26
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/acm/" itemprop="url" rel="index">
-                    <span itemprop="name">acm</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/06/26/Knight-Moves/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/26/Knight-Moves/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          原题:hdoj 1372
-算法分析本题有个算法的实现bfs,dfs,Floyd都可以.
-
-dfs  用深搜的话就是向8个方向递归,计算从起点到终点的最短距离.
-bfs  广搜也是向8个方向搜索,不过是把值都放进队列里,这样避免重复搜.
-Floyd  这是解决表格问题最常用的算法,将棋盘上任意两点的距离全都保存起来,对所有的输入直接查表.
-
-程序代码dfs#include &lt;stdio.h&gt;
-#include &lt;memory.h&gt; 
-int knight[8][8];//棋盘
-int x[]={-1,1,2,2,1,-1,-2,-2};//八个方向 
-int y[]={2,2,1,-1,-2,-2,-1,1};
-void DFS(int si,int sj,int moves)
-{
-    if(si&lt;0||sj&lt;0||si&gt;=8||sj&gt;=8||moves&gt;=knight[si][sj])    return ;
-    knight[si][sj]=moves;
-    int i;
-    for(i=0;i&lt;8;i++)
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/06/26/Knight-Moves/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -996,7 +998,7 @@ void DFS(int si,int sj,int moves)
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">37</span>
+              <span class="site-state-item-count">38</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
