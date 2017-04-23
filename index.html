@@ -258,6 +258,296 @@
             
               
                 
+                <a class="post-title-link" href="/2017/04/23/Jam-s-problem-again/" itemprop="url">
+                  Jam's problem again
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-04-23T16:27:48+08:00" content="2017-04-23">
+              2017-04-23
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/acm/" itemprop="url" rel="index">
+                    <span itemprop="name">acm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/04/23/Jam-s-problem-again/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/04/23/Jam-s-problem-again/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          原题：Jam’s problem again
+原题大意给出n个坐标(x,y,z)，如果有两个点(xi,yi,zi) 和 (xj,yj,zj)满足 xi≥xj，yi≥yj，zi≥zj，那么i这个点的等级就加一,最后输出每个点的等级。
+算法分析三维偏序，模板题，CDQ分治加树状数组，最后注意处理两个点完全相同的情况。
+程序代码#include &lt;cstdio&gt;
+#include &lt;algorithm&gt;
+#include &lt;cstring&gt;
+#define mem(a,b) memset(a,b,sizeof(a))
+using namespace std;
+const int maxn = 100000+100;
+const int N = 100010;
+struct po{
+    int x, y, z, id;
+
+}a[maxn],b[maxn];
+int ans[maxn];
+int C[maxn*2];
+int T, n;
+bool cmp1(po a, po b){
+    if(a.x != b.x) return a.x &lt; b.
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/04/23/Jam-s-problem-again/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/04/23/Infinite-Sequence/" itemprop="url">
+                  Infinite Sequence
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-04-23T16:17:06+08:00" content="2017-04-23">
+              2017-04-23
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/acm/" itemprop="url" rel="index">
+                    <span itemprop="name">acm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/04/23/Infinite-Sequence/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/04/23/Infinite-Sequence/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          原题：Infinite Sequence
+原题大意给定n，有多少个长度为无穷的数列{a}满足：
+
+对于n &lt; k，ak = an
+对于i &lt; j &lt; k &lt;= i + ai，aj = ak
+1 &lt;= ai &lt;= n，n &lt;= 10^6，对10^9 + 7取摸
+
+算法分析
+http://blog.csdn.net/crzbulabula/article/details/70145999
+
+其中第二种情况的第三点k较大时，就是说如果(1+k)长度超过n时，后位只能补一，相当于给第二种情况的第一点里，k&gt;i-3时的补充。
+程序代码#include &lt;cstdio&gt;
+#include &lt;cstring&gt;
+using namespace std;
+const int mod = 1e9+7;
+const int maxn = 1e6+5;
+typedef long long ll;
+int f[maxn];
+
+int up(int a,int b){
+    a+=b;
+    if(a&gt;=mod) a-=mod;
+ 
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/04/23/Infinite-Sequence/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/04/22/LCA模板/" itemprop="url">
                   LCA模板
                 </a>
@@ -647,297 +937,11 @@ bool g
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/04/16/Hamiltonish-Path/" itemprop="url">
-                  Hamiltonish Path
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-04-16T22:18:06+08:00" content="2017-04-16">
-              2017-04-16
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/acm/" itemprop="url" rel="index">
-                    <span itemprop="name">acm</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2017/04/16/Hamiltonish-Path/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/04/16/Hamiltonish-Path/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          原题：Hamiltonish Path
-原题大意给定一个无向图，有n个点，m条边，让你求出一条路径，这条路径有3个满足条件：
-
-这条路径至少穿过两个点
-这条路径只经过一个点一次 
-任何与起点或终点相邻的点一定包括在这条路径里面
-
-题目输入保证存在路径，并且多条路径时，输出任意一条
-算法分析可以从任意一点开始（记为x）。把x放到一个双端队列里，以之为起点。然后重复执行一下内容：
-
-如果有与之相邻的点且不在队列里的，就将其放到队首，并以之为起点。
-如果有与队尾相邻（终点）且不在队列里，就将其放到队尾，并以之为终点。
-
-直到队首队尾没有点与之相邻，或相邻的都在队列里，输出队列。
-程序代码#include &lt;cstdio&gt;
-#include &lt;vector&gt;
-#include &lt;deque&gt;
-#include &lt;memory.h&gt;
-#define mem(a,b) memset(a, b, sizeof(a))
-using namespace std;
-const int maxn = 1e5+5;
-bool vis[maxn];
-vector&
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/04/16/Hamiltonish-Path/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/04/16/Sorted-Arrays/" itemprop="url">
-                  Sorted Arrays
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-04-16T11:38:58+08:00" content="2017-04-16">
-              2017-04-16
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/acm/" itemprop="url" rel="index">
-                    <span itemprop="name">acm</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2017/04/16/Sorted-Arrays/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/04/16/Sorted-Arrays/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          原题：Sorted Arrays
-原题大意给一串长度为N的序列，问至少将其分成几个子序列，使得每个子序列要么非递增，要么非递减。输出最少子序列的个数。
-算法分析设置类似开关一样的标志，如果开始以非递减序列为真的话，依次检查下一个数字，满足非递减条件就继续，标志依旧为真；不满足条件时，改标志为假，子序列个数加1；然后依次检查下一个数字，如果满足非递增的条件，标志依旧为假，否则再改为真，并且子序列个数加1，如此重复，知道结束。但是有一些注意的地方：
-
-要另设一个长度标志len，记录新的子序列的长度，只有在长度大于1并且不符合前面的增减关系时才能增加子序列的个数，否则会多解。
-如果当前数字和前一个相等时并且len为1时，len不变，直接继续下一次循环。
-
-程序代码#include &lt;cstdio&gt;
-using namespace std;
-const int maxn = 1e5+5;
-int d[maxn];
-int n;
-int main(){
-//freopen(&quot;input.txt&quot;, &quot;r&quot;, stdin);
-    while(
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/04/16/Sorted-Arrays/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -978,7 +982,7 @@ int main(){
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">44</span>
+              <span class="site-state-item-count">46</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
