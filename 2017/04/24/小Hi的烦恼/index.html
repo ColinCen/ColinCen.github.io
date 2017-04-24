@@ -1,0 +1,822 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="hihocoder,bitset," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/tango.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="原题：小Hi的烦恼
+原题大意描述小Hi从小的一大兴趣爱好就是学习，但是他发现尽管他认真学习，依旧有学神考的比他好。
+小Hi在高中期间参加了市里的期末考试，一共五门：语文、数学、英语、物理、化学。
+成绩出来之后，小Hi发现有些同学，所有科目都考的比他好，他很烦恼。所以他想知道所有科目都比自己名次靠前的同学的人数。
+为了方便，可以认为不存在两个人某一门名次是相同的。
+其他同学们也想知道有多少人全面碾压">
+<meta property="og:type" content="article">
+<meta property="og:title" content="小Hi的烦恼">
+<meta property="og:url" content="http://yoursite.com/2017/04/24/小Hi的烦恼/index.html">
+<meta property="og:site_name" content="Colin's blog">
+<meta property="og:description" content="原题：小Hi的烦恼
+原题大意描述小Hi从小的一大兴趣爱好就是学习，但是他发现尽管他认真学习，依旧有学神考的比他好。
+小Hi在高中期间参加了市里的期末考试，一共五门：语文、数学、英语、物理、化学。
+成绩出来之后，小Hi发现有些同学，所有科目都考的比他好，他很烦恼。所以他想知道所有科目都比自己名次靠前的同学的人数。
+为了方便，可以认为不存在两个人某一门名次是相同的。
+其他同学们也想知道有多少人全面碾压">
+<meta property="og:updated_time" content="2017-04-24T13:24:59.667Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="小Hi的烦恼">
+<meta name="twitter:description" content="原题：小Hi的烦恼
+原题大意描述小Hi从小的一大兴趣爱好就是学习，但是他发现尽管他认真学习，依旧有学神考的比他好。
+小Hi在高中期间参加了市里的期末考试，一共五门：语文、数学、英语、物理、化学。
+成绩出来之后，小Hi发现有些同学，所有科目都考的比他好，他很烦恼。所以他想知道所有科目都比自己名次靠前的同学的人数。
+为了方便，可以认为不存在两个人某一门名次是相同的。
+其他同学们也想知道有多少人全面碾压">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/04/24/小Hi的烦恼/"/>
+
+  <title> 小Hi的烦恼 | Colin's blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Colin's blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">A football fan,an English lover and a coder</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                小Hi的烦恼
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-04-24T21:15:28+08:00" content="2017-04-24">
+              2017-04-24
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/acm/" itemprop="url" rel="index">
+                    <span itemprop="name">acm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/04/24/小Hi的烦恼/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/04/24/小Hi的烦恼/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><strong>原题：<a href="http://hihocoder.com/contest/hiho147/problem/1" target="_blank" rel="external">小Hi的烦恼</a></strong></p>
+<h1 id="原题大意"><a href="#原题大意" class="headerlink" title="原题大意"></a>原题大意</h1><h2 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h2><p>小Hi从小的一大兴趣爱好就是学习，但是他发现尽管他认真学习，依旧有学神考的比他好。</p>
+<p>小Hi在高中期间参加了市里的期末考试，一共五门：语文、数学、英语、物理、化学。</p>
+<p>成绩出来之后，小Hi发现有些同学，所有科目都考的比他好，他很烦恼。所以他想知道所有科目都比自己名次靠前的同学的人数。</p>
+<p>为了方便，可以认为不存在两个人某一门名次是相同的。</p>
+<p>其他同学们也想知道有多少人全面碾压了他们，所以你需要对所有人输出答案。</p>
+<h2 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h2><p>第一行，一个正整数N(N &lt;= 30000)，表示人数。</p>
+<p>接下来N行，每行五个整数，分别表示五门课依次的排名。</p>
+<h2 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h2><p>输出共N行，每行一个整数，表示答案。</p>
+<h2 id="样例输入"><a href="#样例输入" class="headerlink" title="样例输入"></a>样例输入</h2><p>4</p>
+<p>1 1 2 2 1</p>
+<p>2 3 3 3 2</p>
+<p>3 2 1 1 3</p>
+<p>4 4 4 4 4</p>
+<h2 id="样例输出"><a href="#样例输出" class="headerlink" title="样例输出"></a>样例输出</h2><p>0</p>
+<p>1</p>
+<p>0</p>
+<p>3</p>
+<h1 id="算法分析"><a href="#算法分析" class="headerlink" title="算法分析"></a>算法分析</h1><p>这一题主要是bitset的运用，算法题目已经给出了提示：</p>
+<p>小Ho：我想用集合的角度去考虑这个问题。对于每一维，比如说X维，我们能通过按X维的坐标排序，不难求出对i点来说X维比i点小的所有点的集合。现在的问题就转化成对点i来说，求出X维，Y维，Z维，Q维，W维分别比i所在那一维小的集合的交的大小。</p>
+<p>小Hi：对！你的思路很好。但是集合大小是O(N^2)，如果暴力实现的话时间复杂度就达到了O(N^2)。</p>
+<p>小Ho：我觉得一种比较直观的方法是用一个长度为n的01串，第i位为0表示i不在集合中，1表示i在集合中。</p>
+<p>小Hi：不错哟！那你仔细观察一下，求集合的交到底具有什么性质？比如对于n=6,集合{1,4,5}和集合{2,4,5,6}来说，它们的交是{4,5}。</p>
+<p>小Ho：集合求交在01串中可以这么看：若两串第i位都是1，则交的串第i位是1，否则第i位就是0。这个例子中两个集合的01串分别为100110,010111。它们的交就是000110，也就是{4,5}。</p>
+<p>小Hi：是的。我们把这个问题转化成了对01串的操作。你有没有发现，这其实类似于二进制中”and”的操作。如果我们把01串看成一个二进制的大整数，那么集合求交就变成了对两个大整数做”and”的操作。</p>
+<p>小Ho：哈！有道理。但是这看起来复杂度似乎依旧是O(N^2)的。</p>
+<p>小Hi：啊！但是你有没有想过，我们可以利用程序语言中的32位整数加速这个”and”，也就是说我们每32位压缩成一个32位整数，这样本来我们需要32次的操作，一下就变成了做一次位运算“并”的操作。所有我们最后的复杂度能优化成O(N^2/32)。</p>
+<p>小Ho：原来如此！那具体怎么实现这个“压缩”的过程呢？</p>
+<p>小Hi：其实c++/Java已经为我们设计了这样一种数据结构来解决这种问题。它的名字叫bitset/BitSet。它类似于数组，但是你可以直接对其做位运算。bitset中还有一些有用的函数，如count/cardinality可以快速算出二进制中有多少个1（这其实是一个不太好做的问题）。 </p>
+<h1 id="程序代码"><a href="#程序代码" class="headerlink" title="程序代码"></a>程序代码</h1><p>这两个版本的时间和消耗的内存差不多。</p>
+<h2 id="我的版本"><a href="#我的版本" class="headerlink" title="我的版本"></a>我的版本</h2><pre><code>#include &lt;cstdio&gt;
+#include &lt;bitset&gt;
+#include &lt;algorithm&gt;
+using namespace std;
+bitset&lt;30005&gt; s[30005][5];
+struct Rank{
+    int a,b,c,d,e,id;
+}r[30005];
+bitset&lt;30005&gt; t;
+int n;
+bool cmp1(Rank ob1,Rank ob2){
+    return ob1.a &lt; ob2.a;
+}
+bool cmp2(Rank ob1, Rank ob2){
+    return ob1.b &lt; ob2.b;
+}
+bool cmp3(Rank ob1, Rank ob2){
+    return ob1.c &lt; ob2.c;
+}
+bool cmp4(Rank ob1, Rank ob2){
+    return ob1.d &lt; ob2.d;
+}
+bool cmp5(Rank ob1, Rank ob2){
+    return ob1.e &lt; ob2.e;
+}
+bool cmp6(Rank ob1, Rank ob2){
+    return ob1.id &lt; ob2.id;
+}
+int main(){
+ //   freopen(&quot;input.txt&quot;,&quot;r&quot;,stdin);
+    scanf(&quot;%d&quot;, &amp;n);
+    for(int i = 1; i &lt;= n; i++)
+    {
+        scanf(&quot;%d%d%d%d%d&quot;,&amp;r[i].a,&amp;r[i].b,&amp;r[i].c,&amp;r[i].d,&amp;r[i].e);
+        r[i].id = i;
+    }
+    sort(r+1,r+1+n,cmp1);
+    t.reset();
+    for(int i = 1; i &lt;= n; i++)
+    {
+        if(i == 1)
+        {
+            t[r[i].id] = 1;
+            continue;
+        }
+        s[r[i].id][0] = s[r[i].id][0] | t;
+        t[r[i].id] = 1;
+    }
+    sort(r+1,r+1+n,cmp2);
+    t.reset();
+    for(int i = 1; i &lt;= n; i++)
+    {
+        if(i == 1)
+        {
+            t[r[i].id] = 1;
+            continue;
+        }
+        s[r[i].id][1] = s[r[i].id][1] | t;
+        t[r[i].id] = 1;
+    }
+    sort(r+1,r+1+n,cmp3);
+    t.reset();
+    for(int i = 1; i &lt;= n; i++)
+    {
+        if(i == 1)
+        {
+            t[r[i].id] = 1;
+            continue;
+        }
+        s[r[i].id][2] = s[r[i].id][2] | t;
+        t[r[i].id] = 1;
+    }
+    sort(r+1,r+1+n,cmp4);
+    t.reset();
+    for(int i = 1; i &lt;= n; i++)
+    {
+        if(i == 1)
+        {
+            t[r[i].id] = 1;
+            continue;
+        }
+        s[r[i].id][3] = s[r[i].id][3] | t;
+        t[r[i].id] = 1;
+    }
+    sort(r+1,r+1+n,cmp5);
+    t.reset();
+    for(int i = 1; i &lt;= n; i++)
+    {
+        if(i == 1)
+        {
+            t[r[i].id] = 1;
+            continue;
+        }
+        s[r[i].id][4] = s[r[i].id][4] | t;
+        t[r[i].id] = 1;
+    }
+    for(int i = 1; i &lt;= n; i++)
+        s[i][0] = s[i][0]&amp;s[i][1]&amp;s[i][2]&amp;s[i][3]&amp;s[i][4];
+    for(int i = 1; i &lt;= n; i++){
+        printf(&quot;%lld\n&quot;, s[i][0].count());
+    }
+    return 0;
+}
+</code></pre><h2 id="其他版本"><a href="#其他版本" class="headerlink" title="其他版本"></a>其他版本</h2><pre><code>#include&lt;bits/stdc++.h&gt;
+#define maxn 30050
+using namespace std;
+int a[maxn][5],b[5][maxn];
+bitset&lt;maxn&gt;s[5][maxn],t;    //s[i][j]:第i门课排在j-1之前的编号情况 
+int main(){
+//  freopen(&quot;input.txt&quot;,&quot;r&quot;,stdin);
+    int n;
+    scanf(&quot;%d&quot;,&amp;n);
+    for(int i=1;i&lt;=n;i++){
+        for(int j=0;j&lt;=4;j++){
+            scanf(&quot;%d&quot;,&amp;a[i][j]);
+            b[j][a[i][j]]=i;     //第j门课排第a[i][j]名的是编号为i的人 
+        }
+    }
+    for(int j=0;j&lt;=4;j++){
+        s[j][1]=0;
+        for(int i=2;i&lt;=n;i++){
+            s[j][i]=s[j][i-1];
+            s[j][i].set(b[j][i-1]);
+        }
+    }
+    for(int i=1;i&lt;=n;i++){
+        t=s[0][a[i][0]];
+        for(int j=1;j&lt;=4;j++){
+            t&amp;=s[j][a[i][j]];
+        }
+        printf(&quot;%d\n&quot;,t.count());
+    }
+    return 0;
+}
+</code></pre>
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/hihocoder/" rel="tag">#hihocoder</a>
+          
+            <a href="/tags/bitset/" rel="tag">#bitset</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/04/24/World-is-Exploding/" rel="next" title="World is Exploding">
+                <i class="fa fa-chevron-left"></i> World is Exploding
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/04/24/小Hi的烦恼/"
+           data-title="小Hi的烦恼" data-url="http://yoursite.com/2017/04/24/小Hi的烦恼/">
+      </div>
+
+
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/assassin.jpg"
+               alt="Shen Hao" />
+          <p class="site-author-name" itemprop="name">Shen Hao</p>
+          <p class="site-description motion-element" itemprop="description">Colin's blog | acm |c++</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">48</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">40</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/colincen" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#原题大意"><span class="nav-number">1.</span> <span class="nav-text">原题大意</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#描述"><span class="nav-number">1.1.</span> <span class="nav-text">描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#输入"><span class="nav-number">1.2.</span> <span class="nav-text">输入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#输出"><span class="nav-number">1.3.</span> <span class="nav-text">输出</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#样例输入"><span class="nav-number">1.4.</span> <span class="nav-text">样例输入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#样例输出"><span class="nav-number">1.5.</span> <span class="nav-text">样例输出</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#算法分析"><span class="nav-number">2.</span> <span class="nav-text">算法分析</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#程序代码"><span class="nav-number">3.</span> <span class="nav-text">程序代码</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#我的版本"><span class="nav-number">3.1.</span> <span class="nav-text">我的版本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他版本"><span class="nav-number">3.2.</span> <span class="nav-text">其他版本</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Shen Hao</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name: "colincen2"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>
