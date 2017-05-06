@@ -104,7 +104,7 @@
     fancybox: true,
     motion: true,
     duoshuo: {
-      userId: 0,
+      userId: undefined,
       author: '博主'
     }
   };
@@ -258,6 +258,426 @@
             
               
                 
+                <a class="post-title-link" href="/2017/02/18/machine-learning-exercise6-Coursera/" itemprop="url">
+                  machine learning exercise6 Coursera
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-02-18T20:51:57+08:00" content="2017-02-18">
+              2017-02-18
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/机器学习/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          第六次上机作业：
+gaussianKernel.m
+dataset3Params.m
+processEmail.m
+emailFeatures.m
+gaussianKernel.m高斯核函数
+
+sim = exp(-sum((x1 - x2) .^ 2) / (2 * sigma * sigma));
+dataset3Params.m求最优的C和sigma
+function [C, sigma] = dataset3Params(X, y, Xval, yval)
+C = 1;
+sigma = 0.3;
+
+right_c = C;
+right_sigma = sigma;
+error = 1;
+
+predictions = zeros(size(yval),1);
+t = [0.01;0.03;0.1;0.3;1;3;10;30];
+for i = 1:8
+  for j = 1:8
+    C = t(i);
+    sigma = t(j);
+    %调用包里的svmTrain函数
+    model = svmTrain(X, y , C, @(x1, x2) gaussian
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/02/18/machine-learning-exercise6-Coursera/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/02/18/machine-learning-exercise5-Coursera/" itemprop="url">
+                  machine learning exercise5 Coursera
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-02-18T20:51:49+08:00" content="2017-02-18">
+              2017-02-18
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/机器学习/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          第五次上机作业：
+linearRegCostFunction.m
+learningCurve.m
+polyFeatures.m
+validationCurve.m
+linearRegCostFunction.m线性回归的代价函数及梯度计算
+J = sum((X * theta - y) .^ 2) / (2 * m);
+J += sum(theta(2 : end) .^ 2) * lambda / (2 * m);
+
+
+p = X&apos; * (X * theta - y) / m;
+grad(1) = p(1) ;
+grad(2 : end) = p(2 : end) + (lambda / m) * theta(2 : end);
+learningCurve.m学习曲线，样本数量和错误的曲线。
+%求theta的函数
+function [theta] = trainLinearReg(X, y, lambda)
+initial_theta = zeros(size(X, 2), 1); 
+costFunction = @(t) linearRegCostFunction(X, 
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/02/18/machine-learning-exercise5-Coursera/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/02/11/machine-learning-exercise4-Coursera/" itemprop="url">
+                  machine learning exercise4 Coursera
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-02-11T12:09:28+08:00" content="2017-02-11">
+              2017-02-11
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/机器学习/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          第四次上机作业：
+sigmoidGradient.m
+randInitializeWeights.m
+nnCostFunction.m
+sigmoidGradient.m一个简单的求偏导数的公式
+
+g = sigmoid(z) .* (1 - sigmoid(z));
+randInitializeWeights.m随机初始权重函数。
+epsilon_init = 0.12;
+W = rand(L_out, 1 + L_in) * 2 * epsilon_init - epsilon_init;
+nnCostFunction.m后向传播算法的应用
+
+第一步，先用前向传播求出各层的特征值；
+
+a1 = [ones(m,1), X];
+z2 = a1 * Theta1&apos;;
+a2 = sigmoid(z2);
+a2 = [ones(m, 1),a2];
+z3 = a2 * Theta2&apos;;
+a3 = sigmoid(z3);
+Y = zeros(m, num_labels);
+%将y变成矩阵形式
+for i = 1:m
+  Y(i, y(i)) = 1;
+end
+第二步，求
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/02/11/machine-learning-exercise4-Coursera/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/02/07/machine-learning-exercise3-Coursera/" itemprop="url">
                   machine learning exercise3 Coursera
                 </a>
@@ -299,13 +719,6 @@
           
 
           
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2017/02/07/machine-learning-exercise3-Coursera/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/07/machine-learning-exercise3-Coursera/" itemprop="commentsCount"></span>
-                </a>
-              </span>
             
           
 
@@ -438,13 +851,6 @@ oneVsAll.m这是“一对多”求出theta即各个参数，这里的theta是矩
 
           
             
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2017/02/03/machine-learning-exercise2-Coursera/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/03/machine-learning-exercise2-Coursera/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
           
 
           
@@ -523,399 +929,6 @@ t =X&apos;*(sigmoid(X * theta) - y) / m;
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/01/26/machine-learning-exercise-Coursera/" itemprop="url">
-                  machine learning exercise - Coursera
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-01-26T16:08:49+08:00" content="2017-01-26">
-              2017-01-26
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/机器学习/" itemprop="url" rel="index">
-                    <span itemprop="name">机器学习</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2017/01/26/machine-learning-exercise-Coursera/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/01/26/machine-learning-exercise-Coursera/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          第一次上机作业的任务：
-warmUpExercise.m
-plotData.m
-gradientDescent.m
-computeCost.m
-gradientDescentMulti.m
-computeCostMulti.m
-featureNormalize.m
-normalEqn.m
-warmUpExercise.m热身练习很简单，就是写一个单位矩阵：
-A = eye(5);
-plotData.m画图题，标上x，y轴的变量意义。
-plot(x, y, &apos;rx&apos;, &apos;MarkerSize&apos;, 10); % Plot the data
-ylabel(&apos;Profit in $10,000s&apos;); % Set the y?axis label
-xlabel(&apos;Population of City in 10,000s&apos;); % Set the x?axis label
-computeCost.m代价函数
-J = sum((X * theta - y).^2)/(2*m);
-gradientDescent.m梯度
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/01/26/machine-learning-exercise-Coursera/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/01/23/STL的总结/" itemprop="url">
-                  STL习题
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-01-23T17:04:21+08:00" content="2017-01-23">
-              2017-01-23
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/acm/" itemprop="url" rel="index">
-                    <span itemprop="name">acm</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2017/01/23/STL的总结/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/01/23/STL的总结/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          复合词原题：UVa 10391
-算法这题我一开始是拼接来做的结果超时，部分代码如下：
-for(int i = 0; i &lt; cnt; i++){
-   for(int j = i + 1; j &lt; cnt; j++){
-     s1 = words[i] + words[j];
-     s2 = words[j] + words[i];
-     if(dict.count(s1)) cout &lt;&lt; s1 &lt;&lt; &quot;\n&quot;;
-     if(dict.count(s2)) cout &lt;&lt; s2 &lt;&lt; &quot;\n&quot;;
-   }
- }
-这里的时间复杂度有O(n²)了，换一种思考方式，改成字符串分割，因为每个字符串长度不一，所以时间复杂度为O(mn)，结果通过了，其中用到了 string类里面的 substr()函数,具体用法参见下面的代码
-程序代码#include &lt;iostream&gt;
-#include &lt;string&gt;
-#include &lt;cstring&gt;
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/01/23/STL的总结/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/12/28/c++课程设计第四题/" itemprop="url">
-                  c++课程设计
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-12-28T22:18:02+08:00" content="2016-12-28">
-              2016-12-28
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/12/28/c++课程设计第四题/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/28/c++课程设计第四题/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          原题要求：设计一个保留字的统计程序建立保留字文件；从源数据文件（C或C++语言程序）中，读取字符或字符串，与保留字文件中的保留字进行匹配比较，并统计计数。输出两张表文件：保留字计数，扫描程序的次数，非保留字计数。
-想法我先说说我是第一天是怎么弄的，第一天。。。什么也没写出来，我连 保留字 是什么都不知道，后来百度后才知道 保留字就是c/c++关键字比如 int short while for,然后再看看题目，要求已经很明确了，建一个保留字文件以及一个c/cpp的源代码（任意的），通过程序筛选出保留字与非保留字，并且计数，最后分别用两个文件输出。所以，这个程序可以分成3部分：
-
-文件读取
-筛选以及计数
-文件输出
-
-先说文件输入输出，这个我是有点头疼的，之前c里面是用fread，fwrite两个函数，但这里显然不合适，你无法预测文档的大小。无奈，拿起上学期的c++书，翻到了文件输入输出流，书上的太简略，没有合适的代码，于是就先放在了这里。再来想一想第二个步骤，第二个步骤也是最难的部分，首先看筛选，如何将保留字与非保留字从源码里区分开来，和周围同学讨论后，他们是这样想的：通过文件操作将源码读
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/12/28/c++课程设计第四题/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -961,7 +974,7 @@ for(int i = 0; i &lt; cnt; i++){
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">51</span>
+              <span class="site-state-item-count">54</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1117,28 +1130,9 @@ for(int i = 0; i &lt; cnt; i++){
 
   
 
-  
-    
-  
-
-  <script type="text/javascript">
-    var duoshuoQuery = {short_name: "colincen2"};
-    (function() {
-      var ds = document.createElement('script');
-      ds.type = 'text/javascript';ds.async = true;
-      ds.id = 'duoshuo-script';
-      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-      ds.charset = 'UTF-8';
-      (document.getElementsByTagName('head')[0]
-      || document.getElementsByTagName('body')[0]).appendChild(ds);
-    })();
-  </script>
-
-  
-    
-  
 
 
+  
 
 
 

@@ -1,0 +1,850 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="AtCoder," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/tango.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="Sentou原题：Sentou
+原题大意一个水龙头，按一次开关会流T秒，再次按开关会刷新它的时间。给出n次按开关的时刻，问总共会流多少秒。
+算法分析水题，用一个数组记录两次开关的时间差，并判断前一个时刻加上水流的时间能否到达下次按开关的时刻，如果能则加上时间差，否则加上水流时间。
+程序代码#include &amp;lt;cstdio&amp;gt;
+#include &amp;lt;cstring&amp;gt;
+#defin">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Atcoder 073">
+<meta property="og:url" content="http://yoursite.com/2017/05/03/Atcoder-073/index.html">
+<meta property="og:site_name" content="Colin's blog">
+<meta property="og:description" content="Sentou原题：Sentou
+原题大意一个水龙头，按一次开关会流T秒，再次按开关会刷新它的时间。给出n次按开关的时刻，问总共会流多少秒。
+算法分析水题，用一个数组记录两次开关的时间差，并判断前一个时刻加上水流的时间能否到达下次按开关的时刻，如果能则加上时间差，否则加上水流时间。
+程序代码#include &amp;lt;cstdio&amp;gt;
+#include &amp;lt;cstring&amp;gt;
+#defin">
+<meta property="og:updated_time" content="2017-05-03T08:35:32.756Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Atcoder 073">
+<meta name="twitter:description" content="Sentou原题：Sentou
+原题大意一个水龙头，按一次开关会流T秒，再次按开关会刷新它的时间。给出n次按开关的时刻，问总共会流多少秒。
+算法分析水题，用一个数组记录两次开关的时间差，并判断前一个时刻加上水流的时间能否到达下次按开关的时刻，如果能则加上时间差，否则加上水流时间。
+程序代码#include &amp;lt;cstdio&amp;gt;
+#include &amp;lt;cstring&amp;gt;
+#defin">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: undefined,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/05/03/Atcoder-073/"/>
+
+  <title> Atcoder 073 | Colin's blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Colin's blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">A football fan,an English lover and a coder</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Atcoder 073
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-05-03T15:56:51+08:00" content="2017-05-03">
+              2017-05-03
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/acm/" itemprop="url" rel="index">
+                    <span itemprop="name">acm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Sentou"><a href="#Sentou" class="headerlink" title="Sentou"></a>Sentou</h1><p><strong>原题：<a href="http://arc073.contest.atcoder.jp/tasks/arc073_a" target="_blank" rel="external">Sentou</a></strong></p>
+<h2 id="原题大意"><a href="#原题大意" class="headerlink" title="原题大意"></a>原题大意</h2><p>一个水龙头，按一次开关会流T秒，再次按开关会刷新它的时间。给出n次按开关的时刻，问总共会流多少秒。</p>
+<h2 id="算法分析"><a href="#算法分析" class="headerlink" title="算法分析"></a>算法分析</h2><p>水题，用一个数组记录两次开关的时间差，并判断前一个时刻加上水流的时间能否到达下次按开关的时刻，如果能则加上时间差，否则加上水流时间。</p>
+<h2 id="程序代码"><a href="#程序代码" class="headerlink" title="程序代码"></a>程序代码</h2><pre><code>#include &lt;cstdio&gt;
+#include &lt;cstring&gt;
+#define mem(a,b) memset(a,b,sizeof(a))
+using namespace std;
+const int maxn = 200000+5;
+typedef long long ll;
+ll sen[maxn], a[maxn];
+ll sum = 0;
+int n;
+ll t;
+int main(){
+    scanf(&quot;%lld%lld&quot;,&amp;n, &amp;t);
+    for(int i = 0; i &lt; n; i++)
+    {
+        scanf(&quot;%lld&quot;, &amp;sen[i]);
+
+    }
+    for(int i = 1; i &lt; n; i++)
+    {
+        a[i] = sen[i] - sen[i-1];
+
+    }
+    sum = 0LL;
+    int i = 0;
+    while(i &lt; n){
+        if(t + sen[i] &gt; sen[i+1]) sum+=a[i+1];
+        else sum+=t;
+        i++;
+    }
+    sum+=t;
+    printf(&quot;%lld\n&quot;, sum);
+    return 0;
+}
+</code></pre><h1 id="Simple-Knapsack"><a href="#Simple-Knapsack" class="headerlink" title="Simple Knapsack"></a>Simple Knapsack</h1><p><strong>原题：<a href="http://arc073.contest.atcoder.jp/tasks/arc073_b" target="_blank" rel="external">Simple Knapsack</a></strong></p>
+<h2 id="原题大意-1"><a href="#原题大意-1" class="headerlink" title="原题大意"></a>原题大意</h2><p>0/1背包，有不超过100的物品N个，背包总容量W有10^9，会爆数组，另外重量只有四种。</p>
+<h2 id="算法分析-1"><a href="#算法分析-1" class="headerlink" title="算法分析"></a>算法分析</h2><p>暴力枚举，时间复杂度：(N/4)^4 = 25^4 = 390625。</p>
+<h2 id="程序代码-1"><a href="#程序代码-1" class="headerlink" title="程序代码"></a>程序代码</h2><pre><code>#include &lt;cstdio&gt;
+#include &lt;cstring&gt;
+#include &lt;vector&gt;
+#include &lt;set&gt;
+#include &lt;algorithm&gt;
+#define mem(a,b) memset(a,b,sizeof(a))
+using namespace std;
+const int N = 105;
+typedef long long ll;
+int tot = 0;
+ll a[4];
+ll b[4][N];
+int n ;
+ll W;
+vector&lt;ll&gt; bag[4];
+set&lt;ll&gt; s;
+bool cmp(ll a, ll b){
+    return a&gt;b;
+}
+int main(){
+    scanf(&quot;%d%lld&quot;,&amp;n,&amp;W);
+    for(int i = 0; i &lt; n; i++){
+        ll w,v;
+        int num = 0;
+        scanf(&quot;%lld%lld&quot;,&amp;w, &amp;v);
+        if(!s.count(w)){
+            s.insert(w);
+            num = tot;
+            a[tot++] = w;
+        }
+        else{
+            for(int j = 0; j &lt; tot; j++)
+            {
+                if(w == a[j])
+                {
+                    num = j;
+                    break;
+                }
+            }
+        }
+        bag[num].push_back(v);
+    }
+    for(int i = 0; i &lt; 4; i++){
+        sort(bag[i].begin(), bag[i].end(),cmp);
+    }
+    for(int i = 0; i &lt; 4; i++)
+    {
+        b[i][0] = 0;
+        int j;
+        for(j = 1; j &lt;= bag[i].size(); j++)
+        {
+            b[i][j] = bag[i][j-1]+b[i][j-1];
+        }
+    }
+    ll maxans = 0;
+    int len0 = bag[0].size();
+    int len1 = bag[1].size();
+    int len2 = bag[2].size();
+    int len3 = bag[3].size();
+    for(int i = 0; i &lt;= len0; i++){
+        for(int j = 0; j &lt;= len1; j++){
+            for (int k = 0; k &lt;= len2; k++){
+                for(int l = 0; l &lt;= len3; l++){
+
+                    ll temp = i*a[0]+j*a[1]+k*a[2]+l*a[3];
+                    if(temp &lt;= W){
+                        ll ans = b[0][i]+b[1][j]+b[2][k]+b[3][l];
+                        if(ans &gt; maxans) maxans = ans;
+                    }
+
+                }
+            }
+        }
+    }
+    printf(&quot;%lld\n&quot;, maxans);
+    return 0;
+}
+</code></pre><h1 id="Ball-Coloring"><a href="#Ball-Coloring" class="headerlink" title="Ball Coloring"></a>Ball Coloring</h1><p><strong>原题：<a href="http://arc073.contest.atcoder.jp/tasks/arc073_c" target="_blank" rel="external">Ball Coloring</a></strong></p>
+<h2 id="原题大意-2"><a href="#原题大意-2" class="headerlink" title="原题大意"></a>原题大意</h2><p>N个包，每个包里有两个球，让你将它们一红一蓝，使得(Rmax−Rmin)×(Bmax−Bmin)最小。</p>
+<h2 id="算法分析-2"><a href="#算法分析-2" class="headerlink" title="算法分析"></a>算法分析</h2><p>令：<br>MIN = min(x1, x2, …, xn, y1, y2, …, yn)<br>MAX = max(x1, x2, …, xn, y1, y2, …, yn)<br>所以MIN = Rmin 或 Bmin， MAX = Rmax 或 Bmax；<br>考虑MIN = Rmin 和 MIN = Bmin是等价的，所以令MIN = Rmin，然后又两种情况：</p>
+<ul>
+<li>Rmin = MIN &amp; Bmax = MAX<br> 要取得最小值，就要是Rmax最小，Bmin最大，这样只要贪心的让每个包里的大数是蓝色的，小数是红色的。</li>
+<li>Rmin = MIN &amp; Rmax = MAX<br>  这样(Rmax−Rmin)其实已经确定，只要关注Bmax - Bmin就行了，可以先将每个包里的数值较小的球涂成蓝色的，然后从小到大排序，然后从小到大依次将蓝球与红球互相调换颜色，并且维护(Bmax−Bmin)的最小值，这样做的依据是：假设前面最小的蓝球换成红球之后Bmax不变，那么Bmin一定会变大（因为换之前红球数值大于蓝球），即使后来Bmax改变了，也只会变大，而且Bmin也一定变大，所以能得到最小值。</li>
+</ul>
+<h2 id="程序代码-2"><a href="#程序代码-2" class="headerlink" title="程序代码"></a>程序代码</h2><pre><code>//用了set里的multiset，可以使元素有序且允许重复。
+#include &lt;bits/stdc++.h&gt;
+using namespace std;
+typedef long long ll;
+const int MAX = (1e5)+1;
+int n;
+vector&lt;pair&lt;ll, ll&gt; &gt; a;
+multiset&lt;ll&gt; r, b;
+long long ans = LLONG_MAX;
+int main() {    
+ios::sync_with_stdio(false);
+cin.tie(0); 
+cin &gt;&gt; n;
+a.resize(n);    
+for(int i = 0; i &lt; n; i++) {    
+    cin &gt;&gt; a[i].first &gt;&gt; a[i].second;     
+      if(a[i].first &gt; a[i].second) 
+     swap(a[i].first, a[i].second);
+    }   
+sort(a.begin(), a.end());
+    for(auto p: a) {    
+    r.insert(p.first);  
+    b.insert(p.second); 
+}   
+ans = min((*r.rbegin() - *r.begin()) * (*b.rbegin() - *b.begin()), ans);    
+for(auto p: a) {    
+    r.erase(r.find(p.first));      
+     b.erase(b.find(p.second));   
+    r.insert(p.second); 
+    b.insert(p.first);  
+    ans = min((*r.rbegin() - *r.begin()) * (*b.rbegin() - *b.begin()), ans);    
+}
+    cout &lt;&lt; ans;
+}
+</code></pre><h1 id="Many-Moves"><a href="#Many-Moves" class="headerlink" title="Many Moves"></a>Many Moves</h1><p><strong>原题：<a href="http://arc073.contest.atcoder.jp/tasks/arc073_d" target="_blank" rel="external">Many Moves</a></strong></p>
+<h2 id="原题大意-3"><a href="#原题大意-3" class="headerlink" title="原题大意"></a>原题大意</h2><p>给出长度为n的数轴。你有两个指针，一开始一个在a，一个在b。q次操作，每次要求将一个指针移动到pi。移动的代价是移动前后位置的距离。最小化距离之和。</p>
+<h2 id="算法分析-3"><a href="#算法分析-3" class="headerlink" title="算法分析"></a>算法分析</h2><blockquote>
+<p><a href="http://blog.csdn.net/qaq__qaq/article/details/71078464" target="_blank" rel="external">http://blog.csdn.net/qaq__qaq/article/details/71078464</a></p>
+</blockquote>
+<h2 id="程序代码-3"><a href="#程序代码-3" class="headerlink" title="程序代码"></a>程序代码</h2><pre><code>#include &lt;bits/stdc++.h&gt;
+
+#define MAXN (1 &lt;&lt; 18)
+#define ll long long
+
+int n, q, A, B;
+int x[MAXN];
+ll seg1[MAXN &lt;&lt; 1], seg2[MAXN &lt;&lt; 1];
+
+ll query(ll *seg, int u, int l, int r, int ql, int qr){
+    if(ql &lt;= l &amp;&amp; r &lt;= qr) return seg[u];
+    int m = l + r &gt;&gt; 1, ls = u &lt;&lt; 1, rs = ls | 1;
+    ll ret = LLONG_MAX;
+    if(!(m &lt; ql)) ret = std::min(ret, query(seg, ls, l, m, ql, qr));
+    if(!(qr &lt; m + 1)) ret = std::min(ret, query(seg, rs, m + 1, r, ql, qr));
+    return ret;
+}
+
+void insert(ll *seg, int u, int l, int r, int pos, ll val){
+    if(l == r){
+        seg[u] = val;
+        return;
+    }
+    int m = l + r &gt;&gt; 1, ls = u &lt;&lt; 1, rs = ls | 1;
+    if(pos &lt;= m) insert(seg, ls, l, m, pos, val);
+    else insert(seg, rs, m + 1, r, pos, val);
+    seg[u] = std::min(seg[ls], seg[rs]);
+}
+
+int main(){
+    scanf(&quot;%d%d%d%d&quot;, &amp;n, &amp;q, &amp;A, &amp;B);
+    memset(seg1, 0x7f, sizeof seg1);
+    memset(seg2, 0x7f, sizeof seg2);
+    x[0] = B;
+    insert(seg1, 1, 1, n, A, A);
+    insert(seg2, 1, 1, n, A, -A);
+    ll delta = 0;
+    for(int i = 1; i &lt;= q; ++ i){
+        scanf(&quot;%d&quot;, x + i);
+
+        ll tmp1 = query(seg1, 1, 1, n, x[i] + 1, n) - x[i];
+        ll tmp2 = query(seg2, 1, 1, n, 1, x[i]) + x[i];
+        tmp1 = std::min(tmp1, tmp2);
+
+        //这里可以去掉的原因是：如果原来是INF的话，加上一个数还是很大的数，下面还是会论INF处理
+//      ll now = query(seg1, 1, 1, n, x[i - 1], x[i - 1]) - x[i - 1] + delta;
+//      if(tmp1 &lt; now){
+            insert(seg1, 1, 1, n, x[i - 1], tmp1 + x[i - 1] - std::abs(x[i] - x[i - 1]));
+            insert(seg2, 1, 1, n, x[i - 1], tmp1 - x[i - 1] - std::abs(x[i] - x[i - 1]));
+//      }
+
+        delta += std::abs(x[i] - x[i - 1]);
+    }
+    ll ans = LLONG_MAX;
+    for(int i = 1; i &lt;= n; ++ i){
+        ans = std::min(ans, query(seg1, 1, 1, n, i, i) - i + delta);
+    }
+    printf(&quot;%lld\n&quot;, ans);
+    return 0;
+}
+</code></pre>
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/AtCoder/" rel="tag">#AtCoder</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/04/29/迷宫转弯问题/" rel="next" title="迷宫转弯问题">
+                <i class="fa fa-chevron-left"></i> 迷宫转弯问题
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/05/06/Font-Size/" rel="prev" title="Font Size">
+                Font Size <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/assassin.jpg"
+               alt="Shen Hao" />
+          <p class="site-author-name" itemprop="name">Shen Hao</p>
+          <p class="site-description motion-element" itemprop="description">Colin's blog | acm |c++</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">54</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">45</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/colincen" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Sentou"><span class="nav-number">1.</span> <span class="nav-text">Sentou</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#原题大意"><span class="nav-number">1.1.</span> <span class="nav-text">原题大意</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法分析"><span class="nav-number">1.2.</span> <span class="nav-text">算法分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#程序代码"><span class="nav-number">1.3.</span> <span class="nav-text">程序代码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Simple-Knapsack"><span class="nav-number">2.</span> <span class="nav-text">Simple Knapsack</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#原题大意-1"><span class="nav-number">2.1.</span> <span class="nav-text">原题大意</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法分析-1"><span class="nav-number">2.2.</span> <span class="nav-text">算法分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#程序代码-1"><span class="nav-number">2.3.</span> <span class="nav-text">程序代码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Ball-Coloring"><span class="nav-number">3.</span> <span class="nav-text">Ball Coloring</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#原题大意-2"><span class="nav-number">3.1.</span> <span class="nav-text">原题大意</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法分析-2"><span class="nav-number">3.2.</span> <span class="nav-text">算法分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#程序代码-2"><span class="nav-number">3.3.</span> <span class="nav-text">程序代码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Many-Moves"><span class="nav-number">4.</span> <span class="nav-text">Many Moves</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#原题大意-3"><span class="nav-number">4.1.</span> <span class="nav-text">原题大意</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法分析-3"><span class="nav-number">4.2.</span> <span class="nav-text">算法分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#程序代码-3"><span class="nav-number">4.3.</span> <span class="nav-text">程序代码</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Shen Hao</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>

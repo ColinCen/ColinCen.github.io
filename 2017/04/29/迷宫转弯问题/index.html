@@ -1,0 +1,857 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="bfs,dfs," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/tango.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="走迷宫问题是图搜索的经典问题，这里给出两个和转弯有关的题。
+Laser原题：Laser
+原题大意有一个n×m的区域，有一个激光和一个传感器，其中有一些障碍，我们的目标就是在空白的区域放一些镜子，并且希望用最少数量的镜子，能够使激关经过反射后到达传感器。&amp;lt;&amp;gt;^v箭头指向激光的方向，C表示传感器，#表示障碍， . 表示空白区域。
+算法分析暴力模拟当前光线在何处时，放置了哪种镜子，搜下去就行">
+<meta property="og:type" content="article">
+<meta property="og:title" content="迷宫转弯问题">
+<meta property="og:url" content="http://yoursite.com/2017/04/29/迷宫转弯问题/index.html">
+<meta property="og:site_name" content="Colin's blog">
+<meta property="og:description" content="走迷宫问题是图搜索的经典问题，这里给出两个和转弯有关的题。
+Laser原题：Laser
+原题大意有一个n×m的区域，有一个激光和一个传感器，其中有一些障碍，我们的目标就是在空白的区域放一些镜子，并且希望用最少数量的镜子，能够使激关经过反射后到达传感器。&amp;lt;&amp;gt;^v箭头指向激光的方向，C表示传感器，#表示障碍， . 表示空白区域。
+算法分析暴力模拟当前光线在何处时，放置了哪种镜子，搜下去就行">
+<meta property="og:updated_time" content="2017-04-29T08:33:10.716Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="迷宫转弯问题">
+<meta name="twitter:description" content="走迷宫问题是图搜索的经典问题，这里给出两个和转弯有关的题。
+Laser原题：Laser
+原题大意有一个n×m的区域，有一个激光和一个传感器，其中有一些障碍，我们的目标就是在空白的区域放一些镜子，并且希望用最少数量的镜子，能够使激关经过反射后到达传感器。&amp;lt;&amp;gt;^v箭头指向激光的方向，C表示传感器，#表示障碍， . 表示空白区域。
+算法分析暴力模拟当前光线在何处时，放置了哪种镜子，搜下去就行">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: undefined,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/04/29/迷宫转弯问题/"/>
+
+  <title> 迷宫转弯问题 | Colin's blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Colin's blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">A football fan,an English lover and a coder</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                迷宫转弯问题
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-04-29T16:13:22+08:00" content="2017-04-29">
+              2017-04-29
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/acm/" itemprop="url" rel="index">
+                    <span itemprop="name">acm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>走迷宫问题是图搜索的经典问题，这里给出两个和转弯有关的题。</p>
+<h1 id="Laser"><a href="#Laser" class="headerlink" title="Laser"></a>Laser</h1><p><strong>原题：<a href="http://www.spoj.com/problems/LAS/en/" target="_blank" rel="external">Laser</a></strong></p>
+<h2 id="原题大意"><a href="#原题大意" class="headerlink" title="原题大意"></a>原题大意</h2><p>有一个n×m的区域，有一个激光和一个传感器，其中有一些障碍，我们的目标就是在空白的区域放一些镜子，并且希望用最少数量的镜子，能够使激关经过反射后到达传感器。&lt;&gt;^v箭头指向激光的方向，C表示传感器，#表示障碍， . 表示空白区域。</p>
+<h2 id="算法分析"><a href="#算法分析" class="headerlink" title="算法分析"></a>算法分析</h2><p>暴力模拟当前光线在何处时，放置了哪种镜子，搜下去就行了。<br>光线通过的路径也被视作’#’，其实这个条件是没有意义的。假若光线产生了回路，对于最优解来说与其花费更多镜子去产生回路，不如只放置一面镜子就使得方向偏转,而我们bfs出的结果一定是最优的。需要注意镜子不能摆放在起点，终点和’#’处。</p>
+<h2 id="程序代码"><a href="#程序代码" class="headerlink" title="程序代码"></a>程序代码</h2><pre><code>#include &lt;bits/stdc++.h&gt;
+using namespace std;
+typedef long long LL;
+int t;
+int n, m;
+char s[222][222];
+int walk[4][2] = {{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
+int vis[222][222][4];
+int pre[200000];
+int cnt = 0;
+
+struct Laser {
+    int x, y, turn, id, type;
+} laser[200000];
+
+bool isinit(int x, int y) {
+    if(s[x][y] == &apos;&gt;&apos; || s[x][y] == &apos;^&apos; || s[x][y] == &apos;v&apos; || s[x][y] == &apos;&lt;&apos;)
+        return 1;
+    return 0;
+}
+
+int main() {
+    scanf(&quot;%d&quot;, &amp;t);
+    while(t--) {
+        memset(pre, 0, sizeof pre);
+        cnt = 0;
+        memset(vis, 0, sizeof vis);
+        scanf(&quot;%d%d&quot;, &amp;n, &amp;m);
+        int posx, posy, turn, edx, edy;
+        for(int i = 1; i &lt;= n; i++)
+            for(int j = 1; j &lt;= m; j++) {
+                scanf(&quot; %c&quot;, &amp;s[i][j]);
+                if(s[i][j] == &apos;^&apos;) turn = 0, posx = i, posy = j;
+                if(s[i][j] == &apos;&gt;&apos;) turn = 1, posx = i, posy = j;
+                if(s[i][j] == &apos;v&apos;) turn = 2, posx = i, posy = j;
+                if(s[i][j] == &apos;&lt;&apos;) turn = 3, posx = i, posy = j;
+                if(s[i][j] == &apos;C&apos;) edx = i, edy = j;
+            }
+        queue&lt; Laser &gt; Q;
+        laser[cnt++] = {posx, posy, turn, 0, -1};
+        vis[posx][posy][turn] = 1;
+        Q.push(laser[0]);
+        Laser res;
+        while(!Q.empty()) {
+            Laser buf = Q.front();
+            Q.pop();
+            if(buf.x == edx &amp;&amp; buf.y == edy) {
+                res = buf;
+                break;
+            }
+            int nx, ny, nt;
+            for(int countup = 1; ; countup ++) {
+                nx = buf.x + countup * walk[buf.turn][0];
+                ny = buf.y + countup * walk[buf.turn][1];
+                if(nx &gt;= 1 &amp;&amp; nx &lt;= n &amp;&amp; ny &gt;= 1 &amp;&amp; ny &lt;= m &amp;&amp; s[nx][ny] != &apos;#&apos; &amp;&amp; !isinit(nx, ny)) {
+                    if(buf.turn == 0) {
+                        if(!vis[nx][ny][3]) {
+                            pre[cnt] = buf.id;
+                            laser[cnt] = {nx, ny, 3, cnt, 0};
+                            Q.push(laser[cnt]);
+                            cnt++;
+                            vis[nx][ny][3] = 1;
+                        }
+                        if(!vis[nx][ny][1]) {
+                            pre[cnt] = buf.id;
+                            laser[cnt] = {nx, ny, 1, cnt, 1};
+                            Q.push(laser[cnt]);
+                            cnt++;
+                            vis[nx][ny][1] = 1;
+                        }
+                    } else if(buf.turn == 1) {
+                        if(!vis[nx][ny][2]) {
+                            pre[cnt] = buf.id;
+                            laser[cnt] = {nx, ny, 2, cnt, 0};
+                            Q.push(laser[cnt]);
+                            cnt++;
+                            vis[nx][ny][2] = 1;
+                        }
+                        if(!vis[nx][ny][0]) {
+                            pre[cnt] = buf.id;
+                            laser[cnt] = {nx, ny, 0, cnt, 1};
+                            Q.push(laser[cnt]);
+                            cnt++;
+                            vis[nx][ny][0] = 1;
+                        }
+                    } else if(buf.turn == 2) {
+                        if(!vis[nx][ny][1]) {
+                            pre[cnt] = buf.id;
+                            laser[cnt] = {nx, ny, 1, cnt, 0};
+                            Q.push(laser[cnt]);
+                            cnt++;
+                            vis[nx][ny][1] = 1;
+                        }
+                        if(!vis[nx][ny][3]) {
+                            pre[cnt] = buf.id;
+                            laser[cnt] = {nx, ny, 3, cnt, 1};
+                            Q.push(laser[cnt]);
+                            cnt++;
+                            vis[nx][ny][3] = 1;
+                        }
+                    } else if(buf.turn == 3) {
+                        if(!vis[nx][ny][0]) {
+                            pre[cnt] = buf.id;
+                            laser[cnt] = {nx, ny, 0, cnt, 0};
+                            Q.push(laser[cnt]);
+                            cnt++;
+                            vis[nx][ny][0] = 1;
+                        }
+                        if(!vis[nx][ny][2]) {
+                            pre[cnt] = buf.id;
+                            laser[cnt] = {nx, ny, 2, cnt, 1};
+                            Q.push(laser[cnt]);
+                            cnt++;
+                            vis[nx][ny][2] = 1;
+                        }
+                    }
+                    vis[nx][ny][buf.turn] = 1;
+                } else
+                    break;
+            }
+        }
+        int step = 0;
+        while(!(res.x == posx &amp;&amp; res.y == posy)) {
+            if(res.type == 0)
+                s[res.x][res.y] = &apos;\\&apos;, step++;
+            else if(res.type == 1)
+                s[res.x][res.y] = &apos;/&apos;, step++;
+            res = laser[pre[res.id]];
+        }
+        s[edx][edy] = &apos;C&apos;;
+        for(int i = 1; i &lt;= n; i++, puts(&quot;&quot;))
+        for(int j = 1; j &lt;= m; j++)
+            printf(&quot;%c&quot;, s[i][j]);
+    }
+    return 0;
+}
+</code></pre><h1 id="Igor-and-his-way-to-work"><a href="#Igor-and-his-way-to-work" class="headerlink" title="Igor and his way to work"></a>Igor and his way to work</h1><p><strong>原题：<a href="http://codeforces.com/problemset/problem/793/B" target="_blank" rel="external">Igor and his way to work</a></strong></p>
+<h2 id="原题大意-1"><a href="#原题大意-1" class="headerlink" title="原题大意"></a>原题大意</h2><p>一座 n 行 m 列的城市。 Igor 需要找到一条从他家到单位的路径，最多转两次弯。Igor只能向左向右或是向上向下走。城市中有一些障碍，现在问你Igor是否能找到这样一条路径。</p>
+<ul>
+<li>“.” — 一个空格;</li>
+<li>“*” — 一个障碍;</li>
+<li>“S” — Igor的家;</li>
+<li>“T” — Igor公司所在地。</li>
+<li>保证 “S” 和 “T” 都恰好出现一次。</li>
+</ul>
+<h2 id="算法分析-1"><a href="#算法分析-1" class="headerlink" title="算法分析"></a>算法分析</h2><p>dfs搜索，用三维数字vis[x][y][z]，其中x，y为坐标，z为当前方向，这个数组里存的是转弯的次数，如果经过一个点的同一种方向，发现已经有比当前转向次数少的值，就说明之前已经走过，而且只用了更少的转向，所以舍弃当前值。</p>
+<h2 id="程序代码-1"><a href="#程序代码-1" class="headerlink" title="程序代码"></a>程序代码</h2><pre><code>#include &lt;cstdio&gt;
+#include &lt;cstring&gt;
+#define mem(a,b) memset(a,b,sizeof(a))
+using namespace std;
+const int maxn = 1000+50;
+char g[maxn][maxn];
+int a[maxn][maxn];
+int vis[maxn][maxn][4];
+int d[4][2] = {{1, 0}, {-1 ,0}, {0, 1}, {0, -1}};
+int n, m;
+int sx,sy,ex,ey;
+void dfs(int x, int y, int pre_dir, int turns){
+//    if(x == 1 &amp;&amp; y == 0) printf(&quot;%d\n&quot;, turns);
+    if(turns &gt; 2 || x &lt; 0 || x &gt;= n || y &lt; 0 || y &gt;= m || g[x][y] == &apos;*&apos;) return;
+    if(pre_dir &gt;= 0 &amp;&amp; g[x][y] == &apos;S&apos;) return;
+    if(pre_dir &gt;=0 &amp;&amp; vis[x][y][pre_dir] != -1)
+    {
+        if(turns &gt;= vis[x][y][pre_dir])//不能漏了这个等号，否则会超时！！！
+        return;
+    }
+    if(x == ex &amp;&amp; y == ey &amp;&amp; turns &lt;= 2){vis[x][y][pre_dir] = turns;return;}
+    for(int i = 0; i &lt; 4; i++)
+    {
+        if(pre_dir == -1) 
+        {
+            dfs(x+d[i][0], y+d[i][1],i,turns);
+}
+        else{
+            vis[x][y][pre_dir] = turns;
+            if(pre_dir == 0){
+                if(i != 1)
+                 {
+                    if(i == pre_dir) dfs(x+d[i][0], y+d[i][1],i,turns);
+                    else  dfs(x+d[i][0], y+d[i][1],i,turns+1);
+                 }
+            }
+            else if(pre_dir == 1){
+                if(i != 0)
+                 {
+                    if(i == pre_dir) dfs(x+d[i][0], y+d[i][1],i,turns);
+                    else  dfs(x+d[i][0], y+d[i][1],i,turns+1);
+                 }
+            }
+            else if(pre_dir == 2){
+                if(i != 3)
+                 {
+                    if(i == pre_dir) dfs(x+d[i][0], y+d[i][1],i,turns);
+                    else  dfs(x+d[i][0], y+d[i][1],i,turns+1);
+                 }
+            }
+            else{
+                if(i != 2)
+                 {
+                    if(i == pre_dir) dfs(x+d[i][0], y+d[i][1],i,turns);
+                    else  dfs(x+d[i][0], y+d[i][1],i,turns+1);
+                 }
+            }
+        }
+    }
+
+}
+int main(){
+//freopen(&quot;input.txt&quot;, &quot;r&quot;, stdin);
+     scanf(&quot;%d %d&quot;, &amp;n, &amp;m);
+        for(int i = 0; i &lt; n; i++)
+            scanf(&quot;%s&quot;, g[i]);
+        for(int i = 0; i &lt; n; i++)
+        {
+            for(int j = 0; j &lt; m; j++)
+            {
+                if(g[i][j] == &apos;S&apos;) sx = i, sy = j;
+                if(g[i][j] == &apos;T&apos;) ex = i, ey = j; 
+            }
+        }
+        mem(vis,-1);
+        dfs(sx, sy, -1, 0);      
+        int i;
+        for(i = 0; i &lt; 4; i++)
+            if(vis[ex][ey][i] != -1) {printf(&quot;YES\n&quot;);break;}
+        if(i == 4) printf(&quot;NO\n&quot;);
+
+    return 0;
+}
+</code></pre>
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/bfs/" rel="tag">#bfs</a>
+          
+            <a href="/tags/dfs/" rel="tag">#dfs</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/04/26/Choreographer-Problem/" rel="next" title="Choreographer Problem">
+                <i class="fa fa-chevron-left"></i> Choreographer Problem
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/05/03/Atcoder-073/" rel="prev" title="Atcoder 073">
+                Atcoder 073 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/assassin.jpg"
+               alt="Shen Hao" />
+          <p class="site-author-name" itemprop="name">Shen Hao</p>
+          <p class="site-description motion-element" itemprop="description">Colin's blog | acm |c++</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">54</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">45</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/colincen" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Laser"><span class="nav-number">1.</span> <span class="nav-text">Laser</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#原题大意"><span class="nav-number">1.1.</span> <span class="nav-text">原题大意</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法分析"><span class="nav-number">1.2.</span> <span class="nav-text">算法分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#程序代码"><span class="nav-number">1.3.</span> <span class="nav-text">程序代码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Igor-and-his-way-to-work"><span class="nav-number">2.</span> <span class="nav-text">Igor and his way to work</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#原题大意-1"><span class="nav-number">2.1.</span> <span class="nav-text">原题大意</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法分析-1"><span class="nav-number">2.2.</span> <span class="nav-text">算法分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#程序代码-1"><span class="nav-number">2.3.</span> <span class="nav-text">程序代码</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Shen Hao</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>
