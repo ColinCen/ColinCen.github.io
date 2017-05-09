@@ -258,6 +258,409 @@
             
               
                 
+                <a class="post-title-link" href="/2016/09/01/hdu-1042-N/" itemprop="url">
+                  hdu 1042 N!
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-09-01T14:51:31+08:00" content="2016-09-01">
+              2016-09-01
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/acm/" itemprop="url" rel="index">
+                    <span itemprop="name">acm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          原题:hdoj 1042
+原题大意题意很简单就是求阶乘.但数据要求能求到10000.
+算法分析这题因为数据大,所以用数组保存,用大数相乘的思想.每个数组元素的值在0~9999间,过了就进一位,每个数组元素应当有4位(除了开头部分),不够用0补.
+注意:我一开始是从n往1乘,结果超时了,只有用1往n乘才能通过.同时0!=1不能忽略.
+代码程序#include &lt;iostream&gt;
+using namespace std;
+#define N 10000
+int main(){
+    int a[N],n,m,len;
+    while(scanf(&quot;%d&quot;,&amp;n)!=EOF)
+    {
+        if(n==0) //0!=1
+        {printf(&quot;1\n&quot;);continue;}
+        len=1;
+        a[0]=n;m=0;
+        for(int t=1;t&lt;n;t++)
+        {
+            for(int i=0;i&lt;len;i++
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/09/01/hdu-1042-N/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/08/16/hdu-1015-Safecracker/" itemprop="url">
+                  hdu 1015 Safecracker
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-16T15:32:18+08:00" content="2016-08-16">
+              2016-08-16
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/acm/" itemprop="url" rel="index">
+                    <span itemprop="name">acm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          原题:hdoj 1015
+原题大意题中给了一个式子 v - w^2 + x^3 - y^4 + z^5 = target 要求输入一个数(即作为target),再给出一个字符串,字符串由从A到Z,26个大写字母组成(A=1, B=2, …, Z=26),式子中的v,w,x,y,z由给出的字符串中的5个字符组成,使得式子能够成立.但是符合条件的有很多时,则按字典顺序且逆序输出一种,若无,则打印”no solution”.
+算法分析因为要按字典序输出最大的一组,所以先要将输进去的字符串重新排序,用C++中stl里sort函数就可以了.下面可以用枚举(5重循环)或dfs.
+程序代码枚举#include &lt;iostream&gt;
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+#include &lt;algorithm&gt;
+#define target(v,w,x,y,z) v-w*w+x*x*x-y*y*y*y+z*z*z*z*z
+using namespace std;
+char str[30];
+int num[30];
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/08/16/hdu-1015-Safecracker/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/08/12/Ignatius-and-the-Princess-I/" itemprop="url">
+                  Ignatius and the Princess I
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-12T17:36:59+08:00" content="2016-08-12">
+              2016-08-12
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/acm/" itemprop="url" rel="index">
+                    <span itemprop="name">acm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          原题:hdoj 1026
+原题大意迷宫题,要求求出最短时间,同时打印每一个步骤.
+算法分析看到这题,我的第一反应就是bfs,但是,还要打印每一步,我没什么办法,百度后普遍算法是,用优先队列bfs得出最小路径后,递归打印.首先优先队列的优先级别要能改
+struct Point{
+int x,y;
+int time;
+friend bool operator&lt;(Point a,Point b)
+{
+    return a.time&gt;b.time;
+}
+};
+注意:stl里优先队列只能对&lt;重载.记录路径的方法是:用数组Point,当前数组的值为上一步的坐标,打印时递归.
+程序代码#include &lt;iostream&gt;
+#include &lt;queue&gt;
+using namespace std;
+int n,m;//对应N,M 
+int dx[]={1,-1,0,0};
+int dy[]={0,0,1,-1};
+char lab[110][110];//迷宫
+struct Point{
+    int x,y;
+    int time;
+    fr
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/08/12/Ignatius-and-the-Princess-I/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/08/11/Tempter-of-the-Bones/" itemprop="url">
                   Tempter of the Bones
                 </a>
@@ -514,412 +917,11 @@ int main()
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/08/08/Gamblers/" itemprop="url">
-                  Gamblers
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-08-08T20:27:21+08:00" content="2016-08-08">
-              2016-08-08
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/acm/" itemprop="url" rel="index">
-                    <span itemprop="name">acm</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          原题:Zoj 1101
-题目大意游戏开始时，他们各自将自己的赌注盖住,同时任何两个赌徒的赌注是不同的,如果其中一个赌徒没有钱了,他可以借一些筹码,但是他的赌注就是负数了.假设,他们的赌注都是整数.然后他们揭开所有的赌注.赢家为：他的赌注是其他三个人的赌注的综合.如果赢家不止一家,那么拥有最大赌注的人是赢家.
-算法分析对于此题，求三个数n1,n2,n3使其之和为另一个数字n.如果存在多种情况,求n值最大的一个.所以首先将所有的数字从小到大排列,从后向前求解,这样就保证求得的第一个赢家为最大值.剩下的三个数枚举求得.
-程序代码#include &lt;iostream&gt;
-#include &lt;algorithm&gt;
-using namespace std;
-int n;
-int winner;
-int bet[1000];
-int binsearch(int k,int val)
-{
-    int left,right,mid;
-    left=k+1;
-    right=n-1;
-    while(left&lt;=right)
-    {
-        mid=
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/08/08/Gamblers/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/07/08/Collect-More-Jewels/" itemprop="url">
-                  Collect More Jewels
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-07-08T21:57:52+08:00" content="2016-07-08">
-              2016-07-08
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/acm/" itemprop="url" rel="index">
-                    <span itemprop="name">acm</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          原题:hdoj 1044
-原题大意在能走出迷宫的情况下,收集最大价值的珠宝,’*’是墻,’.’表示可以走的空地,’@’表示起点,’&lt;’表示终点,’A-J’用来表示各种价值的珠宝.
-算法分析这题百度了下,我能用的方法就是bfs加dfs,先用bfs算出出口,入口,珠宝之间的两两最短距离,然后再用dfs遍历每条从起点到终点的路径.
-注意事项这题我一开始交的时候总是超时,后来百度了下,在dfs里加了段代码,作用是如果收集的珠宝已达到所有珠宝价值之和,递归就结束.(这是我第一次超时,下次再出现时要考虑清楚哪里可以缩短时间)
-程序代码#include &lt;iostream&gt;
-#include &lt;queue&gt;
-#include &lt;memory.h&gt;
-using namespace std;
-int W,H,L,M;
-int dx[]={1,0,-1,0};
-int dy[]={0,1,0,-1};
-char g[50][50];
-int len[12][12];//宝物,出入口的两两距离 
-int l[50][50];//记录距离 
-bool used[12]
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/07/08/Collect-More-Jewels/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/07/08/Nightmare/" itemprop="url">
-                  Nightmare
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-07-08T21:39:08+08:00" content="2016-07-08">
-              2016-07-08
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/acm/" itemprop="url" rel="index">
-                    <span itemprop="name">acm</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          原题:hdoj 1072
-原题大意走迷宫,用数组表示迷宫,0表示墻,1表示空房间,2表示起点,3表示终点,4表示可重新设置时间的房间.限时6s,每走一步算1s,走到4房间后可以将时间重新设为6s.
-算法分析bfs检索,从2开始,若时间用光后没能走出,输出-1,否则输出最少的步数.注意:当走过任何一个4号房间后,其重新设置时间的功能应当取消,否则走不出来.
-程序代码#include &lt;iostream&gt;
-#include &lt;queue&gt;
-#include &lt;memory.h&gt;
-using namespace std;
-const int N=8;
-int dx[]={0,0,1,-1};//8个方向 
-int dy[]={1,-1,0,0};
-int labyrinth[N][N];//记录迷宫 
-int used[N][N];//记录房间4是否被走过 
-int row,col;//迷宫实际占用的行与列 
-int flag=0;//能否成功走出的标志 
-struct Point{
-    int x,y;
-    int time;//记录剩余时间 
-
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/07/08/Nightmare/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/8/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/10/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/8/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/10/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -960,7 +962,7 @@ struct Point{
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">54</span>
+              <span class="site-state-item-count">57</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -977,7 +979,7 @@ struct Point{
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">45</span>
+                <span class="site-state-item-count">47</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
