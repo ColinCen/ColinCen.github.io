@@ -258,8 +258,8 @@
             
               
                 
-                <a class="post-title-link" href="/2017/04/16/A-Simple-Task/" itemprop="url">
-                  A Simple Task
+                <a class="post-title-link" href="/2017/04/24/World-is-Exploding/" itemprop="url">
+                  World is Exploding
                 </a>
               
             
@@ -272,8 +272,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-04-16T22:41:08+08:00" content="2017-04-16">
-              2017-04-16
+            <time itemprop="dateCreated" datetime="2017-04-24T21:05:34+08:00" content="2017-04-24">
+              2017-04-24
             </time>
           </span>
 
@@ -321,550 +321,560 @@
       
         
           
-          原题：A Simple Task
-原题大意统计一个无向图中环的个数
-算法分析首先考虑到一个环其实是一条链两头连接起来的，所以我们只要找到所有的链判一下两头是否联通即可。但是一个链的状态是首尾和经过的点，是n^2*2^n的，考虑到题目限制n&lt;=19，这个状态数显然是爆炸的。现在我们考虑人为地把一个环从经过的点中id最小的点的两侧处切开，则得到了两个以id最小值为起点的链。对于任意的环我们都可以这样做，于是我们只要统计以id最小值为起点的成环链的数量，将结果除以2即可。这样由于起点已经固定，状态数就只有n*2^n, 然后dp一下即可。dp[i][j]表示状态i（具体路径）中，以i的最小id为起点，j为终点的路径数。
+          原题：World is Exploding
+原题大意给出一个长度为n的整数序列V，要求输出有多少个四元组{a,b,c,d}。满足1 &lt;=a &lt; b &lt;= n,1 &lt;=c &lt; d &lt;= n,a!=b!=c!=d 且 VaVd
+算法分析先用树状数组处理每个位置(离散化处理，否则10^9存不下)左边比它大或小的有几个，右边比它大或小的有几个，算出这个序列分正序数和逆序数，并乘起来，然后去掉a==c,a==d,b==d,b==d,四种情况的个数。
+程序代码#include&lt;iostream&gt;  
+#include&lt;stdio.h&gt;  
+#include&lt;string.h&gt;  
+#include&lt;algorithm&gt;  
+using namespace std;  
+typedef long long ll;  
+ll num,a[50005],zx[50005],zd[50005],yx[50005],yd[50005],C[50005],b[50005];  
+ll lowbit(ll x){  
+    r
+          ...
 
-http://m.blog.csdn.net/article/details?id=49078233http://blog.csdn.net/kk303/article/details/9621933
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/04/24/World-is-Exploding/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/04/23/Jam-s-problem-again/" itemprop="url">
+                  Jam's problem again
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-04-23T16:27:48+08:00" content="2017-04-23">
+              2017-04-23
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/acm/" itemprop="url" rel="index">
+                    <span itemprop="name">acm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          原题：Jam’s problem again
+原题大意给出n个坐标(x,y,z)，如果有两个点(xi,yi,zi) 和 (xj,yj,zj)满足 xi≥xj，yi≥yj，zi≥zj，那么i这个点的等级就加一,最后输出每个点的等级。
+算法分析三维偏序，模板题，CDQ分治加树状数组，最后注意处理两个点完全相同的情况。
+程序代码#include &lt;cstdio&gt;
+#include &lt;algorithm&gt;
+#include &lt;cstring&gt;
+#define mem(a,b) memset(a,b,sizeof(a))
+using namespace std;
+const int maxn = 100000+100;
+const int N = 100010;
+struct po{
+    int x, y, z, id;
+
+}a[maxn],b[maxn];
+int ans[maxn];
+int C[maxn*2];
+int T, n;
+bool cmp1(po a, po b){
+    if(a.x != b.x) return a.x &lt; b.
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/04/23/Jam-s-problem-again/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/04/23/Infinite-Sequence/" itemprop="url">
+                  Infinite Sequence
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-04-23T16:17:06+08:00" content="2017-04-23">
+              2017-04-23
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/acm/" itemprop="url" rel="index">
+                    <span itemprop="name">acm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          原题：Infinite Sequence
+原题大意给定n，有多少个长度为无穷的数列{a}满足：
+
+对于n &lt; k，ak = an
+对于i &lt; j &lt; k &lt;= i + ai，aj = ak
+1 &lt;= ai &lt;= n，n &lt;= 10^6，对10^9 + 7取摸
+
+算法分析
+http://blog.csdn.net/crzbulabula/article/details/70145999
+
+其中第二种情况的第三点k较大时，就是说如果(1+k)长度超过n时，后位只能补一，相当于给第二种情况的第一点里，k&gt;i-3时的补充。
+程序代码#include &lt;cstdio&gt;
+#include &lt;cstring&gt;
+using namespace std;
+const int mod = 1e9+7;
+const int maxn = 1e6+5;
+typedef long long ll;
+int f[maxn];
+
+int up(int a,int b){
+    a+=b;
+    if(a&gt;=mod) a-=mod;
+ 
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/04/23/Infinite-Sequence/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/04/22/LCA模板/" itemprop="url">
+                  LCA模板
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-04-22T14:06:38+08:00" content="2017-04-22">
+              2017-04-22
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/acm/" itemprop="url" rel="index">
+                    <span itemprop="name">acm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          LCALCA 是最近公共祖先问题，一般是图变成树做的问题，如有n个点m-1条边等等这样的条件，LCA有在线离线算法，这里总结的是在线算法，而且用st算法加速。
+算法分析网上总结了一些博客：
+
+http://blog.csdn.net/liangzhaoyang1/article/details/52549822
+http://blog.csdn.net/insistgogo/article/details/9929103
+
+几题的变化都不大，可见模板的通用性。
+Distance Queries原题：poj 1986
+#include &lt;cstdio&gt;
+#include &lt;cstring&gt;
+#include &lt;algorithm&gt;
+#include &lt;vector&gt;
+using namespace std;
+const int maxn = 4e4+5;
+struct nod{
+    int to, cost;
+    nod(int a=0,int b=0){to = a; cost = b;}
+};
+int dep[maxn], se
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/04/22/LCA模板/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/04/18/Radio-stations/" itemprop="url">
+                  Radio stations
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-04-18T21:24:25+08:00" content="2017-04-18">
+              2017-04-18
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/acm/" itemprop="url" rel="index">
+                    <span itemprop="name">acm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          原题：Radio stations
+原题大意每个点有三个属性，x，r，f；统计有多少对点i，j满足 min(ri,rj) &gt;= |xi-xj| 且 |fi-fj| &lt;=k，这样的点对被称作是“坏的”。
+算法分析考虑到min(ri, rj)这个条件比较烦，把点按r从大到小排序。排序后，对于第i个点，它和之前的第j个点组成bad pair的充要条件为|xi-xj|&lt;=ri &amp;&amp; |fi-fj|&lt;=k。整理一下，变成xi-ri&lt;=xj&lt;=xi+ri &amp;&amp; -k+fi&lt;=fj&lt;=k+fi。这其实就是按顺序在平面上插入点，并查询给定矩形区域内点的个数，是经典的三维偏序问题，用CDQ分治即可解决。
+
+http://blog.csdn.net/jtjy568805874/article/details/50638665
+http://www.cnblogs.com/mlystdcall/p/6351344.html
 
 程序代码#include &lt;bits/stdc++.h&gt;
-using namespace std;
-typedef long long ll;
-bool g
+using namespace s
           ...
 
           <div class="post-more-link text-center">
-            <a class="btn" href="/2017/04/16/A-Simple-Task/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/04/16/Hamiltonish-Path/" itemprop="url">
-                  Hamiltonish Path
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-04-16T22:18:06+08:00" content="2017-04-16">
-              2017-04-16
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/acm/" itemprop="url" rel="index">
-                    <span itemprop="name">acm</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          原题：Hamiltonish Path
-原题大意给定一个无向图，有n个点，m条边，让你求出一条路径，这条路径有3个满足条件：
-
-这条路径至少穿过两个点
-这条路径只经过一个点一次 
-任何与起点或终点相邻的点一定包括在这条路径里面
-
-题目输入保证存在路径，并且多条路径时，输出任意一条
-算法分析可以从任意一点开始（记为x）。把x放到一个双端队列里，以之为起点。然后重复执行一下内容：
-
-如果有与之相邻的点且不在队列里的，就将其放到队首，并以之为起点。
-如果有与队尾相邻（终点）且不在队列里，就将其放到队尾，并以之为终点。
-
-直到队首队尾没有点与之相邻，或相邻的都在队列里，输出队列。
-程序代码#include &lt;cstdio&gt;
-#include &lt;vector&gt;
-#include &lt;deque&gt;
-#include &lt;memory.h&gt;
-#define mem(a,b) memset(a, b, sizeof(a))
-using namespace std;
-const int maxn = 1e5+5;
-bool vis[maxn];
-vector&
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/04/16/Hamiltonish-Path/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/04/16/Sorted-Arrays/" itemprop="url">
-                  Sorted Arrays
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-04-16T11:38:58+08:00" content="2017-04-16">
-              2017-04-16
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/acm/" itemprop="url" rel="index">
-                    <span itemprop="name">acm</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          原题：Sorted Arrays
-原题大意给一串长度为N的序列，问至少将其分成几个子序列，使得每个子序列要么非递增，要么非递减。输出最少子序列的个数。
-算法分析设置类似开关一样的标志，如果开始以非递减序列为真的话，依次检查下一个数字，满足非递减条件就继续，标志依旧为真；不满足条件时，改标志为假，子序列个数加1；然后依次检查下一个数字，如果满足非递增的条件，标志依旧为假，否则再改为真，并且子序列个数加1，如此重复，知道结束。但是有一些注意的地方：
-
-要另设一个长度标志len，记录新的子序列的长度，只有在长度大于1并且不符合前面的增减关系时才能增加子序列的个数，否则会多解。
-如果当前数字和前一个相等时并且len为1时，len不变，直接继续下一次循环。
-
-程序代码#include &lt;cstdio&gt;
-using namespace std;
-const int maxn = 1e5+5;
-int d[maxn];
-int n;
-int main(){
-//freopen(&quot;input.txt&quot;, &quot;r&quot;, stdin);
-    while(
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/04/16/Sorted-Arrays/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/04/10/寻找最大值/" itemprop="url">
-                  寻找最大值
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-04-10T21:01:11+08:00" content="2017-04-10">
-              2017-04-10
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/acm/" itemprop="url" rel="index">
-                    <span itemprop="name">acm</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          原题：寻找最大值
-原题大意给定N个数A1, A2, A3, … AN，小Ho想从中找到两个数Ai和Aj(i ≠ j)使得乘积Ai × Aj × (Ai AND Aj)最大。其中AND是按位与操作。  
-算法分析这题时间空间限制不太紧，暴力就可以过，但是可以用高维前缀维护最大值和次大值来做。因为2^20可以枚举的到，而且枚举x&amp;y的结果z，不会丢解，因为z相当于x&amp;y的子集，就是说z是x的子集，z也是y的子集。
-
-http://www.cnblogs.com/forever97/p/hihocoder1496.html
-
-程序代码#include &lt;cstdio&gt;
-#include &lt;algorithm&gt;
-using namespace std;
-int T, n;
-//高维前缀的数据结构
-struct info
-{
-    int val[2];
-    info operator + (const info &amp; rhs)const{
-        int t_val[2] = {val[0], val[1]};
-        for
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/04/10/寻找最大值/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/04/10/Headmaster-s-Headache/" itemprop="url">
-                  Headmaster's Headache
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-04-10T19:23:21+08:00" content="2017-04-10">
-              2017-04-10
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/acm/" itemprop="url" rel="index">
-                    <span itemprop="name">acm</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          原题：Headmaster’s Headache
-原题大意有一个学校想要聘请老师，要求每个学科都有两个以上的老师授课，并且要使总费用最小。有S（最多8个）个学科，现任的M（最多20个）个老师（你必须继续聘请他们），N（最多100个）份申请。后来的M行每行有至少两个整数，表示现任的老师的工资，和他所教授的课程（可能不止一个）。再后来的N行每行有也有至少两个整数表示聘请这个老师所需的费用，以及他所教授的课程（可能不止一个）。
-算法分析这题属于集合类型的动态规划,因为最多只有8门课，所以考虑状态压缩，用d(i,s1,s2)来表示状态，s1是恰好有一个人教的课程集合，s2是至少有两个人教的集合,i表示第i个决策阶段。状态转移方程为 d(i,s1,s2) = min{d(i+1,s1’,s2’) + c[i],d(i+1,s1,s2)}。把所有人一起编号0~m-1是在职教师，m~n+m-1是应聘者。
-程序代码#include &lt;cstdio&gt;
-#include &lt;iostream&gt;
-#include &lt;algorithm&gt;
-#include &lt;strin
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/04/10/Headmaster-s-Headache/#more" rel="contents">
+            <a class="btn" href="/2017/04/18/Radio-stations/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -898,7 +908,7 @@ struct info
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -939,7 +949,7 @@ struct info
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">57</span>
+              <span class="site-state-item-count">62</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -956,7 +966,7 @@ struct info
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">47</span>
+                <span class="site-state-item-count">50</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
