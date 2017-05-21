@@ -1,0 +1,679 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="二分,MST," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/tango.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="原题：铁路修复计划
+原题大意在 A 国有很多城际铁路。这些铁路都连接两个城市（城市从1到n编号），可以双向通行，使得任意两个城市之间都由铁路网联系起来。
+不过在一次星球大战之后，所有的铁路都经历了不同程度的损伤以至于无法通行了。由于经费紧缺，A 国政府不愿意再出资造新的铁路。对于原有的城际铁路，根据铁路的实际情况，有以下两种处理办法：
+使用国内技术进行修复：主要针对损坏情况不是很严重的铁路。国内公">
+<meta property="og:type" content="article">
+<meta property="og:title" content="铁路修复计划">
+<meta property="og:url" content="http://yoursite.com/2017/05/21/铁路修复计划/index.html">
+<meta property="og:site_name" content="Colin's blog">
+<meta property="og:description" content="原题：铁路修复计划
+原题大意在 A 国有很多城际铁路。这些铁路都连接两个城市（城市从1到n编号），可以双向通行，使得任意两个城市之间都由铁路网联系起来。
+不过在一次星球大战之后，所有的铁路都经历了不同程度的损伤以至于无法通行了。由于经费紧缺，A 国政府不愿意再出资造新的铁路。对于原有的城际铁路，根据铁路的实际情况，有以下两种处理办法：
+使用国内技术进行修复：主要针对损坏情况不是很严重的铁路。国内公">
+<meta property="og:updated_time" content="2017-05-21T02:06:12.901Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="铁路修复计划">
+<meta name="twitter:description" content="原题：铁路修复计划
+原题大意在 A 国有很多城际铁路。这些铁路都连接两个城市（城市从1到n编号），可以双向通行，使得任意两个城市之间都由铁路网联系起来。
+不过在一次星球大战之后，所有的铁路都经历了不同程度的损伤以至于无法通行了。由于经费紧缺，A 国政府不愿意再出资造新的铁路。对于原有的城际铁路，根据铁路的实际情况，有以下两种处理办法：
+使用国内技术进行修复：主要针对损坏情况不是很严重的铁路。国内公">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: undefined,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/05/21/铁路修复计划/"/>
+
+  <title> 铁路修复计划 | Colin's blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Colin's blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">A football fan,an English lover and a coder</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                铁路修复计划
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-05-21T10:00:45+08:00" content="2017-05-21">
+              2017-05-21
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/acm/" itemprop="url" rel="index">
+                    <span itemprop="name">acm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><strong>原题：<a href="http://acm.ecnu.edu.cn/problem/3247/" target="_blank" rel="external">铁路修复计划</a></strong></p>
+<h1 id="原题大意"><a href="#原题大意" class="headerlink" title="原题大意"></a>原题大意</h1><p>在 A 国有很多城际铁路。这些铁路都连接两个城市（城市从1到n编号），可以双向通行，使得任意两个城市之间都由铁路网联系起来。</p>
+<p>不过在一次星球大战之后，所有的铁路都经历了不同程度的损伤以至于无法通行了。由于经费紧缺，A 国政府不愿意再出资造新的铁路。对于原有的城际铁路，根据铁路的实际情况，有以下两种处理办法：</p>
+<p>使用国内技术进行修复：主要针对损坏情况不是很严重的铁路。国内公司会对铁路状况进行评估，然后如实开出铁路修复的费用。<br>使用国外技术进行修复：主要针对损坏情况严重的铁路。国外公司也会对铁路情况进行评估，然后按照铁路实际修复费用的k倍来收费（其中k是一个由国外公司决定的实数，不管怎么说，优惠是不可能的，所以 k≥1）。<br>A国政府修复铁路的总预算是 M，目标是要让任意两个城市之间都能通过铁路联系起来。在预算不够且能够完成目标的条件下，显然没必要修复每一条铁路。</p>
+<p>国外公司通过不知什么途径了解到了 A 国政府的总预算 M，他们现在要把 k 定下来，并且希望 k 尽可能得大。但 k 又不能太大，不然，如果A国政府发现无法完成任务的话，整个订单都会泡汤。</p>
+<p>Input<br>测试数据包含不超过 30 个测试文件。每个测试文件是单个测试点。</p>
+<p>第一行是三个整数 n,m,M (2≤n≤105,n−1≤m≤min{105,n(n−1)2},1≤M≤1015)。</p>
+<p>接下来 m 行，每行四个整数 ui,vi,ti,fi。表示一条城际铁路，连接着 ui 和 vi 城市，ti 表示铁路实际修复费用。fi=1 表示只能由国外公司修复，fi=0 表示由国内公司修复。(1≤ui,vi≤n,ui≠vi,1≤ti≤106,fi∈{0,1})。输入保证两个城市之间不会存在多条铁路。</p>
+<p>输入保证：</p>
+<p>在国外公司不乱收费 (k=1) 的情况下，使用预算能完成要求。<br>完全不使用国外技术，只使用国内技术，是不能完成目标的。<br>Output<br>求 k 的最大值。输出答案与标准答案相差不超过 10−6 即判为正确。</p>
+<h1 id="算法分析"><a href="#算法分析" class="headerlink" title="算法分析"></a>算法分析</h1><p>二分 k，然后每次对边重新赋值排序后，就是经典的 MST 问题了。</p>
+<h1 id="程序代码"><a href="#程序代码" class="headerlink" title="程序代码"></a>程序代码</h1><pre><code>#include &lt;bits/stdc++.h&gt;
+#define mem(a,b) memset(a,b,sizeof(a))
+using namespace std;
+typedef long long ll;
+const int maxn = 100005;
+int n, m;
+ll M;
+struct Edge{
+    int u, v;
+    double t;
+    int cost;
+    int f;
+    bool friend operator &lt; (Edge a, Edge b){
+        return a.t &lt; b.t;
+    }
+}edge[maxn];
+int p[maxn];
+int find(int  x){return p[x] == x? x : p[x] = find(p[x]);}
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(0);
+    cin &gt;&gt; n &gt;&gt; m &gt;&gt; M;
+    for(int i = 0; i &lt; m; i++){
+        cin &gt;&gt; edge[i].u &gt;&gt; edge[i].v &gt;&gt; edge[i].cost&gt;&gt; edge[i].f;
+    }
+    double l = 1.0, r = M; 
+    double mid;
+    while(r-l &gt; 1e-7){
+        mid = (l+r)/2.0;
+        for(int i = 0; i &lt; m; i++){
+            if(edge[i].f == 1) edge[i].t = mid * edge[i].cost;
+            else edge[i].t = edge[i].cost;
+        }
+        sort(edge, edge+m);
+        double ans = 0.0;
+        for(int i = 0; i &lt;= n; i++) p[i] = i;
+            for(int i = 0; i &lt; m; i++){
+                int x = find(edge[i].u);
+                int y = find(edge[i].v);
+                if(x!=y){ans += edge[i].t; p[x] = y;}
+            }
+        if(ans &lt; M) l=mid;
+        else r=mid;
+    }
+    printf(&quot;%.6lf\n&quot;, l);
+
+    return 0;
+}
+</code></pre>
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/二分/" rel="tag">#二分</a>
+          
+            <a href="/tags/MST/" rel="tag">#MST</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/05/21/丽娃河的狼人传说/" rel="next" title="丽娃河的狼人传说">
+                <i class="fa fa-chevron-left"></i> 丽娃河的狼人传说
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/assassin.jpg"
+               alt="Shen Hao" />
+          <p class="site-author-name" itemprop="name">Shen Hao</p>
+          <p class="site-description motion-element" itemprop="description">Colin's blog | acm |c++</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">64</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">52</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/colincen" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#原题大意"><span class="nav-number">1.</span> <span class="nav-text">原题大意</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#算法分析"><span class="nav-number">2.</span> <span class="nav-text">算法分析</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#程序代码"><span class="nav-number">3.</span> <span class="nav-text">程序代码</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Shen Hao</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>
