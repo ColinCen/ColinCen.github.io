@@ -258,6 +258,284 @@
             
               
                 
+                <a class="post-title-link" href="/2017/05/20/Highway/" itemprop="url">
+                  Highway
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-05-20T11:22:19+08:00" content="2017-05-20">
+              2017-05-20
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/acm/" itemprop="url" rel="index">
+                    <span itemprop="name">acm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          原题：Highway
+原题大意n个城市要建造(n-1)条路，求最贵的建造方法。
+算法分析
+两次dfs求出直径，然后lca更新答案
+程序代码#include &lt;cstdio&gt;
+#include &lt;algorithm&gt;
+#include &lt;vector&gt;
+#include &lt;cstring&gt;
+#define pb push_back
+#define mem(a,b) memset(a,b,sizeof(a))
+using namespace std;
+typedef long long ll;
+const int maxn=100005;
+int fir[maxn],no[2*maxn],se[2*maxn],st[2*maxn][20],lo[200005];
+ll dep[maxn];
+struct nod
+{
+    int to;
+    ll cost;
+};
+int n,m,d1,d2;
+vector&lt;nod&gt; g[maxn];
+int cnt,sum;
+void mkST()
+{
+    for(int i=1;i&
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/05/20/Highway/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/05/20/Super-Resolution/" itemprop="url">
+                  Super Resolution
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-05-20T11:17:42+08:00" content="2017-05-20">
+              2017-05-20
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/acm/" itemprop="url" rel="index">
+                    <span itemprop="name">acm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          原题：Super Resolution
+原题大意给一个01串，按照要求放大a*b倍，并且相对位置不变
+算法分析比赛时唯一一道水题，模拟即可
+程序代码#include &lt;bits/stdc++.h&gt;
+using namespace std;
+int  n, m, a, b;
+int m1[11][11];
+string s[11];
+int main(){
+    ios::sync_with_stdio(false);
+    cin.tie(0);
+    while(cin &gt;&gt; n &gt;&gt; m &gt;&gt; a &gt;&gt; b){
+        for(int i = 0; i &lt; n; i++)
+            cin &gt;&gt; s[i];
+        for(int i = 0; i &lt; n; i++){
+            for(int j = 0; j &lt; m; j++){
+                m1[i][j] = s[i][j] - &apos;0&apos;;
+   
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/05/20/Super-Resolution/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/05/20/Partial-Sum/" itemprop="url">
                   Partial Sum
                 </a>
@@ -631,274 +909,11 @@ int d[4][2]=
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/05/09/Max-Score/" itemprop="url">
-                  Max Score
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-05-09T20:04:30+08:00" content="2017-05-09">
-              2017-05-09
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/acm/" itemprop="url" rel="index">
-                    <span itemprop="name">acm</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          原题：Max Score
-原题大意给一个数列A，每次从里面取一个数，然后用已经取出的数之和去mod这个数，得到的值加入score里，并且把这个数加入到已经取出的集合里，直到取完所有数，问score最大是多少？
-算法分析本想贪心来写发现完全错了，看了题解才知道用dp，题中给出的n最大为20，所以很容易用位运算进行状态压缩，然后用记忆型dp来写，题解中给出了转移方程：f(s) = max(f(subset(s,i))) + (∑ e) mod ai;subset(s,i)，指除了ai以外包含s里所有元素的集合这里的需要枚举i，e属于subset(s,i)。
-转移方程详见题解：
-
-https://www.hackerrank.com/contests/rookierank-3/challenges/max-score/editorial
-
-程序代码#include &lt;bits/stdc++.h&gt;
-#define mem(a,b) memset(a,b,sizeof(a))
-using namespace std;
-typedef long long ll;
-int n;
-ll a
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/05/09/Max-Score/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/05/09/Culture-Conference/" itemprop="url">
-                  Culture Conference
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-05-09T19:46:20+08:00" content="2017-05-09">
-              2017-05-09
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/acm/" itemprop="url" rel="index">
-                    <span itemprop="name">acm</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          原题： Culture Conference
-原题大意首先看一下什么是最小支配集：
-
-http://www.cnblogs.com/Ash-ly/p/5775934.html
-
-本题中也类似，给一棵树，n个人编号0~n-1，0为CEO，其余每个人都有一个直接上司，现在问题是有些人比较懒（用0表示），所以这些人需要去参加会议（估计是批斗大会什么的），当这些人回来后，他们就变得勤奋努力，认真踏实……，而且带动与他相连的结点也进入一样的状态（如果本来就是1，就没有什么变化，否则由0变成1），现在问最少喊几个人去开会，能使所有人变得不懒惰。（注意！CEO永远不会懒惰，且没有上司）
-算法分析本题是一个很好的模版题，填补了我对于最小支配集的空缺，官方题解也很详细。
-最小支配集的算法：
-
-http://www.cnblogs.com/Ash-ly/p/5783877.html
-
-官方题解：
-
-https://www.hackerrank.com/contests/rookierank-3/challenges/culture-conference/editorial
-
-程序代码#include &l
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/05/09/Culture-Conference/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -939,7 +954,7 @@ https://www.hackerrank.com/contests/rookierank-3/challenges/culture-conference/e
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">64</span>
+              <span class="site-state-item-count">66</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
