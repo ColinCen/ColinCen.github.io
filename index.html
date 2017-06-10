@@ -258,8 +258,8 @@
             
               
                 
-                <a class="post-title-link" href="/2017/06/05/Widespread/" itemprop="url">
-                  Widespread
+                <a class="post-title-link" href="/2017/06/10/Pinary/" itemprop="url">
+                  Pinary
                 </a>
               
             
@@ -272,8 +272,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-06-05T18:01:44+08:00" content="2017-06-05">
-              2017-06-05
+            <time itemprop="dateCreated" datetime="2017-06-10T22:29:50+08:00" content="2017-06-10">
+              2017-06-10
             </time>
           </span>
 
@@ -321,24 +321,22 @@
       
         
           
-          原题：Widespread
-原题大意一条线上有N个怪兽，第i个怪兽有hi格血条，我们每次可以对其中一个怪发动攻击，使他损失A格血，同时，除他以外的怪兽要损失B格血（A&gt;B），问最少攻击几次使得怪兽全部gg。
-算法分析贪心的想，每次让血最多的怪受到直接攻击，直到所有怪都完蛋，下面考虑优化，每次攻击每个怪都会受到B的伤害，其中被直接攻击到的还要受到（A—B）的额外伤害，假设攻击次数为t，enough(t) = yes / no 为（t次攻击成功消灭怪兽）答案。t为单调函数，可以二分来做，t次攻击的额外伤害次数应该等于t，即为 ∑⌈(hi −B ×T)/(A−B)⌉  = t。
-程序代码#include &lt;bits/stdc++.h&gt;
+          原题：Pinary 1350
+原题大意Pinary数是一个仅由0和1组成的数，这个数不存在前导0，且相邻位置不能同时为1.Pinary数的大小由长度和字典序决定，长度不同时，长度越小值越小，长度相同时，字典序越小值越小。例如1是1，10是2，100,101,1000分别为3，4，5。现在给出一个K，问这个数的Pinary表示形式是什么。
+算法分析先打表solve(1) = 1;sovle(10) = 2;solve(100) = 3;solve(1000) = 5;solve(10000) = 8;于是这个问题，就转换成了，将一个数字，拆成不连续的fib的若干项之和。@Zeckendorf 齐肯多夫定理。
+程序代码#include &lt;iostream&gt;
+#include &lt;vector&gt;
 using namespace std;
-typedef long long ll;
-const int maxn = 1e5+5;
-int n;
-ll a, b;
-ll h[maxn];
-ll check(ll m){
-    ll ans = 0;
-    for(int i = 1; i &lt;= n; i++){
-        i
+typedef long long LL;
+int T, n, ans[102];
+LL fib[102];
+void init() {
+    fib[1] = 1, fib[2] = 2;
+    for(int i=3;i&lt;
           ...
 
           <div class="post-more-link text-center">
-            <a class="btn" href="/2017/06/05/Widespread/#more" rel="contents">
+            <a class="btn" href="/2017/06/10/Pinary/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -389,8 +387,8 @@ ll check(ll m){
             
               
                 
-                <a class="post-title-link" href="/2017/06/05/UCloud-的安全秘钥/" itemprop="url">
-                  UCloud 的安全秘钥
+                <a class="post-title-link" href="/2017/06/10/L先生与质数V4/" itemprop="url">
+                  L先生与质数V4
                 </a>
               
             
@@ -403,8 +401,8 @@ ll check(ll m){
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-06-05T17:50:26+08:00" content="2017-06-05">
-              2017-06-05
+            <time itemprop="dateCreated" datetime="2017-06-10T22:24:22+08:00" content="2017-06-10">
+              2017-06-10
             </time>
           </span>
 
@@ -452,27 +450,26 @@ ll check(ll m){
       
         
           
-          原题：UCloud 的安全秘钥
-原题大意对长度为n的数字组成的串，进行m次询问，询问的长度为k，求原串（长度为k）的字串与询问串近似匹配（可以理解成两个集合相同）的个数。
-算法分析对于n&lt;=50000，m &lt;= 100000，以及询问串的总长度不超过200000的数据来说，通过hash给每个元素赋值，然后按长度将询问的字串分组，并且按hash的和排序，可由双指针完成计数。
+          原题：L先生与质数V4
+原题大意L先生想求出第n个质数（素数）是多少，你能帮助他吗？
+算法分析Meisell-Lehmer算法求素数
 
-https://www.jisuanke.com/article/9v3lgyb4
+http://blog.csdn.net/nemaleswang/article/details/52582684
 
-程序代码#include &lt;bits/stdc++.h&gt;
-using namespace std;
-typedef long long ll;
-const int maxn = 200050;
-struct E{
-    int l;
-    int p;
-    int v;
-    bool friend operator &lt;(E ob1, E ob2){
-        return ob1.l == ob2.l ? ob1.v &lt; ob2.v : ob1.l &lt; ob2.l;
-  
+程序代码#include &lt;bits/stdtr1c++.h&gt;
+
+#define MAXN 100
+#define MAXM 10001
+#define MAXP 40000
+#define MAX 400000
+#define clr(ar) memset(ar, 0, sizeof(ar))
+#define read() freopen(&quot;lol.txt&quot;, &quot;r&quot;, stdin)
+#define dbg(x) cout &lt;&lt; #x &lt;&lt; &quot; = &quot; &lt;&lt; x &lt;&lt; endl
+#define chkbit(ar, i) (((ar[(i) &gt;&gt; 6]) &amp; (1 &lt;&lt; (((i) &
           ...
 
           <div class="post-more-link text-center">
-            <a class="btn" href="/2017/06/05/UCloud-的安全秘钥/#more" rel="contents">
+            <a class="btn" href="/2017/06/10/L先生与质数V4/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -523,8 +520,8 @@ struct E{
             
               
                 
-                <a class="post-title-link" href="/2017/05/30/3N-Numbers/" itemprop="url">
-                  3N Numbers
+                <a class="post-title-link" href="/2017/06/10/L先生的回信/" itemprop="url">
+                  L先生的回信
                 </a>
               
             
@@ -537,8 +534,8 @@ struct E{
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-05-30T20:37:46+08:00" content="2017-05-30">
-              2017-05-30
+            <time itemprop="dateCreated" datetime="2017-06-10T22:18:09+08:00" content="2017-06-10">
+              2017-06-10
             </time>
           </span>
 
@@ -586,23 +583,16 @@ struct E{
       
         
           
-          原题：3N Numbers
-原题大意给3n个数，要求去掉n个数，使得剩下的2n个数里，前n个数减后n个数的值最大，求最大值。
-算法分析将球分为三种颜色，被取走的标为黑色，剩下的前n个为红色，后n个为蓝色，所以观察后发现，红色一定只出现在前面，蓝色一定只出现在后面，红色的最后一个位置是n~2n，蓝色的第一个位置一定是n+1~2n+1。设k为分界线，红球从前k个里面取，蓝球从后3*n-k里面取，k的取值为(n&lt;=k&lt;=2n)，枚举k的取值，用优先队列维护最优值。
-程序代码#include&lt;stdio.h&gt;
-#include&lt;string.h&gt;
-#include&lt;algorithm&gt;
-#include&lt;stdlib.h&gt;
-#include&lt;iostream&gt;
-#include&lt;queue&gt;
-using namespace std;
-
-priority_queue&lt;int&gt;QD;//大根堆
-priority_queue&lt;int,vector&lt;int&gt;,greater&lt;int&
+          原题：L先生的回信
+原题大意L先生打算回复来自朋友Z的上一封信，可是他担心信的内容在网络传送过程中出现错误，于是打算采用CRC校验方式保证信息完整性，可是他不知道应该怎么做，请你为他求出应该发送的比特序列。
+循环冗余校验码（CRC）的基本原理是：在K位信息码后再拼接R位的校验码，整个编码长度为N位，因此，这种编码也叫（N，K）码。对于一个给定的（N，K）码，可以证明存在一个最高次幂为N-K=R的多项式G(x)。根据G(x)可以生成K位信息的校验码，而G(x)叫做这个CRC码的生成多项式。 校验码的具体生成过程为：假设要发送的信息用多项式C(X)表示，将C(x)左移R位（可表示成C(x)2^R），这样C(x)的右边就会空出R位，这就是校验码的位置。用 C(x)2^R 除以(模2除法)生成多项式G(x)得到的余数就是校验码。 
+Input多组测试例，处理到文件结束。（测试例&lt;5）
+每行有两个字符串，用空格隔开，分别为信的内容和生成多项式（长度&lt;=50）。信的内容为二进制表示。生成多项式可能用x的多项式,也可能用二进制表示(格式见样例)。
+Output每行输出一个加入CRC后发送
           ...
 
           <div class="post-more-link text-center">
-            <a class="btn" href="/2017/05/30/3N-Numbers/#more" rel="contents">
+            <a class="btn" href="/2017/06/10/L先生的回信/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -653,8 +643,8 @@ priority_queue&lt;int,vector&lt;int&gt;,greater&lt;int&
             
               
                 
-                <a class="post-title-link" href="/2017/05/23/OR/" itemprop="url">
-                  OR
+                <a class="post-title-link" href="/2017/06/10/qwb与二叉树/" itemprop="url">
+                  qwb与二叉树
                 </a>
               
             
@@ -667,8 +657,8 @@ priority_queue&lt;int,vector&lt;int&gt;,greater&lt;int&
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-05-23T20:29:04+08:00" content="2017-05-23">
-              2017-05-23
+            <time itemprop="dateCreated" datetime="2017-06-10T22:06:45+08:00" content="2017-06-10">
+              2017-06-10
             </time>
           </span>
 
@@ -716,26 +706,29 @@ priority_queue&lt;int,vector&lt;int&gt;,greater&lt;int&
       
         
           
-          原题：OR
-原题大意给出n个数A1, A2…,AN, 任意选择两个数i,j(1 &lt;= i &lt; j &lt;= N),问Ai|Aj的期望值是多少。以既约分数的形式输出。
-算法分析如果暴力需要n^2，会超时，所以考虑每一位，前i-1个数里，第j位是0的个数为cnt，如果第i个数的第j位是1，那么贡献为(1 &lt;&lt; j)  (i-1)，否则贡献为cnt  (1 &lt;&lt; j)。如果直接算出分子除以分母会爆long long int，所以记录余数然后两次gcd求出结果。
+          原题：qwb与二叉树
+原题大意对于一棵n个无编号节点，m个叶子的有根二叉树，有多少种形态呐？你能告诉他吗？
+算法分析
+http://blog.csdn.net/howardemily/article/details/72871260
+
 程序代码#include &lt;bits/stdc++.h&gt;
-#define mem(a,b) memset(a, b, sizeof(a))
 using namespace std;
 typedef long long ll;
-int T;
-ll cnt[40];
-ll x, y, n;
-ll gcd(ll a, ll b){
-    return b == 0 ? a : gcd(b, a % b);
-}
-int main(){
-
-    ios::sync_with_stdio(fa
+const ll mod = 1e9+7;
+ll dp[55][55];
+int n,m;
+ll dfs(int x, int y){
+    ll &amp;ans = dp[x][y];
+    if(ans != -1) return ans;
+    ans = 0;
+    for(int i = 0; i &lt;= x-1; i++)
+        for(int j = 0; j &lt;= i &amp;&amp; j &lt;= y; j++){
+            ans += dfs(i,j) * dfs(x-i-1,y-j);
+            ans %= mo
           ...
 
           <div class="post-more-link text-center">
-            <a class="btn" href="/2017/05/23/OR/#more" rel="contents">
+            <a class="btn" href="/2017/06/10/qwb与二叉树/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -786,8 +779,8 @@ int main(){
             
               
                 
-                <a class="post-title-link" href="/2017/05/23/Factorial-Modulo/" itemprop="url">
-                  Factorial Modulo
+                <a class="post-title-link" href="/2017/06/10/qwb与整数对/" itemprop="url">
+                  qwb与整数对
                 </a>
               
             
@@ -800,8 +793,8 @@ int main(){
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-05-23T20:21:14+08:00" content="2017-05-23">
-              2017-05-23
+            <time itemprop="dateCreated" datetime="2017-06-10T22:02:26+08:00" content="2017-06-10">
+              2017-06-10
             </time>
           </span>
 
@@ -849,27 +842,19 @@ int main(){
       
         
           
-          原题：Factorial Modulo
-原题大意给出两个数a, b,问有多少i使得i!能被a整除，而不能被b整除。
-算法分析对于一个数字n， 如果x!是可以被它整除的第一个数，那么x之后的数都能整除。将x计作 f（n），答案就是max(0, f(b)-f(a))。对于f的计算，就是对于n分解质因数，然后对于每一个因数算出要满足这个因数所需要的x，取max即为f。
+          原题：qwb与整数对
+原题大意给出两个整数n和m，请统计满足0＜a＜b＜n并且使得 (a2+b2+m)/(ab) 的结果是整数的整数对(a,b)的个数。
+本题包含多组测试例 。当测试例数据是n=m=0时，表示输入结束。（测试例数量&lt;6000）每个测试例一行，是两个整数n和m。输入保证0≤n≤1000，-20000 &lt; m &lt; 20000。
+算法分析case=1的时候很容易可以想到一个n^2的暴力那么在case比较大的时候，把所有case根据n的数值进行排序。再离线处理，枚举每一组(a,b)，穷举整数t∈[-20000,20000]，当符合条件(a^2+b^2+t)%ab==0时，ans[t]++，最后根据case的顺序从离线处理中获取答案，复杂度O(∑(i=1..n,j=2..n) (40000/ab)) + O(n^1.5)
 程序代码#include &lt;bits/stdc++.h&gt;
-#define mem(a,b) memset(a, b, sizeof(a))
 using namespace std;
-typedef long long ll;
-int a, b;
-
-//得到能被x^cnt整除的最小阶乘n！，n一定是x的整数倍。
-int get(int x, int cnt){
-    int t = 1;
-    //如果能将cnt个x整除完
-    while(cnt){
-        int tmp = t*x;
-        while(tmp % x == 0 &amp;&amp; cnt){
-            t
+int n[10100], m[10100];
+int ret[10100];
+vector&lt;int&gt; id[40404
           ...
 
           <div class="post-more-link text-center">
-            <a class="btn" href="/2017/05/23/Factorial-Modulo/#more" rel="contents">
+            <a class="btn" href="/2017/06/10/qwb与整数对/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -903,7 +888,7 @@ int get(int x, int cnt){
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -944,7 +929,7 @@ int get(int x, int cnt){
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">69</span>
+              <span class="site-state-item-count">80</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -961,7 +946,7 @@ int get(int x, int cnt){
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">53</span>
+                <span class="site-state-item-count">58</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

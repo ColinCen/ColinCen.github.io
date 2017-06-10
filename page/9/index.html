@@ -258,8 +258,8 @@
             
               
                 
-                <a class="post-title-link" href="/2017/02/18/machine-learning-exercise6-Coursera/" itemprop="url">
-                  machine learning exercise6 Coursera
+                <a class="post-title-link" href="/2017/04/16/Sorted-Arrays/" itemprop="url">
+                  Sorted Arrays
                 </a>
               
             
@@ -272,8 +272,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-02-18T20:51:57+08:00" content="2017-02-18">
-              2017-02-18
+            <time itemprop="dateCreated" datetime="2017-04-16T11:38:58+08:00" content="2017-04-16">
+              2017-04-16
             </time>
           </span>
 
@@ -286,8 +286,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/机器学习/" itemprop="url" rel="index">
-                    <span itemprop="name">机器学习</span>
+                  <a href="/categories/acm/" itemprop="url" rel="index">
+                    <span itemprop="name">acm</span>
                   </a>
                 </span>
 
@@ -321,35 +321,25 @@
       
         
           
-          第六次上机作业：
-gaussianKernel.m
-dataset3Params.m
-processEmail.m
-emailFeatures.m
-gaussianKernel.m高斯核函数
+          原题：Sorted Arrays
+原题大意给一串长度为N的序列，问至少将其分成几个子序列，使得每个子序列要么非递增，要么非递减。输出最少子序列的个数。
+算法分析设置类似开关一样的标志，如果开始以非递减序列为真的话，依次检查下一个数字，满足非递减条件就继续，标志依旧为真；不满足条件时，改标志为假，子序列个数加1；然后依次检查下一个数字，如果满足非递增的条件，标志依旧为假，否则再改为真，并且子序列个数加1，如此重复，知道结束。但是有一些注意的地方：
 
-sim = exp(-sum((x1 - x2) .^ 2) / (2 * sigma * sigma));
-dataset3Params.m求最优的C和sigma
-function [C, sigma] = dataset3Params(X, y, Xval, yval)
-C = 1;
-sigma = 0.3;
+要另设一个长度标志len，记录新的子序列的长度，只有在长度大于1并且不符合前面的增减关系时才能增加子序列的个数，否则会多解。
+如果当前数字和前一个相等时并且len为1时，len不变，直接继续下一次循环。
 
-right_c = C;
-right_sigma = sigma;
-error = 1;
-
-predictions = zeros(size(yval),1);
-t = [0.01;0.03;0.1;0.3;1;3;10;30];
-for i = 1:8
-  for j = 1:8
-    C = t(i);
-    sigma = t(j);
-    %调用包里的svmTrain函数
-    model = svmTrain(X, y , C, @(x1, x2) gaussian
+程序代码#include &lt;cstdio&gt;
+using namespace std;
+const int maxn = 1e5+5;
+int d[maxn];
+int n;
+int main(){
+//freopen(&quot;input.txt&quot;, &quot;r&quot;, stdin);
+    while(
           ...
 
           <div class="post-more-link text-center">
-            <a class="btn" href="/2017/02/18/machine-learning-exercise6-Coursera/#more" rel="contents">
+            <a class="btn" href="/2017/04/16/Sorted-Arrays/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -400,8 +390,8 @@ for i = 1:8
             
               
                 
-                <a class="post-title-link" href="/2017/02/18/machine-learning-exercise5-Coursera/" itemprop="url">
-                  machine learning exercise5 Coursera
+                <a class="post-title-link" href="/2017/04/10/寻找最大值/" itemprop="url">
+                  寻找最大值
                 </a>
               
             
@@ -414,8 +404,8 @@ for i = 1:8
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-02-18T20:51:49+08:00" content="2017-02-18">
-              2017-02-18
+            <time itemprop="dateCreated" datetime="2017-04-10T21:01:11+08:00" content="2017-04-10">
+              2017-04-10
             </time>
           </span>
 
@@ -428,8 +418,8 @@ for i = 1:8
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/机器学习/" itemprop="url" rel="index">
-                    <span itemprop="name">机器学习</span>
+                  <a href="/categories/acm/" itemprop="url" rel="index">
+                    <span itemprop="name">acm</span>
                   </a>
                 </span>
 
@@ -463,28 +453,27 @@ for i = 1:8
       
         
           
-          第五次上机作业：
-linearRegCostFunction.m
-learningCurve.m
-polyFeatures.m
-validationCurve.m
-linearRegCostFunction.m线性回归的代价函数及梯度计算
-J = sum((X * theta - y) .^ 2) / (2 * m);
-J += sum(theta(2 : end) .^ 2) * lambda / (2 * m);
+          原题：寻找最大值
+原题大意给定N个数A1, A2, A3, … AN，小Ho想从中找到两个数Ai和Aj(i ≠ j)使得乘积Ai × Aj × (Ai AND Aj)最大。其中AND是按位与操作。  
+算法分析这题时间空间限制不太紧，暴力就可以过，但是可以用高维前缀维护最大值和次大值来做。因为2^20可以枚举的到，而且枚举x&amp;y的结果z，不会丢解，因为z相当于x&amp;y的子集，就是说z是x的子集，z也是y的子集。
 
+http://www.cnblogs.com/forever97/p/hihocoder1496.html
 
-p = X&apos; * (X * theta - y) / m;
-grad(1) = p(1) ;
-grad(2 : end) = p(2 : end) + (lambda / m) * theta(2 : end);
-learningCurve.m学习曲线，样本数量和错误的曲线。
-%求theta的函数
-function [theta] = trainLinearReg(X, y, lambda)
-initial_theta = zeros(size(X, 2), 1); 
-costFunction = @(t) linearRegCostFunction(X, 
+程序代码#include &lt;cstdio&gt;
+#include &lt;algorithm&gt;
+using namespace std;
+int T, n;
+//高维前缀的数据结构
+struct info
+{
+    int val[2];
+    info operator + (const info &amp; rhs)const{
+        int t_val[2] = {val[0], val[1]};
+        for
           ...
 
           <div class="post-more-link text-center">
-            <a class="btn" href="/2017/02/18/machine-learning-exercise5-Coursera/#more" rel="contents">
+            <a class="btn" href="/2017/04/10/寻找最大值/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -535,8 +524,8 @@ costFunction = @(t) linearRegCostFunction(X,
             
               
                 
-                <a class="post-title-link" href="/2017/02/11/machine-learning-exercise4-Coursera/" itemprop="url">
-                  machine learning exercise4 Coursera
+                <a class="post-title-link" href="/2017/04/10/Headmaster-s-Headache/" itemprop="url">
+                  Headmaster's Headache
                 </a>
               
             
@@ -549,8 +538,8 @@ costFunction = @(t) linearRegCostFunction(X,
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-02-11T12:09:28+08:00" content="2017-02-11">
-              2017-02-11
+            <time itemprop="dateCreated" datetime="2017-04-10T19:23:21+08:00" content="2017-04-10">
+              2017-04-10
             </time>
           </span>
 
@@ -563,8 +552,8 @@ costFunction = @(t) linearRegCostFunction(X,
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/机器学习/" itemprop="url" rel="index">
-                    <span itemprop="name">机器学习</span>
+                  <a href="/categories/acm/" itemprop="url" rel="index">
+                    <span itemprop="name">acm</span>
                   </a>
                 </span>
 
@@ -598,36 +587,17 @@ costFunction = @(t) linearRegCostFunction(X,
       
         
           
-          第四次上机作业：
-sigmoidGradient.m
-randInitializeWeights.m
-nnCostFunction.m
-sigmoidGradient.m一个简单的求偏导数的公式
-
-g = sigmoid(z) .* (1 - sigmoid(z));
-randInitializeWeights.m随机初始权重函数。
-epsilon_init = 0.12;
-W = rand(L_out, 1 + L_in) * 2 * epsilon_init - epsilon_init;
-nnCostFunction.m后向传播算法的应用
-
-第一步，先用前向传播求出各层的特征值；
-
-a1 = [ones(m,1), X];
-z2 = a1 * Theta1&apos;;
-a2 = sigmoid(z2);
-a2 = [ones(m, 1),a2];
-z3 = a2 * Theta2&apos;;
-a3 = sigmoid(z3);
-Y = zeros(m, num_labels);
-%将y变成矩阵形式
-for i = 1:m
-  Y(i, y(i)) = 1;
-end
-第二步，求
+          原题：Headmaster’s Headache
+原题大意有一个学校想要聘请老师，要求每个学科都有两个以上的老师授课，并且要使总费用最小。有S（最多8个）个学科，现任的M（最多20个）个老师（你必须继续聘请他们），N（最多100个）份申请。后来的M行每行有至少两个整数，表示现任的老师的工资，和他所教授的课程（可能不止一个）。再后来的N行每行有也有至少两个整数表示聘请这个老师所需的费用，以及他所教授的课程（可能不止一个）。
+算法分析这题属于集合类型的动态规划,因为最多只有8门课，所以考虑状态压缩，用d(i,s1,s2)来表示状态，s1是恰好有一个人教的课程集合，s2是至少有两个人教的集合,i表示第i个决策阶段。状态转移方程为 d(i,s1,s2) = min{d(i+1,s1’,s2’) + c[i],d(i+1,s1,s2)}。把所有人一起编号0~m-1是在职教师，m~n+m-1是应聘者。
+程序代码#include &lt;cstdio&gt;
+#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+#include &lt;strin
           ...
 
           <div class="post-more-link text-center">
-            <a class="btn" href="/2017/02/11/machine-learning-exercise4-Coursera/#more" rel="contents">
+            <a class="btn" href="/2017/04/10/Headmaster-s-Headache/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -678,8 +648,8 @@ end
             
               
                 
-                <a class="post-title-link" href="/2017/02/07/machine-learning-exercise3-Coursera/" itemprop="url">
-                  machine learning exercise3 Coursera
+                <a class="post-title-link" href="/2017/04/05/Dome-of-Circus/" itemprop="url">
+                  Dome of Circus
                 </a>
               
             
@@ -692,8 +662,8 @@ end
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-02-07T21:22:52+08:00" content="2017-02-07">
-              2017-02-07
+            <time itemprop="dateCreated" datetime="2017-04-05T22:11:34+08:00" content="2017-04-05">
+              2017-04-05
             </time>
           </span>
 
@@ -706,8 +676,8 @@ end
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/机器学习/" itemprop="url" rel="index">
-                    <span itemprop="name">机器学习</span>
+                  <a href="/categories/acm/" itemprop="url" rel="index">
+                    <span itemprop="name">acm</span>
                   </a>
                 </span>
 
@@ -741,24 +711,32 @@ end
       
         
           
-          第三次上机作业：
-lrCostFunction.m (logistic regression cost function)
-oneVsAll.m
-predictOneVsAll.m
-predict.m
-lrCostFunction.m正规化的逻辑回归代价函数和梯度，这是之前的内容，算是复习吧
-J = sum(-y .* log(sigmoid(X * theta)) - (1 - y) .* log(1 - sigmoid(X * theta))) / m;
-J += lambda / (2 * m) * sum(theta(2 : end).^2);
+          原题：Dome of Circus
+原题大意在一个三维空间里，已知有N个点，求一个最小的圆锥使所有的点都包含其中。
+算法分析
+试着只考虑一个点。
+R的最小值和H之间有，形如R=k*H+b的关系。
+令高度为H时体积最小值为f(H)，便会发现f(H)是单峰的
+考虑所有的点，那么高度为H时体积最小值为 max{f(H)}，归纳得，很多个单峰函数取max后仍是单峰函数所以就可以三分答案了。三分可以用来求出凸或凹函数的最值。
+http://blog.csdn.net/pi9nc/article/details/9666627
 
-t = ( X&apos; * (sigmoid(X * theta) - y)) / m;
 
-grad(1) = t(1);
-grad(2 : end) = t(2 : end) + (lambda / m) * theta(2 : end);
-oneVsAll.m这是“一对多”求出theta即各个参数，这里的theta是矩阵方式存在的，不像之前的只有一列。这里的任务是识别1-10，这几个数，num_labels就是10，y是输出的
+
+程序代码#include &lt;cstdio&gt;
+#include &lt;cmath&gt;
+#include &lt;algorithm&gt;
+using namespace std;
+const int maxn = 10005;
+const double EPS = 1e-4;
+int T, n;
+double x[maxn], y[maxn], z[maxn];
+double f(double h){
+    double r = 0.0;
+    
           ...
 
           <div class="post-more-link text-center">
-            <a class="btn" href="/2017/02/07/machine-learning-exercise3-Coursera/#more" rel="contents">
+            <a class="btn" href="/2017/04/05/Dome-of-Circus/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -809,8 +787,8 @@ oneVsAll.m这是“一对多”求出theta即各个参数，这里的theta是矩
             
               
                 
-                <a class="post-title-link" href="/2017/02/03/machine-learning-exercise2-Coursera/" itemprop="url">
-                  machine learning exercise2 Coursera
+                <a class="post-title-link" href="/2017/04/05/Gems-Fight/" itemprop="url">
+                  Gems Fight
                 </a>
               
             
@@ -823,8 +801,8 @@ oneVsAll.m这是“一对多”求出theta即各个参数，这里的theta是矩
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-02-03T11:55:03+08:00" content="2017-02-03">
-              2017-02-03
+            <time itemprop="dateCreated" datetime="2017-04-05T10:32:48+08:00" content="2017-04-05">
+              2017-04-05
             </time>
           </span>
 
@@ -837,8 +815,8 @@ oneVsAll.m这是“一对多”求出theta即各个参数，这里的theta是矩
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/机器学习/" itemprop="url" rel="index">
-                    <span itemprop="name">机器学习</span>
+                  <a href="/categories/acm/" itemprop="url" rel="index">
+                    <span itemprop="name">acm</span>
                   </a>
                 </span>
 
@@ -872,34 +850,16 @@ oneVsAll.m这是“一对多”求出theta即各个参数，这里的theta是矩
       
         
           
-          第二次上机作业：
-sigmoid.m
-costFunction.m
-predict.m
-costFunctionReg.m
-sigmoid.m这是逻辑回归的假设函数计算
-t = ones(size(z));
-g = 1 ./ (exp(-z) + t);
-costFunction.m and costFunctionReg计算代价函数和梯度
-无正规化：
-
-J = sum(-y .* log(sigmoid(X * theta)) - (1 - y) .* log(1 - sigmoid(X * theta))) / m;
-
-p = X&apos; * (sigmoid(X * theta) - y);
-grad = p / m
-正规化：
-
-
-J = sum(- y .* log(sigmoid(X * theta)) - (1 - y) .* log(1 - sigmoid(X * theta))) / m
-J += (lambda /(2 *m)) * sum(theta(2:end) .^2);
-
-
-t =X&apos;*(sigmoid(X * theta) - y) / m;
-
+          原题：Gems Fight
+原题大意有 G 种颜色的宝石，放在 B 个袋子里（每种颜色可以放多个）。两人轮流选袋子（每个袋子只能被选 1 次），每次将选出来的袋子中的宝石放到 cooker 中，cooker 可能会起反应。反应条件是 cooker 中出现 S 个一样颜色的宝石，而且一旦起反应，每 S 个一样颜色的宝石就会获得 1 个魔法石（同时反应）。作为奖励，每次反应结束后当前玩家可以再选一个袋子继续游戏。游戏目标是自己获得的魔法石尽量多，双方都采取最优策略的情况下，问最终两个玩家的魔法石之差。
+算法分析数据范围很小，毫不犹豫地状压。dp[S]：集合S被取走，此景此境，先手最多能赢后手多少分。遍历不在集合中的袋子，如果拿了i号袋子后不能合成魔法石，那么dp[S] = max(dp[S], -dp[S|1 &lt;&lt; i]), 否则就可以连任dp[S] = max(dp[S], dp[S|1 &lt;&lt; i] + 拿i号袋子获得的收益。
+程序代码#include &lt;cstdio&gt;
+#include &lt;algorithm&gt;
+using namespac
           ...
 
           <div class="post-more-link text-center">
-            <a class="btn" href="/2017/02/03/machine-learning-exercise2-Coursera/#more" rel="contents">
+            <a class="btn" href="/2017/04/05/Gems-Fight/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -933,7 +893,7 @@ t =X&apos;*(sigmoid(X * theta) - y) / m;
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/8/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/10/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/8/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/10/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -974,7 +934,7 @@ t =X&apos;*(sigmoid(X * theta) - y) / m;
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">69</span>
+              <span class="site-state-item-count">80</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -991,7 +951,7 @@ t =X&apos;*(sigmoid(X * theta) - y) / m;
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">53</span>
+                <span class="site-state-item-count">58</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

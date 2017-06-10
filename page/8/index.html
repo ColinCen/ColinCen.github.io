@@ -258,8 +258,8 @@
             
               
                 
-                <a class="post-title-link" href="/2017/04/02/The-Problem-to-Make-You-Happy/" itemprop="url">
-                  The Problem to Make You Happy
+                <a class="post-title-link" href="/2017/04/23/Infinite-Sequence/" itemprop="url">
+                  Infinite Sequence
                 </a>
               
             
@@ -272,8 +272,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-04-02T13:44:28+08:00" content="2017-04-02">
-              2017-04-02
+            <time itemprop="dateCreated" datetime="2017-04-23T16:17:06+08:00" content="2017-04-23">
+              2017-04-23
             </time>
           </span>
 
@@ -321,153 +321,33 @@
       
         
           
-          原题：The Problem to Make You Happy
-原题大意　　Bob和Alice在有向图内玩游戏，n个顶点，m条边。　　每人一颗棋子，初始位置分别是x，y。　　Bob先手，轮流操作，每次只能走一条有向边。　　结束条件: 1.不能操作的人输 2.两个棋子重合Bob输 3.游戏没有尽头Alice输　　问 Bob 能不能赢？　　2 &lt;= n &lt;= 100. 1 &lt;= m &lt;= n &lt;= n*(n-1) 1 &lt;= x , y &lt;= n, x != y.
+          原题：Infinite Sequence
+原题大意给定n，有多少个长度为无穷的数列{a}满足：
+
+对于n &lt; k，ak = an
+对于i &lt; j &lt; k &lt;= i + ai，aj = ak
+1 &lt;= ai &lt;= n，n &lt;= 10^6，对10^9 + 7取摸
+
 算法分析
-状态设计：两颗棋子的位置，下一步棋是谁走。因子我们可以用dp[x][y] [0/1]表示两枚棋子的状态,Alice在x，Bob在y处，0是下一步Alice走，1是下一步Bob走。
-思路：通过BFS，进行状态之间的转移。
-初始状态：两颗棋子重叠为必败状态，先令这些状态在dp数组中的值为0，其它的为1
-状态转移：a) 若是选手A打算行动，那么在他之前行动的是B，要让B能GG必须B能到达的所有状态均为必败。b) 若是选手B打算行动，那么在他之前行动的是A，时光倒流，A行动时的那个状态
-          ...
+http://blog.csdn.net/crzbulabula/article/details/70145999
 
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/04/02/The-Problem-to-Make-You-Happy/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/03/31/Anton-and-School-2/" itemprop="url">
-                  Anton and School - 2
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-03-31T10:24:25+08:00" content="2017-03-31">
-              2017-03-31
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/acm/" itemprop="url" rel="index">
-                    <span itemprop="name">acm</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          原题：Anton and School - 2
-原题大意给出一组由“（”和“)”组成的字符串，问有多少种方法使得删除其中一些括号后，字符串会成为RSBS串，RSBS串是一种左右完全对称的串，如“（（（）））”，有一些则不是，如“（（（））”，“（（）（））”。
-算法分析删除几个，其实也就是算有几种成立。看了网上的代码，知道了如何通过逆元来算组合数，博客如下，本题中求1/(k!) 是通过 k^(MOD - 2) % MOD (MOD为素数);
-
-组合数学公式推导
-含MOD求逆元
-
+其中第二种情况的第三点k较大时，就是说如果(1+k)长度超过n时，后位只能补一，相当于给第二种情况的第一点里，k&gt;i-3时的补充。
 程序代码#include &lt;cstdio&gt;
-#include &lt;memory.h&gt;
 #include &lt;cstring&gt;
 using namespace std;
-typedef long long LL;
-const int maxn = 2e5+5;
-const LL mod = 1e9 + 7;
+const int mod = 1e9+7;
+const int maxn = 1e6+5;
+typedef long long ll;
+int f[maxn];
 
-int n;
-char s[maxn];
-int l[maxn], r[maxn];
-LL fac[maxn], inv[maxn];//fac[i] 保存阶乘，inv[i]
+int up(int a,int b){
+    a+=b;
+    if(a&gt;=mod) a-=mod;
+ 
           ...
 
           <div class="post-more-link text-center">
-            <a class="btn" href="/2017/03/31/Anton-and-School-2/#more" rel="contents">
+            <a class="btn" href="/2017/04/23/Infinite-Sequence/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -518,8 +398,8 @@ LL fac[maxn], inv[maxn];//fac[i] 保存阶乘，inv[i]
             
               
                 
-                <a class="post-title-link" href="/2017/03/22/区间价值/" itemprop="url">
-                  区间价值
+                <a class="post-title-link" href="/2017/04/22/LCA模板/" itemprop="url">
+                  LCA模板
                 </a>
               
             
@@ -532,8 +412,8 @@ LL fac[maxn], inv[maxn];//fac[i] 保存阶乘，inv[i]
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-03-22T17:34:27+08:00" content="2017-03-22">
-              2017-03-22
+            <time itemprop="dateCreated" datetime="2017-04-22T14:06:38+08:00" content="2017-04-22">
+              2017-04-22
             </time>
           </span>
 
@@ -581,296 +461,422 @@ LL fac[maxn], inv[maxn];//fac[i] 保存阶乘，inv[i]
       
         
           
-          区间价值
-原题大意给定n个数A1…An，小Ho想了解AL..AR中有多少对元素值相同。小Ho把这个数目定义为区间[L,R]的价值，用v[L,R]表示。
-例如1 1 1 2 2这五个数所组成的区间的价值为4。
-现在小Ho想知道在所有的的v[L,R] (1 &lt;= L &lt;= R &lt;= n)中，第k小的值是多少。
-输入：
-2
-4 7
-1 1 2 3
-3 6
-100 100 100
-输出：
-03
-算法分析因为比较数字之间是否相同，所以与数字大小没有关系，先通过离散化将数据规模压缩，然后又因为最大的价值为 n*(n+1)/2，最小价值为 0，所以通过二分枚举价值，看是否有k个区间满足，然后通过区间的移动（尺取法），找到满足的解。
-程序代码#include &lt;iostream&gt;
+          LCALCA 是最近公共祖先问题，一般是图变成树做的问题，如有n个点m-1条边等等这样的条件，LCA有在线离线算法，这里总结的是在线算法，而且用st算法加速。
+算法分析网上总结了一些博客：
+
+http://blog.csdn.net/liangzhaoyang1/article/details/52549822
+http://blog.csdn.net/insistgogo/article/details/9929103
+
+几题的变化都不大，可见模板的通用性。
+Distance Queries原题：poj 1986
 #include &lt;cstdio&gt;
-#include &lt;map&gt;
+#include &lt;cstring&gt;
 #include &lt;algorithm&gt;
-#define ll long long
-using namespace std;
-
-const int maxn = 200000+5;
-ll n, 
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/03/22/区间价值/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/03/22/出勤记录2/" itemprop="url">
-                  出勤记录2
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-03-22T17:14:11+08:00" content="2017-03-22">
-              2017-03-22
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/acm/" itemprop="url" rel="index">
-                    <span itemprop="name">acm</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          出勤记录Ⅱ
-原题大意小Hi的算法课老师每次上课都会统计小Hi的出勤记录。迟到会被记录一个L，缺席会被记录一个A，按时上课会被记录一个O。
-一学期结束，小Hi的出勤记录可以看成是一个只包含LAO的字符串，例如”OOOOLOOOLALLO……”。
-如果小Hi整学期缺席不超过1次，并且没有连续3次迟到，小Hi的出勤记录就算合格。  
-现在给出字符串的长度N，小Hi想知道长度为N的出勤记录中，合格的记录总共有多少种。  
-例如长度为3的合格出勤记录有19种：OOO OOL OOA OLO OAO LOO AOO OLL OLA OAL LOL LOA AOL LLO LAO ALO LLA LAL ALL。
-算法分析状态dp[i][j][k]表示长度为i的组合中合格的个数，i表示长度，j表示A出现的个数，k表示连续L出现的个数。
-程序代码#include &lt;cstdio&gt;
-using namespace std;
-
-const int mod = 1e9 + 7;
-int dp[100005][2][3];
-
-int up(int &amp;a, int b){
-    a += 
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/03/22/出勤记录2/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/03/18/Chosing-Recipes/" itemprop="url">
-                  Chosing Recipes
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-03-18T09:46:35+08:00" content="2017-03-18">
-              2017-03-18
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/acm/" itemprop="url" rel="index">
-                    <span itemprop="name">acm</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          原题:Chosing Recipes
-原题大意有r种菜谱，有p种原料，每种原料都有相应的价格，已经有了m种原料，需要你做出n道菜，问最少需要花多少钱，注意：只要买了一种原料，下面如果还用到无需再买。输入的菜谱中，1表示需要这种原料，0表示不需要。
-算法分析刚开始，我想通过暴力+回溯，可是p的最大值可以取到13，结果，就超时了。后来看了网上的题解，算法应该这样设计：1.将菜谱当成2进制，然后用数组保存，因为最多有2^13种可能，数组开到9000就够了。2.用动态规划，每种菜谱要么选，要么不选，选了之后会对下面的选择造成影响，可以用记忆化搜索完成。
-程序代码#include &lt;cstdio&gt;
-#include &lt;iostream&gt;
-#include &lt;algorithm&gt;
-#include &lt;cmath&gt;
 #include &lt;vector&gt;
 using namespace std;
-
-
-const int INFI = (1 &lt;&lt; 20) - 1;
-int r;// 菜谱数
-int p;// 配料数
-int m;//已
+const int maxn = 4e4+5;
+struct nod{
+    int to, cost;
+    nod(int a=0,int b=0){to = a; cost = b;}
+};
+int dep[maxn], se
           ...
 
           <div class="post-more-link text-center">
-            <a class="btn" href="/2017/03/18/Chosing-Recipes/#more" rel="contents">
+            <a class="btn" href="/2017/04/22/LCA模板/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/04/18/Radio-stations/" itemprop="url">
+                  Radio stations
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-04-18T21:24:25+08:00" content="2017-04-18">
+              2017-04-18
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/acm/" itemprop="url" rel="index">
+                    <span itemprop="name">acm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          原题：Radio stations
+原题大意每个点有三个属性，x，r，f；统计有多少对点i，j满足 min(ri,rj) &gt;= |xi-xj| 且 |fi-fj| &lt;=k，这样的点对被称作是“坏的”。
+算法分析考虑到min(ri, rj)这个条件比较烦，把点按r从大到小排序。排序后，对于第i个点，它和之前的第j个点组成bad pair的充要条件为|xi-xj|&lt;=ri &amp;&amp; |fi-fj|&lt;=k。整理一下，变成xi-ri&lt;=xj&lt;=xi+ri &amp;&amp; -k+fi&lt;=fj&lt;=k+fi。这其实就是按顺序在平面上插入点，并查询给定矩形区域内点的个数，是经典的三维偏序问题，用CDQ分治即可解决。
+
+http://blog.csdn.net/jtjy568805874/article/details/50638665
+http://www.cnblogs.com/mlystdcall/p/6351344.html
+
+程序代码#include &lt;bits/stdc++.h&gt;
+using namespace s
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/04/18/Radio-stations/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/04/16/A-Simple-Task/" itemprop="url">
+                  A Simple Task
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-04-16T22:41:08+08:00" content="2017-04-16">
+              2017-04-16
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/acm/" itemprop="url" rel="index">
+                    <span itemprop="name">acm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          原题：A Simple Task
+原题大意统计一个无向图中环的个数
+算法分析首先考虑到一个环其实是一条链两头连接起来的，所以我们只要找到所有的链判一下两头是否联通即可。但是一个链的状态是首尾和经过的点，是n^2*2^n的，考虑到题目限制n&lt;=19，这个状态数显然是爆炸的。现在我们考虑人为地把一个环从经过的点中id最小的点的两侧处切开，则得到了两个以id最小值为起点的链。对于任意的环我们都可以这样做，于是我们只要统计以id最小值为起点的成环链的数量，将结果除以2即可。这样由于起点已经固定，状态数就只有n*2^n, 然后dp一下即可。dp[i][j]表示状态i（具体路径）中，以i的最小id为起点，j为终点的路径数。
+
+http://m.blog.csdn.net/article/details?id=49078233http://blog.csdn.net/kk303/article/details/9621933
+
+程序代码#include &lt;bits/stdc++.h&gt;
+using namespace std;
+typedef long long ll;
+bool g
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/04/16/A-Simple-Task/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/04/16/Hamiltonish-Path/" itemprop="url">
+                  Hamiltonish Path
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-04-16T22:18:06+08:00" content="2017-04-16">
+              2017-04-16
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/acm/" itemprop="url" rel="index">
+                    <span itemprop="name">acm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          原题：Hamiltonish Path
+原题大意给定一个无向图，有n个点，m条边，让你求出一条路径，这条路径有3个满足条件：
+
+这条路径至少穿过两个点
+这条路径只经过一个点一次 
+任何与起点或终点相邻的点一定包括在这条路径里面
+
+题目输入保证存在路径，并且多条路径时，输出任意一条
+算法分析可以从任意一点开始（记为x）。把x放到一个双端队列里，以之为起点。然后重复执行一下内容：
+
+如果有与之相邻的点且不在队列里的，就将其放到队首，并以之为起点。
+如果有与队尾相邻（终点）且不在队列里，就将其放到队尾，并以之为终点。
+
+直到队首队尾没有点与之相邻，或相邻的都在队列里，输出队列。
+程序代码#include &lt;cstdio&gt;
+#include &lt;vector&gt;
+#include &lt;deque&gt;
+#include &lt;memory.h&gt;
+#define mem(a,b) memset(a, b, sizeof(a))
+using namespace std;
+const int maxn = 1e5+5;
+bool vis[maxn];
+vector&
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/04/16/Hamiltonish-Path/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -904,7 +910,7 @@ int m;//已
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/7/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/9/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/7/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/9/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -945,7 +951,7 @@ int m;//已
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">69</span>
+              <span class="site-state-item-count">80</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -962,7 +968,7 @@ int m;//已
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">53</span>
+                <span class="site-state-item-count">58</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

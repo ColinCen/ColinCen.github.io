@@ -258,8 +258,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/06/19/Matrix-Chain-Multiplication/" itemprop="url">
-                  Matrix Chain Multiplication
+                <a class="post-title-link" href="/2016/08/12/Ignatius-and-the-Princess-I/" itemprop="url">
+                  Ignatius and the Princess I
                 </a>
               
             
@@ -272,8 +272,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-06-19T22:22:52+08:00" content="2016-06-19">
-              2016-06-19
+            <time itemprop="dateCreated" datetime="2016-08-12T17:36:59+08:00" content="2016-08-12">
+              2016-08-12
             </time>
           </span>
 
@@ -321,11 +321,33 @@
       
         
           
-          原题:Suppose you have to evaluate an expression like ABCDE where A,B,C,D and E are matrices.Since matrix multiplication is associative, the order in which multiplications are performed is arbitrary. However, the number of elementary multiplications needed strongly depends on the evaluation order you choose.For example, let A be a 5010 matrix, B a 1020 matrix and C a 205 matrix.There are two different strategies to compute ABC, namely (AB)C and A(B*C).The first one takes 15000 elementary multiplica
+          原题:hdoj 1026
+原题大意迷宫题,要求求出最短时间,同时打印每一个步骤.
+算法分析看到这题,我的第一反应就是bfs,但是,还要打印每一步,我没什么办法,百度后普遍算法是,用优先队列bfs得出最小路径后,递归打印.首先优先队列的优先级别要能改
+struct Point{
+int x,y;
+int time;
+friend bool operator&lt;(Point a,Point b)
+{
+    return a.time&gt;b.time;
+}
+};
+注意:stl里优先队列只能对&lt;重载.记录路径的方法是:用数组Point,当前数组的值为上一步的坐标,打印时递归.
+程序代码#include &lt;iostream&gt;
+#include &lt;queue&gt;
+using namespace std;
+int n,m;//对应N,M 
+int dx[]={1,-1,0,0};
+int dy[]={0,0,1,-1};
+char lab[110][110];//迷宫
+struct Point{
+    int x,y;
+    int time;
+    fr
           ...
 
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/06/19/Matrix-Chain-Multiplication/#more" rel="contents">
+            <a class="btn" href="/2016/08/12/Ignatius-and-the-Princess-I/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -376,8 +398,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/06/10/blog的搭建-二/" itemprop="url">
-                  blog的搭建(二)
+                <a class="post-title-link" href="/2016/08/11/Tempter-of-the-Bones/" itemprop="url">
+                  Tempter of the Bones
                 </a>
               
             
@@ -390,8 +412,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-06-10T23:42:33+08:00" content="2016-06-10">
-              2016-06-10
+            <time itemprop="dateCreated" datetime="2016-08-11T16:44:29+08:00" content="2016-08-11">
+              2016-08-11
             </time>
           </span>
 
@@ -404,8 +426,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/blog的建设/" itemprop="url" rel="index">
-                    <span itemprop="name">blog的建设</span>
+                  <a href="/categories/acm/" itemprop="url" rel="index">
+                    <span itemprop="name">acm</span>
                   </a>
                 </span>
 
@@ -439,21 +461,33 @@
       
         
           
-          hexo的评论设置问题关于这个问题网上有相应的攻略,但我用了后反而没用,所以自己摸索出来了.  我选择用”多说”,首先要申请一个多说的账号:  然后打开多说的个人设置,就会发现自己的域名.  下面打开F:\Hexo\themes\iissnan打开Readme.en文档,在comment support处找到这么一段话:
-duoshuo:
-  enable: true
-  shortname: your-duoshuo-shortname
-  将这一段复制进\Hexo__config里,your-duoshuo-shortname就是刚刚你申请的域名把.duoshuo.com去掉的部分,对我来就是”colincen2”. 冒号后的空格不能少接着进入\Hexo\themes\iissnan__config找到
-# Duoshuo ShortName
-# duoshuo_shortname: 
-把第二行的注释去掉,并在”:”后面加上shortname,注意:冒号后面要留个空格,否则可能无法编译下面的操作分为两种情况:
+          原题:hdoj 1010
+原题大意又是走迷宫的题目,不过这题有点不一样,因为要求狗狗要在T时刻恰好走到D处.
+算法分析明显dfs,不过直接深搜很快就会发现超时了,所以一定得剪枝,百度了下,除了剩余最短步数大于剩余时间外还有一个奇偶剪枝.
+程序代码#include &lt;iostream&gt;
+#include &lt;math.h&gt;
+#include &lt;memory.h&gt;
+using namespace std;
+int dx[]={0,0,1,-1};
+int dy[]={1,-1,0,0};
+int n,m,t;//对应N,M,T 
+char maze[7][7];//迷宫 
+bool used[7][7];
+struct Point{
+    int x,y;
+};
+Point start,door;
+int flag;
+void dfs(int x,int y,int time)
+{
 
-所用主题自带duoshuo插件的代码
-没有代码若是第一种,进入\Hex
+    if(flag) return ;//如果找到就return!否则容易超时     
+    if(time&gt;t) return;
+    if(x==doo
           ...
 
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/06/10/blog的搭建-二/#more" rel="contents">
+            <a class="btn" href="/2016/08/11/Tempter-of-the-Bones/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -504,8 +538,8 @@ duoshuo:
             
               
                 
-                <a class="post-title-link" href="/2016/06/09/blog的搭建/" itemprop="url">
-                  blog的搭建(一)
+                <a class="post-title-link" href="/2016/08/09/Hike-on-a-Graph/" itemprop="url">
+                  Hike on a Graph
                 </a>
               
             
@@ -518,8 +552,8 @@ duoshuo:
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-06-09T20:56:03+08:00" content="2016-06-09">
-              2016-06-09
+            <time itemprop="dateCreated" datetime="2016-08-09T20:57:10+08:00" content="2016-08-09">
+              2016-08-09
             </time>
           </span>
 
@@ -532,8 +566,8 @@ duoshuo:
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/blog的建设/" itemprop="url" rel="index">
-                    <span itemprop="name">blog的建设</span>
+                  <a href="/categories/acm/" itemprop="url" rel="index">
+                    <span itemprop="name">acm</span>
                   </a>
                 </span>
 
@@ -567,23 +601,30 @@ duoshuo:
       
         
           
-          今天是端午节,也是高考的最后一天,但对于我没什么特别的,今天我依旧在鼓捣我的博客,现在来总结一下一天的学习经历:
-学习MD的语法MD语法倒也不难,只是我还没完全的熟练应用,但个人觉得掌握常用的几种方法就够了,由此推荐博文markdown简明语法.另外我用了一款叫做Sublime Text 2的文本编辑器,这是受学长的推荐,个人认为在这上面打字什么的特别带感,而且这个软件支持同时在浏览器中的观察,不得不说十分的方便(下载地址点这里).
-给便签、类别做链接这个是个小问题,应该在每个主题的Readme文档都有,我用的是iissnan,找到Readme文档中的这么一段:
- Tags page
- Add a tags page contains all tags in your site.
-
-Create a page named tags
-hexo new page &quot;tags&quot;
-意思就是说先得在shell里输入命令,创建一个新的page来管理所有的标签.
-
-Edit tags page, set page type to tags.
-title: All tags
-dat
+          原题:hdoj 1252
+原题大意三个棋子,通过棋盘移到同一点,只有当标线的颜色与两个对手棋子之间的标线颜色一样时,棋子才能移动.求出最少移动的步数.
+算法分析广搜计算最小步数.结点本身自循环,是有边的,广搜时要排除
+程序代码#include &lt;stdio.h&gt;
+#include &lt;memory.h&gt;
+#include &lt;ctype.h&gt;
+int main()
+{
+    char g[51][51];//无向图中边的颜色
+    unsigned int step[51][51][51];//棋子到达不同位置是所走的步骤
+    struct str{
+        char a,b,c;
+    }list[51*51*51];//广搜的链表
+    int i,j;
+    int n;//无向图的结点数
+    int a,b,c;//三个棋子的起始位置
+    int flag;//能否实现目标的标志
+    while(scanf(&quot;%d&quot;,&amp;n)&amp;&amp;n)
+    {
+        scan
           ...
 
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/06/09/blog的搭建/#more" rel="contents">
+            <a class="btn" href="/2016/08/09/Hike-on-a-Graph/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -634,8 +675,8 @@ dat
             
               
                 
-                <a class="post-title-link" href="/2016/06/07/hello-博客/" itemprop="url">
-                  hello,博客
+                <a class="post-title-link" href="/2016/08/08/Gamblers/" itemprop="url">
+                  Gamblers
                 </a>
               
             
@@ -648,8 +689,8 @@ dat
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-06-07T16:08:05+08:00" content="2016-06-07">
-              2016-06-07
+            <time itemprop="dateCreated" datetime="2016-08-08T20:27:21+08:00" content="2016-08-08">
+              2016-08-08
             </time>
           </span>
 
@@ -662,8 +703,8 @@ dat
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/随笔/" itemprop="url" rel="index">
-                    <span itemprop="name">随笔</span>
+                  <a href="/categories/acm/" itemprop="url" rel="index">
+                    <span itemprop="name">acm</span>
                   </a>
                 </span>
 
@@ -693,31 +734,163 @@ dat
 
       
       
-        <div class="post-gallery" itemscope itemtype="http://schema.org/ImageGallery">
+
+      
+        
           
+          原题:Zoj 1101
+题目大意游戏开始时，他们各自将自己的赌注盖住,同时任何两个赌徒的赌注是不同的,如果其中一个赌徒没有钱了,他可以借一些筹码,但是他的赌注就是负数了.假设,他们的赌注都是整数.然后他们揭开所有的赌注.赢家为：他的赌注是其他三个人的赌注的综合.如果赢家不止一家,那么拥有最大赌注的人是赢家.
+算法分析对于此题，求三个数n1,n2,n3使其之和为另一个数字n.如果存在多种情况,求n值最大的一个.所以首先将所有的数字从小到大排列,从后向前求解,这样就保证求得的第一个赢家为最大值.剩下的三个数枚举求得.
+程序代码#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+using namespace std;
+int n;
+int winner;
+int bet[1000];
+int binsearch(int k,int val)
+{
+    int left,right,mid;
+    left=k+1;
+    right=n-1;
+    while(left&lt;=right)
+    {
+        mid=
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/08/08/Gamblers/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/07/08/Collect-More-Jewels/" itemprop="url">
+                  Collect More Jewels
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-07-08T21:57:52+08:00" content="2016-07-08">
+              2016-07-08
+            </time>
+          </span>
+
           
-            <div class="post-gallery-row">
-              <a class="post-gallery-img fancybox"
-                 href="http://o8engxb28.bkt.clouddn.com/assassin.jpg" rel="gallery_cj3jz1zkl004fkgo0nl0wow64"
-                 itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
-                <img src="http://o8engxb28.bkt.clouddn.com/assassin.jpg" itemprop="contentUrl"/>
-              </a>
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/acm/" itemprop="url" rel="index">
+                    <span itemprop="name">acm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
             
           
 
           
-          </div>
+
+          
+          
+
+          
         </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
       
 
       
         
           
-          
-          
+          原题:hdoj 1044
+原题大意在能走出迷宫的情况下,收集最大价值的珠宝,’*’是墻,’.’表示可以走的空地,’@’表示起点,’&lt;’表示终点,’A-J’用来表示各种价值的珠宝.
+算法分析这题百度了下,我能用的方法就是bfs加dfs,先用bfs算出出口,入口,珠宝之间的两两最短距离,然后再用dfs遍历每条从起点到终点的路径.
+注意事项这题我一开始交的时候总是超时,后来百度了下,在dfs里加了段代码,作用是如果收集的珠宝已达到所有珠宝价值之和,递归就结束.(这是我第一次超时,下次再出现时要考虑清楚哪里可以缩短时间)
+程序代码#include &lt;iostream&gt;
+#include &lt;queue&gt;
+#include &lt;memory.h&gt;
+using namespace std;
+int W,H,L,M;
+int dx[]={1,0,-1,0};
+int dy[]={0,1,0,-1};
+char g[50][50];
+int len[12][12];//宝物,出入口的两两距离 
+int l[50][50];//记录距离 
+bool used[12]
+          ...
 
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/06/07/hello-博客/#more" rel="contents">
+            <a class="btn" href="/2016/07/08/Collect-More-Jewels/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -751,7 +924,7 @@ dat
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/13/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><span class="page-number current">14</span>
+    <a class="extend prev" rel="prev" href="/page/13/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><span class="page-number current">14</span><a class="page-number" href="/page/15/">15</a><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/15/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -792,7 +965,7 @@ dat
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">69</span>
+              <span class="site-state-item-count">80</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -809,7 +982,7 @@ dat
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">53</span>
+                <span class="site-state-item-count">58</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

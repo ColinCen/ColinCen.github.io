@@ -258,8 +258,8 @@
             
               
                 
-                <a class="post-title-link" href="/2017/05/21/铁路修复计划/" itemprop="url">
-                  铁路修复计划
+                <a class="post-title-link" href="/2017/06/10/qwb又偷懒了/" itemprop="url">
+                  qwb又偷懒了
                 </a>
               
             
@@ -272,8 +272,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-05-21T10:00:45+08:00" content="2017-05-21">
-              2017-05-21
+            <time itemprop="dateCreated" datetime="2017-06-10T21:57:04+08:00" content="2017-06-10">
+              2017-06-10
             </time>
           </span>
 
@@ -321,283 +321,23 @@
       
         
           
-          原题：铁路修复计划
-原题大意在 A 国有很多城际铁路。这些铁路都连接两个城市（城市从1到n编号），可以双向通行，使得任意两个城市之间都由铁路网联系起来。
-不过在一次星球大战之后，所有的铁路都经历了不同程度的损伤以至于无法通行了。由于经费紧缺，A 国政府不愿意再出资造新的铁路。对于原有的城际铁路，根据铁路的实际情况，有以下两种处理办法：
-使用国内技术进行修复：主要针对损坏情况不是很严重的铁路。国内公司会对铁路状况进行评估，然后如实开出铁路修复的费用。使用国外技术进行修复：主要针对损坏情况严重的铁路。国外公司也会对铁路情况进行评估，然后按照铁路实际修复费用的k倍来收费（其中k是一个由国外公司决定的实数，不管怎么说，优惠是不可能的，所以 k≥1）。A国政府修复铁路的总预算是 M，目标是要让任意两个城市之间都能通过铁路联系起来。在预算不够且能够完成目标的条件下，显然没必要修复每一条铁路。
-国外公司通过不知什么途径了解到了 A 国政府的总预算 M，他们现在要把 k 定下来，并且希望 k 尽可能得大。但 k 又不能太大，不然，如果A国政府发现无法完成任务的话，整个订单都会泡汤。
-Input测试数据
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/05/21/铁路修复计划/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/05/21/丽娃河的狼人传说/" itemprop="url">
-                  丽娃河的狼人传说
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-05-21T09:52:48+08:00" content="2017-05-21">
-              2017-05-21
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/acm/" itemprop="url" rel="index">
-                    <span itemprop="name">acm</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          原题：丽娃河的狼人传说
-原题大意丽娃河可以看成是从 1 到 n的一条数轴。为了美观，路灯只能安装在整数点上，每个整数点只能安装一盏路灯。经专业勘测，有m个区间特别容易发生事故，所以至少要安装一定数量的路灯，请问至少还要安装多少路灯。
-Input第一行一个整数 T (1≤T≤300)，表示测试数据组数。
-对于每组数据：
-第一行三个整数 n,m,k (1≤n≤103,1≤m≤103,1≤k≤n)。
-第二行 k 个不同的整数用空格隔开，表示这些位置一开始就有路灯。
-接下来 m 行表示约束条件。第 i 行三个整数 li,ri,ti 表示：第 i 个区间 [li,ri]少要安装 ti 盏路灯 (1≤li≤ri≤n,1≤ti≤n)。
-Output对于每组数据，输出Casex:y。其中x表示测试数据编号（从1开始），y表示至少要安装的路灯数目。如果无解，y 为 −1。
-算法分析按右端点排序，然后对于不满足条件的尽量往右垒就好了。贪心的证明：由于左边的都已经垒满了，所以垒左边的肯定是没意义的。垒中间肯定没有垒右边的号，因为右边的区间不可能长得断开，使得垒在左边收益更大。这样就可以实现 O(n2)。
-程
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/05/21/丽娃河的狼人传说/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/05/20/Strange-Optimization/" itemprop="url">
-                  Strange Optimization
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-05-20T11:37:54+08:00" content="2017-05-20">
-              2017-05-20
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/acm/" itemprop="url" rel="index">
-                    <span itemprop="name">acm</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          原题：Strange Optimization
-原题大意
-找到一个α，使得f（1/2+α）最大。
-
-可以看成两点之间距离，中点处最大。
+          原题：qwb又偷懒了
+原题大意qwb最近在做一个群众收入统计。ta非常懒，以至于忘记了今天领导要来视察。所以急忙催下属去做统计。在接下来长度为n的时间里,每个单位时间都有事情发生,可能会发下以下两种事件：
+1)下属递交了一份调查报告，由于太匆忙，上面只有一个整数x，代表一个居民的收入。2)领导来视察了，领导会来询问，收入在区间[l,r]内的居民的平均收入，qwb需要给出回答。
+qwb非常讨厌小数，所以qwb上报时都会省略小数部分。如果上报时统计的人数为0，qwb就暴露了他偷懒的事情，他就会zhizhiwuwu。
+算法分析用两个树状数组分别保存收入和人数，坑点在收入为0的情况，可以记录一下0的个数，或者直接平移1。
 程序代码#include &lt;bits/stdc++.h&gt;
 using namespace std;
 typedef long long ll;
-ll gcd(ll a, ll b){
-    return b == 0 ? a : gcd(b, a%b);
-}
-int main(){
-//freopen(&quot;input.txt&quot;, &quot;r&quot;, stdin);
-    ios::sync_with_stdio(false);
-    cin.tie(0);
-    ll n, m;
-    while(cin &gt;&gt; n &gt;&gt; m){
-    ll t1 = gcd(n, m);
-    ll t2 = 2 * n * m;
-    ll num = gcd(t1, t2);
-    ll p = t1 / num;
-    ll q = t2 / num;
-    cout &lt;
+const ll mod = 1e9+7;
+const ll maxn = 1000000+100;
+ll c1[maxn],c2[maxn];
+ll  lowbit(ll x){
+    return x &amp; (
           ...
 
           <div class="post-more-link text-center">
-            <a class="btn" href="/2017/05/20/Strange-Optimization/#more" rel="contents">
+            <a class="btn" href="/2017/06/10/qwb又偷懒了/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -648,8 +388,8 @@ int main(){
             
               
                 
-                <a class="post-title-link" href="/2017/05/20/Highway/" itemprop="url">
-                  Highway
+                <a class="post-title-link" href="/2017/06/10/qwb与学姐/" itemprop="url">
+                  qwb与学姐
                 </a>
               
             
@@ -662,8 +402,8 @@ int main(){
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-05-20T11:22:19+08:00" content="2017-05-20">
-              2017-05-20
+            <time itemprop="dateCreated" datetime="2017-06-10T21:51:31+08:00" content="2017-06-10">
+              2017-06-10
             </time>
           </span>
 
@@ -711,36 +451,26 @@ int main(){
       
         
           
-          原题：Highway
-原题大意n个城市要建造(n-1)条路，求最贵的建造方法。
-算法分析
-两次dfs求出直径，然后lca更新答案
-程序代码#include &lt;cstdio&gt;
-#include &lt;algorithm&gt;
-#include &lt;vector&gt;
-#include &lt;cstring&gt;
-#define pb push_back
-#define mem(a,b) memset(a,b,sizeof(a))
-using namespace std;
-typedef long long ll;
-const int maxn=100005;
-int fir[maxn],no[2*maxn],se[2*maxn],st[2*maxn][20],lo[200005];
-ll dep[maxn];
-struct nod
-{
-    int to;
-    ll cost;
+          原题：qwb与学姐
+原题大意qwb打算向学姐表白，可是学姐已经受够了他的骚扰，于是出了一个题想难住他:已知一幅n个点m条边的无向图,定义 路径的值为这条路径上最短的边的长度，现在有k个询问，询问从A点到B点的所有路径的值的最大值。
+算法分析题目意思是查询图上两点的瓶颈路大小，这个训练指南上有讲解。先是求最大生成树，然后求树上两点路径的最小值，用LCA倍增法就可以了。
+
+http://blog.csdn.net/Janis_z/article/details/52937631?locationNum=6&amp;fps=1
+
+程序代码template &lt;class T&gt; inline void umin(T &amp;a,T b){a=min(a,b);}
+template &lt;class T&gt; inline void umax(T &amp;a,T b){a=max(a,b);}
+const int N=50005;
+struct Bian{  
+    int u;    
+    int v;
+    int w;
 };
-int n,m,d1,d2;
-vector&lt;nod&gt; g[maxn];
-int cnt,sum;
-void mkST()
-{
-    for(int i=1;i&
+int p[N],ra[N]; 
+Bi
           ...
 
           <div class="post-more-link text-center">
-            <a class="btn" href="/2017/05/20/Highway/#more" rel="contents">
+            <a class="btn" href="/2017/06/10/qwb与学姐/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -791,8 +521,8 @@ void mkST()
             
               
                 
-                <a class="post-title-link" href="/2017/05/20/Super-Resolution/" itemprop="url">
-                  Super Resolution
+                <a class="post-title-link" href="/2017/06/10/qwb和李主席/" itemprop="url">
+                  qwb和李主席
                 </a>
               
             
@@ -805,8 +535,8 @@ void mkST()
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-05-20T11:17:42+08:00" content="2017-05-20">
-              2017-05-20
+            <time itemprop="dateCreated" datetime="2017-06-10T21:46:54+08:00" content="2017-06-10">
+              2017-06-10
             </time>
           </span>
 
@@ -854,28 +584,288 @@ void mkST()
       
         
           
-          原题：Super Resolution
-原题大意给一个01串，按照要求放大a*b倍，并且相对位置不变
-算法分析比赛时唯一一道水题，模拟即可
+          原题：qwb和李主席
+原题大意qwb和李主席打算平分一堆宝藏，他们想确保分配公平，可惜他们都太懒了，你能帮助他们嘛？
+输入包含多组测试数据，处理到文件结束。每组测试数据的第一行是一个正整数N(0 &lt;= N &lt;=36 )表示物品的总个数。接下来输入N个浮点数(最多精确到分)，表示每个物品的价值V（0&lt;V&lt;=1e9）。
+对于每组测试数据，输出能够使qwb和李主席各自所得到的物品的总价值之差的最小值（精确到分），每组测试数据输出占一行。
+算法分析折半搜索+二分查找，注意可能会因为浮点数误差导致WA，解决方法是一开始*200化成LL，
 程序代码#include &lt;bits/stdc++.h&gt;
+typedef long long ll;
 using namespace std;
-int  n, m, a, b;
-int m1[11][11];
-string s[11];
-int main(){
-    ios::sync_with_stdio(false);
-    cin.tie(0);
-    while(cin &gt;&gt; n &gt;&gt; m &gt;&gt; a &gt;&gt; b){
-        for(int i = 0; i &lt; n; i++)
-            cin &gt;&gt; s[i];
-        for(int i = 0; i &lt; n; i++){
-            for(int j = 0; j &lt; m; j++){
-                m1[i][j] = s[i][j] - &apos;0&apos;;
-   
+const int maxn = 40;
+ll N[maxn], a[maxn], b[maxn], sum1[1&lt;&lt;20], all_cost;
+int n, na, nb;
+int main() {
+    while(~scanf(&quot;%d&quot;, &a
           ...
 
           <div class="post-more-link text-center">
-            <a class="btn" href="/2017/05/20/Super-Resolution/#more" rel="contents">
+            <a class="btn" href="/2017/06/10/qwb和李主席/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/06/10/勤劳的ACgirls/" itemprop="url">
+                  勤劳的ACgirls
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-06-10T21:43:21+08:00" content="2017-06-10">
+              2017-06-10
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/acm/" itemprop="url" rel="index">
+                    <span itemprop="name">acm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          原题：勤劳的ACgirls
+原题大意zjc的ACgirls队的队员最近比较忙，为了能够取得更好的比赛成绩，他们制定了一个m天a掉n题的计划，a掉一题可以是这m天的任何时候。为了表示对acmer事业的热爱，队长wc要求每天必须至少要ac掉k题，这m天每天ac掉的题数可以用一个m元组表示。设不同的m元组一共有c个，请问c的末尾有多少个0？（如果c是0，输出0）
+算法分析用隔板法算出答案是C（n+(1-k)*m-1,m-1）,然后算出因子5和因子2的个数，取小的那个
+程序代码#include &lt;bits/stdc++.h&gt;
+using namespace std;
+typedef long long ll;
+ll m, n, k;
+int main(){
+    while(scanf(&quot;%lld%lld%lld&quot;, &amp;m, &amp;n, &amp;k) != EOF){
+        ll x = m - 1;
+        ll y = (n - m * k) + m - 1;
+        ll ans = 0;
+        if(x
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/06/10/勤劳的ACgirls/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/06/10/qwb与支教/" itemprop="url">
+                  qwb与支教
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-06-10T21:39:17+08:00" content="2017-06-10">
+              2017-06-10
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/acm/" itemprop="url" rel="index">
+                    <span itemprop="name">acm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          原题：qwb与支教
+原题大意qwb同时也是是之江学院的志愿者，暑期要前往周边地区支教，为了提高小学生的数学水平。她把小学生排成一排，从左至右从1开始依次往上报数。
+玩完一轮后，他发现这个游戏太简单了。于是他选了3个不同的数x,y,z；从1依次往上开始报数，遇到x的倍数、y的倍数或z的倍数就跳过。如果x=2,y=3,z=5；第一名小学生报1，第2名得跳过2、3、4、5、6，报7；第3名得跳过8、9、10，报11。
+那么问题来了，请你来计算，第N名学生报的数字是多少？
+算法分析二分+容斥原理，详见代码
+程序代码#include &lt;bits/stdc++.h&gt;
+using namespace std;
+typedef long long ll;
+const ll mod = 1e9+7;
+ll x, y, z, n;
+ll gcd(ll a, ll b){
+    return b == 0?a:gcd(b, a%b);
+}
+ll lcm(ll a, ll b){
+    return a*b/gcd(a,b);
+}
+ll check(ll w){
+    return w/x+
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/06/10/qwb与支教/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -909,7 +899,7 @@ int main(){
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -950,7 +940,7 @@ int main(){
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">69</span>
+              <span class="site-state-item-count">80</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -967,7 +957,7 @@ int main(){
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">53</span>
+                <span class="site-state-item-count">58</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

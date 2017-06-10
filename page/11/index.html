@@ -258,8 +258,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/11/21/ACM周练-10-30/" itemprop="url">
-                  ACM周练-10.30
+                <a class="post-title-link" href="/2017/03/18/Chosing-Recipes/" itemprop="url">
+                  Chosing Recipes
                 </a>
               
             
@@ -272,8 +272,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-21T15:42:49+08:00" content="2016-11-21">
-              2016-11-21
+            <time itemprop="dateCreated" datetime="2017-03-18T09:46:35+08:00" content="2017-03-18">
+              2017-03-18
             </time>
           </span>
 
@@ -321,411 +321,25 @@
       
         
           
-          第一题原题:hdoj 5971算法思想dfs二分染色,先将已知身份的人涂色,再从剩下的人中开始染色,最后如果还有剩下的人未被染色,那就是NO,否则是YES
-程序代码//#define LOCAL
+          原题:Chosing Recipes
+原题大意有r种菜谱，有p种原料，每种原料都有相应的价格，已经有了m种原料，需要你做出n道菜，问最少需要花多少钱，注意：只要买了一种原料，下面如果还用到无需再买。输入的菜谱中，1表示需要这种原料，0表示不需要。
+算法分析刚开始，我想通过暴力+回溯，可是p的最大值可以取到13，结果，就超时了。后来看了网上的题解，算法应该这样设计：1.将菜谱当成2进制，然后用数组保存，因为最多有2^13种可能，数组开到9000就够了。2.用动态规划，每种菜谱要么选，要么不选，选了之后会对下面的选择造成影响，可以用记忆化搜索完成。
+程序代码#include &lt;cstdio&gt;
 #include &lt;iostream&gt;
-#include &lt;cstdio&gt;
-#include &lt;cstring&gt;
-#include &lt;vector&gt;
-#include &lt;memory.h&gt;
-#define  mem(a,b)    memset(a,b,sizeof(a))
-using namespace std;
-const int MAX=1010;
-vector&lt;int&gt; G[MAX];
-int color[MAX];
-int n,m,x,y;
-bool dfs(int v,int c)
-{
-    color[v]=c;
-    for(int i=0;i&lt;G[v].size();i++)
-    {
-        if(color[G[v][i]]==c) return false;
-        if
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/11/21/ACM周练-10-30/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/10/08/No-names-no-bias/" itemprop="url">
-                  No names,no bias?
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-08T19:14:35+08:00" content="2016-10-08">
-              2016-10-08
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/English/" itemprop="url" rel="index">
-                    <span itemprop="name">English</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          No names,no bias?　 “If you’ve got the grades, the skills and the determination, this government will ensure you can succeed,” trumpeted David Cameron, the British prime minister, on October 26th, as he unveiled plans to tackle discrimination in the workplace. Ten big employers in the public and private sectors—including the civil service, HSBC and Deloitte—have agreed to start recruiting on a “name-blind” basis in Britain;others may also follow suit. In such schemes,those drawing up shortlists o
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/10/08/No-names-no-bias/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/09/01/hdu-1042-N/" itemprop="url">
-                  hdu 1042 N!
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-01T14:51:31+08:00" content="2016-09-01">
-              2016-09-01
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/acm/" itemprop="url" rel="index">
-                    <span itemprop="name">acm</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          原题:hdoj 1042
-原题大意题意很简单就是求阶乘.但数据要求能求到10000.
-算法分析这题因为数据大,所以用数组保存,用大数相乘的思想.每个数组元素的值在0~9999间,过了就进一位,每个数组元素应当有4位(除了开头部分),不够用0补.
-注意:我一开始是从n往1乘,结果超时了,只有用1往n乘才能通过.同时0!=1不能忽略.
-代码程序#include &lt;iostream&gt;
-using namespace std;
-#define N 10000
-int main(){
-    int a[N],n,m,len;
-    while(scanf(&quot;%d&quot;,&amp;n)!=EOF)
-    {
-        if(n==0) //0!=1
-        {printf(&quot;1\n&quot;);continue;}
-        len=1;
-        a[0]=n;m=0;
-        for(int t=1;t&lt;n;t++)
-        {
-            for(int i=0;i&lt;len;i++
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/09/01/hdu-1042-N/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/08/16/hdu-1015-Safecracker/" itemprop="url">
-                  hdu 1015 Safecracker
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-08-16T15:32:18+08:00" content="2016-08-16">
-              2016-08-16
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/acm/" itemprop="url" rel="index">
-                    <span itemprop="name">acm</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          原题:hdoj 1015
-原题大意题中给了一个式子 v - w^2 + x^3 - y^4 + z^5 = target 要求输入一个数(即作为target),再给出一个字符串,字符串由从A到Z,26个大写字母组成(A=1, B=2, …, Z=26),式子中的v,w,x,y,z由给出的字符串中的5个字符组成,使得式子能够成立.但是符合条件的有很多时,则按字典顺序且逆序输出一种,若无,则打印”no solution”.
-算法分析因为要按字典序输出最大的一组,所以先要将输进去的字符串重新排序,用C++中stl里sort函数就可以了.下面可以用枚举(5重循环)或dfs.
-程序代码枚举#include &lt;iostream&gt;
-#include &lt;stdio.h&gt;
-#include &lt;string.h&gt;
 #include &lt;algorithm&gt;
-#define target(v,w,x,y,z) v-w*w+x*x*x-y*y*y*y+z*z*z*z*z
+#include &lt;cmath&gt;
+#include &lt;vector&gt;
 using namespace std;
-char str[30];
-int num[30];
+
+
+const int INFI = (1 &lt;&lt; 20) - 1;
+int r;// 菜谱数
+int p;// 配料数
+int m;//已
           ...
 
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/08/16/hdu-1015-Safecracker/#more" rel="contents">
+            <a class="btn" href="/2017/03/18/Chosing-Recipes/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -776,8 +390,8 @@ int num[30];
             
               
                 
-                <a class="post-title-link" href="/2016/08/12/Ignatius-and-the-Princess-I/" itemprop="url">
-                  Ignatius and the Princess I
+                <a class="post-title-link" href="/2017/02/18/machine-learning-exercise6-Coursera/" itemprop="url">
+                  machine learning exercise6 Coursera
                 </a>
               
             
@@ -790,8 +404,8 @@ int num[30];
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-08-12T17:36:59+08:00" content="2016-08-12">
-              2016-08-12
+            <time itemprop="dateCreated" datetime="2017-02-18T20:51:57+08:00" content="2017-02-18">
+              2017-02-18
             </time>
           </span>
 
@@ -804,8 +418,8 @@ int num[30];
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/acm/" itemprop="url" rel="index">
-                    <span itemprop="name">acm</span>
+                  <a href="/categories/机器学习/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
                   </a>
                 </span>
 
@@ -839,33 +453,444 @@ int num[30];
       
         
           
-          原题:hdoj 1026
-原题大意迷宫题,要求求出最短时间,同时打印每一个步骤.
-算法分析看到这题,我的第一反应就是bfs,但是,还要打印每一步,我没什么办法,百度后普遍算法是,用优先队列bfs得出最小路径后,递归打印.首先优先队列的优先级别要能改
-struct Point{
-int x,y;
-int time;
-friend bool operator&lt;(Point a,Point b)
-{
-    return a.time&gt;b.time;
-}
-};
-注意:stl里优先队列只能对&lt;重载.记录路径的方法是:用数组Point,当前数组的值为上一步的坐标,打印时递归.
-程序代码#include &lt;iostream&gt;
-#include &lt;queue&gt;
-using namespace std;
-int n,m;//对应N,M 
-int dx[]={1,-1,0,0};
-int dy[]={0,0,1,-1};
-char lab[110][110];//迷宫
-struct Point{
-    int x,y;
-    int time;
-    fr
+          第六次上机作业：
+gaussianKernel.m
+dataset3Params.m
+processEmail.m
+emailFeatures.m
+gaussianKernel.m高斯核函数
+
+sim = exp(-sum((x1 - x2) .^ 2) / (2 * sigma * sigma));
+dataset3Params.m求最优的C和sigma
+function [C, sigma] = dataset3Params(X, y, Xval, yval)
+C = 1;
+sigma = 0.3;
+
+right_c = C;
+right_sigma = sigma;
+error = 1;
+
+predictions = zeros(size(yval),1);
+t = [0.01;0.03;0.1;0.3;1;3;10;30];
+for i = 1:8
+  for j = 1:8
+    C = t(i);
+    sigma = t(j);
+    %调用包里的svmTrain函数
+    model = svmTrain(X, y , C, @(x1, x2) gaussian
           ...
 
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/08/12/Ignatius-and-the-Princess-I/#more" rel="contents">
+            <a class="btn" href="/2017/02/18/machine-learning-exercise6-Coursera/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/02/18/machine-learning-exercise5-Coursera/" itemprop="url">
+                  machine learning exercise5 Coursera
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-02-18T20:51:49+08:00" content="2017-02-18">
+              2017-02-18
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/机器学习/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          第五次上机作业：
+linearRegCostFunction.m
+learningCurve.m
+polyFeatures.m
+validationCurve.m
+linearRegCostFunction.m线性回归的代价函数及梯度计算
+J = sum((X * theta - y) .^ 2) / (2 * m);
+J += sum(theta(2 : end) .^ 2) * lambda / (2 * m);
+
+
+p = X&apos; * (X * theta - y) / m;
+grad(1) = p(1) ;
+grad(2 : end) = p(2 : end) + (lambda / m) * theta(2 : end);
+learningCurve.m学习曲线，样本数量和错误的曲线。
+%求theta的函数
+function [theta] = trainLinearReg(X, y, lambda)
+initial_theta = zeros(size(X, 2), 1); 
+costFunction = @(t) linearRegCostFunction(X, 
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/02/18/machine-learning-exercise5-Coursera/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/02/11/machine-learning-exercise4-Coursera/" itemprop="url">
+                  machine learning exercise4 Coursera
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-02-11T12:09:28+08:00" content="2017-02-11">
+              2017-02-11
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/机器学习/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          第四次上机作业：
+sigmoidGradient.m
+randInitializeWeights.m
+nnCostFunction.m
+sigmoidGradient.m一个简单的求偏导数的公式
+
+g = sigmoid(z) .* (1 - sigmoid(z));
+randInitializeWeights.m随机初始权重函数。
+epsilon_init = 0.12;
+W = rand(L_out, 1 + L_in) * 2 * epsilon_init - epsilon_init;
+nnCostFunction.m后向传播算法的应用
+
+第一步，先用前向传播求出各层的特征值；
+
+a1 = [ones(m,1), X];
+z2 = a1 * Theta1&apos;;
+a2 = sigmoid(z2);
+a2 = [ones(m, 1),a2];
+z3 = a2 * Theta2&apos;;
+a3 = sigmoid(z3);
+Y = zeros(m, num_labels);
+%将y变成矩阵形式
+for i = 1:m
+  Y(i, y(i)) = 1;
+end
+第二步，求
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/02/11/machine-learning-exercise4-Coursera/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/02/07/machine-learning-exercise3-Coursera/" itemprop="url">
+                  machine learning exercise3 Coursera
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-02-07T21:22:52+08:00" content="2017-02-07">
+              2017-02-07
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/机器学习/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          第三次上机作业：
+lrCostFunction.m (logistic regression cost function)
+oneVsAll.m
+predictOneVsAll.m
+predict.m
+lrCostFunction.m正规化的逻辑回归代价函数和梯度，这是之前的内容，算是复习吧
+J = sum(-y .* log(sigmoid(X * theta)) - (1 - y) .* log(1 - sigmoid(X * theta))) / m;
+J += lambda / (2 * m) * sum(theta(2 : end).^2);
+
+t = ( X&apos; * (sigmoid(X * theta) - y)) / m;
+
+grad(1) = t(1);
+grad(2 : end) = t(2 : end) + (lambda / m) * theta(2 : end);
+oneVsAll.m这是“一对多”求出theta即各个参数，这里的theta是矩阵方式存在的，不像之前的只有一列。这里的任务是识别1-10，这几个数，num_labels就是10，y是输出的
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/02/07/machine-learning-exercise3-Coursera/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -899,7 +924,7 @@ struct Point{
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/10/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/">12</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/12/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/10/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/">12</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/12/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -940,7 +965,7 @@ struct Point{
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">69</span>
+              <span class="site-state-item-count">80</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -957,7 +982,7 @@ struct Point{
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">53</span>
+                <span class="site-state-item-count">58</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
