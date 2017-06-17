@@ -1,0 +1,740 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="动态规划,wannafly,邻接表," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/tango.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="原题：Black Nodes in Subgraphs
+原题大意给你一棵由 N 个节点构成的树 T。节点按照 1 到 N 编号，每个节点要么是白色，要么是黑色。有 Q 组询问，每组询问形如 (s, b)。你需要检查是否存在一个连通子图，其大小恰好是 s，并且包含恰好 b 个黑色节点。
+输入输入第一行，包含一个整数 T，表示测试数据组数。对于每组测试数据：第一行包含两个整数 N 和 Q，分别表示树的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Black Nodes in Subgraphs">
+<meta property="og:url" content="http://yoursite.com/2017/06/17/Black-Nodes-in-Subgraphs/index.html">
+<meta property="og:site_name" content="Colin's blog">
+<meta property="og:description" content="原题：Black Nodes in Subgraphs
+原题大意给你一棵由 N 个节点构成的树 T。节点按照 1 到 N 编号，每个节点要么是白色，要么是黑色。有 Q 组询问，每组询问形如 (s, b)。你需要检查是否存在一个连通子图，其大小恰好是 s，并且包含恰好 b 个黑色节点。
+输入输入第一行，包含一个整数 T，表示测试数据组数。对于每组测试数据：第一行包含两个整数 N 和 Q，分别表示树的">
+<meta property="og:updated_time" content="2017-06-17T08:05:06.409Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Black Nodes in Subgraphs">
+<meta name="twitter:description" content="原题：Black Nodes in Subgraphs
+原题大意给你一棵由 N 个节点构成的树 T。节点按照 1 到 N 编号，每个节点要么是白色，要么是黑色。有 Q 组询问，每组询问形如 (s, b)。你需要检查是否存在一个连通子图，其大小恰好是 s，并且包含恰好 b 个黑色节点。
+输入输入第一行，包含一个整数 T，表示测试数据组数。对于每组测试数据：第一行包含两个整数 N 和 Q，分别表示树的">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: undefined,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/06/17/Black-Nodes-in-Subgraphs/"/>
+
+  <title> Black Nodes in Subgraphs | Colin's blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Colin's blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">A football fan,an English lover and a coder</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Black Nodes in Subgraphs
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-06-17T15:55:33+08:00" content="2017-06-17">
+              2017-06-17
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/acm/" itemprop="url" rel="index">
+                    <span itemprop="name">acm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><strong>原题：<a href="https://www.codechef.com/problems/BLACKCOM" target="_blank" rel="external">Black Nodes in Subgraphs</a></strong></p>
+<h1 id="原题大意"><a href="#原题大意" class="headerlink" title="原题大意"></a>原题大意</h1><p>给你一棵由 N 个节点构成的树 T。节点按照 1 到 N 编号，每个节点要么是白色，要么是黑色。有 Q 组询问，每组询问形如 (s, b)。你需要检查是否存在一个连通子图，其大小恰好是 s，并且包含恰好 b 个黑色节点。</p>
+<h2 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h2><p>输入第一行，包含一个整数 T，表示测试数据组数。对于每组测试数据：<br>第一行包含两个整数 N 和 Q，分别表示树的节点个数和询问个数。<br>接下来 N - 1 行，每行包含两个整数 ui 和 vi，表示在树中 ui 和 vi 之间存在一条边。<br>接下来一行包含 N 个整数，c1, c2, … , cN。如果 ci 为 0 表示第 i 个节点是白色的，如果 ci 为<br>1 表示第 i 个节点是黑色的。<br>接下来 Q 行，每行包含两个整数 si 和 bi，表示一组形如 (si, bi) 的询问。<br>对于每组询问输出一行字符串表示答案，其中 Yes 表示存在一个符合要求的连<br>通子图，No 表示不存在。<br>1 &lt;= T &lt;= 5, 2 &lt;= N &lt;= 5e3, 1 &lt;= Q &lt;= 1e5, 1 &lt;= ui, vi &lt;= N。<br>0 &lt;= ci &lt;= 1, 0 &lt;= bi &lt;= N, 1 &lt;= si &lt;= N, bi &lt;= si。</p>
+<h1 id="算法分析"><a href="#算法分析" class="headerlink" title="算法分析"></a>算法分析</h1><p>观察到一个现象，对于一个子树，在子树中子图的点数确定的情况下，可行的黑点数是一个连续的区间。那么很自然地用f[i][j]记下在子树i中用了j个点的情况下最多和最少的黑点数，背包一下就可以了。<br>剩下一个问题，就是复杂度。你会发现每个点对在dp的过 程中都只出现一次，所以复杂度是n^2的。</p>
+<h1 id="程序代码"><a href="#程序代码" class="headerlink" title="程序代码"></a>程序代码</h1><pre><code>#include &lt;cstdio&gt;
+#include &lt;cstdlib&gt;
+#include &lt;cstring&gt;
+#include &lt;ctime&gt;
+#include &lt;cmath&gt;
+#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+
+using namespace std;
+
+struct node {
+    node *next;
+    int where;
+} *first[5001], a[10001];
+int f[5001][5001], A[5001];
+int v[5001][5001], g[5001], e[5001];
+int l, size[5001], test, n, Q, dist[5001], c[5001];
+
+//邻接表建图
+inline void makelist(int x, int y) {
+    a[++l].where = y;
+    a[l].next = first[x];
+    first[x] = &amp;a[l];
+}
+
+int main() {
+    //freopen(&quot;input.txt&quot;, &quot;r&quot;, stdin);
+    scanf(&quot;%d&quot;, &amp;test);
+    for (;test--;)
+    {
+        memset(first, 0, sizeof(first));
+        l = 0;
+        int Q;
+        scanf(&quot;%d&quot;, &amp;n);
+        scanf(&quot;%d&quot;, &amp;Q);
+        for (int i = 1; i &lt; n; i++) 
+        {
+            int x, y;
+            scanf(&quot;%d%d&quot;, &amp;x, &amp;y);
+            makelist(x, y);
+            makelist(y, x);
+        }
+/*        for(int i = 0; i &lt;= n; i++){
+            for(node *t = first[i];t;t=t-&gt;next){
+                printf(&quot;%d &quot;, t-&gt;where);
+            }
+            printf(&quot;\n&quot;);
+        }
+*/
+
+        for (int i = 1; i &lt;= n; i++)
+            scanf(&quot;%d&quot;, &amp;A[i]);
+        memset(dist, 0, sizeof(dist));
+        c[1] = 1; dist[1] = 1;
+        //c从树根往叶子存结点，类似于bfs层次遍历
+        //dist存距离或者深度，便于下面确定相邻两点谁是父亲谁是子孙
+
+        for (int k = 1, l = 1; l &lt;= k; l++)
+        {
+            int m = c[l];
+            for (node *x = first[m]; x; x = x-&gt;next)
+                if (!dist[x-&gt;where])
+                    dist[x-&gt;where] = dist[m] + 1,c[++k] = x-&gt;where;
+        }
+/*        printf(&quot;-------------\n&quot;);
+        for(int i = 1; i &lt;= n; i++)
+            printf(&quot;%d &quot;, dist[i]);
+        printf(&quot;-------------\n&quot;);*/
+
+        memset(f, 127, sizeof(f));//max
+        memset(v, 255, sizeof(v));//-1
+        memset(g, 127, sizeof(g));//max
+        memset(e, 255, sizeof(e));//-1
+//        printf(&quot;%d %d %d %d&quot;, f[1][1], v[1][1], g[1], e[1]);
+
+
+        for(int i = n; i; --i)
+        {
+            int m = c[i];
+            size[m] = 1;//已知的点数
+            if (A[m])
+                f[m][1] = v[m][1] = 1;
+            else
+                f[m][1] = v[m][1] = 0;
+            for (node *x = first[m]; x; x = x-&gt;next)
+                if (dist[x-&gt;where] == dist[m] + 1)
+                {
+                    for (int j = size[m]; j &gt;= 0; j--)
+                        //也可以这样写for(int k = 0; k &lt;= size[x-&gt;where]; k++)                       
+                        for (int k = size[x-&gt;where]; k &gt;= 0; k--)
+                            f[m][j + k] = min(f[m][j + k], f[m][j] + f[x-&gt;where][k]),
+                            v[m][j + k] = max(v[m][j + k], v[m][j] + v[x-&gt;where][k]);
+                    size[m] += size[x-&gt;where];//已知的点数增加
+                }
+            f[m][0] = v[m][0] = 0;
+            for (int j = 0; j &lt;= size[m]; j++)
+                g[j] = min(g[j], f[m][j]),
+                e[j] = max(e[j], v[m][j]);
+            //printf(&quot;%d\n&quot;, m);
+            //for (int j = 0; j &lt;= size[m]; j++)
+            //  printf(&quot;%d %d %d\n&quot;, j, v[m][j], f[m][j]);
+        }
+        for (;Q--;)
+        {
+            int x, y;
+            scanf(&quot;%d%d&quot;, &amp;x, &amp;y);
+            if (y &gt;= g[x] &amp;&amp; y &lt;= e[x])
+                printf(&quot;Yes\n&quot;);
+            else
+                printf(&quot;No\n&quot;);
+        }
+    }
+}
+</code></pre>
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/动态规划/" rel="tag">#动态规划</a>
+          
+            <a href="/tags/wannafly/" rel="tag">#wannafly</a>
+          
+            <a href="/tags/邻接表/" rel="tag">#邻接表</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/06/10/Pinary/" rel="next" title="Pinary">
+                <i class="fa fa-chevron-left"></i> Pinary
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/06/17/Chef-and-Pairs/" rel="prev" title="Chef and Pairs">
+                Chef and Pairs <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/assassin.jpg"
+               alt="Shen Hao" />
+          <p class="site-author-name" itemprop="name">Shen Hao</p>
+          <p class="site-description motion-element" itemprop="description">Colin's blog | acm |c++</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">82</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">61</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/colincen" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#原题大意"><span class="nav-number">1.</span> <span class="nav-text">原题大意</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#输入"><span class="nav-number">1.1.</span> <span class="nav-text">输入</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#算法分析"><span class="nav-number">2.</span> <span class="nav-text">算法分析</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#程序代码"><span class="nav-number">3.</span> <span class="nav-text">程序代码</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Shen Hao</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -258,6 +258,268 @@
             
               
                 
+                <a class="post-title-link" href="/2017/06/10/qwb与二叉树/" itemprop="url">
+                  qwb与二叉树
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-06-10T22:06:45+08:00" content="2017-06-10">
+              2017-06-10
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/acm/" itemprop="url" rel="index">
+                    <span itemprop="name">acm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          原题：qwb与二叉树
+原题大意对于一棵n个无编号节点，m个叶子的有根二叉树，有多少种形态呐？你能告诉他吗？
+算法分析
+http://blog.csdn.net/howardemily/article/details/72871260
+
+程序代码#include &lt;bits/stdc++.h&gt;
+using namespace std;
+typedef long long ll;
+const ll mod = 1e9+7;
+ll dp[55][55];
+int n,m;
+ll dfs(int x, int y){
+    ll &amp;ans = dp[x][y];
+    if(ans != -1) return ans;
+    ans = 0;
+    for(int i = 0; i &lt;= x-1; i++)
+        for(int j = 0; j &lt;= i &amp;&amp; j &lt;= y; j++){
+            ans += dfs(i,j) * dfs(x-i-1,y-j);
+            ans %= mo
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/06/10/qwb与二叉树/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/06/10/qwb与整数对/" itemprop="url">
+                  qwb与整数对
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-06-10T22:02:26+08:00" content="2017-06-10">
+              2017-06-10
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/acm/" itemprop="url" rel="index">
+                    <span itemprop="name">acm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          原题：qwb与整数对
+原题大意给出两个整数n和m，请统计满足0＜a＜b＜n并且使得 (a2+b2+m)/(ab) 的结果是整数的整数对(a,b)的个数。
+本题包含多组测试例 。当测试例数据是n=m=0时，表示输入结束。（测试例数量&lt;6000）每个测试例一行，是两个整数n和m。输入保证0≤n≤1000，-20000 &lt; m &lt; 20000。
+算法分析case=1的时候很容易可以想到一个n^2的暴力那么在case比较大的时候，把所有case根据n的数值进行排序。再离线处理，枚举每一组(a,b)，穷举整数t∈[-20000,20000]，当符合条件(a^2+b^2+t)%ab==0时，ans[t]++，最后根据case的顺序从离线处理中获取答案，复杂度O(∑(i=1..n,j=2..n) (40000/ab)) + O(n^1.5)
+程序代码#include &lt;bits/stdc++.h&gt;
+using namespace std;
+int n[10100], m[10100];
+int ret[10100];
+vector&lt;int&gt; id[40404
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/06/10/qwb与整数对/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/06/10/qwb又偷懒了/" itemprop="url">
                   qwb又偷懒了
                 </a>
@@ -630,276 +892,11 @@ int main() {
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/06/10/勤劳的ACgirls/" itemprop="url">
-                  勤劳的ACgirls
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-06-10T21:43:21+08:00" content="2017-06-10">
-              2017-06-10
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/acm/" itemprop="url" rel="index">
-                    <span itemprop="name">acm</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          原题：勤劳的ACgirls
-原题大意zjc的ACgirls队的队员最近比较忙，为了能够取得更好的比赛成绩，他们制定了一个m天a掉n题的计划，a掉一题可以是这m天的任何时候。为了表示对acmer事业的热爱，队长wc要求每天必须至少要ac掉k题，这m天每天ac掉的题数可以用一个m元组表示。设不同的m元组一共有c个，请问c的末尾有多少个0？（如果c是0，输出0）
-算法分析用隔板法算出答案是C（n+(1-k)*m-1,m-1）,然后算出因子5和因子2的个数，取小的那个
-程序代码#include &lt;bits/stdc++.h&gt;
-using namespace std;
-typedef long long ll;
-ll m, n, k;
-int main(){
-    while(scanf(&quot;%lld%lld%lld&quot;, &amp;m, &amp;n, &amp;k) != EOF){
-        ll x = m - 1;
-        ll y = (n - m * k) + m - 1;
-        ll ans = 0;
-        if(x
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/06/10/勤劳的ACgirls/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/06/10/qwb与支教/" itemprop="url">
-                  qwb与支教
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-06-10T21:39:17+08:00" content="2017-06-10">
-              2017-06-10
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/acm/" itemprop="url" rel="index">
-                    <span itemprop="name">acm</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          原题：qwb与支教
-原题大意qwb同时也是是之江学院的志愿者，暑期要前往周边地区支教，为了提高小学生的数学水平。她把小学生排成一排，从左至右从1开始依次往上报数。
-玩完一轮后，他发现这个游戏太简单了。于是他选了3个不同的数x,y,z；从1依次往上开始报数，遇到x的倍数、y的倍数或z的倍数就跳过。如果x=2,y=3,z=5；第一名小学生报1，第2名得跳过2、3、4、5、6，报7；第3名得跳过8、9、10，报11。
-那么问题来了，请你来计算，第N名学生报的数字是多少？
-算法分析二分+容斥原理，详见代码
-程序代码#include &lt;bits/stdc++.h&gt;
-using namespace std;
-typedef long long ll;
-const ll mod = 1e9+7;
-ll x, y, z, n;
-ll gcd(ll a, ll b){
-    return b == 0?a:gcd(b, a%b);
-}
-ll lcm(ll a, ll b){
-    return a*b/gcd(a,b);
-}
-ll check(ll w){
-    return w/x+
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/06/10/qwb与支教/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -940,7 +937,7 @@ ll check(ll w){
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">80</span>
+              <span class="site-state-item-count">82</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -957,7 +954,7 @@ ll check(ll w){
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">58</span>
+                <span class="site-state-item-count">61</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
