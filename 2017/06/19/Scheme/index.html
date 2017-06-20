@@ -1,0 +1,713 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Codeforces,wannafly,连通图," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/tango.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="原题：Scheme
+原题大意给出n个节点，以及和这个节点指向的节点fi，表示从i能够到达fi，问至少需要添加多少条边能够使得原图变为强连通分量，输出边数及添加的边，多解输出任意一组解。
+算法分析每个点的出度都是1，可以知道这个图的每个弱连通分量（取消定向后的连通块）都是一个有向环上挂很多棵有向树，如果只有一个弱连通分量，显然就是环上随便找一个点然后向所有入度为0的点连边，否则先考虑将所有分量连起来">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Scheme">
+<meta property="og:url" content="http://yoursite.com/2017/06/19/Scheme/index.html">
+<meta property="og:site_name" content="Colin's blog">
+<meta property="og:description" content="原题：Scheme
+原题大意给出n个节点，以及和这个节点指向的节点fi，表示从i能够到达fi，问至少需要添加多少条边能够使得原图变为强连通分量，输出边数及添加的边，多解输出任意一组解。
+算法分析每个点的出度都是1，可以知道这个图的每个弱连通分量（取消定向后的连通块）都是一个有向环上挂很多棵有向树，如果只有一个弱连通分量，显然就是环上随便找一个点然后向所有入度为0的点连边，否则先考虑将所有分量连起来">
+<meta property="og:image" content="http://o8engxb28.bkt.clouddn.com/scheme.jpg">
+<meta property="og:updated_time" content="2017-06-19T05:39:14.302Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Scheme">
+<meta name="twitter:description" content="原题：Scheme
+原题大意给出n个节点，以及和这个节点指向的节点fi，表示从i能够到达fi，问至少需要添加多少条边能够使得原图变为强连通分量，输出边数及添加的边，多解输出任意一组解。
+算法分析每个点的出度都是1，可以知道这个图的每个弱连通分量（取消定向后的连通块）都是一个有向环上挂很多棵有向树，如果只有一个弱连通分量，显然就是环上随便找一个点然后向所有入度为0的点连边，否则先考虑将所有分量连起来">
+<meta name="twitter:image" content="http://o8engxb28.bkt.clouddn.com/scheme.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: undefined,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/06/19/Scheme/"/>
+
+  <title> Scheme | Colin's blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Colin's blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">A football fan,an English lover and a coder</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Scheme
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-06-19T13:31:18+08:00" content="2017-06-19">
+              2017-06-19
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/acm/" itemprop="url" rel="index">
+                    <span itemprop="name">acm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><strong>原题：<a href="http://codeforces.com/problemset/problem/22/E" target="_blank" rel="external">Scheme</a></strong></p>
+<h1 id="原题大意"><a href="#原题大意" class="headerlink" title="原题大意"></a>原题大意</h1><p>给出n个节点，以及和这个节点指向的节点fi，表示从i能够到达fi，问至少需要添加多少条边能够使得原图变为强连通分量，输出边数及添加的边，多解输出任意一组解。</p>
+<h1 id="算法分析"><a href="#算法分析" class="headerlink" title="算法分析"></a>算法分析</h1><p>每个点的出度都是1，可以知道这个图的每个弱连通分量（取消定向后的连通块）都是一个有向环上挂很多棵有向树，如果只有一个弱连通分量，显然就是环上随便找一个点然后向所有入度为0的点连边，否则先考虑将所有分量连起来，假设有t个分量，对这些分量从0到t-1标号，对于第i个分量，如果第(i+1)%t个分量有入度为0的点，那么从第i个分量的环上任取一个点向第(i+1)%t个分量的任意一个入度为0的点连边，否则连到环上任意一个点，现在所有分量已经连成了一个分量，并且最小化了入度为0的点，接下来只需要任取一个环上的点向所有入度为0的点连边即可。</p>
+<p><img src="http://o8engxb28.bkt.clouddn.com/scheme.jpg" alt="Scheme"></p>
+<h1 id="程序代码"><a href="#程序代码" class="headerlink" title="程序代码"></a>程序代码</h1><pre><code>#include &lt;bits/stdc++.h&gt;
+#define mem(a,b) memset(a,b,sizeof(a))
+using namespace std;
+typedef long long ll;
+const int maxn = 100005;
+int fwd[maxn];  //forword，fwd[a] = b (a到b，a---&gt;b)
+int ind[maxn];  //每个点的入度
+int vis[maxn]; 
+int tot;        //连通分量的个数
+int cir[maxn];  //n个点每个点所在的连通分量（1~tot）
+int ker[maxn];  //每个连通分量环上的一点，并且此点代表整个连通分量
+int lef[maxn];  //每个连通分量被选为连接的点，如果存在入度为0的，那就任选一个入度为0的，否则为环上任意一点
+int usd[maxn];  //与lef一起使用，如果该连通分量里，入度里为0的某点，被选来连接相邻的连通分量，则标记已经用过了
+void dfs(int u,int la)
+{
+    if(vis[u])
+    {
+        if(!cir[u])
+        {
+            ker[++tot]=u;
+            cir[u]=tot;
+        }
+        return;
+    }
+    vis[u]=1;
+    dfs(fwd[u],u);
+    cir[u]=cir[fwd[u]];
+}
+int cnt,reu[maxn],rev[maxn];
+int main()
+{
+//freopen(&quot;input.txt&quot;, &quot;r&quot;, stdin);
+    int n;
+    scanf(&quot;%d&quot;,&amp;n);
+    for(int i=1;i&lt;=n;i++)
+    {
+        scanf(&quot;%d&quot;,&amp;fwd[i]);
+        ind[fwd[i]]++;
+    }
+    for(int i=1;i&lt;=n;i++)
+        if(!vis[i])dfs(i,0);
+
+/*    for(int i = 1; i &lt;= n; i++)
+        cout &lt;&lt; ker[i] &lt;&lt; &quot; &quot;;
+    cout &lt;&lt; endl;
+    for(int i = 1; i &lt;= n; i++)
+        cout &lt;&lt; cir[i] &lt;&lt; &quot; &quot;;
+    cout &lt;&lt; endl;
+
+*/
+    //选择任意一个连通分量上的入度为0的点
+    for(int i=1;i&lt;=n;i++)
+        if(!ind[i])lef[cir[i]]=i;
+
+    for(int i=1;i&lt;=tot;i++)
+    {
+        //如果一个连通分量里没有入度为0的点，就连接环上的任意一点
+        if(!lef[i])lef[i]=ker[i];
+        else usd[lef[i]]=1;
+    }
+
+    for(int i=1,j=2;i&lt;=tot;i++,j++)
+    {
+        if(j&gt;tot)j=1;//除模的意思，i 向 i+1连
+        if(ker[i]!=lef[j])//如果只有一个连通分量就跳过，否则进行连接操作
+        {
+            cnt++;
+            reu[cnt]=ker[i];
+            rev[cnt]=lef[j];
+        }
+    }
+    for(int i=1;i&lt;=n;i++)
+        if(!ind[i] &amp;&amp; !usd[i])//入度为0，并且之前没有被选为用于连通分量的连接
+        {
+            cnt++;
+            reu[cnt]=ker[1];
+            rev[cnt]=i;
+        }
+    printf(&quot;%d\n&quot;,cnt);
+    for(int i=1;i&lt;=cnt;i++)
+        printf(&quot;%d %d\n&quot;,reu[i],rev[i]);
+
+    return 0;
+}
+</code></pre>
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Codeforces/" rel="tag">#Codeforces</a>
+          
+            <a href="/tags/wannafly/" rel="tag">#wannafly</a>
+          
+            <a href="/tags/连通图/" rel="tag">#连通图</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/06/17/Chef-and-Pairs/" rel="next" title="Chef and Pairs">
+                <i class="fa fa-chevron-left"></i> Chef and Pairs
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/06/20/Karen-and-Test/" rel="prev" title="Karen and Test">
+                Karen and Test <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/assassin.jpg"
+               alt="Shen Hao" />
+          <p class="site-author-name" itemprop="name">Shen Hao</p>
+          <p class="site-description motion-element" itemprop="description">Colin's blog | acm |c++</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">84</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">62</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/colincen" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#原题大意"><span class="nav-number">1.</span> <span class="nav-text">原题大意</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#算法分析"><span class="nav-number">2.</span> <span class="nav-text">算法分析</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#程序代码"><span class="nav-number">3.</span> <span class="nav-text">程序代码</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Shen Hao</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>
