@@ -258,6 +258,255 @@
             
               
                 
+                <a class="post-title-link" href="/2017/06/17/Black-Nodes-in-Subgraphs/" itemprop="url">
+                  Black Nodes in Subgraphs
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-06-17T15:55:33+08:00" content="2017-06-17">
+              2017-06-17
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/acm/" itemprop="url" rel="index">
+                    <span itemprop="name">acm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          原题：Black Nodes in Subgraphs
+原题大意给你一棵由 N 个节点构成的树 T。节点按照 1 到 N 编号，每个节点要么是白色，要么是黑色。有 Q 组询问，每组询问形如 (s, b)。你需要检查是否存在一个连通子图，其大小恰好是 s，并且包含恰好 b 个黑色节点。
+输入输入第一行，包含一个整数 T，表示测试数据组数。对于每组测试数据：第一行包含两个整数 N 和 Q，分别表示树的节点个数和询问个数。接下来 N - 1 行，每行包含两个整数 ui 和 vi，表示在树中 ui 和 vi 之间存在一条边。接下来一行包含 N 个整数，c1, c2, … , cN。如果 ci 为 0 表示第 i 个节点是白色的，如果 ci 为1 表示第 i 个节点是黑色的。接下来 Q 行，每行包含两个整数 si 和 bi，表示一组形如 (si, bi) 的询问。对于每组询问输出一行字符串表示答案，其中 Yes 表示存在一个符合要求的连通子图，No 表示不存在。1 &lt;= T &lt;= 5, 2 &lt;= N &lt;= 5e3, 1 &lt;= Q &lt;= 1e5, 1 &lt;=
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/06/17/Black-Nodes-in-Subgraphs/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/06/10/Pinary/" itemprop="url">
+                  Pinary
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-06-10T22:29:50+08:00" content="2017-06-10">
+              2017-06-10
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/acm/" itemprop="url" rel="index">
+                    <span itemprop="name">acm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          原题：Pinary 1350
+原题大意Pinary数是一个仅由0和1组成的数，这个数不存在前导0，且相邻位置不能同时为1.Pinary数的大小由长度和字典序决定，长度不同时，长度越小值越小，长度相同时，字典序越小值越小。例如1是1，10是2，100,101,1000分别为3，4，5。现在给出一个K，问这个数的Pinary表示形式是什么。
+算法分析先打表solve(1) = 1;sovle(10) = 2;solve(100) = 3;solve(1000) = 5;solve(10000) = 8;于是这个问题，就转换成了，将一个数字，拆成不连续的fib的若干项之和。@Zeckendorf 齐肯多夫定理。
+程序代码#include &lt;iostream&gt;
+#include &lt;vector&gt;
+using namespace std;
+typedef long long LL;
+int T, n, ans[102];
+LL fib[102];
+void init() {
+    fib[1] = 1, fib[2] = 2;
+    for(int i=3;i&lt;
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/06/10/Pinary/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/06/10/L先生与质数V4/" itemprop="url">
                   L先生与质数V4
                 </a>
@@ -629,267 +878,11 @@ ll dfs(int x, int y){
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/06/10/qwb与整数对/" itemprop="url">
-                  qwb与整数对
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-06-10T22:02:26+08:00" content="2017-06-10">
-              2017-06-10
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/acm/" itemprop="url" rel="index">
-                    <span itemprop="name">acm</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          原题：qwb与整数对
-原题大意给出两个整数n和m，请统计满足0＜a＜b＜n并且使得 (a2+b2+m)/(ab) 的结果是整数的整数对(a,b)的个数。
-本题包含多组测试例 。当测试例数据是n=m=0时，表示输入结束。（测试例数量&lt;6000）每个测试例一行，是两个整数n和m。输入保证0≤n≤1000，-20000 &lt; m &lt; 20000。
-算法分析case=1的时候很容易可以想到一个n^2的暴力那么在case比较大的时候，把所有case根据n的数值进行排序。再离线处理，枚举每一组(a,b)，穷举整数t∈[-20000,20000]，当符合条件(a^2+b^2+t)%ab==0时，ans[t]++，最后根据case的顺序从离线处理中获取答案，复杂度O(∑(i=1..n,j=2..n) (40000/ab)) + O(n^1.5)
-程序代码#include &lt;bits/stdc++.h&gt;
-using namespace std;
-int n[10100], m[10100];
-int ret[10100];
-vector&lt;int&gt; id[40404
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/06/10/qwb与整数对/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/06/10/qwb又偷懒了/" itemprop="url">
-                  qwb又偷懒了
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-06-10T21:57:04+08:00" content="2017-06-10">
-              2017-06-10
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/acm/" itemprop="url" rel="index">
-                    <span itemprop="name">acm</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          原题：qwb又偷懒了
-原题大意qwb最近在做一个群众收入统计。ta非常懒，以至于忘记了今天领导要来视察。所以急忙催下属去做统计。在接下来长度为n的时间里,每个单位时间都有事情发生,可能会发下以下两种事件：
-1)下属递交了一份调查报告，由于太匆忙，上面只有一个整数x，代表一个居民的收入。2)领导来视察了，领导会来询问，收入在区间[l,r]内的居民的平均收入，qwb需要给出回答。
-qwb非常讨厌小数，所以qwb上报时都会省略小数部分。如果上报时统计的人数为0，qwb就暴露了他偷懒的事情，他就会zhizhiwuwu。
-算法分析用两个树状数组分别保存收入和人数，坑点在收入为0的情况，可以记录一下0的个数，或者直接平移1。
-程序代码#include &lt;bits/stdc++.h&gt;
-using namespace std;
-typedef long long ll;
-const ll mod = 1e9+7;
-const ll maxn = 1000000+100;
-ll c1[maxn],c2[maxn];
-ll  lowbit(ll x){
-    return x &amp; (
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/06/10/qwb又偷懒了/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -930,7 +923,7 @@ ll  lowbit(ll x){
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">84</span>
+              <span class="site-state-item-count">86</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
