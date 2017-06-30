@@ -258,6 +258,259 @@
             
               
                 
+                <a class="post-title-link" href="/2017/04/18/Radio-stations/" itemprop="url">
+                  Radio stations
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-04-18T21:24:25+08:00" content="2017-04-18">
+              2017-04-18
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/acm/" itemprop="url" rel="index">
+                    <span itemprop="name">acm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          原题：Radio stations
+原题大意每个点有三个属性，x，r，f；统计有多少对点i，j满足 min(ri,rj) &gt;= |xi-xj| 且 |fi-fj| &lt;=k，这样的点对被称作是“坏的”。
+算法分析考虑到min(ri, rj)这个条件比较烦，把点按r从大到小排序。排序后，对于第i个点，它和之前的第j个点组成bad pair的充要条件为|xi-xj|&lt;=ri &amp;&amp; |fi-fj|&lt;=k。整理一下，变成xi-ri&lt;=xj&lt;=xi+ri &amp;&amp; -k+fi&lt;=fj&lt;=k+fi。这其实就是按顺序在平面上插入点，并查询给定矩形区域内点的个数，是经典的三维偏序问题，用CDQ分治即可解决。
+
+http://blog.csdn.net/jtjy568805874/article/details/50638665
+http://www.cnblogs.com/mlystdcall/p/6351344.html
+
+程序代码#include &lt;bits/stdc++.h&gt;
+using namespace s
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/04/18/Radio-stations/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/04/16/A-Simple-Task/" itemprop="url">
+                  A Simple Task
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-04-16T22:41:08+08:00" content="2017-04-16">
+              2017-04-16
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/acm/" itemprop="url" rel="index">
+                    <span itemprop="name">acm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          原题：A Simple Task
+原题大意统计一个无向图中环的个数
+算法分析首先考虑到一个环其实是一条链两头连接起来的，所以我们只要找到所有的链判一下两头是否联通即可。但是一个链的状态是首尾和经过的点，是n^2*2^n的，考虑到题目限制n&lt;=19，这个状态数显然是爆炸的。现在我们考虑人为地把一个环从经过的点中id最小的点的两侧处切开，则得到了两个以id最小值为起点的链。对于任意的环我们都可以这样做，于是我们只要统计以id最小值为起点的成环链的数量，将结果除以2即可。这样由于起点已经固定，状态数就只有n*2^n, 然后dp一下即可。dp[i][j]表示状态i（具体路径）中，以i的最小id为起点，j为终点的路径数。
+
+http://m.blog.csdn.net/article/details?id=49078233http://blog.csdn.net/kk303/article/details/9621933
+
+程序代码#include &lt;bits/stdc++.h&gt;
+using namespace std;
+typedef long long ll;
+bool g
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/04/16/A-Simple-Task/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/04/16/Hamiltonish-Path/" itemprop="url">
                   Hamiltonish Path
                 </a>
@@ -643,269 +896,6 @@ struct info
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/04/10/Headmaster-s-Headache/" itemprop="url">
-                  Headmaster's Headache
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-04-10T19:23:21+08:00" content="2017-04-10">
-              2017-04-10
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/acm/" itemprop="url" rel="index">
-                    <span itemprop="name">acm</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          原题：Headmaster’s Headache
-原题大意有一个学校想要聘请老师，要求每个学科都有两个以上的老师授课，并且要使总费用最小。有S（最多8个）个学科，现任的M（最多20个）个老师（你必须继续聘请他们），N（最多100个）份申请。后来的M行每行有至少两个整数，表示现任的老师的工资，和他所教授的课程（可能不止一个）。再后来的N行每行有也有至少两个整数表示聘请这个老师所需的费用，以及他所教授的课程（可能不止一个）。
-算法分析这题属于集合类型的动态规划,因为最多只有8门课，所以考虑状态压缩，用d(i,s1,s2)来表示状态，s1是恰好有一个人教的课程集合，s2是至少有两个人教的集合,i表示第i个决策阶段。状态转移方程为 d(i,s1,s2) = min{d(i+1,s1’,s2’) + c[i],d(i+1,s1,s2)}。把所有人一起编号0~m-1是在职教师，m~n+m-1是应聘者。
-程序代码#include &lt;cstdio&gt;
-#include &lt;iostream&gt;
-#include &lt;algorithm&gt;
-#include &lt;strin
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/04/10/Headmaster-s-Headache/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/04/05/Dome-of-Circus/" itemprop="url">
-                  Dome of Circus
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-04-05T22:11:34+08:00" content="2017-04-05">
-              2017-04-05
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/acm/" itemprop="url" rel="index">
-                    <span itemprop="name">acm</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          原题：Dome of Circus
-原题大意在一个三维空间里，已知有N个点，求一个最小的圆锥使所有的点都包含其中。
-算法分析
-试着只考虑一个点。
-R的最小值和H之间有，形如R=k*H+b的关系。
-令高度为H时体积最小值为f(H)，便会发现f(H)是单峰的
-考虑所有的点，那么高度为H时体积最小值为 max{f(H)}，归纳得，很多个单峰函数取max后仍是单峰函数所以就可以三分答案了。三分可以用来求出凸或凹函数的最值。
-http://blog.csdn.net/pi9nc/article/details/9666627
-
-
-
-程序代码#include &lt;cstdio&gt;
-#include &lt;cmath&gt;
-#include &lt;algorithm&gt;
-using namespace std;
-const int maxn = 10005;
-const double EPS = 1e-4;
-int T, n;
-double x[maxn], y[maxn], z[maxn];
-double f(double h){
-    double r = 0.0;
-    
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/04/05/Dome-of-Circus/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -951,7 +941,7 @@ double f(double h){
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">86</span>
+              <span class="site-state-item-count">88</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

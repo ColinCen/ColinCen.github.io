@@ -258,6 +258,253 @@
             
               
                 
+                <a class="post-title-link" href="/2017/06/19/Scheme/" itemprop="url">
+                  Scheme
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-06-19T13:31:18+08:00" content="2017-06-19">
+              2017-06-19
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/acm/" itemprop="url" rel="index">
+                    <span itemprop="name">acm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          原题：Scheme
+原题大意给出n个节点，以及和这个节点指向的节点fi，表示从i能够到达fi，问至少需要添加多少条边能够使得原图变为强连通分量，输出边数及添加的边，多解输出任意一组解。
+算法分析每个点的出度都是1，可以知道这个图的每个弱连通分量（取消定向后的连通块）都是一个有向环上挂很多棵有向树，如果只有一个弱连通分量，显然就是环上随便找一个点然后向所有入度为0的点连边，否则先考虑将所有分量连起来，假设有t个分量，对这些分量从0到t-1标号，对于第i个分量，如果第(i+1)%t个分量有入度为0的点，那么从第i个分量的环上任取一个点向第(i+1)%t个分量的任意一个入度为0的点连边，否则连到环上任意一个点，现在所有分量已经连成了一个分量，并且最小化了入度为0的点，接下来只需要任取一个环上的点向所有入度为0的点连边即可。
+
+程序代码#include &lt;bits/stdc++.h&gt;
+#define mem(a,b) memset(a,b,sizeof(a))
+using namespace std;
+typedef long long ll;
+const int maxn = 1
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/06/19/Scheme/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/06/17/Chef-and-Pairs/" itemprop="url">
+                  Chef and Pairs
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-06-17T16:41:28+08:00" content="2017-06-17">
+              2017-06-17
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/acm/" itemprop="url" rel="index">
+                    <span itemprop="name">acm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          原题：Chef and Pairs
+原题大意定义一个函数maxMatching(A,B,y)，其输入包含两个整数数组 A 和 B 以及一个整数 y，返回一个整数。记数组 A 的大小为 N，数组 B 的大小为 M。考虑一个由 {a1, a2, … , aN } 和 {b1, b2, … , bM}两个顶点集构成的二分图。节点 ai 和 bj 之间存在边相连当且仅当 abs(Ai - Bj ) &lt;= y。函数maxMatching(A,B,y)便返回这个这个二分图的最大匹配。现在给你两个整数数组 C 和 D 和一个整数 e，请你输出下面这段程序的运行结果：
+ans = maxMatching(C, D, e)FOR x = -2e9..2e9    FOR i = 1..N    F[i] = C[i] + xans = max(ans, maxMatching(F, D, e))output ans
+算法分析先看看哪些X是有用的，即有用的事件点有哪些。对于c[i], d[j]，可以用的事件点只有两个，通过计算可得。然后把事件点排序，发现每个c能匹配的d是一段不断往下移的区间。因此可
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/06/17/Chef-and-Pairs/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/06/17/Black-Nodes-in-Subgraphs/" itemprop="url">
                   Black Nodes in Subgraphs
                 </a>
@@ -619,265 +866,6 @@ http://blog.csdn.net/nemaleswang/article/details/52582684
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/06/10/L先生的回信/" itemprop="url">
-                  L先生的回信
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-06-10T22:18:09+08:00" content="2017-06-10">
-              2017-06-10
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/acm/" itemprop="url" rel="index">
-                    <span itemprop="name">acm</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          原题：L先生的回信
-原题大意L先生打算回复来自朋友Z的上一封信，可是他担心信的内容在网络传送过程中出现错误，于是打算采用CRC校验方式保证信息完整性，可是他不知道应该怎么做，请你为他求出应该发送的比特序列。
-循环冗余校验码（CRC）的基本原理是：在K位信息码后再拼接R位的校验码，整个编码长度为N位，因此，这种编码也叫（N，K）码。对于一个给定的（N，K）码，可以证明存在一个最高次幂为N-K=R的多项式G(x)。根据G(x)可以生成K位信息的校验码，而G(x)叫做这个CRC码的生成多项式。 校验码的具体生成过程为：假设要发送的信息用多项式C(X)表示，将C(x)左移R位（可表示成C(x)2^R），这样C(x)的右边就会空出R位，这就是校验码的位置。用 C(x)2^R 除以(模2除法)生成多项式G(x)得到的余数就是校验码。 
-Input多组测试例，处理到文件结束。（测试例&lt;5）
-每行有两个字符串，用空格隔开，分别为信的内容和生成多项式（长度&lt;=50）。信的内容为二进制表示。生成多项式可能用x的多项式,也可能用二进制表示(格式见样例)。
-Output每行输出一个加入CRC后发送
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/06/10/L先生的回信/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/06/10/qwb与二叉树/" itemprop="url">
-                  qwb与二叉树
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-06-10T22:06:45+08:00" content="2017-06-10">
-              2017-06-10
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/acm/" itemprop="url" rel="index">
-                    <span itemprop="name">acm</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          原题：qwb与二叉树
-原题大意对于一棵n个无编号节点，m个叶子的有根二叉树，有多少种形态呐？你能告诉他吗？
-算法分析
-http://blog.csdn.net/howardemily/article/details/72871260
-
-程序代码#include &lt;bits/stdc++.h&gt;
-using namespace std;
-typedef long long ll;
-const ll mod = 1e9+7;
-ll dp[55][55];
-int n,m;
-ll dfs(int x, int y){
-    ll &amp;ans = dp[x][y];
-    if(ans != -1) return ans;
-    ans = 0;
-    for(int i = 0; i &lt;= x-1; i++)
-        for(int j = 0; j &lt;= i &amp;&amp; j &lt;= y; j++){
-            ans += dfs(i,j) * dfs(x-i-1,y-j);
-            ans %= mo
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/06/10/qwb与二叉树/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -923,7 +911,7 @@ ll dfs(int x, int y){
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">86</span>
+              <span class="site-state-item-count">88</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
