@@ -258,6 +258,278 @@
             
               
                 
+                <a class="post-title-link" href="/2017/07/27/相交的铁路线/" itemprop="url">
+                  相交的铁路线
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-07-27T21:52:28+08:00" content="2017-07-27">
+              2017-07-27
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/acm/" itemprop="url" rel="index">
+                    <span itemprop="name">acm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          原题：相交的铁路线
+算法分析考虑朴素的算法t1 = lca(x1,y1), S1 = x1-&gt;t1 ∪ t1-&gt;y1;同理可得t2和S2。判断S1∩S2是否为空
+假设有交点t且假设经过y1,y2，所以x1-&gt;t1-&gt;t-&gt;y1,x2-&gt;t2-&gt;t-&gt;y2,因为t只有一个父亲，所以t1,t2一定是祖先关系，那么t1或t2一定是交点，假设t1是交点，即t2是t1的祖先，则需要两个判定条件：
+
+lca(t1,t2) = t2
+lca(t1,y2) = t1 或 lca(t1,x2) = t1
+
+程序代码#include &lt;cstdio&gt;
+#include &lt;cstring&gt;
+#include &lt;algorithm&gt;
+#include &lt;vector&gt;
+using namespace std;
+const int maxn = 100050;
+struct nod{
+    int to, cost;
+    nod(int a=0,int b=0){to = a; cost = b;}
+};
+in
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/07/27/相交的铁路线/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/07/27/Misha-Grisha-and-Underground/" itemprop="url">
+                  Misha, Grisha and Underground
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-07-27T21:40:25+08:00" content="2017-07-27">
+              2017-07-27
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/acm/" itemprop="url" rel="index">
+                    <span itemprop="name">acm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          原题：Misha, Grisha and Underground
+原题大意给一棵树，在给给出3个点s，f，t问s到f与t到f经过相同的点有几个？输出最多的那种sft组合。
+算法分析分情况讨论：
+
+f是s的祖先，t在f到s的外面
+f是s的祖先，t在f到s的路径上
+s-&gt;lca(f,s)-&gt;f，lca(s,t)在s-&gt;lca(f,s)上
+s-&gt;lca(f,s)-&gt;f，lca(f,t)在lca(f,s)-&gt;f上
+
+另一种取巧的做法是(lca(a,b) + lca(c,b) - lca(a,c))/2
+程序代码#include &lt;cstdio&gt;
+#include &lt;algorithm&gt;
+#include &lt;vector&gt;
+
+using namespace std;
+#define pb push_back
+const int maxn=100005;
+int n, q;
+int fir[maxn],no[2*maxn],se[2*maxn],st[2*maxn][20],lo[200005],dep[maxn];
+bool
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/07/27/Misha-Grisha-and-Underground/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/06/30/Okabe-and-El-Psy-Kongroo/" itemprop="url">
                   Okabe and El Psy Kongroo
                 </a>
@@ -633,276 +905,6 @@ int main(){
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/06/28/Built/" itemprop="url">
-                  Built?
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-06-28T22:09:34+08:00" content="2017-06-28">
-              2017-06-28
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/acm/" itemprop="url" rel="index">
-                    <span itemprop="name">acm</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          原题：Built?
-原题大意N个点求最小生成树，任意两点的权值为min(|x1-x2|,|y1-y2|)
-算法分析按横坐标和纵坐标分别排序，然后记边，每个点只与相邻的点有关联。
-程序代码#include &lt;bits/stdc++.h&gt;
-using namespace std;
-typedef long long ll;
-const int maxn = 100001;
-const ll mod = 1e9+7;
-int n, tot;
-struct coo
-{
-    int x, y;
-    int id;
-}c[maxn];
-bool cmp1(coo a, coo b){
-  return a.x &lt; b.x;
-}
-bool cmp2(coo a, coo b){
-  return a.y &lt; b.y;
-}
-int dx[maxn],dy[maxn];
-struct Edge{
-  int u, v;
-  int cost;
-}e[maxn*2];
-bool cmp(Edge a, Edge b){
-  return a.cost &lt; b.cost
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/06/28/Built/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/06/20/Karen-and-Test/" itemprop="url">
-                  Karen and Test
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-06-20T19:28:22+08:00" content="2017-06-20">
-              2017-06-20
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/acm/" itemprop="url" rel="index">
-                    <span itemprop="name">acm</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          原题：Karen and Test
-原题大意n个正整数排成一行，每相邻两个数进行加或减操作：第一第二个数相加，第二第三个数相减，第三第四个数相加，第四第五个数相减……，得到的结果排成第二行，然后继续这样的操作，并且初始的前两个数是加还是减，与上一行最后两个数的操作符相反，问最后得到的结果是多少？
-算法分析考虑最简版本每个ai对最终式子的贡献，可以令ai的系数为1，其余为0，类似0,0,0…1…0,0,0，同时暂且不考虑减法，可以得出每个ai的贡献为C(n-1,k-1) ，然后通过下面这个过程，可以看出最终的式子，是两个奇偶序列和（最简版本），相加或做差得到的，n mod 4 = 2时相加，n mod 4 = 0时做差。（如果n是奇数，那么先暴力进行第一次变换使得n成为偶数）
-程序代码#include &lt;bits/stdc++.h&gt;
-#define mem(a,b) memset(a,b,sizeof(a))
-using namespace std;
-typedef long long ll;
-const ll mod = 1e9+7;
-const ll maxn = 200
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/06/20/Karen-and-Test/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -948,7 +950,7 @@ const ll maxn = 200
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">88</span>
+              <span class="site-state-item-count">90</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

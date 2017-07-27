@@ -258,6 +258,282 @@
             
               
                 
+                <a class="post-title-link" href="/2017/02/03/machine-learning-exercise2-Coursera/" itemprop="url">
+                  machine learning exercise2 Coursera
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-02-03T11:55:03+08:00" content="2017-02-03">
+              2017-02-03
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/机器学习/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          第二次上机作业：
+sigmoid.m
+costFunction.m
+predict.m
+costFunctionReg.m
+sigmoid.m这是逻辑回归的假设函数计算
+t = ones(size(z));
+g = 1 ./ (exp(-z) + t);
+costFunction.m and costFunctionReg计算代价函数和梯度
+无正规化：
+
+J = sum(-y .* log(sigmoid(X * theta)) - (1 - y) .* log(1 - sigmoid(X * theta))) / m;
+
+p = X&apos; * (sigmoid(X * theta) - y);
+grad = p / m
+正规化：
+
+
+J = sum(- y .* log(sigmoid(X * theta)) - (1 - y) .* log(1 - sigmoid(X * theta))) / m
+J += (lambda /(2 *m)) * sum(theta(2:end) .^2);
+
+
+t =X&apos;*(sigmoid(X * theta) - y) / m;
+
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/02/03/machine-learning-exercise2-Coursera/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/01/26/machine-learning-exercise-Coursera/" itemprop="url">
+                  machine learning exercise - Coursera
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-01-26T16:08:49+08:00" content="2017-01-26">
+              2017-01-26
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/机器学习/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          第一次上机作业的任务：
+warmUpExercise.m
+plotData.m
+gradientDescent.m
+computeCost.m
+gradientDescentMulti.m
+computeCostMulti.m
+featureNormalize.m
+normalEqn.m
+warmUpExercise.m热身练习很简单，就是写一个单位矩阵：
+A = eye(5);
+plotData.m画图题，标上x，y轴的变量意义。
+plot(x, y, &apos;rx&apos;, &apos;MarkerSize&apos;, 10); % Plot the data
+ylabel(&apos;Profit in $10,000s&apos;); % Set the y?axis label
+xlabel(&apos;Population of City in 10,000s&apos;); % Set the x?axis label
+computeCost.m代价函数
+J = sum((X * theta - y).^2)/(2*m);
+gradientDescent.m梯度
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/01/26/machine-learning-exercise-Coursera/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/01/23/STL的总结/" itemprop="url">
                   STL习题
                 </a>
@@ -620,285 +896,6 @@ int main()
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/11/28/蓝桥杯周练/" itemprop="url">
-                  蓝桥杯周练(部分题)
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-28T15:18:29+08:00" content="2016-11-28">
-              2016-11-28
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/lanqiao/" itemprop="url" rel="index">
-                    <span itemprop="name">lanqiao</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          线段和点算法思想贪心
-代码程序#include &lt;iostream&gt;
-#include &lt;cstdio&gt;
-#include &lt;memory.h&gt;
-#include &lt;algorithm&gt;
-#define mem(a,b) memset(a,b,sizeof(a))
-bool vis[11000],dian[51000];
-using namespace std;
-int n,m;
-struct s{
-    int l,r;
-}str[11000];
-bool cmp(s a,s b)
-{
-    return ((a.l&lt;b.l)||(a.l==b.l&amp;&amp;a.r&lt;b.r));
-}
-int main()
-{
-    mem(dian,false);
-    mem(vis,false);
-    scanf(&quot;%d%d&quot;,&amp;n,&amp;m);
-    for(int i=0;i&lt;n;i++)
-    {
-        int x;
-        scanf(&quot;%
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/11/28/蓝桥杯周练/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/11/21/ACM周练-10-30/" itemprop="url">
-                  ACM周练-10.30
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-21T15:42:49+08:00" content="2016-11-21">
-              2016-11-21
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/acm/" itemprop="url" rel="index">
-                    <span itemprop="name">acm</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          第一题原题:hdoj 5971算法思想dfs二分染色,先将已知身份的人涂色,再从剩下的人中开始染色,最后如果还有剩下的人未被染色,那就是NO,否则是YES
-程序代码//#define LOCAL
-#include &lt;iostream&gt;
-#include &lt;cstdio&gt;
-#include &lt;cstring&gt;
-#include &lt;vector&gt;
-#include &lt;memory.h&gt;
-#define  mem(a,b)    memset(a,b,sizeof(a))
-using namespace std;
-const int MAX=1010;
-vector&lt;int&gt; G[MAX];
-int color[MAX];
-int n,m,x,y;
-bool dfs(int v,int c)
-{
-    color[v]=c;
-    for(int i=0;i&lt;G[v].size();i++)
-    {
-        if(color[G[v][i]]==c) return false;
-        if
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/11/21/ACM周练-10-30/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -944,7 +941,7 @@ bool dfs(int v,int c)
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">88</span>
+              <span class="site-state-item-count">90</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

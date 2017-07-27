@@ -258,6 +258,263 @@
             
               
                 
+                <a class="post-title-link" href="/2017/05/23/Factorial-Modulo/" itemprop="url">
+                  Factorial Modulo
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-05-23T20:21:14+08:00" content="2017-05-23">
+              2017-05-23
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/acm/" itemprop="url" rel="index">
+                    <span itemprop="name">acm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          原题：Factorial Modulo
+原题大意给出两个数a, b,问有多少i使得i!能被a整除，而不能被b整除。
+算法分析对于一个数字n， 如果x!是可以被它整除的第一个数，那么x之后的数都能整除。将x计作 f（n），答案就是max(0, f(b)-f(a))。对于f的计算，就是对于n分解质因数，然后对于每一个因数算出要满足这个因数所需要的x，取max即为f。
+程序代码#include &lt;bits/stdc++.h&gt;
+#define mem(a,b) memset(a, b, sizeof(a))
+using namespace std;
+typedef long long ll;
+int a, b;
+
+//得到能被x^cnt整除的最小阶乘n！，n一定是x的整数倍。
+int get(int x, int cnt){
+    int t = 1;
+    //如果能将cnt个x整除完
+    while(cnt){
+        int tmp = t*x;
+        while(tmp % x == 0 &amp;&amp; cnt){
+            t
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/05/23/Factorial-Modulo/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/05/21/铁路修复计划/" itemprop="url">
+                  铁路修复计划
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-05-21T10:00:45+08:00" content="2017-05-21">
+              2017-05-21
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/acm/" itemprop="url" rel="index">
+                    <span itemprop="name">acm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          原题：铁路修复计划
+原题大意在 A 国有很多城际铁路。这些铁路都连接两个城市（城市从1到n编号），可以双向通行，使得任意两个城市之间都由铁路网联系起来。
+不过在一次星球大战之后，所有的铁路都经历了不同程度的损伤以至于无法通行了。由于经费紧缺，A 国政府不愿意再出资造新的铁路。对于原有的城际铁路，根据铁路的实际情况，有以下两种处理办法：
+使用国内技术进行修复：主要针对损坏情况不是很严重的铁路。国内公司会对铁路状况进行评估，然后如实开出铁路修复的费用。使用国外技术进行修复：主要针对损坏情况严重的铁路。国外公司也会对铁路情况进行评估，然后按照铁路实际修复费用的k倍来收费（其中k是一个由国外公司决定的实数，不管怎么说，优惠是不可能的，所以 k≥1）。A国政府修复铁路的总预算是 M，目标是要让任意两个城市之间都能通过铁路联系起来。在预算不够且能够完成目标的条件下，显然没必要修复每一条铁路。
+国外公司通过不知什么途径了解到了 A 国政府的总预算 M，他们现在要把 k 定下来，并且希望 k 尽可能得大。但 k 又不能太大，不然，如果A国政府发现无法完成任务的话，整个订单都会泡汤。
+Input测试数据
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/05/21/铁路修复计划/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/05/21/丽娃河的狼人传说/" itemprop="url">
                   丽娃河的狼人传说
                 </a>
@@ -647,277 +904,6 @@ void mkST()
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/05/20/Super-Resolution/" itemprop="url">
-                  Super Resolution
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-05-20T11:17:42+08:00" content="2017-05-20">
-              2017-05-20
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/acm/" itemprop="url" rel="index">
-                    <span itemprop="name">acm</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          原题：Super Resolution
-原题大意给一个01串，按照要求放大a*b倍，并且相对位置不变
-算法分析比赛时唯一一道水题，模拟即可
-程序代码#include &lt;bits/stdc++.h&gt;
-using namespace std;
-int  n, m, a, b;
-int m1[11][11];
-string s[11];
-int main(){
-    ios::sync_with_stdio(false);
-    cin.tie(0);
-    while(cin &gt;&gt; n &gt;&gt; m &gt;&gt; a &gt;&gt; b){
-        for(int i = 0; i &lt; n; i++)
-            cin &gt;&gt; s[i];
-        for(int i = 0; i &lt; n; i++){
-            for(int j = 0; j &lt; m; j++){
-                m1[i][j] = s[i][j] - &apos;0&apos;;
-   
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/05/20/Super-Resolution/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/05/20/Partial-Sum/" itemprop="url">
-                  Partial Sum
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-05-20T10:59:47+08:00" content="2017-05-20">
-              2017-05-20
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/acm/" itemprop="url" rel="index">
-                    <span itemprop="name">acm</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          原题：Partial Sum
-原题大意给定一个长度为n的数列A，初始一个变量cnt = 0，每次在0~n里选一个了l和r，然后求出A（l+1）~A（r）的和，将和的绝对值减去常数C，并且加到cnt上，这样的操作最多有m次，求cnt的最大值。
-算法分析
-程序代码#include &lt;bits/stdc++.h&gt;
-using namespace std;
-typedef long long ll;
-int n, m, C;
-int a[100005];
-ll sum[100005];
-bool cmp(ll a, ll b){
-    return a &gt; b;
-}
-int main(){
-//freopen(&quot;input.txt&quot;, &quot;r&quot;, stdin);
-    ios::sync_with_stdio(false);
-    cin.tie(0);
-    while(cin &gt;&gt; n &gt;&gt; m &gt;&gt; C){
-        for(int i = 1; i &lt;= n; i++)
-  
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/05/20/Partial-Sum/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -963,7 +949,7 @@ int main(){
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">88</span>
+              <span class="site-state-item-count">90</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
