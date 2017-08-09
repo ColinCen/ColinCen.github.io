@@ -258,6 +258,537 @@
             
               
                 
+                <a class="post-title-link" href="/2017/04/02/The-Problem-to-Make-You-Happy/" itemprop="url">
+                  The Problem to Make You Happy
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-04-02T13:44:28+08:00" content="2017-04-02">
+              2017-04-02
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/acm/" itemprop="url" rel="index">
+                    <span itemprop="name">acm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          原题：The Problem to Make You Happy
+原题大意　　Bob和Alice在有向图内玩游戏，n个顶点，m条边。　　每人一颗棋子，初始位置分别是x，y。　　Bob先手，轮流操作，每次只能走一条有向边。　　结束条件: 1.不能操作的人输 2.两个棋子重合Bob输 3.游戏没有尽头Alice输　　问 Bob 能不能赢？　　2 &lt;= n &lt;= 100. 1 &lt;= m &lt;= n &lt;= n*(n-1) 1 &lt;= x , y &lt;= n, x != y.
+算法分析
+状态设计：两颗棋子的位置，下一步棋是谁走。因子我们可以用dp[x][y] [0/1]表示两枚棋子的状态,Alice在x，Bob在y处，0是下一步Alice走，1是下一步Bob走。
+思路：通过BFS，进行状态之间的转移。
+初始状态：两颗棋子重叠为必败状态，先令这些状态在dp数组中的值为0，其它的为1
+状态转移：a) 若是选手A打算行动，那么在他之前行动的是B，要让B能GG必须B能到达的所有状态均为必败。b) 若是选手B打算行动，那么在他之前行动的是A，时光倒流，A行动时的那个状态
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/04/02/The-Problem-to-Make-You-Happy/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/03/31/Anton-and-School-2/" itemprop="url">
+                  Anton and School - 2
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-03-31T10:24:25+08:00" content="2017-03-31">
+              2017-03-31
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/acm/" itemprop="url" rel="index">
+                    <span itemprop="name">acm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          原题：Anton and School - 2
+原题大意给出一组由“（”和“)”组成的字符串，问有多少种方法使得删除其中一些括号后，字符串会成为RSBS串，RSBS串是一种左右完全对称的串，如“（（（）））”，有一些则不是，如“（（（））”，“（（）（））”。
+算法分析删除几个，其实也就是算有几种成立。看了网上的代码，知道了如何通过逆元来算组合数，博客如下，本题中求1/(k!) 是通过 k^(MOD - 2) % MOD (MOD为素数);
+
+组合数学公式推导
+含MOD求逆元
+
+程序代码#include &lt;cstdio&gt;
+#include &lt;memory.h&gt;
+#include &lt;cstring&gt;
+using namespace std;
+typedef long long LL;
+const int maxn = 2e5+5;
+const LL mod = 1e9 + 7;
+
+int n;
+char s[maxn];
+int l[maxn], r[maxn];
+LL fac[maxn], inv[maxn];//fac[i] 保存阶乘，inv[i]
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/03/31/Anton-and-School-2/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/03/22/区间价值/" itemprop="url">
+                  区间价值
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-03-22T17:34:27+08:00" content="2017-03-22">
+              2017-03-22
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/acm/" itemprop="url" rel="index">
+                    <span itemprop="name">acm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          区间价值
+原题大意给定n个数A1…An，小Ho想了解AL..AR中有多少对元素值相同。小Ho把这个数目定义为区间[L,R]的价值，用v[L,R]表示。
+例如1 1 1 2 2这五个数所组成的区间的价值为4。
+现在小Ho想知道在所有的的v[L,R] (1 &lt;= L &lt;= R &lt;= n)中，第k小的值是多少。
+输入：
+2
+4 7
+1 1 2 3
+3 6
+100 100 100
+输出：
+03
+算法分析因为比较数字之间是否相同，所以与数字大小没有关系，先通过离散化将数据规模压缩，然后又因为最大的价值为 n*(n+1)/2，最小价值为 0，所以通过二分枚举价值，看是否有k个区间满足，然后通过区间的移动（尺取法），找到满足的解。
+程序代码#include &lt;iostream&gt;
+#include &lt;cstdio&gt;
+#include &lt;map&gt;
+#include &lt;algorithm&gt;
+#define ll long long
+using namespace std;
+
+const int maxn = 200000+5;
+ll n, 
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/03/22/区间价值/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/03/22/出勤记录2/" itemprop="url">
+                  出勤记录2
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-03-22T17:14:11+08:00" content="2017-03-22">
+              2017-03-22
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/acm/" itemprop="url" rel="index">
+                    <span itemprop="name">acm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          出勤记录Ⅱ
+原题大意小Hi的算法课老师每次上课都会统计小Hi的出勤记录。迟到会被记录一个L，缺席会被记录一个A，按时上课会被记录一个O。
+一学期结束，小Hi的出勤记录可以看成是一个只包含LAO的字符串，例如”OOOOLOOOLALLO……”。
+如果小Hi整学期缺席不超过1次，并且没有连续3次迟到，小Hi的出勤记录就算合格。  
+现在给出字符串的长度N，小Hi想知道长度为N的出勤记录中，合格的记录总共有多少种。  
+例如长度为3的合格出勤记录有19种：OOO OOL OOA OLO OAO LOO AOO OLL OLA OAL LOL LOA AOL LLO LAO ALO LLA LAL ALL。
+算法分析状态dp[i][j][k]表示长度为i的组合中合格的个数，i表示长度，j表示A出现的个数，k表示连续L出现的个数。
+程序代码#include &lt;cstdio&gt;
+using namespace std;
+
+const int mod = 1e9 + 7;
+int dp[100005][2][3];
+
+int up(int &amp;a, int b){
+    a += 
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/03/22/出勤记录2/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/03/18/Chosing-Recipes/" itemprop="url">
                   Chosing Recipes
                 </a>
@@ -369,562 +900,11 @@ int m;//已
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/02/18/machine-learning-exercise6-Coursera/" itemprop="url">
-                  machine learning exercise6 Coursera
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-02-18T20:51:57+08:00" content="2017-02-18">
-              2017-02-18
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/机器学习/" itemprop="url" rel="index">
-                    <span itemprop="name">机器学习</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          第六次上机作业：
-gaussianKernel.m
-dataset3Params.m
-processEmail.m
-emailFeatures.m
-gaussianKernel.m高斯核函数
-
-sim = exp(-sum((x1 - x2) .^ 2) / (2 * sigma * sigma));
-dataset3Params.m求最优的C和sigma
-function [C, sigma] = dataset3Params(X, y, Xval, yval)
-C = 1;
-sigma = 0.3;
-
-right_c = C;
-right_sigma = sigma;
-error = 1;
-
-predictions = zeros(size(yval),1);
-t = [0.01;0.03;0.1;0.3;1;3;10;30];
-for i = 1:8
-  for j = 1:8
-    C = t(i);
-    sigma = t(j);
-    %调用包里的svmTrain函数
-    model = svmTrain(X, y , C, @(x1, x2) gaussian
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/02/18/machine-learning-exercise6-Coursera/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/02/18/machine-learning-exercise5-Coursera/" itemprop="url">
-                  machine learning exercise5 Coursera
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-02-18T20:51:49+08:00" content="2017-02-18">
-              2017-02-18
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/机器学习/" itemprop="url" rel="index">
-                    <span itemprop="name">机器学习</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          第五次上机作业：
-linearRegCostFunction.m
-learningCurve.m
-polyFeatures.m
-validationCurve.m
-linearRegCostFunction.m线性回归的代价函数及梯度计算
-J = sum((X * theta - y) .^ 2) / (2 * m);
-J += sum(theta(2 : end) .^ 2) * lambda / (2 * m);
-
-
-p = X&apos; * (X * theta - y) / m;
-grad(1) = p(1) ;
-grad(2 : end) = p(2 : end) + (lambda / m) * theta(2 : end);
-learningCurve.m学习曲线，样本数量和错误的曲线。
-%求theta的函数
-function [theta] = trainLinearReg(X, y, lambda)
-initial_theta = zeros(size(X, 2), 1); 
-costFunction = @(t) linearRegCostFunction(X, 
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/02/18/machine-learning-exercise5-Coursera/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/02/11/machine-learning-exercise4-Coursera/" itemprop="url">
-                  machine learning exercise4 Coursera
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-02-11T12:09:28+08:00" content="2017-02-11">
-              2017-02-11
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/机器学习/" itemprop="url" rel="index">
-                    <span itemprop="name">机器学习</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          第四次上机作业：
-sigmoidGradient.m
-randInitializeWeights.m
-nnCostFunction.m
-sigmoidGradient.m一个简单的求偏导数的公式
-
-g = sigmoid(z) .* (1 - sigmoid(z));
-randInitializeWeights.m随机初始权重函数。
-epsilon_init = 0.12;
-W = rand(L_out, 1 + L_in) * 2 * epsilon_init - epsilon_init;
-nnCostFunction.m后向传播算法的应用
-
-第一步，先用前向传播求出各层的特征值；
-
-a1 = [ones(m,1), X];
-z2 = a1 * Theta1&apos;;
-a2 = sigmoid(z2);
-a2 = [ones(m, 1),a2];
-z3 = a2 * Theta2&apos;;
-a3 = sigmoid(z3);
-Y = zeros(m, num_labels);
-%将y变成矩阵形式
-for i = 1:m
-  Y(i, y(i)) = 1;
-end
-第二步，求
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/02/11/machine-learning-exercise4-Coursera/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/02/07/machine-learning-exercise3-Coursera/" itemprop="url">
-                  machine learning exercise3 Coursera
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-02-07T21:22:52+08:00" content="2017-02-07">
-              2017-02-07
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/机器学习/" itemprop="url" rel="index">
-                    <span itemprop="name">机器学习</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          第三次上机作业：
-lrCostFunction.m (logistic regression cost function)
-oneVsAll.m
-predictOneVsAll.m
-predict.m
-lrCostFunction.m正规化的逻辑回归代价函数和梯度，这是之前的内容，算是复习吧
-J = sum(-y .* log(sigmoid(X * theta)) - (1 - y) .* log(1 - sigmoid(X * theta))) / m;
-J += lambda / (2 * m) * sum(theta(2 : end).^2);
-
-t = ( X&apos; * (sigmoid(X * theta) - y)) / m;
-
-grad(1) = t(1);
-grad(2 : end) = t(2 : end) + (lambda / m) * theta(2 : end);
-oneVsAll.m这是“一对多”求出theta即各个参数，这里的theta是矩阵方式存在的，不像之前的只有一列。这里的任务是识别1-10，这几个数，num_labels就是10，y是输出的
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/02/07/machine-learning-exercise3-Coursera/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/12/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><span class="page-number current">13</span><a class="page-number" href="/page/14/">14</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><a class="extend next" rel="next" href="/page/14/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/12/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><span class="page-number current">13</span><a class="page-number" href="/page/14/">14</a><span class="space">&hellip;</span><a class="page-number" href="/page/19/">19</a><a class="extend next" rel="next" href="/page/14/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -965,7 +945,7 @@ oneVsAll.m这是“一对多”求出theta即各个参数，这里的theta是矩
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">90</span>
+              <span class="site-state-item-count">94</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -982,7 +962,7 @@ oneVsAll.m这是“一对多”求出theta即各个参数，这里的theta是矩
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">62</span>
+                <span class="site-state-item-count">63</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

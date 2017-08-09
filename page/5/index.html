@@ -258,6 +258,534 @@
             
               
                 
+                <a class="post-title-link" href="/2017/06/10/qwb与学姐/" itemprop="url">
+                  qwb与学姐
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-06-10T21:51:31+08:00" content="2017-06-10">
+              2017-06-10
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/acm/" itemprop="url" rel="index">
+                    <span itemprop="name">acm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          原题：qwb与学姐
+原题大意qwb打算向学姐表白，可是学姐已经受够了他的骚扰，于是出了一个题想难住他:已知一幅n个点m条边的无向图,定义 路径的值为这条路径上最短的边的长度，现在有k个询问，询问从A点到B点的所有路径的值的最大值。
+算法分析题目意思是查询图上两点的瓶颈路大小，这个训练指南上有讲解。先是求最大生成树，然后求树上两点路径的最小值，用LCA倍增法就可以了。
+
+http://blog.csdn.net/Janis_z/article/details/52937631?locationNum=6&amp;fps=1
+
+程序代码template &lt;class T&gt; inline void umin(T &amp;a,T b){a=min(a,b);}
+template &lt;class T&gt; inline void umax(T &amp;a,T b){a=max(a,b);}
+const int N=50005;
+struct Bian{  
+    int u;    
+    int v;
+    int w;
+};
+int p[N],ra[N]; 
+Bi
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/06/10/qwb与学姐/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/06/10/qwb和李主席/" itemprop="url">
+                  qwb和李主席
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-06-10T21:46:54+08:00" content="2017-06-10">
+              2017-06-10
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/acm/" itemprop="url" rel="index">
+                    <span itemprop="name">acm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          原题：qwb和李主席
+原题大意qwb和李主席打算平分一堆宝藏，他们想确保分配公平，可惜他们都太懒了，你能帮助他们嘛？
+输入包含多组测试数据，处理到文件结束。每组测试数据的第一行是一个正整数N(0 &lt;= N &lt;=36 )表示物品的总个数。接下来输入N个浮点数(最多精确到分)，表示每个物品的价值V（0&lt;V&lt;=1e9）。
+对于每组测试数据，输出能够使qwb和李主席各自所得到的物品的总价值之差的最小值（精确到分），每组测试数据输出占一行。
+算法分析折半搜索+二分查找，注意可能会因为浮点数误差导致WA，解决方法是一开始*200化成LL，
+程序代码#include &lt;bits/stdc++.h&gt;
+typedef long long ll;
+using namespace std;
+const int maxn = 40;
+ll N[maxn], a[maxn], b[maxn], sum1[1&lt;&lt;20], all_cost;
+int n, na, nb;
+int main() {
+    while(~scanf(&quot;%d&quot;, &a
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/06/10/qwb和李主席/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/06/10/勤劳的ACgirls/" itemprop="url">
+                  勤劳的ACgirls
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-06-10T21:43:21+08:00" content="2017-06-10">
+              2017-06-10
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/acm/" itemprop="url" rel="index">
+                    <span itemprop="name">acm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          原题：勤劳的ACgirls
+原题大意zjc的ACgirls队的队员最近比较忙，为了能够取得更好的比赛成绩，他们制定了一个m天a掉n题的计划，a掉一题可以是这m天的任何时候。为了表示对acmer事业的热爱，队长wc要求每天必须至少要ac掉k题，这m天每天ac掉的题数可以用一个m元组表示。设不同的m元组一共有c个，请问c的末尾有多少个0？（如果c是0，输出0）
+算法分析用隔板法算出答案是C（n+(1-k)*m-1,m-1）,然后算出因子5和因子2的个数，取小的那个
+程序代码#include &lt;bits/stdc++.h&gt;
+using namespace std;
+typedef long long ll;
+ll m, n, k;
+int main(){
+    while(scanf(&quot;%lld%lld%lld&quot;, &amp;m, &amp;n, &amp;k) != EOF){
+        ll x = m - 1;
+        ll y = (n - m * k) + m - 1;
+        ll ans = 0;
+        if(x
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/06/10/勤劳的ACgirls/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/06/10/qwb与支教/" itemprop="url">
+                  qwb与支教
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-06-10T21:39:17+08:00" content="2017-06-10">
+              2017-06-10
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/acm/" itemprop="url" rel="index">
+                    <span itemprop="name">acm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          原题：qwb与支教
+原题大意qwb同时也是是之江学院的志愿者，暑期要前往周边地区支教，为了提高小学生的数学水平。她把小学生排成一排，从左至右从1开始依次往上报数。
+玩完一轮后，他发现这个游戏太简单了。于是他选了3个不同的数x,y,z；从1依次往上开始报数，遇到x的倍数、y的倍数或z的倍数就跳过。如果x=2,y=3,z=5；第一名小学生报1，第2名得跳过2、3、4、5、6，报7；第3名得跳过8、9、10，报11。
+那么问题来了，请你来计算，第N名学生报的数字是多少？
+算法分析二分+容斥原理，详见代码
+程序代码#include &lt;bits/stdc++.h&gt;
+using namespace std;
+typedef long long ll;
+const ll mod = 1e9+7;
+ll x, y, z, n;
+ll gcd(ll a, ll b){
+    return b == 0?a:gcd(b, a%b);
+}
+ll lcm(ll a, ll b){
+    return a*b/gcd(a,b);
+}
+ll check(ll w){
+    return w/x+
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/06/10/qwb与支教/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/06/10/qwb-has-a-lot-of-Coins/" itemprop="url">
                   qwb has a lot of Coins
                 </a>
@@ -371,539 +899,11 @@ int main(){
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/06/05/Widespread/" itemprop="url">
-                  Widespread
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-06-05T18:01:44+08:00" content="2017-06-05">
-              2017-06-05
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/acm/" itemprop="url" rel="index">
-                    <span itemprop="name">acm</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          原题：Widespread
-原题大意一条线上有N个怪兽，第i个怪兽有hi格血条，我们每次可以对其中一个怪发动攻击，使他损失A格血，同时，除他以外的怪兽要损失B格血（A&gt;B），问最少攻击几次使得怪兽全部gg。
-算法分析贪心的想，每次让血最多的怪受到直接攻击，直到所有怪都完蛋，下面考虑优化，每次攻击每个怪都会受到B的伤害，其中被直接攻击到的还要受到（A—B）的额外伤害，假设攻击次数为t，enough(t) = yes / no 为（t次攻击成功消灭怪兽）答案。t为单调函数，可以二分来做，t次攻击的额外伤害次数应该等于t，即为 ∑⌈(hi −B ×T)/(A−B)⌉  = t。
-程序代码#include &lt;bits/stdc++.h&gt;
-using namespace std;
-typedef long long ll;
-const int maxn = 1e5+5;
-int n;
-ll a, b;
-ll h[maxn];
-ll check(ll m){
-    ll ans = 0;
-    for(int i = 1; i &lt;= n; i++){
-        i
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/06/05/Widespread/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/06/05/UCloud-的安全秘钥/" itemprop="url">
-                  UCloud 的安全秘钥
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-06-05T17:50:26+08:00" content="2017-06-05">
-              2017-06-05
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/acm/" itemprop="url" rel="index">
-                    <span itemprop="name">acm</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          原题：UCloud 的安全秘钥
-原题大意对长度为n的数字组成的串，进行m次询问，询问的长度为k，求原串（长度为k）的字串与询问串近似匹配（可以理解成两个集合相同）的个数。
-算法分析对于n&lt;=50000，m &lt;= 100000，以及询问串的总长度不超过200000的数据来说，通过hash给每个元素赋值，然后按长度将询问的字串分组，并且按hash的和排序，可由双指针完成计数。
-
-https://www.jisuanke.com/article/9v3lgyb4
-
-程序代码#include &lt;bits/stdc++.h&gt;
-using namespace std;
-typedef long long ll;
-const int maxn = 200050;
-struct E{
-    int l;
-    int p;
-    int v;
-    bool friend operator &lt;(E ob1, E ob2){
-        return ob1.l == ob2.l ? ob1.v &lt; ob2.v : ob1.l &lt; ob2.l;
-  
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/06/05/UCloud-的安全秘钥/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/05/30/3N-Numbers/" itemprop="url">
-                  3N Numbers
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-05-30T20:37:46+08:00" content="2017-05-30">
-              2017-05-30
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/acm/" itemprop="url" rel="index">
-                    <span itemprop="name">acm</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          原题：3N Numbers
-原题大意给3n个数，要求去掉n个数，使得剩下的2n个数里，前n个数减后n个数的值最大，求最大值。
-算法分析将球分为三种颜色，被取走的标为黑色，剩下的前n个为红色，后n个为蓝色，所以观察后发现，红色一定只出现在前面，蓝色一定只出现在后面，红色的最后一个位置是n~2n，蓝色的第一个位置一定是n+1~2n+1。设k为分界线，红球从前k个里面取，蓝球从后3*n-k里面取，k的取值为(n&lt;=k&lt;=2n)，枚举k的取值，用优先队列维护最优值。
-程序代码#include&lt;stdio.h&gt;
-#include&lt;string.h&gt;
-#include&lt;algorithm&gt;
-#include&lt;stdlib.h&gt;
-#include&lt;iostream&gt;
-#include&lt;queue&gt;
-using namespace std;
-
-priority_queue&lt;int&gt;QD;//大根堆
-priority_queue&lt;int,vector&lt;int&gt;,greater&lt;int&
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/05/30/3N-Numbers/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/05/23/OR/" itemprop="url">
-                  OR
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-05-23T20:29:04+08:00" content="2017-05-23">
-              2017-05-23
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/acm/" itemprop="url" rel="index">
-                    <span itemprop="name">acm</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          原题：OR
-原题大意给出n个数A1, A2…,AN, 任意选择两个数i,j(1 &lt;= i &lt; j &lt;= N),问Ai|Aj的期望值是多少。以既约分数的形式输出。
-算法分析如果暴力需要n^2，会超时，所以考虑每一位，前i-1个数里，第j位是0的个数为cnt，如果第i个数的第j位是1，那么贡献为(1 &lt;&lt; j)  (i-1)，否则贡献为cnt  (1 &lt;&lt; j)。如果直接算出分子除以分母会爆long long int，所以记录余数然后两次gcd求出结果。
-程序代码#include &lt;bits/stdc++.h&gt;
-#define mem(a,b) memset(a, b, sizeof(a))
-using namespace std;
-typedef long long ll;
-int T;
-ll cnt[40];
-ll x, y, n;
-ll gcd(ll a, ll b){
-    return b == 0 ? a : gcd(b, a % b);
-}
-int main(){
-
-    ios::sync_with_stdio(fa
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/05/23/OR/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><a class="extend next" rel="next" href="/page/6/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/19/">19</a><a class="extend next" rel="next" href="/page/6/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -944,7 +944,7 @@ int main(){
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">90</span>
+              <span class="site-state-item-count">94</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -961,7 +961,7 @@ int main(){
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">62</span>
+                <span class="site-state-item-count">63</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

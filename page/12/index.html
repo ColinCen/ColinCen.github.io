@@ -258,6 +258,526 @@
             
               
                 
+                <a class="post-title-link" href="/2017/04/10/寻找最大值/" itemprop="url">
+                  寻找最大值
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-04-10T21:01:11+08:00" content="2017-04-10">
+              2017-04-10
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/acm/" itemprop="url" rel="index">
+                    <span itemprop="name">acm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          原题：寻找最大值
+原题大意给定N个数A1, A2, A3, … AN，小Ho想从中找到两个数Ai和Aj(i ≠ j)使得乘积Ai × Aj × (Ai AND Aj)最大。其中AND是按位与操作。  
+算法分析这题时间空间限制不太紧，暴力就可以过，但是可以用高维前缀维护最大值和次大值来做。因为2^20可以枚举的到，而且枚举x&amp;y的结果z，不会丢解，因为z相当于x&amp;y的子集，就是说z是x的子集，z也是y的子集。
+
+http://www.cnblogs.com/forever97/p/hihocoder1496.html
+
+程序代码#include &lt;cstdio&gt;
+#include &lt;algorithm&gt;
+using namespace std;
+int T, n;
+//高维前缀的数据结构
+struct info
+{
+    int val[2];
+    info operator + (const info &amp; rhs)const{
+        int t_val[2] = {val[0], val[1]};
+        for
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/04/10/寻找最大值/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/04/10/Headmaster-s-Headache/" itemprop="url">
+                  Headmaster's Headache
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-04-10T19:23:21+08:00" content="2017-04-10">
+              2017-04-10
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/acm/" itemprop="url" rel="index">
+                    <span itemprop="name">acm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          原题：Headmaster’s Headache
+原题大意有一个学校想要聘请老师，要求每个学科都有两个以上的老师授课，并且要使总费用最小。有S（最多8个）个学科，现任的M（最多20个）个老师（你必须继续聘请他们），N（最多100个）份申请。后来的M行每行有至少两个整数，表示现任的老师的工资，和他所教授的课程（可能不止一个）。再后来的N行每行有也有至少两个整数表示聘请这个老师所需的费用，以及他所教授的课程（可能不止一个）。
+算法分析这题属于集合类型的动态规划,因为最多只有8门课，所以考虑状态压缩，用d(i,s1,s2)来表示状态，s1是恰好有一个人教的课程集合，s2是至少有两个人教的集合,i表示第i个决策阶段。状态转移方程为 d(i,s1,s2) = min{d(i+1,s1’,s2’) + c[i],d(i+1,s1,s2)}。把所有人一起编号0~m-1是在职教师，m~n+m-1是应聘者。
+程序代码#include &lt;cstdio&gt;
+#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+#include &lt;strin
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/04/10/Headmaster-s-Headache/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/04/05/Dome-of-Circus/" itemprop="url">
+                  Dome of Circus
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-04-05T22:11:34+08:00" content="2017-04-05">
+              2017-04-05
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/acm/" itemprop="url" rel="index">
+                    <span itemprop="name">acm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          原题：Dome of Circus
+原题大意在一个三维空间里，已知有N个点，求一个最小的圆锥使所有的点都包含其中。
+算法分析
+试着只考虑一个点。
+R的最小值和H之间有，形如R=k*H+b的关系。
+令高度为H时体积最小值为f(H)，便会发现f(H)是单峰的
+考虑所有的点，那么高度为H时体积最小值为 max{f(H)}，归纳得，很多个单峰函数取max后仍是单峰函数所以就可以三分答案了。三分可以用来求出凸或凹函数的最值。
+http://blog.csdn.net/pi9nc/article/details/9666627
+
+
+
+程序代码#include &lt;cstdio&gt;
+#include &lt;cmath&gt;
+#include &lt;algorithm&gt;
+using namespace std;
+const int maxn = 10005;
+const double EPS = 1e-4;
+int T, n;
+double x[maxn], y[maxn], z[maxn];
+double f(double h){
+    double r = 0.0;
+    
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/04/05/Dome-of-Circus/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/04/05/Gems-Fight/" itemprop="url">
+                  Gems Fight
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-04-05T10:32:48+08:00" content="2017-04-05">
+              2017-04-05
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/acm/" itemprop="url" rel="index">
+                    <span itemprop="name">acm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          原题：Gems Fight
+原题大意有 G 种颜色的宝石，放在 B 个袋子里（每种颜色可以放多个）。两人轮流选袋子（每个袋子只能被选 1 次），每次将选出来的袋子中的宝石放到 cooker 中，cooker 可能会起反应。反应条件是 cooker 中出现 S 个一样颜色的宝石，而且一旦起反应，每 S 个一样颜色的宝石就会获得 1 个魔法石（同时反应）。作为奖励，每次反应结束后当前玩家可以再选一个袋子继续游戏。游戏目标是自己获得的魔法石尽量多，双方都采取最优策略的情况下，问最终两个玩家的魔法石之差。
+算法分析数据范围很小，毫不犹豫地状压。dp[S]：集合S被取走，此景此境，先手最多能赢后手多少分。遍历不在集合中的袋子，如果拿了i号袋子后不能合成魔法石，那么dp[S] = max(dp[S], -dp[S|1 &lt;&lt; i]), 否则就可以连任dp[S] = max(dp[S], dp[S|1 &lt;&lt; i] + 拿i号袋子获得的收益。
+程序代码#include &lt;cstdio&gt;
+#include &lt;algorithm&gt;
+using namespac
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/04/05/Gems-Fight/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/04/02/A-Lot-of-Games/" itemprop="url">
                   A Lot of Games
                 </a>
@@ -367,542 +887,11 @@ struct N
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/04/02/The-Problem-to-Make-You-Happy/" itemprop="url">
-                  The Problem to Make You Happy
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-04-02T13:44:28+08:00" content="2017-04-02">
-              2017-04-02
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/acm/" itemprop="url" rel="index">
-                    <span itemprop="name">acm</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          原题：The Problem to Make You Happy
-原题大意　　Bob和Alice在有向图内玩游戏，n个顶点，m条边。　　每人一颗棋子，初始位置分别是x，y。　　Bob先手，轮流操作，每次只能走一条有向边。　　结束条件: 1.不能操作的人输 2.两个棋子重合Bob输 3.游戏没有尽头Alice输　　问 Bob 能不能赢？　　2 &lt;= n &lt;= 100. 1 &lt;= m &lt;= n &lt;= n*(n-1) 1 &lt;= x , y &lt;= n, x != y.
-算法分析
-状态设计：两颗棋子的位置，下一步棋是谁走。因子我们可以用dp[x][y] [0/1]表示两枚棋子的状态,Alice在x，Bob在y处，0是下一步Alice走，1是下一步Bob走。
-思路：通过BFS，进行状态之间的转移。
-初始状态：两颗棋子重叠为必败状态，先令这些状态在dp数组中的值为0，其它的为1
-状态转移：a) 若是选手A打算行动，那么在他之前行动的是B，要让B能GG必须B能到达的所有状态均为必败。b) 若是选手B打算行动，那么在他之前行动的是A，时光倒流，A行动时的那个状态
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/04/02/The-Problem-to-Make-You-Happy/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/03/31/Anton-and-School-2/" itemprop="url">
-                  Anton and School - 2
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-03-31T10:24:25+08:00" content="2017-03-31">
-              2017-03-31
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/acm/" itemprop="url" rel="index">
-                    <span itemprop="name">acm</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          原题：Anton and School - 2
-原题大意给出一组由“（”和“)”组成的字符串，问有多少种方法使得删除其中一些括号后，字符串会成为RSBS串，RSBS串是一种左右完全对称的串，如“（（（）））”，有一些则不是，如“（（（））”，“（（）（））”。
-算法分析删除几个，其实也就是算有几种成立。看了网上的代码，知道了如何通过逆元来算组合数，博客如下，本题中求1/(k!) 是通过 k^(MOD - 2) % MOD (MOD为素数);
-
-组合数学公式推导
-含MOD求逆元
-
-程序代码#include &lt;cstdio&gt;
-#include &lt;memory.h&gt;
-#include &lt;cstring&gt;
-using namespace std;
-typedef long long LL;
-const int maxn = 2e5+5;
-const LL mod = 1e9 + 7;
-
-int n;
-char s[maxn];
-int l[maxn], r[maxn];
-LL fac[maxn], inv[maxn];//fac[i] 保存阶乘，inv[i]
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/03/31/Anton-and-School-2/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/03/22/区间价值/" itemprop="url">
-                  区间价值
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-03-22T17:34:27+08:00" content="2017-03-22">
-              2017-03-22
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/acm/" itemprop="url" rel="index">
-                    <span itemprop="name">acm</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          区间价值
-原题大意给定n个数A1…An，小Ho想了解AL..AR中有多少对元素值相同。小Ho把这个数目定义为区间[L,R]的价值，用v[L,R]表示。
-例如1 1 1 2 2这五个数所组成的区间的价值为4。
-现在小Ho想知道在所有的的v[L,R] (1 &lt;= L &lt;= R &lt;= n)中，第k小的值是多少。
-输入：
-2
-4 7
-1 1 2 3
-3 6
-100 100 100
-输出：
-03
-算法分析因为比较数字之间是否相同，所以与数字大小没有关系，先通过离散化将数据规模压缩，然后又因为最大的价值为 n*(n+1)/2，最小价值为 0，所以通过二分枚举价值，看是否有k个区间满足，然后通过区间的移动（尺取法），找到满足的解。
-程序代码#include &lt;iostream&gt;
-#include &lt;cstdio&gt;
-#include &lt;map&gt;
-#include &lt;algorithm&gt;
-#define ll long long
-using namespace std;
-
-const int maxn = 200000+5;
-ll n, 
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/03/22/区间价值/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/03/22/出勤记录2/" itemprop="url">
-                  出勤记录2
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-03-22T17:14:11+08:00" content="2017-03-22">
-              2017-03-22
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/acm/" itemprop="url" rel="index">
-                    <span itemprop="name">acm</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          出勤记录Ⅱ
-原题大意小Hi的算法课老师每次上课都会统计小Hi的出勤记录。迟到会被记录一个L，缺席会被记录一个A，按时上课会被记录一个O。
-一学期结束，小Hi的出勤记录可以看成是一个只包含LAO的字符串，例如”OOOOLOOOLALLO……”。
-如果小Hi整学期缺席不超过1次，并且没有连续3次迟到，小Hi的出勤记录就算合格。  
-现在给出字符串的长度N，小Hi想知道长度为N的出勤记录中，合格的记录总共有多少种。  
-例如长度为3的合格出勤记录有19种：OOO OOL OOA OLO OAO LOO AOO OLL OLA OAL LOL LOA AOL LLO LAO ALO LLA LAL ALL。
-算法分析状态dp[i][j][k]表示长度为i的组合中合格的个数，i表示长度，j表示A出现的个数，k表示连续L出现的个数。
-程序代码#include &lt;cstdio&gt;
-using namespace std;
-
-const int mod = 1e9 + 7;
-int dp[100005][2][3];
-
-int up(int &amp;a, int b){
-    a += 
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/03/22/出勤记录2/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/11/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><span class="page-number current">12</span><a class="page-number" href="/page/13/">13</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><a class="extend next" rel="next" href="/page/13/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/11/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><span class="page-number current">12</span><a class="page-number" href="/page/13/">13</a><span class="space">&hellip;</span><a class="page-number" href="/page/19/">19</a><a class="extend next" rel="next" href="/page/13/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -943,7 +932,7 @@ int up(int &amp;a, int b){
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">90</span>
+              <span class="site-state-item-count">94</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -960,7 +949,7 @@ int up(int &amp;a, int b){
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">62</span>
+                <span class="site-state-item-count">63</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
