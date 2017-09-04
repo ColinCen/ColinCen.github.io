@@ -258,8 +258,8 @@
             
               
                 
-                <a class="post-title-link" href="/2017/06/20/Karen-and-Test/" itemprop="url">
-                  Karen and Test
+                <a class="post-title-link" href="/2017/08/09/Kanade-s-sum/" itemprop="url">
+                  Kanade's sum
                 </a>
               
             
@@ -272,8 +272,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-06-20T19:28:22+08:00" content="2017-06-20">
-              2017-06-20
+            <time itemprop="dateCreated" datetime="2017-08-09T14:11:39+08:00" content="2017-08-09">
+              2017-08-09
             </time>
           </span>
 
@@ -321,19 +321,26 @@
       
         
           
-          原题：Karen and Test
-原题大意n个正整数排成一行，每相邻两个数进行加或减操作：第一第二个数相加，第二第三个数相减，第三第四个数相加，第四第五个数相减……，得到的结果排成第二行，然后继续这样的操作，并且初始的前两个数是加还是减，与上一行最后两个数的操作符相反，问最后得到的结果是多少？
-算法分析考虑最简版本每个ai对最终式子的贡献，可以令ai的系数为1，其余为0，类似0,0,0…1…0,0,0，同时暂且不考虑减法，可以得出每个ai的贡献为C(n-1,k-1) ，然后通过下面这个过程，可以看出最终的式子，是两个奇偶序列和（最简版本），相加或做差得到的，n mod 4 = 2时相加，n mod 4 = 0时做差。（如果n是奇数，那么先暴力进行第一次变换使得n成为偶数）
+          原题：Kanade’s sum
+原题大意1~n的数组成了序列A，f(l,r,k)为[l, r]里第k大的数，如果r-l+1 &lt; k,那么f(l,r,k)就为0.现在求
+t = 0
+for l in 1 : n
+    for r in 1 : n
+        t+=f(l,r,k)
+即求t，注意k &lt; min(n, 80)
+算法分析考虑每个数被几个有效区间包含，每个数向左右各找最多k个比它大的数，然后按左边i个，右边k-i-1个这样讨论。这里可以用链表优化，先维护一个1~n的链表，记录每个数的位置，我们贪心的从1开始选，一直选到n，计算完之后就把它删除，这样就能保证每次选的数都是最小的。
 程序代码#include &lt;bits/stdc++.h&gt;
-#define mem(a,b) memset(a,b,sizeof(a))
 using namespace std;
+const int maxn = 5e5+5;
 typedef long long ll;
-const ll mod = 1e9+7;
-const ll maxn = 200
+int pos[maxn], v[maxn], n, k, T;
+int pre[maxn], nxt[maxn];
+ll a[maxn], b[maxn];
+ll solve(int
           ...
 
           <div class="post-more-link text-center">
-            <a class="btn" href="/2017/06/20/Karen-and-Test/#more" rel="contents">
+            <a class="btn" href="/2017/08/09/Kanade-s-sum/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -384,8 +391,8 @@ const ll maxn = 200
             
               
                 
-                <a class="post-title-link" href="/2017/06/19/Scheme/" itemprop="url">
-                  Scheme
+                <a class="post-title-link" href="/2017/08/07/Tarjan-LCA/" itemprop="url">
+                  Tarjan-LCA
                 </a>
               
             
@@ -398,8 +405,8 @@ const ll maxn = 200
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-06-19T13:31:18+08:00" content="2017-06-19">
-              2017-06-19
+            <time itemprop="dateCreated" datetime="2017-08-07T16:06:47+08:00" content="2017-08-07">
+              2017-08-07
             </time>
           </span>
 
@@ -447,19 +454,32 @@ const ll maxn = 200
       
         
           
-          原题：Scheme
-原题大意给出n个节点，以及和这个节点指向的节点fi，表示从i能够到达fi，问至少需要添加多少条边能够使得原图变为强连通分量，输出边数及添加的边，多解输出任意一组解。
-算法分析每个点的出度都是1，可以知道这个图的每个弱连通分量（取消定向后的连通块）都是一个有向环上挂很多棵有向树，如果只有一个弱连通分量，显然就是环上随便找一个点然后向所有入度为0的点连边，否则先考虑将所有分量连起来，假设有t个分量，对这些分量从0到t-1标号，对于第i个分量，如果第(i+1)%t个分量有入度为0的点，那么从第i个分量的环上任取一个点向第(i+1)%t个分量的任意一个入度为0的点连边，否则连到环上任意一个点，现在所有分量已经连成了一个分量，并且最小化了入度为0的点，接下来只需要任取一个环上的点向所有入度为0的点连边即可。
+          Tarjan离线求LCA的博客
 
+http://www.cnblogs.com/JVxie/p/4854719.html
+
+例题1
+http://hihocoder.com/problemset/problem/1067
+
+给出n行父-子的名字，q个询问，输出最近公共祖先
 程序代码#include &lt;bits/stdc++.h&gt;
-#define mem(a,b) memset(a,b,sizeof(a))
+#define pb push_back
 using namespace std;
-typedef long long ll;
-const int maxn = 1
+const int maxn = 100050;
+vector&lt;int&gt; g[maxn];
+vector&lt;int&gt; q[maxn];
+vector&lt;int&gt; num[maxn];
+int ans[maxn];
+int n, Q;
+map&lt;string,int&gt; dict;
+vector&lt;string&gt; v;
+int fa[maxn], r[maxn], ind[maxn];
+bool vis[maxn];
+int find(int x){return fa[x] == x ? x : fa[x] = fin
           ...
 
           <div class="post-more-link text-center">
-            <a class="btn" href="/2017/06/19/Scheme/#more" rel="contents">
+            <a class="btn" href="/2017/08/07/Tarjan-LCA/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -510,8 +530,8 @@ const int maxn = 1
             
               
                 
-                <a class="post-title-link" href="/2017/06/17/Chef-and-Pairs/" itemprop="url">
-                  Chef and Pairs
+                <a class="post-title-link" href="/2017/08/07/Same-Occurrence/" itemprop="url">
+                  Same Occurrence
                 </a>
               
             
@@ -524,8 +544,8 @@ const int maxn = 1
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-06-17T16:41:28+08:00" content="2017-06-17">
-              2017-06-17
+            <time itemprop="dateCreated" datetime="2017-08-07T15:26:42+08:00" content="2017-08-07">
+              2017-08-07
             </time>
           </span>
 
@@ -573,14 +593,22 @@ const int maxn = 1
       
         
           
-          原题：Chef and Pairs
-原题大意定义一个函数maxMatching(A,B,y)，其输入包含两个整数数组 A 和 B 以及一个整数 y，返回一个整数。记数组 A 的大小为 N，数组 B 的大小为 M。考虑一个由 {a1, a2, … , aN } 和 {b1, b2, … , bM}两个顶点集构成的二分图。节点 ai 和 bj 之间存在边相连当且仅当 abs(Ai - Bj ) &lt;= y。函数maxMatching(A,B,y)便返回这个这个二分图的最大匹配。现在给你两个整数数组 C 和 D 和一个整数 e，请你输出下面这段程序的运行结果：
-ans = maxMatching(C, D, e)FOR x = -2e9..2e9    FOR i = 1..N    F[i] = C[i] + xans = max(ans, maxMatching(F, D, e))output ans
-算法分析先看看哪些X是有用的，即有用的事件点有哪些。对于c[i], d[j]，可以用的事件点只有两个，通过计算可得。然后把事件点排序，发现每个c能匹配的d是一段不断往下移的区间。因此可
+          原题：Same Occurrence
+原题大意给一个长度为n的序列，和q个询问，每个询问有两个数x，y。问在所有的子序列中x，y出现次数相同的序列个数有多少？
+算法分析首先观察数据范围可以得出一下结论：
+
+n的长度最多有8000，可以用离散化缩小单个数据范围
+询问最多有500000，如果n小一点的话，肯定会有重复询问，可以有数组记录询问结果
+
+然后考虑具体的询问
+
+如果两个数相同或者都不在序列中，那么答案是n*(n+1)/2
+如果只有一个数 x存在于序列 a, b, c, x, e, f, x, g, h, i, x中，我们可以将序列分割成如下形式[a,b,c],[e,f],[g,h,i]，然后按上一种情况处理每个区间。
+如果两个数都存在于序列中，设前i个数里含x的有c个，含y的有d个，在前j（j &lt; i）处，含x的有a个，含y的有b个，若使得（i，j]可以被选中，那么c-a == d-b，变型一下就是c-d == a-b。那么现在维护前缀就好了。因为序列中存在大量的非x，y的数，我们可以用vector记录x,y出现的位置，然后vector里的后一个减去前一个，就得到了中间的值，
           ...
 
           <div class="post-more-link text-center">
-            <a class="btn" href="/2017/06/17/Chef-and-Pairs/#more" rel="contents">
+            <a class="btn" href="/2017/08/07/Same-Occurrence/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -631,8 +659,8 @@ ans = maxMatching(C, D, e)FOR x = -2e9..2e9    FOR i = 1..N    F[i] = C[i] + xan
             
               
                 
-                <a class="post-title-link" href="/2017/06/17/Black-Nodes-in-Subgraphs/" itemprop="url">
-                  Black Nodes in Subgraphs
+                <a class="post-title-link" href="/2017/07/27/相交的铁路线/" itemprop="url">
+                  相交的铁路线
                 </a>
               
             
@@ -645,8 +673,8 @@ ans = maxMatching(C, D, e)FOR x = -2e9..2e9    FOR i = 1..N    F[i] = C[i] + xan
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-06-17T15:55:33+08:00" content="2017-06-17">
-              2017-06-17
+            <time itemprop="dateCreated" datetime="2017-07-27T21:52:28+08:00" content="2017-07-27">
+              2017-07-27
             </time>
           </span>
 
@@ -694,142 +722,165 @@ ans = maxMatching(C, D, e)FOR x = -2e9..2e9    FOR i = 1..N    F[i] = C[i] + xan
       
         
           
-          原题：Black Nodes in Subgraphs
-原题大意给你一棵由 N 个节点构成的树 T。节点按照 1 到 N 编号，每个节点要么是白色，要么是黑色。有 Q 组询问，每组询问形如 (s, b)。你需要检查是否存在一个连通子图，其大小恰好是 s，并且包含恰好 b 个黑色节点。
-输入输入第一行，包含一个整数 T，表示测试数据组数。对于每组测试数据：第一行包含两个整数 N 和 Q，分别表示树的节点个数和询问个数。接下来 N - 1 行，每行包含两个整数 ui 和 vi，表示在树中 ui 和 vi 之间存在一条边。接下来一行包含 N 个整数，c1, c2, … , cN。如果 ci 为 0 表示第 i 个节点是白色的，如果 ci 为1 表示第 i 个节点是黑色的。接下来 Q 行，每行包含两个整数 si 和 bi，表示一组形如 (si, bi) 的询问。对于每组询问输出一行字符串表示答案，其中 Yes 表示存在一个符合要求的连通子图，No 表示不存在。1 &lt;= T &lt;= 5, 2 &lt;= N &lt;= 5e3, 1 &lt;= Q &lt;= 1e5, 1 &lt;=
-          ...
+          原题：相交的铁路线
+算法分析考虑朴素的算法t1 = lca(x1,y1), S1 = x1-&gt;t1 ∪ t1-&gt;y1;同理可得t2和S2。判断S1∩S2是否为空
+假设有交点t且假设经过y1,y2，所以x1-&gt;t1-&gt;t-&gt;y1,x2-&gt;t2-&gt;t-&gt;y2,因为t只有一个父亲，所以t1,t2一定是祖先关系，那么t1或t2一定是交点，假设t1是交点，即t2是t1的祖先，则需要两个判定条件：
 
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/06/17/Black-Nodes-in-Subgraphs/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
+lca(t1,t2) = t2
+lca(t1,y2) = t1 或 lca(t1,x2) = t1
 
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/06/10/Pinary/" itemprop="url">
-                  Pinary
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-06-10T22:29:50+08:00" content="2017-06-10">
-              2017-06-10
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/acm/" itemprop="url" rel="index">
-                    <span itemprop="name">acm</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          原题：Pinary 1350
-原题大意Pinary数是一个仅由0和1组成的数，这个数不存在前导0，且相邻位置不能同时为1.Pinary数的大小由长度和字典序决定，长度不同时，长度越小值越小，长度相同时，字典序越小值越小。例如1是1，10是2，100,101,1000分别为3，4，5。现在给出一个K，问这个数的Pinary表示形式是什么。
-算法分析先打表solve(1) = 1;sovle(10) = 2;solve(100) = 3;solve(1000) = 5;solve(10000) = 8;于是这个问题，就转换成了，将一个数字，拆成不连续的fib的若干项之和。@Zeckendorf 齐肯多夫定理。
-程序代码#include &lt;iostream&gt;
+程序代码#include &lt;cstdio&gt;
+#include &lt;cstring&gt;
+#include &lt;algorithm&gt;
 #include &lt;vector&gt;
 using namespace std;
-typedef long long LL;
-int T, n, ans[102];
-LL fib[102];
-void init() {
-    fib[1] = 1, fib[2] = 2;
-    for(int i=3;i&lt;
+const int maxn = 100050;
+struct nod{
+    int to, cost;
+    nod(int a=0,int b=0){to = a; cost = b;}
+};
+in
           ...
 
           <div class="post-more-link text-center">
-            <a class="btn" href="/2017/06/10/Pinary/#more" rel="contents">
+            <a class="btn" href="/2017/07/27/相交的铁路线/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/07/27/Misha-Grisha-and-Underground/" itemprop="url">
+                  Misha, Grisha and Underground
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-07-27T21:40:25+08:00" content="2017-07-27">
+              2017-07-27
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/acm/" itemprop="url" rel="index">
+                    <span itemprop="name">acm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          原题：Misha, Grisha and Underground
+原题大意给一棵树，在给给出3个点s，f，t问s到f与t到f经过相同的点有几个？输出最多的那种sft组合。
+算法分析分情况讨论：
+
+f是s的祖先，t在f到s的外面
+f是s的祖先，t在f到s的路径上
+s-&gt;lca(f,s)-&gt;f，lca(s,t)在s-&gt;lca(f,s)上
+s-&gt;lca(f,s)-&gt;f，lca(f,t)在lca(f,s)-&gt;f上
+
+另一种取巧的做法是(lca(a,b) + lca(c,b) - lca(a,c))/2
+程序代码#include &lt;cstdio&gt;
+#include &lt;algorithm&gt;
+#include &lt;vector&gt;
+
+using namespace std;
+#define pb push_back
+const int maxn=100005;
+int n, q;
+int fir[maxn],no[2*maxn],se[2*maxn],st[2*maxn][20],lo[200005],dep[maxn];
+bool
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/07/27/Misha-Grisha-and-Underground/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -863,7 +914,7 @@ void init() {
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/19/">19</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/21/">21</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -904,7 +955,7 @@ void init() {
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">94</span>
+              <span class="site-state-item-count">103</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -921,7 +972,7 @@ void init() {
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">63</span>
+                <span class="site-state-item-count">70</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

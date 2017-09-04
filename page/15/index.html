@@ -258,8 +258,8 @@
             
               
                 
-                <a class="post-title-link" href="/2017/01/26/machine-learning-exercise-Coursera/" itemprop="url">
-                  machine learning exercise - Coursera
+                <a class="post-title-link" href="/2017/03/31/Anton-and-School-2/" itemprop="url">
+                  Anton and School - 2
                 </a>
               
             
@@ -272,8 +272,547 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-01-26T16:08:49+08:00" content="2017-01-26">
-              2017-01-26
+            <time itemprop="dateCreated" datetime="2017-03-31T10:24:25+08:00" content="2017-03-31">
+              2017-03-31
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/acm/" itemprop="url" rel="index">
+                    <span itemprop="name">acm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          原题：Anton and School - 2
+原题大意给出一组由“（”和“)”组成的字符串，问有多少种方法使得删除其中一些括号后，字符串会成为RSBS串，RSBS串是一种左右完全对称的串，如“（（（）））”，有一些则不是，如“（（（））”，“（（）（））”。
+算法分析删除几个，其实也就是算有几种成立。看了网上的代码，知道了如何通过逆元来算组合数，博客如下，本题中求1/(k!) 是通过 k^(MOD - 2) % MOD (MOD为素数);
+
+组合数学公式推导
+含MOD求逆元
+
+程序代码#include &lt;cstdio&gt;
+#include &lt;memory.h&gt;
+#include &lt;cstring&gt;
+using namespace std;
+typedef long long LL;
+const int maxn = 2e5+5;
+const LL mod = 1e9 + 7;
+
+int n;
+char s[maxn];
+int l[maxn], r[maxn];
+LL fac[maxn], inv[maxn];//fac[i] 保存阶乘，inv[i]
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/03/31/Anton-and-School-2/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/03/22/区间价值/" itemprop="url">
+                  区间价值
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-03-22T17:34:27+08:00" content="2017-03-22">
+              2017-03-22
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/acm/" itemprop="url" rel="index">
+                    <span itemprop="name">acm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          区间价值
+原题大意给定n个数A1…An，小Ho想了解AL..AR中有多少对元素值相同。小Ho把这个数目定义为区间[L,R]的价值，用v[L,R]表示。
+例如1 1 1 2 2这五个数所组成的区间的价值为4。
+现在小Ho想知道在所有的的v[L,R] (1 &lt;= L &lt;= R &lt;= n)中，第k小的值是多少。
+输入：
+2
+4 7
+1 1 2 3
+3 6
+100 100 100
+输出：
+03
+算法分析因为比较数字之间是否相同，所以与数字大小没有关系，先通过离散化将数据规模压缩，然后又因为最大的价值为 n*(n+1)/2，最小价值为 0，所以通过二分枚举价值，看是否有k个区间满足，然后通过区间的移动（尺取法），找到满足的解。
+程序代码#include &lt;iostream&gt;
+#include &lt;cstdio&gt;
+#include &lt;map&gt;
+#include &lt;algorithm&gt;
+#define ll long long
+using namespace std;
+
+const int maxn = 200000+5;
+ll n, 
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/03/22/区间价值/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/03/22/出勤记录2/" itemprop="url">
+                  出勤记录2
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-03-22T17:14:11+08:00" content="2017-03-22">
+              2017-03-22
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/acm/" itemprop="url" rel="index">
+                    <span itemprop="name">acm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          出勤记录Ⅱ
+原题大意小Hi的算法课老师每次上课都会统计小Hi的出勤记录。迟到会被记录一个L，缺席会被记录一个A，按时上课会被记录一个O。
+一学期结束，小Hi的出勤记录可以看成是一个只包含LAO的字符串，例如”OOOOLOOOLALLO……”。
+如果小Hi整学期缺席不超过1次，并且没有连续3次迟到，小Hi的出勤记录就算合格。  
+现在给出字符串的长度N，小Hi想知道长度为N的出勤记录中，合格的记录总共有多少种。  
+例如长度为3的合格出勤记录有19种：OOO OOL OOA OLO OAO LOO AOO OLL OLA OAL LOL LOA AOL LLO LAO ALO LLA LAL ALL。
+算法分析状态dp[i][j][k]表示长度为i的组合中合格的个数，i表示长度，j表示A出现的个数，k表示连续L出现的个数。
+程序代码#include &lt;cstdio&gt;
+using namespace std;
+
+const int mod = 1e9 + 7;
+int dp[100005][2][3];
+
+int up(int &amp;a, int b){
+    a += 
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/03/22/出勤记录2/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/03/18/Chosing-Recipes/" itemprop="url">
+                  Chosing Recipes
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-03-18T09:46:35+08:00" content="2017-03-18">
+              2017-03-18
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/acm/" itemprop="url" rel="index">
+                    <span itemprop="name">acm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          原题:Chosing Recipes
+原题大意有r种菜谱，有p种原料，每种原料都有相应的价格，已经有了m种原料，需要你做出n道菜，问最少需要花多少钱，注意：只要买了一种原料，下面如果还用到无需再买。输入的菜谱中，1表示需要这种原料，0表示不需要。
+算法分析刚开始，我想通过暴力+回溯，可是p的最大值可以取到13，结果，就超时了。后来看了网上的题解，算法应该这样设计：1.将菜谱当成2进制，然后用数组保存，因为最多有2^13种可能，数组开到9000就够了。2.用动态规划，每种菜谱要么选，要么不选，选了之后会对下面的选择造成影响，可以用记忆化搜索完成。
+程序代码#include &lt;cstdio&gt;
+#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+#include &lt;cmath&gt;
+#include &lt;vector&gt;
+using namespace std;
+
+
+const int INFI = (1 &lt;&lt; 20) - 1;
+int r;// 菜谱数
+int p;// 配料数
+int m;//已
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/03/18/Chosing-Recipes/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/02/18/machine-learning-exercise6-Coursera/" itemprop="url">
+                  machine learning exercise6 Coursera
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-02-18T20:51:57+08:00" content="2017-02-18">
+              2017-02-18
             </time>
           </span>
 
@@ -321,553 +860,35 @@
       
         
           
-          第一次上机作业的任务：
-warmUpExercise.m
-plotData.m
-gradientDescent.m
-computeCost.m
-gradientDescentMulti.m
-computeCostMulti.m
-featureNormalize.m
-normalEqn.m
-warmUpExercise.m热身练习很简单，就是写一个单位矩阵：
-A = eye(5);
-plotData.m画图题，标上x，y轴的变量意义。
-plot(x, y, &apos;rx&apos;, &apos;MarkerSize&apos;, 10); % Plot the data
-ylabel(&apos;Profit in $10,000s&apos;); % Set the y?axis label
-xlabel(&apos;Population of City in 10,000s&apos;); % Set the x?axis label
-computeCost.m代价函数
-J = sum((X * theta - y).^2)/(2*m);
-gradientDescent.m梯度
+          第六次上机作业：
+gaussianKernel.m
+dataset3Params.m
+processEmail.m
+emailFeatures.m
+gaussianKernel.m高斯核函数
+
+sim = exp(-sum((x1 - x2) .^ 2) / (2 * sigma * sigma));
+dataset3Params.m求最优的C和sigma
+function [C, sigma] = dataset3Params(X, y, Xval, yval)
+C = 1;
+sigma = 0.3;
+
+right_c = C;
+right_sigma = sigma;
+error = 1;
+
+predictions = zeros(size(yval),1);
+t = [0.01;0.03;0.1;0.3;1;3;10;30];
+for i = 1:8
+  for j = 1:8
+    C = t(i);
+    sigma = t(j);
+    %调用包里的svmTrain函数
+    model = svmTrain(X, y , C, @(x1, x2) gaussian
           ...
 
           <div class="post-more-link text-center">
-            <a class="btn" href="/2017/01/26/machine-learning-exercise-Coursera/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/01/23/STL的总结/" itemprop="url">
-                  STL习题
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-01-23T17:04:21+08:00" content="2017-01-23">
-              2017-01-23
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/acm/" itemprop="url" rel="index">
-                    <span itemprop="name">acm</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          复合词原题：UVa 10391
-算法这题我一开始是拼接来做的结果超时，部分代码如下：
-for(int i = 0; i &lt; cnt; i++){
-   for(int j = i + 1; j &lt; cnt; j++){
-     s1 = words[i] + words[j];
-     s2 = words[j] + words[i];
-     if(dict.count(s1)) cout &lt;&lt; s1 &lt;&lt; &quot;\n&quot;;
-     if(dict.count(s2)) cout &lt;&lt; s2 &lt;&lt; &quot;\n&quot;;
-   }
- }
-这里的时间复杂度有O(n²)了，换一种思考方式，改成字符串分割，因为每个字符串长度不一，所以时间复杂度为O(mn)，结果通过了，其中用到了 string类里面的 substr()函数,具体用法参见下面的代码
-程序代码#include &lt;iostream&gt;
-#include &lt;string&gt;
-#include &lt;cstring&gt;
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/01/23/STL的总结/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/12/28/c++课程设计第四题/" itemprop="url">
-                  c++课程设计
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-12-28T22:18:02+08:00" content="2016-12-28">
-              2016-12-28
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          原题要求：设计一个保留字的统计程序建立保留字文件；从源数据文件（C或C++语言程序）中，读取字符或字符串，与保留字文件中的保留字进行匹配比较，并统计计数。输出两张表文件：保留字计数，扫描程序的次数，非保留字计数。
-想法我先说说我是第一天是怎么弄的，第一天。。。什么也没写出来，我连 保留字 是什么都不知道，后来百度后才知道 保留字就是c/c++关键字比如 int short while for,然后再看看题目，要求已经很明确了，建一个保留字文件以及一个c/cpp的源代码（任意的），通过程序筛选出保留字与非保留字，并且计数，最后分别用两个文件输出。所以，这个程序可以分成3部分：
-
-文件读取
-筛选以及计数
-文件输出
-
-先说文件输入输出，这个我是有点头疼的，之前c里面是用fread，fwrite两个函数，但这里显然不合适，你无法预测文档的大小。无奈，拿起上学期的c++书，翻到了文件输入输出流，书上的太简略，没有合适的代码，于是就先放在了这里。再来想一想第二个步骤，第二个步骤也是最难的部分，首先看筛选，如何将保留字与非保留字从源码里区分开来，和周围同学讨论后，他们是这样想的：通过文件操作将源码读
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/12/28/c++课程设计第四题/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/11/29/16哈理工新生网络赛/" itemprop="url">
-                  16哈理工新生网络赛
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-29T22:39:40+08:00" content="2016-11-29">
-              2016-11-29
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/acm/" itemprop="url" rel="index">
-                    <span itemprop="name">acm</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          本次新生赛题目还是很难的,部分题解还未看懂,先贴上来.
-棋盘村原题:棋盘村
-算法思想递推,比赛时用了bfs结果超时了,赛后看来还是递推简单明了.另外递推时要处理边界.
-程序代码#include &lt;iostream&gt;
-#include &lt;memory.h&gt;
-using namespace std;
-int n,m,x,y;
-int g[100][100];
-long long ans[100][100];
-void robber_cover()
-{
-    g[x][y]=0;
-    g[x+2][y+1]=0;
-    g[x+2][y-1]=0;
-    g[x+1][y+2]=0;
-    g[x+1][y-2]=0;
-    g[x-2][y+1]=0;
-    g[x-2][y-1]=0;
-    g[x-1][y+2]=0;
-    g[x-1][y-2]=0;
-
-}
-int main()
-{
-    int T;
-    scanf(&quot;%d&quot;,&amp;T);
-    while(T--)
-    {
-        memse
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/11/29/16哈理工新生网络赛/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/11/28/蓝桥杯周练/" itemprop="url">
-                  蓝桥杯周练(部分题)
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-28T15:18:29+08:00" content="2016-11-28">
-              2016-11-28
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/lanqiao/" itemprop="url" rel="index">
-                    <span itemprop="name">lanqiao</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          线段和点算法思想贪心
-代码程序#include &lt;iostream&gt;
-#include &lt;cstdio&gt;
-#include &lt;memory.h&gt;
-#include &lt;algorithm&gt;
-#define mem(a,b) memset(a,b,sizeof(a))
-bool vis[11000],dian[51000];
-using namespace std;
-int n,m;
-struct s{
-    int l,r;
-}str[11000];
-bool cmp(s a,s b)
-{
-    return ((a.l&lt;b.l)||(a.l==b.l&amp;&amp;a.r&lt;b.r));
-}
-int main()
-{
-    mem(dian,false);
-    mem(vis,false);
-    scanf(&quot;%d%d&quot;,&amp;n,&amp;m);
-    for(int i=0;i&lt;n;i++)
-    {
-        int x;
-        scanf(&quot;%
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/11/28/蓝桥杯周练/#more" rel="contents">
+            <a class="btn" href="/2017/02/18/machine-learning-exercise6-Coursera/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -901,7 +922,7 @@ int main()
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/14/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><span class="page-number current">15</span><a class="page-number" href="/page/16/">16</a><span class="space">&hellip;</span><a class="page-number" href="/page/19/">19</a><a class="extend next" rel="next" href="/page/16/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/14/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><span class="page-number current">15</span><a class="page-number" href="/page/16/">16</a><span class="space">&hellip;</span><a class="page-number" href="/page/21/">21</a><a class="extend next" rel="next" href="/page/16/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -942,7 +963,7 @@ int main()
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">94</span>
+              <span class="site-state-item-count">103</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -959,7 +980,7 @@ int main()
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">63</span>
+                <span class="site-state-item-count">70</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

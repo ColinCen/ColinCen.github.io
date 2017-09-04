@@ -258,8 +258,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/06/27/Prime-Ring-Problem/" itemprop="url">
-                  Prime Ring Problem
+                <a class="post-title-link" href="/2016/10/08/No-names-no-bias/" itemprop="url">
+                  No names,no bias?
                 </a>
               
             
@@ -272,8 +272,126 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-06-27T15:48:34+08:00" content="2016-06-27">
-              2016-06-27
+            <time itemprop="dateCreated" datetime="2016-10-08T19:14:35+08:00" content="2016-10-08">
+              2016-10-08
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/English/" itemprop="url" rel="index">
+                    <span itemprop="name">English</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          No names,no bias?　 “If you’ve got the grades, the skills and the determination, this government will ensure you can succeed,” trumpeted David Cameron, the British prime minister, on October 26th, as he unveiled plans to tackle discrimination in the workplace. Ten big employers in the public and private sectors—including the civil service, HSBC and Deloitte—have agreed to start recruiting on a “name-blind” basis in Britain;others may also follow suit. In such schemes,those drawing up shortlists o
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/10/08/No-names-no-bias/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/09/01/hdu-1042-N/" itemprop="url">
+                  hdu 1042 N!
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-09-01T14:51:31+08:00" content="2016-09-01">
+              2016-09-01
             </time>
           </span>
 
@@ -321,528 +439,436 @@
       
         
           
-          原题:hdoj 1016
-原题大意如图,6个数收尾相连,任意两个相邻的数之和是质数.现在请你输入数字n,表示从1到n的整数,将它们排列成一个环,形成如图所示的质数环.
-算法分析用dfs遍历每种情况
-代码程序程序1#include &lt;stdio.h&gt;
+          原题:hdoj 1042
+原题大意题意很简单就是求阶乘.但数据要求能求到10000.
+算法分析这题因为数据大,所以用数组保存,用大数相乘的思想.每个数组元素的值在0~9999间,过了就进一位,每个数组元素应当有4位(除了开头部分),不够用0补.
+注意:我一开始是从n往1乘,结果超时了,只有用1往n乘才能通过.同时0!=1不能忽略.
+代码程序#include &lt;iostream&gt;
+using namespace std;
+#define N 10000
+int main(){
+    int a[N],n,m,len;
+    while(scanf(&quot;%d&quot;,&amp;n)!=EOF)
+    {
+        if(n==0) //0!=1
+        {printf(&quot;1\n&quot;);continue;}
+        len=1;
+        a[0]=n;m=0;
+        for(int t=1;t&lt;n;t++)
+        {
+            for(int i=0;i&lt;len;i++
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/09/01/hdu-1042-N/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/08/16/hdu-1015-Safecracker/" itemprop="url">
+                  hdu 1015 Safecracker
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-16T15:32:18+08:00" content="2016-08-16">
+              2016-08-16
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/acm/" itemprop="url" rel="index">
+                    <span itemprop="name">acm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          原题:hdoj 1015
+原题大意题中给了一个式子 v - w^2 + x^3 - y^4 + z^5 = target 要求输入一个数(即作为target),再给出一个字符串,字符串由从A到Z,26个大写字母组成(A=1, B=2, …, Z=26),式子中的v,w,x,y,z由给出的字符串中的5个字符组成,使得式子能够成立.但是符合条件的有很多时,则按字典顺序且逆序输出一种,若无,则打印”no solution”.
+算法分析因为要按字典序输出最大的一组,所以先要将输进去的字符串重新排序,用C++中stl里sort函数就可以了.下面可以用枚举(5重循环)或dfs.
+程序代码枚举#include &lt;iostream&gt;
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+#include &lt;algorithm&gt;
+#define target(v,w,x,y,z) v-w*w+x*x*x-y*y*y*y+z*z*z*z*z
+using namespace std;
+char str[30];
+int num[30];
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/08/16/hdu-1015-Safecracker/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/08/12/Ignatius-and-the-Princess-I/" itemprop="url">
+                  Ignatius and the Princess I
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-12T17:36:59+08:00" content="2016-08-12">
+              2016-08-12
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/acm/" itemprop="url" rel="index">
+                    <span itemprop="name">acm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          原题:hdoj 1026
+原题大意迷宫题,要求求出最短时间,同时打印每一个步骤.
+算法分析看到这题,我的第一反应就是bfs,但是,还要打印每一步,我没什么办法,百度后普遍算法是,用优先队列bfs得出最小路径后,递归打印.首先优先队列的优先级别要能改
+struct Point{
+int x,y;
+int time;
+friend bool operator&lt;(Point a,Point b)
+{
+    return a.time&gt;b.time;
+}
+};
+注意:stl里优先队列只能对&lt;重载.记录路径的方法是:用数组Point,当前数组的值为上一步的坐标,打印时递归.
+程序代码#include &lt;iostream&gt;
+#include &lt;queue&gt;
+using namespace std;
+int n,m;//对应N,M 
+int dx[]={1,-1,0,0};
+int dy[]={0,0,1,-1};
+char lab[110][110];//迷宫
+struct Point{
+    int x,y;
+    int time;
+    fr
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/08/12/Ignatius-and-the-Princess-I/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/08/11/Tempter-of-the-Bones/" itemprop="url">
+                  Tempter of the Bones
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-11T16:44:29+08:00" content="2016-08-11">
+              2016-08-11
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/acm/" itemprop="url" rel="index">
+                    <span itemprop="name">acm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          原题:hdoj 1010
+原题大意又是走迷宫的题目,不过这题有点不一样,因为要求狗狗要在T时刻恰好走到D处.
+算法分析明显dfs,不过直接深搜很快就会发现超时了,所以一定得剪枝,百度了下,除了剩余最短步数大于剩余时间外还有一个奇偶剪枝.
+程序代码#include &lt;iostream&gt;
 #include &lt;math.h&gt;
 #include &lt;memory.h&gt;
-#define N 20
-int a[N],b[N];
-int n;
-int c=0;
-int is_prime(int t)//判断是否是质数
+using namespace std;
+int dx[]={0,0,1,-1};
+int dy[]={1,-1,0,0};
+int n,m,t;//对应N,M,T 
+char maze[7][7];//迷宫 
+bool used[7][7];
+struct Point{
+    int x,y;
+};
+Point start,door;
+int flag;
+void dfs(int x,int y,int time)
 {
-    int i;
-    if(t==1)    return 0;
-    for(i=2;i&lt;=sqrt(t);i++)
-    {
-        if(t%i==0)    return 0;    
-    }
-    return 1;    
-}
-int check(int t,int m)//检查有没有与之前的数重复
-{
-    int i;
-    for(i=0;i&lt;m;i++)
-        if(t==b[i])
-            re
+
+    if(flag) return ;//如果找到就return!否则容易超时     
+    if(time&gt;t) return;
+    if(x==doo
           ...
 
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/06/27/Prime-Ring-Problem/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/06/26/Knight-Moves/" itemprop="url">
-                  Knight Moves
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-06-26T15:40:40+08:00" content="2016-06-26">
-              2016-06-26
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/acm/" itemprop="url" rel="index">
-                    <span itemprop="name">acm</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          原题:hdoj 1372
-算法分析本题有个算法的实现bfs,dfs,Floyd都可以.
-
-dfs  用深搜的话就是向8个方向递归,计算从起点到终点的最短距离.
-bfs  广搜也是向8个方向搜索,不过是把值都放进队列里,这样避免重复搜.
-Floyd  这是解决表格问题最常用的算法,将棋盘上任意两点的距离全都保存起来,对所有的输入直接查表.
-
-程序代码dfs#include &lt;stdio.h&gt;
-#include &lt;memory.h&gt; 
-int knight[8][8];//棋盘
-int x[]={-1,1,2,2,1,-1,-2,-2};//八个方向 
-int y[]={2,2,1,-1,-2,-2,-1,1};
-void DFS(int si,int sj,int moves)
-{
-    if(si&lt;0||sj&lt;0||si&gt;=8||sj&gt;=8||moves&gt;=knight[si][sj])    return ;
-    knight[si][sj]=moves;
-    int i;
-    for(i=0;i&lt;8;i++)
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/06/26/Knight-Moves/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/06/26/Alien-Security/" itemprop="url">
-                  Alien Security
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-06-26T09:48:56+08:00" content="2016-06-26">
-              2016-06-26
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/acm/" itemprop="url" rel="index">
-                    <span itemprop="name">acm</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          原题Language:Alien SecurityTime Limit: 1000MS        Memory Limit: 10000KTotal Submissions: 2898        Accepted: 1064Description
-You are in charge of security at a top-secret government research facility. Recently your government has captured a live extra-terrestrial (ET) life form, and is hosting an open day for fellow researchers. Of course, not all the guests can be trusted, so they are assigned different security clearance levels. Only guests with a level 5 rating will be allowed into the lab
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/06/26/Alien-Security/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/06/24/Channel-Allocation/" itemprop="url">
-                  Channel Allocation
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-06-24T16:34:25+08:00" content="2016-06-24">
-              2016-06-24
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/acm/" itemprop="url" rel="index">
-                    <span itemprop="name">acm</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          原题Description
-When a radio station is broadcasting over a very large area, repeaters are used to retransmit the signal so that every receiver has a strong signal. However, the channels used by each repeater must be carefully chosen so that nearby repeaters do not interfere with one another. This condition is satisfied if adjacent repeaters use different channels. 
-Since the radio frequency spectrum is a precious resource, the number of channels required by a given network of repeaters should be 
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/06/24/Channel-Allocation/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/06/20/Code-the-tree/" itemprop="url">
-                  Code the tree
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-06-20T20:44:45+08:00" content="2016-06-20">
-              2016-06-20
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/acm/" itemprop="url" rel="index">
-                    <span itemprop="name">acm</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          DescriptionA tree (i.e. a connected graph without cycles) with vertices numbered by the integers 1, 2, …, n is given. The “Prufer” code of such a tree is built as follows: the leaf (a vertex that is incident to only one edge) with the minimal number is taken. This leaf, together with its incident edge is removed from the graph, while the number of the vertex that was adjacent to the leaf is written down. In the obtained graph, this procedure is repeated, until there is only one vertex left (whic
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/06/20/Code-the-tree/#more" rel="contents">
+            <a class="btn" href="/2016/08/11/Tempter-of-the-Bones/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -876,7 +902,7 @@ Since the radio frequency spectrum is a precious resource, the number of channel
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/17/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><span class="page-number current">18</span><a class="page-number" href="/page/19/">19</a><a class="extend next" rel="next" href="/page/19/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/17/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><span class="page-number current">18</span><a class="page-number" href="/page/19/">19</a><span class="space">&hellip;</span><a class="page-number" href="/page/21/">21</a><a class="extend next" rel="next" href="/page/19/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -917,7 +943,7 @@ Since the radio frequency spectrum is a precious resource, the number of channel
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">94</span>
+              <span class="site-state-item-count">103</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -934,7 +960,7 @@ Since the radio frequency spectrum is a precious resource, the number of channel
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">63</span>
+                <span class="site-state-item-count">70</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

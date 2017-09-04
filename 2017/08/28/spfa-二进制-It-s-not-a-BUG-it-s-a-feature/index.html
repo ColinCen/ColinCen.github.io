@@ -1,0 +1,711 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="位运算,Uva,spfa," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/tango.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="原题：Uva 658
+程序代码/*
+    ①判定某些位置是否为1，如判定2、4位置为1，则转化为判断x|0101是否等于x。
+
+    ②判定某些位置是否为0，如判定2、4位置为0，则转化为判断x&amp;amp;1010是否等于x。
+
+    ③将某些位置转化为1，如2、4位置转化为1，则令x=x|0101。
+
+    ④将某些位置转化为0，如2、4位置转化为0，则令x=x&amp;amp;1010。
+*/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="spfa 二进制 It's not a BUG, it's a feature">
+<meta property="og:url" content="http://yoursite.com/2017/08/28/spfa-二进制-It-s-not-a-BUG-it-s-a-feature/index.html">
+<meta property="og:site_name" content="Colin's blog">
+<meta property="og:description" content="原题：Uva 658
+程序代码/*
+    ①判定某些位置是否为1，如判定2、4位置为1，则转化为判断x|0101是否等于x。
+
+    ②判定某些位置是否为0，如判定2、4位置为0，则转化为判断x&amp;amp;1010是否等于x。
+
+    ③将某些位置转化为1，如2、4位置转化为1，则令x=x|0101。
+
+    ④将某些位置转化为0，如2、4位置转化为0，则令x=x&amp;amp;1010。
+*/">
+<meta property="og:updated_time" content="2017-08-28T08:59:47.518Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="spfa 二进制 It's not a BUG, it's a feature">
+<meta name="twitter:description" content="原题：Uva 658
+程序代码/*
+    ①判定某些位置是否为1，如判定2、4位置为1，则转化为判断x|0101是否等于x。
+
+    ②判定某些位置是否为0，如判定2、4位置为0，则转化为判断x&amp;amp;1010是否等于x。
+
+    ③将某些位置转化为1，如2、4位置转化为1，则令x=x|0101。
+
+    ④将某些位置转化为0，如2、4位置转化为0，则令x=x&amp;amp;1010。
+*/">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: undefined,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/08/28/spfa-二进制-It-s-not-a-BUG-it-s-a-feature/"/>
+
+  <title> spfa 二进制 It's not a BUG, it's a feature | Colin's blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Colin's blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">A football fan,an English lover and a coder</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                spfa 二进制 It's not a BUG, it's a feature
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-08-28T16:57:36+08:00" content="2017-08-28">
+              2017-08-28
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/acm/" itemprop="url" rel="index">
+                    <span itemprop="name">acm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><strong>原题：<a href="https://vjudge.net/problem/UVA-658" target="_blank" rel="external">Uva 658</a></strong></p>
+<h1 id="程序代码"><a href="#程序代码" class="headerlink" title="程序代码"></a>程序代码</h1><pre><code>/*
+    ①判定某些位置是否为1，如判定2、4位置为1，则转化为判断x|0101是否等于x。
+
+    ②判定某些位置是否为0，如判定2、4位置为0，则转化为判断x&amp;1010是否等于x。
+
+    ③将某些位置转化为1，如2、4位置转化为1，则令x=x|0101。
+
+    ④将某些位置转化为0，如2、4位置转化为0，则令x=x&amp;1010。
+*/
+#include &lt;bits/stdc++.h&gt;
+#define mem(a,b) memset(a,b,sizeof(a))
+using namespace std;
+const int N = (1&lt;&lt;20)+5,K=105,INF = 1&lt;&lt;30;
+int d[N], s[K][2], t[K][2], w[K];
+int n, m;
+char s1[K], s2[K];
+bool inque[N];
+void spfa(int ss){
+    mem(inque,false);
+    queue&lt;int&gt; q;
+    q.push(ss);
+    inque[ss] = true;
+    d[ss] = 0;
+    while(!q.empty()){
+        int u = q.front();
+        q.pop();
+        inque[u] = false;
+        for(int i = 0; i &lt; m; i++)
+            if(((u|s[i][0]) == u) &amp;&amp; ((u&amp;s[i][1]) == u))
+            {
+                int v = u|t[i][0];
+                v&amp;=t[i][1];
+                if(d[v] &gt; d[u] + w[i]){
+                    d[v] = d[u]+w[i];
+                    if(!inque[v]){
+                        inque[v] = true;
+                        q.push(v);
+                    }
+                }
+            }
+    }
+}
+int main(){
+    int ct = 0;
+    while(~scanf(&quot;%d%d&quot;,&amp;n, &amp;m)){
+        if(n == 0 &amp;&amp; m == 0) break;
+        printf(&quot;Product %d\n&quot;, ++ct);
+        mem(s,0);
+        mem(t,0);
+        for(int i = 0; i &lt; m; i++){
+            scanf(&quot;%d%s%s&quot;,&amp;w[i], s1, s2);
+            for(int j = 0; j &lt; n; j++){
+                if(s1[j] == &apos;+&apos;) s[i][0] |= (1&lt;&lt;j);
+                if(s1[j] == &apos;+&apos; || s1[j] == &apos;0&apos;) s[i][1] |= (1&lt;&lt;j);
+                if(s2[j] == &apos;+&apos;) t[i][0] |= (1&lt;&lt;j);
+                if(s2[j] == &apos;+&apos; || s2[j] == &apos;0&apos;) t[i][1] |= (1&lt;&lt;j);
+            }
+        }
+        for(int i = 0; i &lt; (1&lt;&lt;n); i++) d[i] = INF;
+        spfa((1&lt;&lt;n)-1);
+        if(d[0] == INF) puts(&quot;Bugs cannot be fixed.&quot;);
+        else printf(&quot;Fastest sequence takes %d seconds.\n&quot;, d[0]);
+        puts(&quot;&quot;);
+    }
+    return 0;
+}
+</code></pre>
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/位运算/" rel="tag">#位运算</a>
+          
+            <a href="/tags/Uva/" rel="tag">#Uva</a>
+          
+            <a href="/tags/spfa/" rel="tag">#spfa</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/08/28/2—SAT-Now-or-later/" rel="next" title="2—SAT Now or later">
+                <i class="fa fa-chevron-left"></i> 2—SAT Now or later
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/08/31/最短路-dijkstra-spfa-专题/" rel="prev" title="最短路 dijkstra spfa 专题">
+                最短路 dijkstra spfa 专题 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/assassin.jpg"
+               alt="Shen Hao" />
+          <p class="site-author-name" itemprop="name">Shen Hao</p>
+          <p class="site-description motion-element" itemprop="description">Colin's blog | acm |c++</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">103</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">70</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/colincen" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#程序代码"><span class="nav-number">1.</span> <span class="nav-text">程序代码</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Shen Hao</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>

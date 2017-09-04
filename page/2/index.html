@@ -258,8 +258,8 @@
             
               
                 
-                <a class="post-title-link" href="/2017/07/27/Misha-Grisha-and-Underground/" itemprop="url">
-                  Misha, Grisha and Underground
+                <a class="post-title-link" href="/2017/08/28/强连通分量-Proving-Equivalences/" itemprop="url">
+                  强连通分量 Proving Equivalences
                 </a>
               
             
@@ -272,8 +272,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-07-27T21:40:25+08:00" content="2017-07-27">
-              2017-07-27
+            <time itemprop="dateCreated" datetime="2017-08-28T16:38:41+08:00" content="2017-08-28">
+              2017-08-28
             </time>
           </span>
 
@@ -321,30 +321,411 @@
       
         
           
-          原题：Misha, Grisha and Underground
-原题大意给一棵树，在给给出3个点s，f，t问s到f与t到f经过相同的点有几个？输出最多的那种sft组合。
-算法分析分情况讨论：
+          原题：Proving Equivalences
+原题大意给出N个命题，要求你证明这N个命题的等价性：比如有4个命题a,b,c,d，我们证明a&lt;-&gt;b, b&lt;-&gt;c,c&lt;-&gt;d，每次证明都是双向的，因此一共用了6次推导如果换成证明a-&gt;b,b-&gt;c,c-&gt;d,d-&gt;a,每次证明都是单向的，而只需4次就可以证明所有命题的等价性现在给出M个命题证明，问还需要证明几个，才可以保证N个命题等价。
+算法分析缩点后求DAG中入度为0和出度为0的联通块的较大值
+程序代码#include &lt;bits/stdc++.h&gt;
+#define mem(a,b) memset(a,b,sizeof(a))
+#define pb push_back
+using namespace std;
+typedef long long ll;
+const int maxn = 2e4+5;
+vector&lt;int&gt; G[maxn];
+int pre[maxn], lowlink[maxn], sccno[maxn], dfs_clock, sc
+          ...
 
-f是s的祖先，t在f到s的外面
-f是s的祖先，t在f到s的路径上
-s-&gt;lca(f,s)-&gt;f，lca(s,t)在s-&gt;lca(f,s)上
-s-&gt;lca(f,s)-&gt;f，lca(f,t)在lca(f,s)-&gt;f上
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/08/28/强连通分量-Proving-Equivalences/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
 
-另一种取巧的做法是(lca(a,b) + lca(c,b) - lca(a,c))/2
-程序代码#include &lt;cstdio&gt;
-#include &lt;algorithm&gt;
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/08/28/双连通分量-Knights-of-the-Round-Table/" itemprop="url">
+                  双连通分量 Knights of the Round Table
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-08-28T16:34:00+08:00" content="2017-08-28">
+              2017-08-28
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/acm/" itemprop="url" rel="index">
+                    <span itemprop="name">acm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          原题：Knights of the Round Table
+原题大意有n个骑士经常举行圆桌会议，每次圆桌会议至少要有3个骑士参加(且每次参加的骑士数量是奇数个)，且所有互相憎恨的骑士不能坐在圆桌旁的相邻位置，问有多少个骑士不可能参加任何一个会议
+算法分析以骑士为点建立无向图G。如果两个骑士可以相邻(即他们并不互相憎恨)，即可连一条边。则题目就转化为求不在任何一个简单奇圈上的结点个数首先，圈就是一个双连通的分量，所以第一件事就是将所有的双连通分量求出来，接着再判定这个双连通分量是不是奇圈奇圈的判定就是用二分图染色判定，如果某个圈能被二分图染色，那么这个圈必然不是奇圈，因为二分图染色，染色的点是成对的，所以点的数量是偶数的
+程序代码#include &lt;bits/stdc++.h&gt;
+#define mem(a,b) memset(a,b,sizeof(a))
+#define pb push_back
+using namespace std;
+const int maxn = 1e3+5;
+
+int color[maxn], odd[maxn];
+int pre[maxn], is
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/08/28/双连通分量-Knights-of-the-Round-Table/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/08/28/无向图桥-Road-Construction/" itemprop="url">
+                  无向图桥 Road Construction
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-08-28T16:22:20+08:00" content="2017-08-28">
+              2017-08-28
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/acm/" itemprop="url" rel="index">
+                    <span itemprop="name">acm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          原题：Road Construction
+原题大意某个企业想把一个热带天堂岛变成旅游胜地，岛上有N个旅游景点，任意2个旅游景点之间有路径连通（注意不一定是直接连通）。而为了给游客提供更方便的服务，该企业要求道路部门在某些道路增加一些设施。道路部门每次只会选择一条道路施工，在该条道路施工完毕前，其他道路依然可以通行。然而有道路部门正在施工的道路，在施工完毕前是禁止游客通行的。这就导致了在施工期间游客可能无法到达一些景点。为了在施工期间所有旅游景点依然能够正常对游客开放，该企业决定搭建一些临时桥梁，使得不管道路部门选在哪条路进行施工，游客都能够到达所有旅游景点。给出当下允许通行的R条道路，问该企业至少再搭建几条临时桥梁，才能使得游客无视道路部门的存在到达所有旅游景点？
+算法分析
+http://blog.csdn.net/lyy289065406/article/details/6762370
+
+程序代码#include &lt;iostream&gt;
+#include &lt;cstring&gt;
 #include &lt;vector&gt;
+#include &lt;algorit
+          ...
 
-using namespace std;
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/08/28/无向图桥-Road-Construction/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/08/28/无向图割顶-Network/" itemprop="url">
+                  无向图割顶 Network
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-08-28T16:16:47+08:00" content="2017-08-28">
+              2017-08-28
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/acm/" itemprop="url" rel="index">
+                    <span itemprop="name">acm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          原题：Network
+原题大意求割顶的模板题。
+程序代码#include &lt;iostream&gt;  
+#include &lt;cstdio&gt;  
+#include &lt;vector&gt;  
+#include &lt;sstream&gt;  
+#include &lt;cstring&gt;  
 #define pb push_back
-const int maxn=100005;
-int n, q;
-int fir[maxn],no[2*maxn],se[2*maxn],st[2*maxn][20],lo[200005],dep[maxn];
-bool
+#define mem(a,b) memset(a,b,sizeof(a))
+using namespace std;
+const int maxn = 1e5+5;
+vector&lt;int&gt; G[maxn];
+int dfs_clock, iscut[maxn], pre[maxn], low[maxn];
+int dfs(int u, int fa){
+    int lowu = pre[u] = ++dfs_clock;
+    int child = 0;
+    for(int i = 0; i &lt; G[u].size(); i++){
+        int v = G[u][i];
+      
           ...
 
           <div class="post-more-link text-center">
-            <a class="btn" href="/2017/07/27/Misha-Grisha-and-Underground/#more" rel="contents">
+            <a class="btn" href="/2017/08/28/无向图割顶-Network/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -395,8 +776,8 @@ bool
             
               
                 
-                <a class="post-title-link" href="/2017/06/30/Okabe-and-El-Psy-Kongroo/" itemprop="url">
-                  Okabe and El Psy Kongroo
+                <a class="post-title-link" href="/2017/08/09/01-背包-度度熊的午饭时光/" itemprop="url">
+                  01-背包 度度熊的午饭时光
                 </a>
               
             
@@ -409,8 +790,8 @@ bool
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-06-30T20:46:30+08:00" content="2017-06-30">
-              2017-06-30
+            <time itemprop="dateCreated" datetime="2017-08-09T21:13:14+08:00" content="2017-08-09">
+              2017-08-09
             </time>
           </span>
 
@@ -458,433 +839,43 @@ bool
       
         
           
-          原题：Okabe and El Psy Kongroo
-原题大意从（0,0） 到（k，0），每个点可以到达右上，右，右下这三个点，但必须在c下方，0上方（包括0边界），问最终到达（k，0）有多少种方案。
-算法分析dp，因为ci是一条与x轴平行的线段，所以从ai到ai+1的每一次的贡献都是一样的，可以用矩阵加速，c最多为15，所以不会超时
-程序代码#include &lt;bits/stdc++.h&gt;
+          原题：度度熊的午饭时光
+原题大意01背包，但是要输出路径，按照序号和最小，字典序最小输出。
+程序代码可以用vis[i][j]，来记录路径。
+#include &lt;cstdio&gt;
+#include &lt;cstring&gt;
+#include &lt;iostream&gt;
+
+#define clr(a, b) memset(a, b, sizeof(a))
+
 using namespace std;
+
 typedef long long ll;
-const ll mod = 1e9+7;
-struct matrix{
-  ll val[16][16];
-  matrix(){memset(val,0,sizeof(val));}
-  matrix operator*(const matrix &amp; rhs)const{
-    matrix ret;
-    for(int i = 0; i &lt; 16; i++)
-      for(int j = 0; j &lt; 16; j++)
-        for(int k = 0
-          ...
 
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/06/30/Okabe-and-El-Psy-Kongroo/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
+const int MAXN = 111;
+const int MAXB = 1111;
 
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/06/30/Okabe-and-City/" itemprop="url">
-                  Okabe and City
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-06-30T20:42:40+08:00" content="2017-06-30">
-              2017-06-30
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/acm/" itemprop="url" rel="index">
-                    <span itemprop="name">acm</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          原题：Okabe and City
-原题大意bfs搜索题，从左上角到右下角，必须走在有灯的格子里，如果要去的格子没有灯，可以暂时照亮任意一行或者一列，但必须之前站在原来就是有灯的格子里，同时花费为1，问是否能到达目的地，如果能输出最小花费，否则输出-1。
-算法分析每次bfs都是在原始就是有灯的点之间移动（除了终点）
-一行或者一列最多被照亮一次
- 当前点，与下一次可以到达的点的横坐标或纵坐标距离小于等于2
-程序代码#include &lt;bits/stdc++.h&gt;
-#define mem(a,b) memset(a,b,sizeof(a));
-#define pb push_back
-using namespace std;
-const int maxn = 10000 + 50;
-const int MAXN = (1&lt;&lt;30);
-typedef long long ll;
-typedef pair&lt;int, int&gt; pii;
-typedef vector&lt;int&gt; vi;
-priority_queue&lt;pii, vector&lt
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/06/30/Okabe-and-City/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/06/28/Exhausted/" itemprop="url">
-                  Exhausted?
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-06-28T22:14:59+08:00" content="2017-06-28">
-              2017-06-28
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/acm/" itemprop="url" rel="index">
-                    <span itemprop="name">acm</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          原题：Exhausted?
-原题大意N 个人，M把椅子，每个人都要有椅子坐，第i个人不能做[Li+1,Ri-1]里的椅子，最少要添多少椅子
-算法分析贪心，先按左端点(L)排序，尽量先往左边垒，如果左边垒不下就垒右边，在已经垒好的集合里换一个右端点(R)最小的，最终还没有垒的全放在右端点。
-程序代码#include &lt;bits/stdc++.h&gt;
-#define MN 210000
-using namespace std;
-struct na{int l,r;}p[MN];
-bool cmpl(na a,na b){return a.l==b.l?a.r&gt;b.r:a.l&lt;b.l;}
-priority_queue&lt;int,vector&lt;int&gt;,greater&lt;int&gt; &gt; q,_q;
-int n,m,mmh;
-int main(){
-    ios::sync_with_stdio(false);
-    cin.tie(0);cout.tie(0);
-    cin &gt;&gt; n &gt;&gt; m;
-    mmh
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/06/28/Exhausted/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/06/28/Built/" itemprop="url">
-                  Built?
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-06-28T22:09:34+08:00" content="2017-06-28">
-              2017-06-28
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/acm/" itemprop="url" rel="index">
-                    <span itemprop="name">acm</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          原题：Built?
-原题大意N个点求最小生成树，任意两点的权值为min(|x1-x2|,|y1-y2|)
-算法分析按横坐标和纵坐标分别排序，然后记边，每个点只与相邻的点有关联。
-程序代码#include &lt;bits/stdc++.h&gt;
-using namespace std;
-typedef long long ll;
-const int maxn = 100001;
-const ll mod = 1e9+7;
-int n, tot;
-struct coo
+struct meal
 {
-    int x, y;
-    int id;
-}c[maxn];
-bool cmp1(coo a, coo b){
-  return a.x &lt; b.x;
-}
-bool cmp2(coo a, coo b){
-  return a.y &lt; b.y;
-}
-int dx[maxn],dy[maxn];
-struct Edge{
-  int u, v;
-  int cost;
-}e[maxn*2];
-bool cmp(Edge a, Edge b){
-  return a.cost &lt; b.cost
+    int score, cost;
+} m[MAXN];
+
+int B, N;
+int dp[MAXB];
+bool tmp[MAXN];
+bool vis[MAXN][MAXB];
+
+int main()
+{
+    int T, ce = 1;
+    scanf(&quot;%d&quot;, &amp;T);
+    while (T--)
+    {
+        scanf(&quot;%
           ...
 
           <div class="post-more-link text-center">
-            <a class="btn" href="/2017/06/28/Built/#more" rel="contents">
+            <a class="btn" href="/2017/08/09/01-背包-度度熊的午饭时光/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -918,7 +909,7 @@ bool cmp(Edge a, Edge b){
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/19/">19</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/21/">21</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -959,7 +950,7 @@ bool cmp(Edge a, Edge b){
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">94</span>
+              <span class="site-state-item-count">103</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -976,7 +967,7 @@ bool cmp(Edge a, Edge b){
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">63</span>
+                <span class="site-state-item-count">70</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

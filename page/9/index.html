@@ -258,8 +258,8 @@
             
               
                 
-                <a class="post-title-link" href="/2017/05/06/Font-Size/" itemprop="url">
-                  Font Size
+                <a class="post-title-link" href="/2017/05/21/丽娃河的狼人传说/" itemprop="url">
+                  丽娃河的狼人传说
                 </a>
               
             
@@ -272,8 +272,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-05-06T10:03:47+08:00" content="2017-05-06">
-              2017-05-06
+            <time itemprop="dateCreated" datetime="2017-05-21T09:52:48+08:00" content="2017-05-21">
+              2017-05-21
             </time>
           </span>
 
@@ -321,25 +321,20 @@
       
         
           
-          原题：Font Size
-原题大意史蒂文喜欢看书。他现在读的这本书由N个段落组成，第i个段落包含ai个字符。现在他决定增加字符的字体大小。但史蒂文手机屏幕的尺寸有限。其宽度为W，高度为H。因此，如果字符的字体大小为S，则只能在一行中显示⌊W/S⌋个字符，并在页面中显示⌊H/S⌋行。（⌊x⌋是不大于x的最大整数）所以这里的问题是，如果史蒂文想控制页数不超过P，他可以设置的最大字体大小是多少？请注意，段落必须以新行开头，段落之间没有空行。
-算法分析二分，但是二分有几种写法：
-规定范围里的最大值（如果连续两个数，偏向右边的数）m = l+(r-l+1)/2;
-if(check(m)) l = m;
-else r = m-1;
-规定范围里的最小值（如果连续两个数，偏向左边的数）m = l+(r-l)/2;
-if(check(m)) l = m+1;
-else r = m;
-小于一个精度while(r-l &lt; 1e-5){
-    m = (l+r)/2;
-    if(check(m)) l = m;
-    else r= m;
-}
-程序代码#include &lt;bits/stdc
+          原题：丽娃河的狼人传说
+原题大意丽娃河可以看成是从 1 到 n的一条数轴。为了美观，路灯只能安装在整数点上，每个整数点只能安装一盏路灯。经专业勘测，有m个区间特别容易发生事故，所以至少要安装一定数量的路灯，请问至少还要安装多少路灯。
+Input第一行一个整数 T (1≤T≤300)，表示测试数据组数。
+对于每组数据：
+第一行三个整数 n,m,k (1≤n≤103,1≤m≤103,1≤k≤n)。
+第二行 k 个不同的整数用空格隔开，表示这些位置一开始就有路灯。
+接下来 m 行表示约束条件。第 i 行三个整数 li,ri,ti 表示：第 i 个区间 [li,ri]少要安装 ti 盏路灯 (1≤li≤ri≤n,1≤ti≤n)。
+Output对于每组数据，输出Casex:y。其中x表示测试数据编号（从1开始），y表示至少要安装的路灯数目。如果无解，y 为 −1。
+算法分析按右端点排序，然后对于不满足条件的尽量往右垒就好了。贪心的证明：由于左边的都已经垒满了，所以垒左边的肯定是没意义的。垒中间肯定没有垒右边的号，因为右边的区间不可能长得断开，使得垒在左边收益更大。这样就可以实现 O(n2)。
+程
           ...
 
           <div class="post-more-link text-center">
-            <a class="btn" href="/2017/05/06/Font-Size/#more" rel="contents">
+            <a class="btn" href="/2017/05/21/丽娃河的狼人传说/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -390,8 +385,8 @@ else r = m;
             
               
                 
-                <a class="post-title-link" href="/2017/05/03/Atcoder-073/" itemprop="url">
-                  Atcoder 073
+                <a class="post-title-link" href="/2017/05/20/Strange-Optimization/" itemprop="url">
+                  Strange Optimization
                 </a>
               
             
@@ -404,8 +399,8 @@ else r = m;
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-05-03T15:56:51+08:00" content="2017-05-03">
-              2017-05-03
+            <time itemprop="dateCreated" datetime="2017-05-20T11:37:54+08:00" content="2017-05-20">
+              2017-05-20
             </time>
           </span>
 
@@ -453,159 +448,33 @@ else r = m;
       
         
           
-          Sentou原题：Sentou
-原题大意一个水龙头，按一次开关会流T秒，再次按开关会刷新它的时间。给出n次按开关的时刻，问总共会流多少秒。
-算法分析水题，用一个数组记录两次开关的时间差，并判断前一个时刻加上水流的时间能否到达下次按开关的时刻，如果能则加上时间差，否则加上水流时间。
-程序代码#include &lt;cstdio&gt;
-#include &lt;cstring&gt;
-#define mem(a,b) memset(a,b,sizeof(a))
-using namespace std;
-const int maxn = 200000+5;
-typedef long long ll;
-ll sen[maxn], a[maxn];
-ll sum = 0;
-int n;
-ll t;
-int main(){
-    scanf(&quot;%lld%lld&quot;,&amp;n, &amp;t);
-    for(int i = 0; i &lt; n; i++)
-    {
-        scanf(&quot;%lld&quot;, &amp;sen[i]);
+          原题：Strange Optimization
+原题大意
+找到一个α，使得f（1/2+α）最大。
 
-  
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/05/03/Atcoder-073/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/04/29/迷宫转弯问题/" itemprop="url">
-                  迷宫转弯问题
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-04-29T16:13:22+08:00" content="2017-04-29">
-              2017-04-29
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/acm/" itemprop="url" rel="index">
-                    <span itemprop="name">acm</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          走迷宫问题是图搜索的经典问题，这里给出两个和转弯有关的题。
-Laser原题：Laser
-原题大意有一个n×m的区域，有一个激光和一个传感器，其中有一些障碍，我们的目标就是在空白的区域放一些镜子，并且希望用最少数量的镜子，能够使激关经过反射后到达传感器。&lt;&gt;^v箭头指向激光的方向，C表示传感器，#表示障碍， . 表示空白区域。
-算法分析暴力模拟当前光线在何处时，放置了哪种镜子，搜下去就行了。光线通过的路径也被视作’#’，其实这个条件是没有意义的。假若光线产生了回路，对于最优解来说与其花费更多镜子去产生回路，不如只放置一面镜子就使得方向偏转,而我们bfs出的结果一定是最优的。需要注意镜子不能摆放在起点，终点和’#’处。
+可以看成两点之间距离，中点处最大。
 程序代码#include &lt;bits/stdc++.h&gt;
 using namespace std;
-typedef long long LL;
-int t;
-int n, m;
-char s[222][222];
-int walk[4][2] = {{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
-int vis[222][222
+typedef long long ll;
+ll gcd(ll a, ll b){
+    return b == 0 ? a : gcd(b, a%b);
+}
+int main(){
+//freopen(&quot;input.txt&quot;, &quot;r&quot;, stdin);
+    ios::sync_with_stdio(false);
+    cin.tie(0);
+    ll n, m;
+    while(cin &gt;&gt; n &gt;&gt; m){
+    ll t1 = gcd(n, m);
+    ll t2 = 2 * n * m;
+    ll num = gcd(t1, t2);
+    ll p = t1 / num;
+    ll q = t2 / num;
+    cout &lt;
           ...
 
           <div class="post-more-link text-center">
-            <a class="btn" href="/2017/04/29/迷宫转弯问题/#more" rel="contents">
+            <a class="btn" href="/2017/05/20/Strange-Optimization/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -656,8 +525,8 @@ int vis[222][222
             
               
                 
-                <a class="post-title-link" href="/2017/04/26/Choreographer-Problem/" itemprop="url">
-                  Choreographer Problem
+                <a class="post-title-link" href="/2017/05/20/Highway/" itemprop="url">
+                  Highway
                 </a>
               
             
@@ -670,8 +539,8 @@ int vis[222][222
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-04-26T11:53:57+08:00" content="2017-04-26">
-              2017-04-26
+            <time itemprop="dateCreated" datetime="2017-05-20T11:22:19+08:00" content="2017-05-20">
+              2017-05-20
             </time>
           </span>
 
@@ -719,171 +588,307 @@ int vis[222][222
       
         
           
-          原题：Choreographer Problem
-原题大意艺术团中，有n个舞者，i舞者和(i-1)舞者、(i+1)舞者相似，(i-1)和(i+1)舞者并不相似。如果n&gt; 1，那么第一个舞者只有相似的舞者，最后一个舞者只有相似的舞者，所有其他舞者都有两个相似的舞者。舞蹈开始和结束在一个空荡荡的舞台。舞蹈舞蹈不应该是空的。每一分钟，以下变化之一发生在舞台上：
-1.一个舞者（目前不在舞台上）出现;
-2.一个舞者（目前在舞台上）离开舞台;
-3.一个舞者代替另一个类似于他/她的舞者（基于舞者的切换-一个舞者离开舞台，而舞台上出现一个类似的舞者）同时，舞台上不能有超过k个舞者。
-现在编舞师正在考虑安排舞蹈，使得每一个不包含k个舞者的舞者都会在舞台上出现一次。你的工作是编写一个程序来帮助编舞。
-输出：+i表示i舞者出现在舞台上，-i表示i舞者离开舞台;++i表示i舞者离开舞台，同时(i+1)舞者出现在舞台上;–i表示i舞者离开舞台，同时(i-1)舞者出现在舞台上
-算法分析题目要我们生成组合 &amp;&amp; 相邻的两个组合必须很接近由这点，我们可以想到Gray码。
-注意到台上的人数不能超过
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/04/26/Choreographer-Problem/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/04/26/Hamiltonian-Hypercube/" itemprop="url">
-                  Hamiltonian Hypercube
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-04-26T11:36:26+08:00" content="2017-04-26">
-              2017-04-26
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/acm/" itemprop="url" rel="index">
-                    <span itemprop="name">acm</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          原题：Hamiltonian Hypercube
-原题大意n维哈密尔顿超立方体
-
-想知道a到b之间的顶点数,1 &lt;= n &lt;= 60;a,b都出现在n位格雷码中;
-算法分析求出两个格雷码对应的二进制数的十进制表示做差即可。
-有关格雷码的模板：
-1. 二进制 -&gt; Gray
-
-LL to_gray(LL x)
-{
-    return x ^= (x&gt;&gt;1);//返回结果为Gray码的十进制表示。
-}
-
-2. Gray-二进制
-
-LL to_bin(LL x)
-{
-    LL y = x;
-    while(x&gt;&gt;=1)
-    {
-        y ^= x;
-    }
-    return y;
-}
-
-3. 构造长度为n的格雷码
-
-vector&lt;int&gt; G;
-for(int i=0;i&lt;(1&lt;&lt;n);i++)
-{
-    G.push_back(to_gray(i));
-}
+          原题：Highway
+原题大意n个城市要建造(n-1)条路，求最贵的建造方法。
+算法分析
+两次dfs求出直径，然后lca更新答案
 程序代码#include &lt;cstdio&gt;
+#include &lt;algorithm&gt;
+#include &lt;vector&gt;
+#include &lt;cstring&gt;
+#define pb push_back
+#define mem(a,b) memset(a,b,sizeof(a))
 using namespace std;
-typedef long lon
+typedef long long ll;
+const int maxn=100005;
+int fir[maxn],no[2*maxn],se[2*maxn],st[2*maxn][20],lo[200005];
+ll dep[maxn];
+struct nod
+{
+    int to;
+    ll cost;
+};
+int n,m,d1,d2;
+vector&lt;nod&gt; g[maxn];
+int cnt,sum;
+void mkST()
+{
+    for(int i=1;i&
           ...
 
           <div class="post-more-link text-center">
-            <a class="btn" href="/2017/04/26/Hamiltonian-Hypercube/#more" rel="contents">
+            <a class="btn" href="/2017/05/20/Highway/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/05/20/Super-Resolution/" itemprop="url">
+                  Super Resolution
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-05-20T11:17:42+08:00" content="2017-05-20">
+              2017-05-20
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/acm/" itemprop="url" rel="index">
+                    <span itemprop="name">acm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          原题：Super Resolution
+原题大意给一个01串，按照要求放大a*b倍，并且相对位置不变
+算法分析比赛时唯一一道水题，模拟即可
+程序代码#include &lt;bits/stdc++.h&gt;
+using namespace std;
+int  n, m, a, b;
+int m1[11][11];
+string s[11];
+int main(){
+    ios::sync_with_stdio(false);
+    cin.tie(0);
+    while(cin &gt;&gt; n &gt;&gt; m &gt;&gt; a &gt;&gt; b){
+        for(int i = 0; i &lt; n; i++)
+            cin &gt;&gt; s[i];
+        for(int i = 0; i &lt; n; i++){
+            for(int j = 0; j &lt; m; j++){
+                m1[i][j] = s[i][j] - &apos;0&apos;;
+   
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/05/20/Super-Resolution/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/05/20/Partial-Sum/" itemprop="url">
+                  Partial Sum
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-05-20T10:59:47+08:00" content="2017-05-20">
+              2017-05-20
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/acm/" itemprop="url" rel="index">
+                    <span itemprop="name">acm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          原题：Partial Sum
+原题大意给定一个长度为n的数列A，初始一个变量cnt = 0，每次在0~n里选一个了l和r，然后求出A（l+1）~A（r）的和，将和的绝对值减去常数C，并且加到cnt上，这样的操作最多有m次，求cnt的最大值。
+算法分析
+程序代码#include &lt;bits/stdc++.h&gt;
+using namespace std;
+typedef long long ll;
+int n, m, C;
+int a[100005];
+ll sum[100005];
+bool cmp(ll a, ll b){
+    return a &gt; b;
+}
+int main(){
+//freopen(&quot;input.txt&quot;, &quot;r&quot;, stdin);
+    ios::sync_with_stdio(false);
+    cin.tie(0);
+    while(cin &gt;&gt; n &gt;&gt; m &gt;&gt; C){
+        for(int i = 1; i &lt;= n; i++)
+  
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/05/20/Partial-Sum/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -917,7 +922,7 @@ typedef long lon
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/8/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/19/">19</a><a class="extend next" rel="next" href="/page/10/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/8/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/21/">21</a><a class="extend next" rel="next" href="/page/10/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -958,7 +963,7 @@ typedef long lon
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">94</span>
+              <span class="site-state-item-count">103</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -975,7 +980,7 @@ typedef long lon
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">63</span>
+                <span class="site-state-item-count">70</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

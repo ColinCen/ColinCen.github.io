@@ -1,0 +1,1152 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Uva,spfa,dijkstra," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/tango.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="图论的几个重要细节和思路
+
+分析原图建新图
+是否可以转化为DAG来dp解决
+用板子时端点从0开始而不是1
+加边的时候注意重边的处理
+注意输入一条边时，起点终点应该不一样（u != v）
+无向图的边具有双向性，如果涉及具体枚举某条边的时候，要注意u-&amp;gt;v 和 v-&amp;gt;u都枚举一遍
+
+Airport Express原题：Airport Express
+原题大意有两种车票，商务车票和经济车票。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="最短路 dijkstra spfa 专题">
+<meta property="og:url" content="http://yoursite.com/2017/08/31/最短路-dijkstra-spfa-专题/index.html">
+<meta property="og:site_name" content="Colin's blog">
+<meta property="og:description" content="图论的几个重要细节和思路
+
+分析原图建新图
+是否可以转化为DAG来dp解决
+用板子时端点从0开始而不是1
+加边的时候注意重边的处理
+注意输入一条边时，起点终点应该不一样（u != v）
+无向图的边具有双向性，如果涉及具体枚举某条边的时候，要注意u-&amp;gt;v 和 v-&amp;gt;u都枚举一遍
+
+Airport Express原题：Airport Express
+原题大意有两种车票，商务车票和经济车票。">
+<meta property="og:updated_time" content="2017-08-31T13:33:43.606Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="最短路 dijkstra spfa 专题">
+<meta name="twitter:description" content="图论的几个重要细节和思路
+
+分析原图建新图
+是否可以转化为DAG来dp解决
+用板子时端点从0开始而不是1
+加边的时候注意重边的处理
+注意输入一条边时，起点终点应该不一样（u != v）
+无向图的边具有双向性，如果涉及具体枚举某条边的时候，要注意u-&amp;gt;v 和 v-&amp;gt;u都枚举一遍
+
+Airport Express原题：Airport Express
+原题大意有两种车票，商务车票和经济车票。">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: undefined,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/08/31/最短路-dijkstra-spfa-专题/"/>
+
+  <title> 最短路 dijkstra spfa 专题 | Colin's blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Colin's blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">A football fan,an English lover and a coder</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                最短路 dijkstra spfa 专题
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-08-31T21:00:21+08:00" content="2017-08-31">
+              2017-08-31
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/acm/" itemprop="url" rel="index">
+                    <span itemprop="name">acm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><strong>图论的几个重要细节和思路</strong></p>
+<ul>
+<li>分析原图建新图</li>
+<li>是否可以转化为DAG来dp解决</li>
+<li>用板子时端点从0开始而不是1</li>
+<li>加边的时候注意重边的处理</li>
+<li>注意输入一条边时，起点终点应该不一样（u != v）</li>
+<li>无向图的边具有双向性，如果涉及具体枚举某条边的时候，要注意u-&gt;v 和 v-&gt;u都枚举一遍</li>
+</ul>
+<h1 id="Airport-Express"><a href="#Airport-Express" class="headerlink" title="Airport Express"></a>Airport Express</h1><p><strong>原题：<a href="https://vjudge.net/problem/UVA-11374" target="_blank" rel="external">Airport Express</a></strong></p>
+<h2 id="原题大意"><a href="#原题大意" class="headerlink" title="原题大意"></a>原题大意</h2><p>有两种车票，商务车票和经济车票。由于经济原因，商务车票只能买一张，经济车票可以买多张。车票都是双向的。现在问从起点到终点，的最短路径，以及商务车票在哪个站点用最划算和最后花费的总时间。</p>
+<h2 id="算法分析"><a href="#算法分析" class="headerlink" title="算法分析"></a>算法分析</h2><p>对于每个给出的起点终点a，b；分别求出到a和到b的单源最短路f(x), g(X)，然后枚举商业线的边T，答案就是f(a) + T(a,b) + g(b)，如果不做商业线就是f(b)或者g(a)；<br>维护最大值即可。注意每条边要枚举两次。</p>
+<h2 id="程序代码"><a href="#程序代码" class="headerlink" title="程序代码"></a>程序代码</h2><pre><code>#include &lt;bits/stdc++.h&gt;
+#define mem(a,b) memset(a,b,sizeof(a))
+#define pb push_back
+using namespace std;
+const int maxn = 500 + 50;
+const int INF = 10000000;
+int n, m, k, s, e, x, y, z;
+struct Edge{
+    int from, to, dist;
+    Edge(int _f, int _to, int _d){
+        from = _f;
+        to = _to;
+        dist = _d;
+    }
+};
+vector&lt;int&gt; G[maxn];
+vector&lt;Edge&gt; edges;
+bool inq[maxn];
+int d[maxn], d1[maxn], d2[maxn], p[maxn];
+void spfa(int s){
+    queue&lt;int&gt; Q;
+    mem(inq, false);
+    mem(p,-1);
+    for(int i = 0; i &lt; n; i++) d[i] = INF;
+    d[s] = 0;
+    inq[s] = true;
+    Q.push(s);
+    while(!Q.empty()){
+        int u = Q.front(); Q.pop();
+        inq[u] = false;
+        for(int i = 0; i &lt; G[u].size(); i++){
+            Edge &amp;e = edges[G[u][i]];
+            if(d[u] &lt; INF &amp;&amp; d[e.to] &gt; d[u] + e.dist){
+                d[e.to] = d[u] + e.dist;
+                p[e.to] = u;
+                if(!inq[e.to]) {
+                    inq[e.to] = true;
+                    Q.push(e.to);
+                }
+            }
+        }
+    }
+}
+void AddEdge(Edge e){
+    edges.pb(e);
+    int num = edges.size();
+    G[e.from].pb(num - 1);
+}
+vector&lt;int&gt; path1[maxn], path2[maxn];
+void init(){
+    for(int i = 0; i &lt; maxn; i++)
+    G[i].clear(), path1[i].clear(), path2[i].clear();
+    edges.clear();
+}
+void getpath(int s, int *dist, vector&lt;int&gt;* path){
+    spfa(s);
+    for(int i = 0; i &lt; n; i++){
+        dist[i] = d[i];
+        int t = i;
+        path[i].pb(t);
+        while(p[t] != -1){
+            path[i].pb(p[t]);
+            t = p[t];
+        }
+        reverse(path[i].begin(), path[i].end());
+    }
+}
+int main(){
+  //  freopen(&quot;input.txt&quot;, &quot;r&quot;, stdin);
+    ios::sync_with_stdio(false);
+    cin.tie(0);
+    int kase = 0;
+    while(cin &gt;&gt; n &gt;&gt; s &gt;&gt; e){
+        init();
+        kase++;
+        s--,e--;
+        cin &gt;&gt; m;
+        for(int i = 0; i &lt; m; i++){
+            cin &gt;&gt; x &gt;&gt; y &gt;&gt; z;
+            x--,y--;
+            AddEdge(Edge(x,y,z));
+            AddEdge(Edge(y,x,z));
+        }
+        vector&lt;int&gt; path;
+        int ans = -1;
+        getpath(s, d1, path1);
+        getpath(e, d2, path2);
+        ans = d1[e];
+        //cout &lt;&lt; ans &lt;&lt; endl;
+
+        path = path1[e];
+        int midpoint = -1;
+        cin &gt;&gt; k;
+        for(int i = 0; i &lt; k; i++){
+            cin &gt;&gt; x &gt;&gt; y &gt;&gt; z;
+            x--,y--;
+            int t = 2;
+            while(t--){
+                if(d1[x] + d2[y] + z &lt; ans){
+                    ans = d1[x] + d2[y] + z;
+                    midpoint = x;
+                    path.clear();
+                    path = path1[x];
+                    for(int j = path2[y].size()-1; j&gt;=0; j--){
+                        path.pb(path2[y][j]);
+                    }
+                }
+                swap(x,y);
+            }
+        }
+        if(kase != 1) cout &lt;&lt; &quot;\n&quot;;
+        int i;
+        for(i = 0; i &lt; path.size()-1; i++)
+            cout &lt;&lt; path[i]+1 &lt;&lt; &quot; &quot;;
+        cout &lt;&lt; path[i]+1 &lt;&lt; &quot;\n&quot;;
+        if(midpoint != -1) cout &lt;&lt; midpoint+1 &lt;&lt; &quot;\n&quot;;
+        else cout &lt;&lt; &quot;Ticket Not Used\n&quot;;
+        cout &lt;&lt; ans &lt;&lt; endl;
+    }
+    return 0;
+}
+</code></pre><h1 id="Walk-Through-the-Forest"><a href="#Walk-Through-the-Forest" class="headerlink" title="Walk Through the Forest"></a>Walk Through the Forest</h1><p><strong>原题：<a href="https://vjudge.net/problem/UVA-10917" target="_blank" rel="external">Walk Through the Forest</a></strong></p>
+<h2 id="原题大意-1"><a href="#原题大意-1" class="headerlink" title="原题大意"></a>原题大意</h2><p>Jimmy下班后决定每天沿着一条不同的路径回家，欣赏不同的风景。他打算只沿着满足如下条件的（A,B）道路走：存在一条从B出发回家的路，比所有从A出发回家的路径都短。你的任务是计算一共有多少条不同的回家路径。其中公司的编号为1，家的编号为2.</p>
+<h2 id="算法分析-1"><a href="#算法分析-1" class="headerlink" title="算法分析"></a>算法分析</h2><p>求出每个点距离终点的最短路长度d[u]，题中的条件为d[A] &gt; d[B]，所以建新图：当d[A] &gt; d[B]，将有向边A-&gt;B加入进去，问起点到终点的走法有几种，转化为DAG，动态规划求解。</p>
+<h2 id="程序代码-1"><a href="#程序代码-1" class="headerlink" title="程序代码"></a>程序代码</h2><pre><code>#include &lt;bits/stdc++.h&gt;
+#define mem(a, b) memset(a, b, sizeof(a))
+#define pb push_back
+using namespace std;
+const int maxn = 1000 + 50;
+const int INF = 1000000000;
+int n, m;
+struct Edge{
+    int from, to, dist;
+    Edge(int _from, int _to, int _dist){
+        from = _from;
+        to = _to;
+        dist = _dist;
+    }
+};
+struct Spfa{
+    vector&lt;Edge&gt; edges;
+    vector&lt;int&gt; G[maxn];
+    int d[maxn];
+    bool inq[maxn];
+    void Init(){
+        edges.clear();
+        for(int i = 0; i &lt; maxn; i++)G[i].clear();
+        mem(inq, false);
+    }
+    void AddEdge(Edge e){
+        edges.pb(e);
+        int m = edges.size();
+        G[e.from].pb(m-1);
+    }
+    void spfa(int s){
+        queue&lt;int&gt; Q;
+        for(int i = 0; i &lt; n; i++) d[i] = INF;
+        d[s] = 0;
+        inq[s] = true;
+        Q.push(s);
+        while(!Q.empty()){
+            int u = Q.front();Q.pop();
+            inq[u] = false;
+            for(int i = 0; i &lt; G[u].size(); i++){
+                Edge &amp;e = edges[G[u][i]];
+                if(d[u] &lt; INF &amp;&amp; d[u] + e.dist &lt; d[e.to]){
+                    d[e.to] = d[u] + e.dist;
+                    if(!inq[e.to]){
+                        inq[e.to] = true;
+                        Q.push(e.to);
+                    }
+                }
+            }
+        }
+    } 
+};
+Spfa solver;
+int dp[maxn];
+vector&lt;int&gt; g[maxn];
+int dfs(int u){
+    if(dp[u] != -1) return dp[u];
+    dp[u] = 1;
+    int ans = 0;
+    for(int i = 0; i &lt; g[u].size(); i++){
+        int v = g[u][i];
+        ans+=dfs(v);
+    }
+    dp[u] *= ans;
+    return dp[u];
+}
+int main(){
+ //   freopen(&quot;input.txt&quot;, &quot;r&quot;, stdin);
+    ios::sync_with_stdio(false);
+    cin.tie(0);
+    while(cin &gt;&gt; n &gt;&gt; m &amp;&amp; n){
+        solver.Init();
+        mem(dp,-1);
+        for(int i = 0; i &lt; maxn; i++) g[i].clear();
+        int u, v, w;
+        for(int i = 0; i &lt; m; i++){
+            cin &gt;&gt; u &gt;&gt; v &gt;&gt; w;
+            u--;
+            v--;
+            solver.AddEdge(Edge(u,v,w));
+            solver.AddEdge(Edge(v,u,w));
+        }
+        solver.spfa(1);
+        for(int i = 0; i &lt; n; i++){
+            int sz = solver.G[i].size();
+            for(int j = 0; j &lt; sz; j++){
+                Edge e = solver.edges[solver.G[i][j]];
+                if(solver.d[i] &gt; solver.d[e.to]){
+                    g[i].pb(e.to);
+                }
+            }
+        }
+        dp[1] = 1;
+        cout &lt;&lt; dfs(0) &lt;&lt; endl;
+    }
+    return 0;
+}
+</code></pre><h1 id="Warfare-And-Logistics"><a href="#Warfare-And-Logistics" class="headerlink" title="Warfare And Logistics"></a>Warfare And Logistics</h1><p><strong>原题：<a href="https://vjudge.net/problem/UVALive-4080" target="_blank" rel="external">Warfare And Logistics</a></strong></p>
+<h2 id="原题大意-2"><a href="#原题大意-2" class="headerlink" title="原题大意"></a>原题大意</h2><p>1.先求任意两点间的最短路径累加和，其中不连通的边权为L<br>2.删除任意一条边,求全局最短路径和的最大值。</p>
+<h2 id="算法分析-2"><a href="#算法分析-2" class="headerlink" title="算法分析"></a>算法分析</h2><p>暴力想法就是n次最短路，然后枚举m条边，但是会超时，每次求以src为源点的最短路时，要删除的边一定在src的最短路树上，因为其他的边不会改变结果，这样只要枚举（n-1）条边就可以了，如果有重边删掉之后，要用第二短的边来替代</p>
+<h2 id="程序代码-2"><a href="#程序代码-2" class="headerlink" title="程序代码"></a>程序代码</h2><pre><code>#include &lt;bits/stdc++.h&gt;
+#define mem(a, b) memset(a, b, sizeof(a))
+#define pb push_back
+using namespace std;
+typedef long long ll;
+const int maxn = 100 + 5;
+const int INF = 1000000000;
+int n, m;
+ll L;
+struct Edge{
+    int from, to;
+    ll dist;
+    Edge(int _from, int _to, ll _dist){
+        from = _from;
+        to = _to;
+        dist = _dist;
+    }
+};
+
+vector&lt;Edge&gt; edges;
+vector&lt;int&gt; G[maxn];
+ll d[maxn];
+bool inq[maxn];
+int p[maxn],tot;
+int id[maxn][maxn];
+ll w[maxn][maxn][2];//第一第二短的边
+bool vis[maxn][maxn][maxn];//vis[src][i][j]以src为源点i-&gt;j为边是否在最短路树上
+void Init(){
+    edges.clear();
+    for(int i = 0; i &lt; maxn; i++)G[i].clear();
+    mem(id,-1);
+}
+void AddEdge(Edge e){
+    edges.pb(e);
+    tot = edges.size();
+    G[e.from].pb(tot-1);
+}
+void spfa(int s){
+    queue&lt;int&gt; Q;
+    mem(inq, false);
+    for(int i = 0; i &lt; n; i++) d[i] = L,p[i] = i;
+    d[s] = 0;
+    inq[s] = true;
+    Q.push(s);
+    while(!Q.empty()){
+        int u = Q.front();Q.pop();
+        inq[u] = false;
+        for(int i = 0; i &lt; G[u].size(); i++){
+            Edge &amp;e = edges[G[u][i]];
+            if(d[u] &lt; L &amp;&amp; d[u] + e.dist &lt; d[e.to]){
+                d[e.to] = d[u] + e.dist;
+                p[e.to] = G[u][i];
+                if(!inq[e.to]){
+                    inq[e.to] = true;
+                    Q.push(e.to);
+                }
+            }
+        }
+    }
+} 
+
+int main(){
+//    freopen(&quot;input.txt&quot;, &quot;r&quot;, stdin);
+    ios::sync_with_stdio(false);
+    cin.tie(0);
+    while(cin &gt;&gt; n &gt;&gt; m &gt;&gt; L){
+        for(int i = 0; i &lt; n; i++)
+            for(int j = 0; j &lt; n; j++)
+                for(int k = 0; k &lt; 2; k++)
+                    w[i][j][k] = L;
+        for(int i = 0; i &lt; m; i++){
+            int u, v;
+            ll di;
+            cin &gt;&gt; u &gt;&gt; v &gt;&gt; di;
+            u--;v--;
+            if(w[u][v][0] &lt; di){
+                if(w[u][v][1] &gt; di){
+                    w[u][v][1] = di;
+                }
+            }
+            else{
+                w[u][v][1] = w[u][v][0];
+                w[u][v][0] = di;
+            }
+            w[v][u][0] = w[u][v][0];
+            w[v][u][1] = w[u][v][1];
+        }
+        Init();
+        for(int i = 0; i &lt; n; i++)
+        {
+            for(int j = i+1; j &lt; n; j++){
+                if(w[i][j][0] == L) continue;
+                AddEdge(Edge(i,j,w[i][j][0]));
+                id[i][j] = tot-1;
+                AddEdge(Edge(j,i,w[j][i][0]));
+                id[j][i] = tot-1;
+            }
+        }
+        ll c[maxn], c1 = 0LL, ans = 0LL;
+        mem(c,0);
+        mem(vis,false);
+        for(int i = 0; i &lt; n; i++){
+            spfa(i);
+            for(int j = 0; j &lt; n; j++)
+                c[i]+=d[j];
+            for(int j = 0; j &lt; n; j++){
+                if(j != i){
+                    int fa = edges[p[j]].from;
+                    vis[i][fa][j] = vis[i][j][fa] = true;
+                }
+            }
+            ans+=c[i];
+        }
+        for(int i = 0; i &lt; n; i++)
+            for(int j = i+1; j &lt; n; j++)if(id[i][j] != -1){
+                Edge &amp;e1 = edges[id[i][j]];
+                Edge &amp;e2 = edges[id[j][i]];                    
+                e1.dist = w[e1.from][e1.to][1];
+                e2.dist = w[e2.from][e2.to][1];                
+            ll temp = 0;
+            for(int src = 0; src &lt; n; src++){
+
+                if(!vis[src][e1.from][e1.to]) temp+=c[src];
+                else{
+                    spfa(src);
+                    for(int j = 0; j &lt; n; j++)
+                        temp+=d[j];
+                }
+            }
+                c1 = max(c1, temp);
+                e1.dist = w[e1.from][e1.to][0];
+                e2.dist = w[e2.from][e2.to][0];            
+            }
+
+        cout &lt;&lt; ans &lt;&lt; &quot; &quot; &lt;&lt; c1 &lt;&lt; &quot;\n&quot;;
+    }
+    return 0;
+}
+</code></pre><h1 id="The-Toll-Revisited"><a href="#The-Toll-Revisited" class="headerlink" title="The Toll! Revisited"></a>The Toll! Revisited</h1><p><strong>原题：<a href="https://vjudge.net/problem/UVA-10537" target="_blank" rel="external">The Toll! Revisited </a></strong></p>
+<h2 id="原题大意-3"><a href="#原题大意-3" class="headerlink" title="原题大意"></a>原题大意</h2><p>首先输入m条边。当经过小写字母时须要付一单位的过路费。当经过大写字母时，要付当前財务的1/20做过路费。<br>问在起点最少须要带多少物品使到达终点时还有k个物品。<br>当有多条符合条件的路径时输出字典序最小的一个。</p>
+<h2 id="算法分析-3"><a href="#算法分析-3" class="headerlink" title="算法分析"></a>算法分析</h2><p>类似dij求最短路，已知终点的数量，倒着更新到起点，d[i]表示进入i节点后，至少要有d[i]的货物，注意边的起点终点不能一样</p>
+<h2 id="程序代码-3"><a href="#程序代码-3" class="headerlink" title="程序代码"></a>程序代码</h2><pre><code>#include &lt;bits/stdc++.h&gt;
+#define mem(a,b) memset(a,b,sizeof(a))
+#define pb push_back
+#define ll long long
+using namespace std;
+const int maxn = 105;
+#define INF (1LL&lt;&lt;61)
+char id[maxn];
+struct Edge{
+    int from, to;
+    Edge(int u, int v):from(u), to(v){}
+};
+struct HeapNode{
+    ll d;
+    int u;
+    bool operator &lt; (const HeapNode&amp; rhs)const{
+        if(d == rhs.d) return id[u] &gt; id[rhs.u];
+        return d &gt; rhs.d;
+    }
+};
+int n, m;
+vector&lt;Edge&gt; edges;
+vector&lt;int&gt; G[maxn];
+bool done[maxn];
+ll d[maxn];
+char p[maxn];
+map&lt;char, int&gt; dict;
+int flag[maxn];
+void init(){
+    for(int i = 0; i &lt; n; i++)G[i].clear();
+    edges.clear();
+}
+void AddEdge(int from, int to){
+    edges.push_back(Edge(from, to));
+    m = edges.size();
+    G[from].pb(m-1);
+}
+void dijkstra(int s, ll num){
+    priority_queue&lt;HeapNode&gt; Q;
+    for(int i = 0; i &lt; n; i++) d[i] = INF;
+    for(int i = 0; i &lt; maxn; i++) p[i] = &apos;z&apos;+1;
+    d[s] = num;
+    mem(done,false);
+    Q.push((HeapNode){num, s});
+    while(!Q.empty()){
+        HeapNode x = Q.top(); Q.pop();
+        int u = x.u;
+        if(done[u]) continue;
+        done[u] = true;
+        for(int i = 0; i &lt; G[u].size(); i++){
+            Edge &amp;e = edges[G[u][i]];
+            int t = e.to;
+            if(flag[u] == 1){
+                if(d[t] &gt;= d[u] + 1){
+
+                    if(d[t] == d[u]+1 &amp;&amp; p[t] &gt; id[u]){
+                        p[t] = id[u];
+                    }
+                    else if(d[t] &gt; d[u] + 1){
+                        d[t] = d[u] + 1;
+                        p[t] = id[u];
+                    }
+
+                    Q.push({d[t], t});
+                }
+            }
+            else{
+                ll t1 = ceil(d[u] / 19.0*20.0);
+                if(d[t] &gt;= t1){
+                    if(d[t] == t1 &amp;&amp; p[t] &gt; id[u]){
+                        p[t] = id[u];
+                    }
+                    else if(d[t] &gt; t1){
+                        d[t] = t1;
+                        p[t] = id[u];
+                    }
+
+                    Q.push({d[t], t});
+                }
+            }
+        }
+    }
+}
+int main(){
+    freopen(&quot;input.txt&quot;, &quot;r&quot;, stdin);
+    ios::sync_with_stdio(false);
+    cin.tie(0);
+    int tot;
+    int kase = 0;
+    while(cin &gt;&gt; tot &amp;&amp; tot != -1){
+        mem(flag,0);
+        dict.clear();
+        init();
+        n = 0;
+        for(int i = 0; i &lt; tot; i++){
+            char f, t;
+            cin &gt;&gt; f &gt;&gt; t;
+            if(f == t) continue;
+            if(!dict.count(f)) dict[f] = n++, id[n-1] = f;
+            if(!dict.count(t)) dict[t] = n++, id[n-1] = t;
+            if(f &gt;= &apos;a&apos; &amp;&amp; f &lt;= &apos;z&apos;)
+                flag[dict[f]] = 1;
+            if(t &gt;= &apos;a&apos; &amp;&amp; t &lt;= &apos;z&apos;)
+                flag[dict[t]] = 1;
+            AddEdge(dict[f], dict[t]);
+            AddEdge(dict[t], dict[f]);
+        }
+            ll P;
+            char X, Y;
+            cin &gt;&gt; P &gt;&gt; X &gt;&gt; Y;
+            dijkstra(dict[Y], P);
+            vector&lt;char&gt; path;
+            char point = X;
+            path.pb(X);
+            while(p[dict[point]] != &apos;z&apos; + 1){
+                path.pb(p[dict[point]]);
+                point = p[dict[point]];
+            }
+
+            printf(&quot;Case %d:\n&quot;, ++kase);
+
+            printf(&quot;%lld\n&quot;, d[dict[X]]);
+            for(int i = 0; i &lt; path.size()-1; i++)
+                printf(&quot;%c-&quot;, path[i]);
+            printf(&quot;%c\n&quot;, path[path.size()-1]);
+    }
+    return 0;
+}
+</code></pre>
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Uva/" rel="tag">#Uva</a>
+          
+            <a href="/tags/spfa/" rel="tag">#spfa</a>
+          
+            <a href="/tags/dijkstra/" rel="tag">#dijkstra</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/08/28/spfa-二进制-It-s-not-a-BUG-it-s-a-feature/" rel="next" title="spfa 二进制 It's not a BUG, it's a feature">
+                <i class="fa fa-chevron-left"></i> spfa 二进制 It's not a BUG, it's a feature
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/09/03/共线集-atcoder-082-E-ConvexScore/" rel="prev" title="共线集 atcoder 082 E - ConvexScore">
+                共线集 atcoder 082 E - ConvexScore <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/assassin.jpg"
+               alt="Shen Hao" />
+          <p class="site-author-name" itemprop="name">Shen Hao</p>
+          <p class="site-description motion-element" itemprop="description">Colin's blog | acm |c++</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">103</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">70</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/colincen" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Airport-Express"><span class="nav-number">1.</span> <span class="nav-text">Airport Express</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#原题大意"><span class="nav-number">1.1.</span> <span class="nav-text">原题大意</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法分析"><span class="nav-number">1.2.</span> <span class="nav-text">算法分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#程序代码"><span class="nav-number">1.3.</span> <span class="nav-text">程序代码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Walk-Through-the-Forest"><span class="nav-number">2.</span> <span class="nav-text">Walk Through the Forest</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#原题大意-1"><span class="nav-number">2.1.</span> <span class="nav-text">原题大意</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法分析-1"><span class="nav-number">2.2.</span> <span class="nav-text">算法分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#程序代码-1"><span class="nav-number">2.3.</span> <span class="nav-text">程序代码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Warfare-And-Logistics"><span class="nav-number">3.</span> <span class="nav-text">Warfare And Logistics</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#原题大意-2"><span class="nav-number">3.1.</span> <span class="nav-text">原题大意</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法分析-2"><span class="nav-number">3.2.</span> <span class="nav-text">算法分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#程序代码-2"><span class="nav-number">3.3.</span> <span class="nav-text">程序代码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#The-Toll-Revisited"><span class="nav-number">4.</span> <span class="nav-text">The Toll! Revisited</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#原题大意-3"><span class="nav-number">4.1.</span> <span class="nav-text">原题大意</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法分析-3"><span class="nav-number">4.2.</span> <span class="nav-text">算法分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#程序代码-3"><span class="nav-number">4.3.</span> <span class="nav-text">程序代码</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Shen Hao</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>
