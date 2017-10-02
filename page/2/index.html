@@ -258,6 +258,271 @@
             
               
                 
+                <a class="post-title-link" href="/2017/08/28/spfa-二进制-It-s-not-a-BUG-it-s-a-feature/" itemprop="url">
+                  spfa 二进制 It's not a BUG, it's a feature
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-08-28T16:57:36+08:00" content="2017-08-28">
+              2017-08-28
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/acm/" itemprop="url" rel="index">
+                    <span itemprop="name">acm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          原题：Uva 658
+程序代码/*
+    ①判定某些位置是否为1，如判定2、4位置为1，则转化为判断x|0101是否等于x。
+
+    ②判定某些位置是否为0，如判定2、4位置为0，则转化为判断x&amp;1010是否等于x。
+
+    ③将某些位置转化为1，如2、4位置转化为1，则令x=x|0101。
+
+    ④将某些位置转化为0，如2、4位置转化为0，则令x=x&amp;1010。
+*/
+#include &lt;bits/stdc++.h&gt;
+#define mem(a,b) memset(a,b,sizeof(a))
+using namespace std;
+const int N = (1&lt;&lt;20)+5,K=105,INF = 1&lt;&lt;30;
+int d[N], s[K][2], t[K][2], w[K];
+int n, m;
+char s1[K], s2[K];
+bool inque[N];
+void spfa(int ss){
+    mem(inque,false);
+    queue&lt;int&gt; q;
+    q.push(
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/08/28/spfa-二进制-It-s-not-a-BUG-it-s-a-feature/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/08/28/2—SAT-Now-or-later/" itemprop="url">
+                  2—SAT Now or later
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-08-28T16:42:44+08:00" content="2017-08-28">
+              2017-08-28
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/acm/" itemprop="url" rel="index">
+                    <span itemprop="name">acm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          原题：Now or later
+原题大意每架飞机有早晚起降两种方式，给定n架飞机两种方式的起落时间，为每架飞机安排起落时间（早或晚），使得所有飞机起降时间按照早到晚的顺序之间的间隔时间最小值尽量大。
+算法分析最小时间尽量大应该采用二分的方法比较好，然后就变成了判别某个时间间隔m是不是符合要求的了。为没加飞机设立一个变量xi，0表示早，1表示晚，然后每架飞机i用两个点2i,2i+1表示，前者如果被标记表示早，后者被标记表示晚降。 然后对不同的飞机的起降时间中间隔小于m的i，j建立约束条件，例如：i架飞机早降间隔和j架飞机的早降时间间隔小于m，那么约束条件就可以在图中这样表示：建立两条边2i—&gt;2j+1, 2j-&gt;2i+1，表示如果i早降则j必须晚降，j早降i必须晚降。
+程序代码#include &lt;bits/stdc++.h&gt;
+#define mem(a,b) memset(a,b,sizeof(a))
+#define pb push_back
+using namespace std;
+typedef long long ll;
+const int maxn = 2
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/08/28/2—SAT-Now-or-later/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/08/28/强连通分量-Proving-Equivalences/" itemprop="url">
                   强连通分量 Proving Equivalences
                 </a>
@@ -619,292 +884,6 @@ http://blog.csdn.net/lyy289065406/article/details/6762370
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/08/28/无向图割顶-Network/" itemprop="url">
-                  无向图割顶 Network
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-08-28T16:16:47+08:00" content="2017-08-28">
-              2017-08-28
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/acm/" itemprop="url" rel="index">
-                    <span itemprop="name">acm</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          原题：Network
-原题大意求割顶的模板题。
-程序代码#include &lt;iostream&gt;  
-#include &lt;cstdio&gt;  
-#include &lt;vector&gt;  
-#include &lt;sstream&gt;  
-#include &lt;cstring&gt;  
-#define pb push_back
-#define mem(a,b) memset(a,b,sizeof(a))
-using namespace std;
-const int maxn = 1e5+5;
-vector&lt;int&gt; G[maxn];
-int dfs_clock, iscut[maxn], pre[maxn], low[maxn];
-int dfs(int u, int fa){
-    int lowu = pre[u] = ++dfs_clock;
-    int child = 0;
-    for(int i = 0; i &lt; G[u].size(); i++){
-        int v = G[u][i];
-      
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/08/28/无向图割顶-Network/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/08/09/01-背包-度度熊的午饭时光/" itemprop="url">
-                  01-背包 度度熊的午饭时光
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-08-09T21:13:14+08:00" content="2017-08-09">
-              2017-08-09
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/acm/" itemprop="url" rel="index">
-                    <span itemprop="name">acm</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          原题：度度熊的午饭时光
-原题大意01背包，但是要输出路径，按照序号和最小，字典序最小输出。
-程序代码可以用vis[i][j]，来记录路径。
-#include &lt;cstdio&gt;
-#include &lt;cstring&gt;
-#include &lt;iostream&gt;
-
-#define clr(a, b) memset(a, b, sizeof(a))
-
-using namespace std;
-
-typedef long long ll;
-
-const int MAXN = 111;
-const int MAXB = 1111;
-
-struct meal
-{
-    int score, cost;
-} m[MAXN];
-
-int B, N;
-int dp[MAXB];
-bool tmp[MAXN];
-bool vis[MAXN][MAXB];
-
-int main()
-{
-    int T, ce = 1;
-    scanf(&quot;%d&quot;, &amp;T);
-    while (T--)
-    {
-        scanf(&quot;%
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/08/09/01-背包-度度熊的午饭时光/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -950,7 +929,7 @@ int main()
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">103</span>
+              <span class="site-state-item-count">105</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -967,7 +946,7 @@ int main()
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">70</span>
+                <span class="site-state-item-count">72</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

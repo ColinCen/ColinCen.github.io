@@ -258,6 +258,292 @@
             
               
                 
+                <a class="post-title-link" href="/2017/08/28/无向图割顶-Network/" itemprop="url">
+                  无向图割顶 Network
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-08-28T16:16:47+08:00" content="2017-08-28">
+              2017-08-28
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/acm/" itemprop="url" rel="index">
+                    <span itemprop="name">acm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          原题：Network
+原题大意求割顶的模板题。
+程序代码#include &lt;iostream&gt;  
+#include &lt;cstdio&gt;  
+#include &lt;vector&gt;  
+#include &lt;sstream&gt;  
+#include &lt;cstring&gt;  
+#define pb push_back
+#define mem(a,b) memset(a,b,sizeof(a))
+using namespace std;
+const int maxn = 1e5+5;
+vector&lt;int&gt; G[maxn];
+int dfs_clock, iscut[maxn], pre[maxn], low[maxn];
+int dfs(int u, int fa){
+    int lowu = pre[u] = ++dfs_clock;
+    int child = 0;
+    for(int i = 0; i &lt; G[u].size(); i++){
+        int v = G[u][i];
+      
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/08/28/无向图割顶-Network/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/08/09/01-背包-度度熊的午饭时光/" itemprop="url">
+                  01-背包 度度熊的午饭时光
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-08-09T21:13:14+08:00" content="2017-08-09">
+              2017-08-09
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/acm/" itemprop="url" rel="index">
+                    <span itemprop="name">acm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          原题：度度熊的午饭时光
+原题大意01背包，但是要输出路径，按照序号和最小，字典序最小输出。
+程序代码可以用vis[i][j]，来记录路径。
+#include &lt;cstdio&gt;
+#include &lt;cstring&gt;
+#include &lt;iostream&gt;
+
+#define clr(a, b) memset(a, b, sizeof(a))
+
+using namespace std;
+
+typedef long long ll;
+
+const int MAXN = 111;
+const int MAXB = 1111;
+
+struct meal
+{
+    int score, cost;
+} m[MAXN];
+
+int B, N;
+int dp[MAXB];
+bool tmp[MAXN];
+bool vis[MAXN][MAXB];
+
+int main()
+{
+    int T, ce = 1;
+    scanf(&quot;%d&quot;, &amp;T);
+    while (T--)
+    {
+        scanf(&quot;%
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/08/09/01-背包-度度熊的午饭时光/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/08/09/Kanade-s-sum/" itemprop="url">
                   Kanade's sum
                 </a>
@@ -638,278 +924,6 @@ n的长度最多有8000，可以用离散化缩小单个数据范围
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/07/27/相交的铁路线/" itemprop="url">
-                  相交的铁路线
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-07-27T21:52:28+08:00" content="2017-07-27">
-              2017-07-27
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/acm/" itemprop="url" rel="index">
-                    <span itemprop="name">acm</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          原题：相交的铁路线
-算法分析考虑朴素的算法t1 = lca(x1,y1), S1 = x1-&gt;t1 ∪ t1-&gt;y1;同理可得t2和S2。判断S1∩S2是否为空
-假设有交点t且假设经过y1,y2，所以x1-&gt;t1-&gt;t-&gt;y1,x2-&gt;t2-&gt;t-&gt;y2,因为t只有一个父亲，所以t1,t2一定是祖先关系，那么t1或t2一定是交点，假设t1是交点，即t2是t1的祖先，则需要两个判定条件：
-
-lca(t1,t2) = t2
-lca(t1,y2) = t1 或 lca(t1,x2) = t1
-
-程序代码#include &lt;cstdio&gt;
-#include &lt;cstring&gt;
-#include &lt;algorithm&gt;
-#include &lt;vector&gt;
-using namespace std;
-const int maxn = 100050;
-struct nod{
-    int to, cost;
-    nod(int a=0,int b=0){to = a; cost = b;}
-};
-in
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/07/27/相交的铁路线/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/07/27/Misha-Grisha-and-Underground/" itemprop="url">
-                  Misha, Grisha and Underground
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-07-27T21:40:25+08:00" content="2017-07-27">
-              2017-07-27
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/acm/" itemprop="url" rel="index">
-                    <span itemprop="name">acm</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          原题：Misha, Grisha and Underground
-原题大意给一棵树，在给给出3个点s，f，t问s到f与t到f经过相同的点有几个？输出最多的那种sft组合。
-算法分析分情况讨论：
-
-f是s的祖先，t在f到s的外面
-f是s的祖先，t在f到s的路径上
-s-&gt;lca(f,s)-&gt;f，lca(s,t)在s-&gt;lca(f,s)上
-s-&gt;lca(f,s)-&gt;f，lca(f,t)在lca(f,s)-&gt;f上
-
-另一种取巧的做法是(lca(a,b) + lca(c,b) - lca(a,c))/2
-程序代码#include &lt;cstdio&gt;
-#include &lt;algorithm&gt;
-#include &lt;vector&gt;
-
-using namespace std;
-#define pb push_back
-const int maxn=100005;
-int n, q;
-int fir[maxn],no[2*maxn],se[2*maxn],st[2*maxn][20],lo[200005],dep[maxn];
-bool
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/07/27/Misha-Grisha-and-Underground/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -955,7 +969,7 @@ bool
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">103</span>
+              <span class="site-state-item-count">105</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -972,7 +986,7 @@ bool
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">70</span>
+                <span class="site-state-item-count">72</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

@@ -258,6 +258,277 @@
             
               
                 
+                <a class="post-title-link" href="/2017/05/20/Super-Resolution/" itemprop="url">
+                  Super Resolution
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-05-20T11:17:42+08:00" content="2017-05-20">
+              2017-05-20
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/acm/" itemprop="url" rel="index">
+                    <span itemprop="name">acm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          原题：Super Resolution
+原题大意给一个01串，按照要求放大a*b倍，并且相对位置不变
+算法分析比赛时唯一一道水题，模拟即可
+程序代码#include &lt;bits/stdc++.h&gt;
+using namespace std;
+int  n, m, a, b;
+int m1[11][11];
+string s[11];
+int main(){
+    ios::sync_with_stdio(false);
+    cin.tie(0);
+    while(cin &gt;&gt; n &gt;&gt; m &gt;&gt; a &gt;&gt; b){
+        for(int i = 0; i &lt; n; i++)
+            cin &gt;&gt; s[i];
+        for(int i = 0; i &lt; n; i++){
+            for(int j = 0; j &lt; m; j++){
+                m1[i][j] = s[i][j] - &apos;0&apos;;
+   
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/05/20/Super-Resolution/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/05/20/Partial-Sum/" itemprop="url">
+                  Partial Sum
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-05-20T10:59:47+08:00" content="2017-05-20">
+              2017-05-20
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/acm/" itemprop="url" rel="index">
+                    <span itemprop="name">acm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          原题：Partial Sum
+原题大意给定一个长度为n的数列A，初始一个变量cnt = 0，每次在0~n里选一个了l和r，然后求出A（l+1）~A（r）的和，将和的绝对值减去常数C，并且加到cnt上，这样的操作最多有m次，求cnt的最大值。
+算法分析
+程序代码#include &lt;bits/stdc++.h&gt;
+using namespace std;
+typedef long long ll;
+int n, m, C;
+int a[100005];
+ll sum[100005];
+bool cmp(ll a, ll b){
+    return a &gt; b;
+}
+int main(){
+//freopen(&quot;input.txt&quot;, &quot;r&quot;, stdin);
+    ios::sync_with_stdio(false);
+    cin.tie(0);
+    while(cin &gt;&gt; n &gt;&gt; m &gt;&gt; C){
+        for(int i = 1; i &lt;= n; i++)
+  
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/05/20/Partial-Sum/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/05/20/Determinant/" itemprop="url">
                   Determinant
                 </a>
@@ -625,271 +896,6 @@ ll a
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/05/09/Culture-Conference/" itemprop="url">
-                  Culture Conference
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-05-09T19:46:20+08:00" content="2017-05-09">
-              2017-05-09
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/acm/" itemprop="url" rel="index">
-                    <span itemprop="name">acm</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          原题： Culture Conference
-原题大意首先看一下什么是最小支配集：
-
-http://www.cnblogs.com/Ash-ly/p/5775934.html
-
-本题中也类似，给一棵树，n个人编号0~n-1，0为CEO，其余每个人都有一个直接上司，现在问题是有些人比较懒（用0表示），所以这些人需要去参加会议（估计是批斗大会什么的），当这些人回来后，他们就变得勤奋努力，认真踏实……，而且带动与他相连的结点也进入一样的状态（如果本来就是1，就没有什么变化，否则由0变成1），现在问最少喊几个人去开会，能使所有人变得不懒惰。（注意！CEO永远不会懒惰，且没有上司）
-算法分析本题是一个很好的模版题，填补了我对于最小支配集的空缺，官方题解也很详细。
-最小支配集的算法：
-
-http://www.cnblogs.com/Ash-ly/p/5783877.html
-
-官方题解：
-
-https://www.hackerrank.com/contests/rookierank-3/challenges/culture-conference/editorial
-
-程序代码#include &l
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/05/09/Culture-Conference/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/05/06/Font-Size/" itemprop="url">
-                  Font Size
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-05-06T10:03:47+08:00" content="2017-05-06">
-              2017-05-06
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/acm/" itemprop="url" rel="index">
-                    <span itemprop="name">acm</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          原题：Font Size
-原题大意史蒂文喜欢看书。他现在读的这本书由N个段落组成，第i个段落包含ai个字符。现在他决定增加字符的字体大小。但史蒂文手机屏幕的尺寸有限。其宽度为W，高度为H。因此，如果字符的字体大小为S，则只能在一行中显示⌊W/S⌋个字符，并在页面中显示⌊H/S⌋行。（⌊x⌋是不大于x的最大整数）所以这里的问题是，如果史蒂文想控制页数不超过P，他可以设置的最大字体大小是多少？请注意，段落必须以新行开头，段落之间没有空行。
-算法分析二分，但是二分有几种写法：
-规定范围里的最大值（如果连续两个数，偏向右边的数）m = l+(r-l+1)/2;
-if(check(m)) l = m;
-else r = m-1;
-规定范围里的最小值（如果连续两个数，偏向左边的数）m = l+(r-l)/2;
-if(check(m)) l = m+1;
-else r = m;
-小于一个精度while(r-l &lt; 1e-5){
-    m = (l+r)/2;
-    if(check(m)) l = m;
-    else r= m;
-}
-程序代码#include &lt;bits/stdc
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/05/06/Font-Size/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -935,7 +941,7 @@ else r = m;
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">103</span>
+              <span class="site-state-item-count">105</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -952,7 +958,7 @@ else r = m;
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">70</span>
+                <span class="site-state-item-count">72</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

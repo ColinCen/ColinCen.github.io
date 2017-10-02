@@ -258,6 +258,285 @@
             
               
                 
+                <a class="post-title-link" href="/2016/11/28/蓝桥杯周练/" itemprop="url">
+                  蓝桥杯周练(部分题)
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-28T15:18:29+08:00" content="2016-11-28">
+              2016-11-28
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/lanqiao/" itemprop="url" rel="index">
+                    <span itemprop="name">lanqiao</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          线段和点算法思想贪心
+代码程序#include &lt;iostream&gt;
+#include &lt;cstdio&gt;
+#include &lt;memory.h&gt;
+#include &lt;algorithm&gt;
+#define mem(a,b) memset(a,b,sizeof(a))
+bool vis[11000],dian[51000];
+using namespace std;
+int n,m;
+struct s{
+    int l,r;
+}str[11000];
+bool cmp(s a,s b)
+{
+    return ((a.l&lt;b.l)||(a.l==b.l&amp;&amp;a.r&lt;b.r));
+}
+int main()
+{
+    mem(dian,false);
+    mem(vis,false);
+    scanf(&quot;%d%d&quot;,&amp;n,&amp;m);
+    for(int i=0;i&lt;n;i++)
+    {
+        int x;
+        scanf(&quot;%
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/11/28/蓝桥杯周练/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/11/21/ACM周练-10-30/" itemprop="url">
+                  ACM周练-10.30
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-21T15:42:49+08:00" content="2016-11-21">
+              2016-11-21
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/acm/" itemprop="url" rel="index">
+                    <span itemprop="name">acm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          第一题原题:hdoj 5971算法思想dfs二分染色,先将已知身份的人涂色,再从剩下的人中开始染色,最后如果还有剩下的人未被染色,那就是NO,否则是YES
+程序代码//#define LOCAL
+#include &lt;iostream&gt;
+#include &lt;cstdio&gt;
+#include &lt;cstring&gt;
+#include &lt;vector&gt;
+#include &lt;memory.h&gt;
+#define  mem(a,b)    memset(a,b,sizeof(a))
+using namespace std;
+const int MAX=1010;
+vector&lt;int&gt; G[MAX];
+int color[MAX];
+int n,m,x,y;
+bool dfs(int v,int c)
+{
+    color[v]=c;
+    for(int i=0;i&lt;G[v].size();i++)
+    {
+        if(color[G[v][i]]==c) return false;
+        if
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/11/21/ACM周练-10-30/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/10/08/No-names-no-bias/" itemprop="url">
                   No names,no bias?
                 </a>
@@ -618,286 +897,6 @@ int num[30];
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/08/12/Ignatius-and-the-Princess-I/" itemprop="url">
-                  Ignatius and the Princess I
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-08-12T17:36:59+08:00" content="2016-08-12">
-              2016-08-12
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/acm/" itemprop="url" rel="index">
-                    <span itemprop="name">acm</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          原题:hdoj 1026
-原题大意迷宫题,要求求出最短时间,同时打印每一个步骤.
-算法分析看到这题,我的第一反应就是bfs,但是,还要打印每一步,我没什么办法,百度后普遍算法是,用优先队列bfs得出最小路径后,递归打印.首先优先队列的优先级别要能改
-struct Point{
-int x,y;
-int time;
-friend bool operator&lt;(Point a,Point b)
-{
-    return a.time&gt;b.time;
-}
-};
-注意:stl里优先队列只能对&lt;重载.记录路径的方法是:用数组Point,当前数组的值为上一步的坐标,打印时递归.
-程序代码#include &lt;iostream&gt;
-#include &lt;queue&gt;
-using namespace std;
-int n,m;//对应N,M 
-int dx[]={1,-1,0,0};
-int dy[]={0,0,1,-1};
-char lab[110][110];//迷宫
-struct Point{
-    int x,y;
-    int time;
-    fr
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/08/12/Ignatius-and-the-Princess-I/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/08/11/Tempter-of-the-Bones/" itemprop="url">
-                  Tempter of the Bones
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-08-11T16:44:29+08:00" content="2016-08-11">
-              2016-08-11
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/acm/" itemprop="url" rel="index">
-                    <span itemprop="name">acm</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          原题:hdoj 1010
-原题大意又是走迷宫的题目,不过这题有点不一样,因为要求狗狗要在T时刻恰好走到D处.
-算法分析明显dfs,不过直接深搜很快就会发现超时了,所以一定得剪枝,百度了下,除了剩余最短步数大于剩余时间外还有一个奇偶剪枝.
-程序代码#include &lt;iostream&gt;
-#include &lt;math.h&gt;
-#include &lt;memory.h&gt;
-using namespace std;
-int dx[]={0,0,1,-1};
-int dy[]={1,-1,0,0};
-int n,m,t;//对应N,M,T 
-char maze[7][7];//迷宫 
-bool used[7][7];
-struct Point{
-    int x,y;
-};
-Point start,door;
-int flag;
-void dfs(int x,int y,int time)
-{
-
-    if(flag) return ;//如果找到就return!否则容易超时     
-    if(time&gt;t) return;
-    if(x==doo
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/08/11/Tempter-of-the-Bones/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -943,7 +942,7 @@ void dfs(int x,int y,int time)
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">103</span>
+              <span class="site-state-item-count">105</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -960,7 +959,7 @@ void dfs(int x,int y,int time)
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">70</span>
+                <span class="site-state-item-count">72</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
