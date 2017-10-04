@@ -258,6 +258,152 @@
             
               
                 
+                <a class="post-title-link" href="/2016/11/29/16哈理工新生网络赛/" itemprop="url">
+                  16哈理工新生网络赛
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-29T22:39:40+08:00" content="2016-11-29">
+              2016-11-29
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/acm/" itemprop="url" rel="index">
+                    <span itemprop="name">acm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          本次新生赛题目还是很难的,部分题解还未看懂,先贴上来.
+棋盘村原题:棋盘村
+算法思想递推,比赛时用了bfs结果超时了,赛后看来还是递推简单明了.另外递推时要处理边界.
+程序代码#include &lt;iostream&gt;
+#include &lt;memory.h&gt;
+using namespace std;
+int n,m,x,y;
+int g[100][100];
+long long ans[100][100];
+void robber_cover()
+{
+    g[x][y]=0;
+    g[x+2][y+1]=0;
+    g[x+2][y-1]=0;
+    g[x+1][y+2]=0;
+    g[x+1][y-2]=0;
+    g[x-2][y+1]=0;
+    g[x-2][y-1]=0;
+    g[x-1][y+2]=0;
+    g[x-1][y-2]=0;
+
+}
+int main()
+{
+    int T;
+    scanf(&quot;%d&quot;,&amp;T);
+    while(T--)
+    {
+        memse
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/11/29/16哈理工新生网络赛/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/11/28/蓝桥杯周练/" itemprop="url">
                   蓝桥杯周练(部分题)
                 </a>
@@ -769,139 +915,11 @@ int main(){
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/08/16/hdu-1015-Safecracker/" itemprop="url">
-                  hdu 1015 Safecracker
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-08-16T15:32:18+08:00" content="2016-08-16">
-              2016-08-16
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/acm/" itemprop="url" rel="index">
-                    <span itemprop="name">acm</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          原题:hdoj 1015
-原题大意题中给了一个式子 v - w^2 + x^3 - y^4 + z^5 = target 要求输入一个数(即作为target),再给出一个字符串,字符串由从A到Z,26个大写字母组成(A=1, B=2, …, Z=26),式子中的v,w,x,y,z由给出的字符串中的5个字符组成,使得式子能够成立.但是符合条件的有很多时,则按字典顺序且逆序输出一种,若无,则打印”no solution”.
-算法分析因为要按字典序输出最大的一组,所以先要将输进去的字符串重新排序,用C++中stl里sort函数就可以了.下面可以用枚举(5重循环)或dfs.
-程序代码枚举#include &lt;iostream&gt;
-#include &lt;stdio.h&gt;
-#include &lt;string.h&gt;
-#include &lt;algorithm&gt;
-#define target(v,w,x,y,z) v-w*w+x*x*x-y*y*y*y+z*z*z*z*z
-using namespace std;
-char str[30];
-int num[30];
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/08/16/hdu-1015-Safecracker/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/17/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><span class="page-number current">18</span><a class="page-number" href="/page/19/">19</a><span class="space">&hellip;</span><a class="page-number" href="/page/21/">21</a><a class="extend next" rel="next" href="/page/19/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/17/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><span class="page-number current">18</span><a class="page-number" href="/page/19/">19</a><span class="space">&hellip;</span><a class="page-number" href="/page/22/">22</a><a class="extend next" rel="next" href="/page/19/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -942,7 +960,7 @@ int num[30];
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">105</span>
+              <span class="site-state-item-count">106</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -959,7 +977,7 @@ int num[30];
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">72</span>
+                <span class="site-state-item-count">73</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

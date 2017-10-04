@@ -258,6 +258,139 @@
             
               
                 
+                <a class="post-title-link" href="/2017/08/31/最短路-dijkstra-spfa-专题/" itemprop="url">
+                  最短路 dijkstra spfa 专题
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-08-31T21:00:21+08:00" content="2017-08-31">
+              2017-08-31
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/acm/" itemprop="url" rel="index">
+                    <span itemprop="name">acm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          图论的几个重要细节和思路
+
+分析原图建新图
+是否可以转化为DAG来dp解决
+用板子时端点从0开始而不是1
+加边的时候注意重边的处理
+注意输入一条边时，起点终点应该不一样（u != v）
+无向图的边具有双向性，如果涉及具体枚举某条边的时候，要注意u-&gt;v 和 v-&gt;u都枚举一遍
+
+Airport Express原题：Airport Express
+原题大意有两种车票，商务车票和经济车票。由于经济原因，商务车票只能买一张，经济车票可以买多张。车票都是双向的。现在问从起点到终点，的最短路径，以及商务车票在哪个站点用最划算和最后花费的总时间。
+算法分析对于每个给出的起点终点a，b；分别求出到a和到b的单源最短路f(x), g(X)，然后枚举商业线的边T，答案就是f(a) + T(a,b) + g(b)，如果不做商业线就是f(b)或者g(a)；维护最大值即可。注意每条边要枚举两次。
+程序代码#include &lt;bits/stdc++.h&gt;
+#define mem(a,b) memset(a,b,sizeof(a))
+#define pb push_back
+using n
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/08/31/最短路-dijkstra-spfa-专题/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/08/28/spfa-二进制-It-s-not-a-BUG-it-s-a-feature/" itemprop="url">
                   spfa 二进制 It's not a BUG, it's a feature
                 </a>
@@ -758,137 +891,11 @@ int pre[maxn], is
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/08/28/无向图桥-Road-Construction/" itemprop="url">
-                  无向图桥 Road Construction
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-08-28T16:22:20+08:00" content="2017-08-28">
-              2017-08-28
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/acm/" itemprop="url" rel="index">
-                    <span itemprop="name">acm</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          原题：Road Construction
-原题大意某个企业想把一个热带天堂岛变成旅游胜地，岛上有N个旅游景点，任意2个旅游景点之间有路径连通（注意不一定是直接连通）。而为了给游客提供更方便的服务，该企业要求道路部门在某些道路增加一些设施。道路部门每次只会选择一条道路施工，在该条道路施工完毕前，其他道路依然可以通行。然而有道路部门正在施工的道路，在施工完毕前是禁止游客通行的。这就导致了在施工期间游客可能无法到达一些景点。为了在施工期间所有旅游景点依然能够正常对游客开放，该企业决定搭建一些临时桥梁，使得不管道路部门选在哪条路进行施工，游客都能够到达所有旅游景点。给出当下允许通行的R条道路，问该企业至少再搭建几条临时桥梁，才能使得游客无视道路部门的存在到达所有旅游景点？
-算法分析
-http://blog.csdn.net/lyy289065406/article/details/6762370
-
-程序代码#include &lt;iostream&gt;
-#include &lt;cstring&gt;
-#include &lt;vector&gt;
-#include &lt;algorit
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/08/28/无向图桥-Road-Construction/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/21/">21</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/22/">22</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -929,7 +936,7 @@ http://blog.csdn.net/lyy289065406/article/details/6762370
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">105</span>
+              <span class="site-state-item-count">106</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -946,7 +953,7 @@ http://blog.csdn.net/lyy289065406/article/details/6762370
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">72</span>
+                <span class="site-state-item-count">73</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

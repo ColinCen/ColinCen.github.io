@@ -258,6 +258,146 @@
             
               
                 
+                <a class="post-title-link" href="/2017/04/16/Hamiltonish-Path/" itemprop="url">
+                  Hamiltonish Path
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-04-16T22:18:06+08:00" content="2017-04-16">
+              2017-04-16
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/acm/" itemprop="url" rel="index">
+                    <span itemprop="name">acm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          原题：Hamiltonish Path
+原题大意给定一个无向图，有n个点，m条边，让你求出一条路径，这条路径有3个满足条件：
+
+这条路径至少穿过两个点
+这条路径只经过一个点一次 
+任何与起点或终点相邻的点一定包括在这条路径里面
+
+题目输入保证存在路径，并且多条路径时，输出任意一条
+算法分析可以从任意一点开始（记为x）。把x放到一个双端队列里，以之为起点。然后重复执行一下内容：
+
+如果有与之相邻的点且不在队列里的，就将其放到队首，并以之为起点。
+如果有与队尾相邻（终点）且不在队列里，就将其放到队尾，并以之为终点。
+
+直到队首队尾没有点与之相邻，或相邻的都在队列里，输出队列。
+程序代码#include &lt;cstdio&gt;
+#include &lt;vector&gt;
+#include &lt;deque&gt;
+#include &lt;memory.h&gt;
+#define mem(a,b) memset(a, b, sizeof(a))
+using namespace std;
+const int maxn = 1e5+5;
+bool vis[maxn];
+vector&
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/04/16/Hamiltonish-Path/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/04/16/Sorted-Arrays/" itemprop="url">
                   Sorted Arrays
                 </a>
@@ -766,134 +906,11 @@ double f(double h){
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/04/05/Gems-Fight/" itemprop="url">
-                  Gems Fight
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-04-05T10:32:48+08:00" content="2017-04-05">
-              2017-04-05
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/acm/" itemprop="url" rel="index">
-                    <span itemprop="name">acm</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          原题：Gems Fight
-原题大意有 G 种颜色的宝石，放在 B 个袋子里（每种颜色可以放多个）。两人轮流选袋子（每个袋子只能被选 1 次），每次将选出来的袋子中的宝石放到 cooker 中，cooker 可能会起反应。反应条件是 cooker 中出现 S 个一样颜色的宝石，而且一旦起反应，每 S 个一样颜色的宝石就会获得 1 个魔法石（同时反应）。作为奖励，每次反应结束后当前玩家可以再选一个袋子继续游戏。游戏目标是自己获得的魔法石尽量多，双方都采取最优策略的情况下，问最终两个玩家的魔法石之差。
-算法分析数据范围很小，毫不犹豫地状压。dp[S]：集合S被取走，此景此境，先手最多能赢后手多少分。遍历不在集合中的袋子，如果拿了i号袋子后不能合成魔法石，那么dp[S] = max(dp[S], -dp[S|1 &lt;&lt; i]), 否则就可以连任dp[S] = max(dp[S], dp[S|1 &lt;&lt; i] + 拿i号袋子获得的收益。
-程序代码#include &lt;cstdio&gt;
-#include &lt;algorithm&gt;
-using namespac
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/04/05/Gems-Fight/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/13/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><span class="page-number current">14</span><a class="page-number" href="/page/15/">15</a><span class="space">&hellip;</span><a class="page-number" href="/page/21/">21</a><a class="extend next" rel="next" href="/page/15/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/13/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><span class="page-number current">14</span><a class="page-number" href="/page/15/">15</a><span class="space">&hellip;</span><a class="page-number" href="/page/22/">22</a><a class="extend next" rel="next" href="/page/15/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -934,7 +951,7 @@ using namespac
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">105</span>
+              <span class="site-state-item-count">106</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -951,7 +968,7 @@ using namespac
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">72</span>
+                <span class="site-state-item-count">73</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

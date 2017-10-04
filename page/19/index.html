@@ -258,6 +258,134 @@
             
               
                 
+                <a class="post-title-link" href="/2016/08/16/hdu-1015-Safecracker/" itemprop="url">
+                  hdu 1015 Safecracker
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-16T15:32:18+08:00" content="2016-08-16">
+              2016-08-16
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/acm/" itemprop="url" rel="index">
+                    <span itemprop="name">acm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          原题:hdoj 1015
+原题大意题中给了一个式子 v - w^2 + x^3 - y^4 + z^5 = target 要求输入一个数(即作为target),再给出一个字符串,字符串由从A到Z,26个大写字母组成(A=1, B=2, …, Z=26),式子中的v,w,x,y,z由给出的字符串中的5个字符组成,使得式子能够成立.但是符合条件的有很多时,则按字典顺序且逆序输出一种,若无,则打印”no solution”.
+算法分析因为要按字典序输出最大的一组,所以先要将输进去的字符串重新排序,用C++中stl里sort函数就可以了.下面可以用枚举(5重循环)或dfs.
+程序代码枚举#include &lt;iostream&gt;
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+#include &lt;algorithm&gt;
+#define target(v,w,x,y,z) v-w*w+x*x*x-y*y*y*y+z*z*z*z*z
+using namespace std;
+char str[30];
+int num[30];
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/08/16/hdu-1015-Safecracker/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/08/12/Ignatius-and-the-Princess-I/" itemprop="url">
                   Ignatius and the Princess I
                 </a>
@@ -788,143 +916,11 @@ int binsearch(int k,int val)
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/07/08/Collect-More-Jewels/" itemprop="url">
-                  Collect More Jewels
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-07-08T21:57:52+08:00" content="2016-07-08">
-              2016-07-08
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/acm/" itemprop="url" rel="index">
-                    <span itemprop="name">acm</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          原题:hdoj 1044
-原题大意在能走出迷宫的情况下,收集最大价值的珠宝,’*’是墻,’.’表示可以走的空地,’@’表示起点,’&lt;’表示终点,’A-J’用来表示各种价值的珠宝.
-算法分析这题百度了下,我能用的方法就是bfs加dfs,先用bfs算出出口,入口,珠宝之间的两两最短距离,然后再用dfs遍历每条从起点到终点的路径.
-注意事项这题我一开始交的时候总是超时,后来百度了下,在dfs里加了段代码,作用是如果收集的珠宝已达到所有珠宝价值之和,递归就结束.(这是我第一次超时,下次再出现时要考虑清楚哪里可以缩短时间)
-程序代码#include &lt;iostream&gt;
-#include &lt;queue&gt;
-#include &lt;memory.h&gt;
-using namespace std;
-int W,H,L,M;
-int dx[]={1,0,-1,0};
-int dy[]={0,1,0,-1};
-char g[50][50];
-int len[12][12];//宝物,出入口的两两距离 
-int l[50][50];//记录距离 
-bool used[12]
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/07/08/Collect-More-Jewels/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/18/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><span class="page-number current">19</span><a class="page-number" href="/page/20/">20</a><a class="page-number" href="/page/21/">21</a><a class="extend next" rel="next" href="/page/20/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/18/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><span class="page-number current">19</span><a class="page-number" href="/page/20/">20</a><span class="space">&hellip;</span><a class="page-number" href="/page/22/">22</a><a class="extend next" rel="next" href="/page/20/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -965,7 +961,7 @@ bool used[12]
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">105</span>
+              <span class="site-state-item-count">106</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -982,7 +978,7 @@ bool used[12]
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">72</span>
+                <span class="site-state-item-count">73</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

@@ -258,6 +258,133 @@
             
               
                 
+                <a class="post-title-link" href="/2017/10/04/机器学习实战-朴素贝叶斯/" itemprop="url">
+                  机器学习实战-朴素贝叶斯
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-10-04T10:11:52+08:00" content="2017-10-04">
+              2017-10-04
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/机器学习/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          下面的例子是用于文本分析
+import operator
+import numpy as np
+import feedparser as fp
+def loadDataSet():#0表示非侮辱言论，1表示侮辱言论
+    postingList = [[&apos;my&apos;, &apos;dog&apos;, &apos;has&apos;, &apos;flea&apos;,
+                    &apos;problems&apos;, &apos;helo&apos;, &apos;please&apos;],
+                    [&apos;maybe&apos;, &apos;not&apos;, &apos;take&apos;, &apos;him&apos;,
+                    &apos;to&apos;, &apos;dog&apos;, &apos;park&apos;, &apos;stupid&apos;],
+                    [&apos;my&apos;, &a
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/10/04/机器学习实战-朴素贝叶斯/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/10/02/机器学习实战-决策树/" itemprop="url">
                   机器学习实战-决策树
                 </a>
@@ -765,144 +892,11 @@ void pre(){
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/08/31/最短路-dijkstra-spfa-专题/" itemprop="url">
-                  最短路 dijkstra spfa 专题
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-08-31T21:00:21+08:00" content="2017-08-31">
-              2017-08-31
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/acm/" itemprop="url" rel="index">
-                    <span itemprop="name">acm</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          图论的几个重要细节和思路
-
-分析原图建新图
-是否可以转化为DAG来dp解决
-用板子时端点从0开始而不是1
-加边的时候注意重边的处理
-注意输入一条边时，起点终点应该不一样（u != v）
-无向图的边具有双向性，如果涉及具体枚举某条边的时候，要注意u-&gt;v 和 v-&gt;u都枚举一遍
-
-Airport Express原题：Airport Express
-原题大意有两种车票，商务车票和经济车票。由于经济原因，商务车票只能买一张，经济车票可以买多张。车票都是双向的。现在问从起点到终点，的最短路径，以及商务车票在哪个站点用最划算和最后花费的总时间。
-算法分析对于每个给出的起点终点a，b；分别求出到a和到b的单源最短路f(x), g(X)，然后枚举商业线的边T，答案就是f(a) + T(a,b) + g(b)，如果不做商业线就是f(b)或者g(a)；维护最大值即可。注意每条边要枚举两次。
-程序代码#include &lt;bits/stdc++.h&gt;
-#define mem(a,b) memset(a,b,sizeof(a))
-#define pb push_back
-using n
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/08/31/最短路-dijkstra-spfa-专题/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/21/">21</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/22/">22</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -943,7 +937,7 @@ using n
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">105</span>
+              <span class="site-state-item-count">106</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -960,7 +954,7 @@ using n
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">72</span>
+                <span class="site-state-item-count">73</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

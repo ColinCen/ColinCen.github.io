@@ -258,6 +258,139 @@
             
               
                 
+                <a class="post-title-link" href="/2017/05/23/OR/" itemprop="url">
+                  OR
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-05-23T20:29:04+08:00" content="2017-05-23">
+              2017-05-23
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/acm/" itemprop="url" rel="index">
+                    <span itemprop="name">acm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          原题：OR
+原题大意给出n个数A1, A2…,AN, 任意选择两个数i,j(1 &lt;= i &lt; j &lt;= N),问Ai|Aj的期望值是多少。以既约分数的形式输出。
+算法分析如果暴力需要n^2，会超时，所以考虑每一位，前i-1个数里，第j位是0的个数为cnt，如果第i个数的第j位是1，那么贡献为(1 &lt;&lt; j)  (i-1)，否则贡献为cnt  (1 &lt;&lt; j)。如果直接算出分子除以分母会爆long long int，所以记录余数然后两次gcd求出结果。
+程序代码#include &lt;bits/stdc++.h&gt;
+#define mem(a,b) memset(a, b, sizeof(a))
+using namespace std;
+typedef long long ll;
+int T;
+ll cnt[40];
+ll x, y, n;
+ll gcd(ll a, ll b){
+    return b == 0 ? a : gcd(b, a % b);
+}
+int main(){
+
+    ios::sync_with_stdio(fa
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/05/23/OR/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/05/23/Factorial-Modulo/" itemprop="url">
                   Factorial Modulo
                 </a>
@@ -761,154 +894,11 @@ int main(){
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/05/20/Highway/" itemprop="url">
-                  Highway
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-05-20T11:22:19+08:00" content="2017-05-20">
-              2017-05-20
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/acm/" itemprop="url" rel="index">
-                    <span itemprop="name">acm</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          原题：Highway
-原题大意n个城市要建造(n-1)条路，求最贵的建造方法。
-算法分析
-两次dfs求出直径，然后lca更新答案
-程序代码#include &lt;cstdio&gt;
-#include &lt;algorithm&gt;
-#include &lt;vector&gt;
-#include &lt;cstring&gt;
-#define pb push_back
-#define mem(a,b) memset(a,b,sizeof(a))
-using namespace std;
-typedef long long ll;
-const int maxn=100005;
-int fir[maxn],no[2*maxn],se[2*maxn],st[2*maxn][20],lo[200005];
-ll dep[maxn];
-struct nod
-{
-    int to;
-    ll cost;
-};
-int n,m,d1,d2;
-vector&lt;nod&gt; g[maxn];
-int cnt,sum;
-void mkST()
-{
-    for(int i=1;i&
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/05/20/Highway/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/8/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/21/">21</a><a class="extend next" rel="next" href="/page/10/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/8/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/22/">22</a><a class="extend next" rel="next" href="/page/10/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -949,7 +939,7 @@ void mkST()
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">105</span>
+              <span class="site-state-item-count">106</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -966,7 +956,7 @@ void mkST()
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">72</span>
+                <span class="site-state-item-count">73</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
