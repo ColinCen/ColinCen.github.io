@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="二分,hihocoder," />
+  <meta name="keywords" content="机器学习实战," />
 
 
 
@@ -84,19 +84,34 @@
 
 
 
-<meta name="description" content="原题：Font Size
-原题大意史蒂文喜欢看书。他现在读的这本书由N个段落组成，第i个段落包含ai个字符。现在他决定增加字符的字体大小。但史蒂文手机屏幕的尺寸有限。其宽度为W，高度为H。因此，如果字符的字体大小为S，则只能在一行中显示⌊W/S⌋个字符，并在页面中显示⌊H/S⌋行。（⌊x⌋是不大于x的最大整数）所以这里的问题是，如果史蒂文想控制页数不超过P，他可以设置的最大字体大小是多少？请注意，">
+<meta name="description" content="from numpy import *
+def loadDataSet():
+    dataMat = []; labelMat = []
+    fr = open(&amp;apos;testSet.txt&amp;apos;)
+    for line in fr.readlines():
+        lineArr = line.strip().split()
+        dataMat.app">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Font Size">
-<meta property="og:url" content="http://yoursite.com/2017/05/06/Font-Size/index.html">
+<meta property="og:title" content="机器学习实战-logistic回归">
+<meta property="og:url" content="http://yoursite.com/2017/10/04/机器学习实战-logistic回归/index.html">
 <meta property="og:site_name" content="Colin's blog">
-<meta property="og:description" content="原题：Font Size
-原题大意史蒂文喜欢看书。他现在读的这本书由N个段落组成，第i个段落包含ai个字符。现在他决定增加字符的字体大小。但史蒂文手机屏幕的尺寸有限。其宽度为W，高度为H。因此，如果字符的字体大小为S，则只能在一行中显示⌊W/S⌋个字符，并在页面中显示⌊H/S⌋行。（⌊x⌋是不大于x的最大整数）所以这里的问题是，如果史蒂文想控制页数不超过P，他可以设置的最大字体大小是多少？请注意，">
-<meta property="og:updated_time" content="2017-05-06T02:18:00.338Z">
+<meta property="og:description" content="from numpy import *
+def loadDataSet():
+    dataMat = []; labelMat = []
+    fr = open(&amp;apos;testSet.txt&amp;apos;)
+    for line in fr.readlines():
+        lineArr = line.strip().split()
+        dataMat.app">
+<meta property="og:updated_time" content="2017-10-04T09:04:47.220Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Font Size">
-<meta name="twitter:description" content="原题：Font Size
-原题大意史蒂文喜欢看书。他现在读的这本书由N个段落组成，第i个段落包含ai个字符。现在他决定增加字符的字体大小。但史蒂文手机屏幕的尺寸有限。其宽度为W，高度为H。因此，如果字符的字体大小为S，则只能在一行中显示⌊W/S⌋个字符，并在页面中显示⌊H/S⌋行。（⌊x⌋是不大于x的最大整数）所以这里的问题是，如果史蒂文想控制页数不超过P，他可以设置的最大字体大小是多少？请注意，">
+<meta name="twitter:title" content="机器学习实战-logistic回归">
+<meta name="twitter:description" content="from numpy import *
+def loadDataSet():
+    dataMat = []; labelMat = []
+    fr = open(&amp;apos;testSet.txt&amp;apos;)
+    for line in fr.readlines():
+        lineArr = line.strip().split()
+        dataMat.app">
 
 
 
@@ -117,9 +132,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/05/06/Font-Size/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/10/04/机器学习实战-logistic回归/"/>
 
-  <title> Font Size | Colin's blog </title>
+  <title> 机器学习实战-logistic回归 | Colin's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -259,7 +274,7 @@
             
             
               
-                Font Size
+                机器学习实战-logistic回归
               
             
           </h1>
@@ -271,8 +286,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-05-06T10:03:47+08:00" content="2017-05-06">
-              2017-05-06
+            <time itemprop="dateCreated" datetime="2017-10-04T16:53:39+08:00" content="2017-10-04">
+              2017-10-04
             </time>
           </span>
 
@@ -285,8 +300,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/acm/" itemprop="url" rel="index">
-                    <span itemprop="name">acm</span>
+                  <a href="/categories/机器学习/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
                   </a>
                 </span>
 
@@ -318,59 +333,129 @@
       
 
       
-        <p><strong>原题：<a href="http://hihocoder.com/contest/hiho148/problem/1" target="_blank" rel="external">Font Size</a></strong></p>
-<h1 id="原题大意"><a href="#原题大意" class="headerlink" title="原题大意"></a>原题大意</h1><p>史蒂文喜欢看书。他现在读的这本书由N个段落组成，第i个段落包含ai个字符。现在他决定增加字符的字体大小。但史蒂文手机屏幕的尺寸有限。其宽度为W，高度为H。因此，如果字符的字体大小为S，则只能在一行中显示⌊W/S⌋个字符，并在页面中显示⌊H/S⌋行。（⌊x⌋是不大于x的最大整数）<br>所以这里的问题是，如果史蒂文想控制页数不超过P，他可以设置的最大字体大小是多少？请注意，段落必须以新行开头，段落之间没有空行。</p>
-<h1 id="算法分析"><a href="#算法分析" class="headerlink" title="算法分析"></a>算法分析</h1><p>二分，但是二分有几种写法：</p>
-<h2 id="规定范围里的最大值（如果连续两个数，偏向右边的数）"><a href="#规定范围里的最大值（如果连续两个数，偏向右边的数）" class="headerlink" title="规定范围里的最大值（如果连续两个数，偏向右边的数）"></a>规定范围里的最大值（如果连续两个数，偏向右边的数）</h2><pre><code>m = l+(r-l+1)/2;
-if(check(m)) l = m;
-else r = m-1;
-</code></pre><h2 id="规定范围里的最小值（如果连续两个数，偏向左边的数）"><a href="#规定范围里的最小值（如果连续两个数，偏向左边的数）" class="headerlink" title="规定范围里的最小值（如果连续两个数，偏向左边的数）"></a>规定范围里的最小值（如果连续两个数，偏向左边的数）</h2><pre><code>m = l+(r-l)/2;
-if(check(m)) l = m+1;
-else r = m;
-</code></pre><h2 id="小于一个精度"><a href="#小于一个精度" class="headerlink" title="小于一个精度"></a>小于一个精度</h2><pre><code>while(r-l &lt; 1e-5){
-    m = (l+r)/2;
-    if(check(m)) l = m;
-    else r= m;
-}
-</code></pre><h1 id="程序代码"><a href="#程序代码" class="headerlink" title="程序代码"></a>程序代码</h1><pre><code>#include &lt;bits/stdc++.h&gt;
-using namespace std;
-int T, p, w, h, n;
-int a[1050];
-bool check(int m){
-            int cnt = 0;
-            int t1 = w/m, t2 = h/m;
-            for(int i = 0; i &lt; n; i++)
-            {
-                int t = a[i] / t1;
-                int tt = a[i] % t1;
-                if(tt != 0) t++;
-                cnt+=t;
-            }
-            int temp = cnt / t2;
-            int tt = cnt % t2;
-            if(tt !=0) temp++;
-            if(temp &lt;= p) return true;
-            return false;
-}
-int main(){
-    ios::sync_with_stdio(false);
-    cin.tie(0);
-    cin &gt;&gt; T;
-    while(T--){
-        cin &gt;&gt; n &gt;&gt; p &gt;&gt; w &gt;&gt; h;
-        for(int i = 0; i &lt; n; i++)
-            cin &gt;&gt; a[i];
-        int l, r, m;
-        l = 1, r = min(w,h);
-        while(l&lt;r){
-            m = l+(r-l+1)/2;
-            if(check(m)) l = m;
-            else r = m-1;
-        }
-        printf(&quot;%d\n&quot;, l);
-    }
-    return 0;
-}
+        <pre><code>from numpy import *
+def loadDataSet():
+    dataMat = []; labelMat = []
+    fr = open(&apos;testSet.txt&apos;)
+    for line in fr.readlines():
+        lineArr = line.strip().split()
+        dataMat.append([1.0, float(lineArr[0]), float(lineArr[1])])
+        labelMat.append(int(lineArr[2]))
+    return dataMat, labelMat
+</code></pre><hr>
+<pre><code>def sigmoid(inX):
+    return 1.0/(1+exp(-inX))
+</code></pre><hr>
+<pre><code>#梯度上升算法，运算次数多，准确度高
+def gradAscent(dataMatIn, classLabels):
+    dataMatrix = mat(dataMatIn)
+    labelMat = mat(classLabels).transpose()
+    m, n = shape(dataMatrix)
+    alpha = 0.001
+    maxCycles = 500 
+    weights = ones((n, 1))
+    for k in range(maxCycles):
+        h = sigmoid(dataMatrix*weights)
+        error = (labelMat - h)
+        weights = weights + alpha * dataMatrix.transpose()*error
+    return weights
+</code></pre><hr>
+<pre><code>#随机梯度上升算法，每次选择一个点迭代
+def stocGradAscent0(dataMatrix, classLabels):
+    m, n = shape(dataMatrix)
+    alpha = 0.01
+    weights = ones(n)
+    for i in range(m):
+        h = sigmoid(sum(dataMatrix[i]*weights))
+        error = classLabels[i] - h
+        weights = weights + alpha * error * dataMatrix[i]
+    return weights
+</code></pre><hr>
+<pre><code>#随机梯度上升算法改良，每次随机选择一个点迭代，alpha每次都会变化
+def stocGradAscent1(dataMatrix, classLabels, numIter = 150):
+    m, n = shape(dataMatrix)
+    weights = ones(n)
+    for j in range(numIter):
+        dataIndex = list(range(m))
+        for i in range(m):
+            alpha = 4/(1.0+j+i) + 0.01
+            randIndex = int(random.uniform(0, len(dataIndex)))
+            h = sigmoid(sum(dataMatrix[randIndex] * weights))
+            error = classLabels[randIndex] - h
+            weights = weights + alpha * error * dataMatrix[randIndex]
+            del(dataIndex[randIndex])
+    return weights  
+</code></pre><hr>
+<pre><code>#分割线作图，令sigmod的输入函数z（∑wx）为0，选取其中两维作为xy轴
+def plotBestFit(wei):
+    import matplotlib.pyplot as plt
+    #weights = wei.getA()#返回矩阵的数组形式
+    weights = wei#SGD算法不需要数组
+    dataMat, labelMat = loadDataSet()
+    dataArr = array(dataMat)
+    n = shape(dataArr)[0]
+    xcord1 = []; ycord1 = []
+    xcord2 = []; ycord2 = []
+    for i in range(n):
+        if int(labelMat[i]) == 1:
+            xcord1.append(dataArr[i,1])
+            ycord1.append(dataArr[i,2])
+        else:
+            xcord2.append(dataArr[i,1])
+            ycord2.append(dataArr[i,2])
+    fig = plt.figure()
+    ax = fig.add_subplot(111)
+    ax.scatter(xcord1, ycord1, s = 30, c = &apos;red&apos;, marker = &apos;s&apos;)
+    ax.scatter(xcord2, ycord2, s = 30, c = &apos;green&apos;)
+    x = arange(-3.0, 3.0, 0.1)
+    y = (-weights[0] - weights[1]*x)/weights[2]
+    ax.plot(x, y)
+    plt.xlabel(&apos;X1&apos;)
+    plt.ylabel(&apos;X2&apos;)
+    plt.show()
+</code></pre><hr>
+<pre><code>#分类器
+def classifyVector(inX, weights):
+    prob = sigmoid(sum(inX*weights))
+    if prob &gt; 0.5 : return 1.0
+    else: return 0.0
+</code></pre><hr>
+<pre><code>#训练集和测试集
+def colicTest():
+    frTrain = open(&apos;horseColicTraining.txt&apos;)
+    frTest = open(&apos;horseColicTest.txt&apos;)
+    trainingSet = []
+    trainingLabels = []
+    for line in frTrain.readlines():
+        currLine = line.strip().split(&apos;\t&apos;)
+        lineArr = []
+        for i in range(21):
+            lineArr.append(float(currLine[i]))
+        trainingSet.append(lineArr)
+        trainingLabels.append(float(currLine[21]))
+    trainWeights = stocGradAscent1(array(trainingSet), trainingLabels, 500)
+    errorCount = 0; numTestVec = 0.0
+    for line in frTest.readlines():
+        numTestVec += 1.0
+        currLine = line.strip().split(&apos;\t&apos;)
+        lineArr = []
+        for i in range(21):
+            lineArr.append(float(currLine[i]))
+        if int(classifyVector(array(lineArr), trainWeights)) != int(currLine[21]):
+            errorCount += 1
+    errorRate = float(errorCount) / numTestVec
+    print(&apos;the error rate of this test is: %f&apos; % errorRate)
+    return errorRate
+</code></pre><hr>
+<pre><code>#计算最终错误率的期望
+def multiTest():
+    numTests = 10; errorSum = 0.0
+    for k in range(numTests):
+        errorSum += colicTest()
+    print(&apos;after %d iterations the average error rate is: %f&apos; %
+        (numTests, errorSum/float(numTests)))
+
+multiTest()
 </code></pre>
       
     </div>
@@ -392,9 +477,7 @@ int main(){
       
         <div class="post-tags">
           
-            <a href="/tags/二分/" rel="tag">#二分</a>
-          
-            <a href="/tags/hihocoder/" rel="tag">#hihocoder</a>
+            <a href="/tags/机器学习实战/" rel="tag">#机器学习实战</a>
           
         </div>
       
@@ -403,17 +486,13 @@ int main(){
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/05/03/Atcoder-073/" rel="next" title="Atcoder 073">
-                <i class="fa fa-chevron-left"></i> Atcoder 073
+              <a href="/2017/10/04/机器学习实战-朴素贝叶斯/" rel="next" title="机器学习实战-朴素贝叶斯">
+                <i class="fa fa-chevron-left"></i> 机器学习实战-朴素贝叶斯
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/05/09/Culture-Conference/" rel="prev" title="Culture Conference">
-                Culture Conference <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -538,7 +617,7 @@ int main(){
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#原题大意"><span class="nav-number">1.</span> <span class="nav-text">原题大意</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#算法分析"><span class="nav-number">2.</span> <span class="nav-text">算法分析</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#规定范围里的最大值（如果连续两个数，偏向右边的数）"><span class="nav-number">2.1.</span> <span class="nav-text">规定范围里的最大值（如果连续两个数，偏向右边的数）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#规定范围里的最小值（如果连续两个数，偏向左边的数）"><span class="nav-number">2.2.</span> <span class="nav-text">规定范围里的最小值（如果连续两个数，偏向左边的数）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#小于一个精度"><span class="nav-number">2.3.</span> <span class="nav-text">小于一个精度</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#程序代码"><span class="nav-number">3.</span> <span class="nav-text">程序代码</span></a></li></ol></div>
+              <p class="post-toc-empty">此文章未包含目录</p>
             
           </div>
         </section>

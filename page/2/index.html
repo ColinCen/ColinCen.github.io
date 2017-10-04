@@ -258,6 +258,137 @@
             
               
                 
+                <a class="post-title-link" href="/2017/09/03/共线集-atcoder-082-E-ConvexScore/" itemprop="url">
+                  共线集 atcoder 082 E - ConvexScore
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-09-03T20:28:55+08:00" content="2017-09-03">
+              2017-09-03
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/acm/" itemprop="url" rel="index">
+                    <span itemprop="name">acm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          原题：ConvexScore
+原题大意给出N个点，这N个点可以形成若干个子集S，每个S满足如下条件：S里的所有点正好形成一个凸多边形，每个点都是凸多边形的顶点。对于任意一个S，n是N个点散布在S的凸包内的个数（包括边界和顶点），S相对应的得分为2^(n-|s|)。求所有得分和，结果模998244353。
+算法分析令Ts = n - |S|,Ts即为集合S的凸包内的点组成的集合（除顶点以外），则题目要求的是合法的Ts子集的种数，Ts最多为2^n，然后减去不合格的集合个数。首先，减去一个空集，再减去n个单点集，然后减去共线的情况（集合全在一条线段上）。
+程序代码#include &lt;bits/stdc++.h&gt;
+using namespace std;
+typedef long long ll;
+const ll mod = 998244353;
+const int maxn = 200 + 50;
+int n;
+ll p[maxn];
+ll x[maxn], y[maxn];
+map&lt;pair&lt;ll, ll&gt;, ll&gt; mp;
+void pre(){
+ 
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/09/03/共线集-atcoder-082-E-ConvexScore/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/08/31/最短路-dijkstra-spfa-专题/" itemprop="url">
                   最短路 dijkstra spfa 专题
                 </a>
@@ -763,134 +894,6 @@ int pre[maxn], lowlink[maxn], sccno[maxn], dfs_clock, sc
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/08/28/双连通分量-Knights-of-the-Round-Table/" itemprop="url">
-                  双连通分量 Knights of the Round Table
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-08-28T16:34:00+08:00" content="2017-08-28">
-              2017-08-28
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/acm/" itemprop="url" rel="index">
-                    <span itemprop="name">acm</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          原题：Knights of the Round Table
-原题大意有n个骑士经常举行圆桌会议，每次圆桌会议至少要有3个骑士参加(且每次参加的骑士数量是奇数个)，且所有互相憎恨的骑士不能坐在圆桌旁的相邻位置，问有多少个骑士不可能参加任何一个会议
-算法分析以骑士为点建立无向图G。如果两个骑士可以相邻(即他们并不互相憎恨)，即可连一条边。则题目就转化为求不在任何一个简单奇圈上的结点个数首先，圈就是一个双连通的分量，所以第一件事就是将所有的双连通分量求出来，接着再判定这个双连通分量是不是奇圈奇圈的判定就是用二分图染色判定，如果某个圈能被二分图染色，那么这个圈必然不是奇圈，因为二分图染色，染色的点是成对的，所以点的数量是偶数的
-程序代码#include &lt;bits/stdc++.h&gt;
-#define mem(a,b) memset(a,b,sizeof(a))
-#define pb push_back
-using namespace std;
-const int maxn = 1e3+5;
-
-int color[maxn], odd[maxn];
-int pre[maxn], is
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/08/28/双连通分量-Knights-of-the-Round-Table/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -936,7 +939,7 @@ int pre[maxn], is
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">106</span>
+              <span class="site-state-item-count">107</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -953,7 +956,7 @@ int pre[maxn], is
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">73</span>
+                <span class="site-state-item-count">74</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

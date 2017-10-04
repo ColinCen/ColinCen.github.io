@@ -258,6 +258,145 @@
             
               
                 
+                <a class="post-title-link" href="/2017/08/07/Tarjan-LCA/" itemprop="url">
+                  Tarjan-LCA
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-08-07T16:06:47+08:00" content="2017-08-07">
+              2017-08-07
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/acm/" itemprop="url" rel="index">
+                    <span itemprop="name">acm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          Tarjan离线求LCA的博客
+
+http://www.cnblogs.com/JVxie/p/4854719.html
+
+例题1
+http://hihocoder.com/problemset/problem/1067
+
+给出n行父-子的名字，q个询问，输出最近公共祖先
+程序代码#include &lt;bits/stdc++.h&gt;
+#define pb push_back
+using namespace std;
+const int maxn = 100050;
+vector&lt;int&gt; g[maxn];
+vector&lt;int&gt; q[maxn];
+vector&lt;int&gt; num[maxn];
+int ans[maxn];
+int n, Q;
+map&lt;string,int&gt; dict;
+vector&lt;string&gt; v;
+int fa[maxn], r[maxn], ind[maxn];
+bool vis[maxn];
+int find(int x){return fa[x] == x ? x : fa[x] = fin
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/08/07/Tarjan-LCA/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/08/07/Same-Occurrence/" itemprop="url">
                   Same Occurrence
                 </a>
@@ -770,138 +909,6 @@ struct matrix{
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/06/30/Okabe-and-City/" itemprop="url">
-                  Okabe and City
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-06-30T20:42:40+08:00" content="2017-06-30">
-              2017-06-30
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/acm/" itemprop="url" rel="index">
-                    <span itemprop="name">acm</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          原题：Okabe and City
-原题大意bfs搜索题，从左上角到右下角，必须走在有灯的格子里，如果要去的格子没有灯，可以暂时照亮任意一行或者一列，但必须之前站在原来就是有灯的格子里，同时花费为1，问是否能到达目的地，如果能输出最小花费，否则输出-1。
-算法分析每次bfs都是在原始就是有灯的点之间移动（除了终点）
-一行或者一列最多被照亮一次
- 当前点，与下一次可以到达的点的横坐标或纵坐标距离小于等于2
-程序代码#include &lt;bits/stdc++.h&gt;
-#define mem(a,b) memset(a,b,sizeof(a));
-#define pb push_back
-using namespace std;
-const int maxn = 10000 + 50;
-const int MAXN = (1&lt;&lt;30);
-typedef long long ll;
-typedef pair&lt;int, int&gt; pii;
-typedef vector&lt;int&gt; vi;
-priority_queue&lt;pii, vector&lt
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/06/30/Okabe-and-City/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -947,7 +954,7 @@ priority_queue&lt;pii, vector&lt
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">106</span>
+              <span class="site-state-item-count">107</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -964,7 +971,7 @@ priority_queue&lt;pii, vector&lt
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">73</span>
+                <span class="site-state-item-count">74</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

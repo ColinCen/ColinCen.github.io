@@ -258,6 +258,136 @@
             
               
                 
+                <a class="post-title-link" href="/2017/05/30/3N-Numbers/" itemprop="url">
+                  3N Numbers
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-05-30T20:37:46+08:00" content="2017-05-30">
+              2017-05-30
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/acm/" itemprop="url" rel="index">
+                    <span itemprop="name">acm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          原题：3N Numbers
+原题大意给3n个数，要求去掉n个数，使得剩下的2n个数里，前n个数减后n个数的值最大，求最大值。
+算法分析将球分为三种颜色，被取走的标为黑色，剩下的前n个为红色，后n个为蓝色，所以观察后发现，红色一定只出现在前面，蓝色一定只出现在后面，红色的最后一个位置是n~2n，蓝色的第一个位置一定是n+1~2n+1。设k为分界线，红球从前k个里面取，蓝球从后3*n-k里面取，k的取值为(n&lt;=k&lt;=2n)，枚举k的取值，用优先队列维护最优值。
+程序代码#include&lt;stdio.h&gt;
+#include&lt;string.h&gt;
+#include&lt;algorithm&gt;
+#include&lt;stdlib.h&gt;
+#include&lt;iostream&gt;
+#include&lt;queue&gt;
+using namespace std;
+
+priority_queue&lt;int&gt;QD;//大根堆
+priority_queue&lt;int,vector&lt;int&gt;,greater&lt;int&
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/05/30/3N-Numbers/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/05/23/OR/" itemprop="url">
                   OR
                 </a>
@@ -754,146 +884,6 @@ Output对于每组数据，输出Casex:y。其中x表示测试数据编号（从
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/05/20/Strange-Optimization/" itemprop="url">
-                  Strange Optimization
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-05-20T11:37:54+08:00" content="2017-05-20">
-              2017-05-20
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/acm/" itemprop="url" rel="index">
-                    <span itemprop="name">acm</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          原题：Strange Optimization
-原题大意
-找到一个α，使得f（1/2+α）最大。
-
-可以看成两点之间距离，中点处最大。
-程序代码#include &lt;bits/stdc++.h&gt;
-using namespace std;
-typedef long long ll;
-ll gcd(ll a, ll b){
-    return b == 0 ? a : gcd(b, a%b);
-}
-int main(){
-//freopen(&quot;input.txt&quot;, &quot;r&quot;, stdin);
-    ios::sync_with_stdio(false);
-    cin.tie(0);
-    ll n, m;
-    while(cin &gt;&gt; n &gt;&gt; m){
-    ll t1 = gcd(n, m);
-    ll t2 = 2 * n * m;
-    ll num = gcd(t1, t2);
-    ll p = t1 / num;
-    ll q = t2 / num;
-    cout &lt;
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/05/20/Strange-Optimization/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -939,7 +929,7 @@ int main(){
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">106</span>
+              <span class="site-state-item-count">107</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -956,7 +946,7 @@ int main(){
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">73</span>
+                <span class="site-state-item-count">74</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

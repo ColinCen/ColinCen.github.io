@@ -258,6 +258,135 @@
             
               
                 
+                <a class="post-title-link" href="/2017/04/29/迷宫转弯问题/" itemprop="url">
+                  迷宫转弯问题
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-04-29T16:13:22+08:00" content="2017-04-29">
+              2017-04-29
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/acm/" itemprop="url" rel="index">
+                    <span itemprop="name">acm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          走迷宫问题是图搜索的经典问题，这里给出两个和转弯有关的题。
+Laser原题：Laser
+原题大意有一个n×m的区域，有一个激光和一个传感器，其中有一些障碍，我们的目标就是在空白的区域放一些镜子，并且希望用最少数量的镜子，能够使激关经过反射后到达传感器。&lt;&gt;^v箭头指向激光的方向，C表示传感器，#表示障碍， . 表示空白区域。
+算法分析暴力模拟当前光线在何处时，放置了哪种镜子，搜下去就行了。光线通过的路径也被视作’#’，其实这个条件是没有意义的。假若光线产生了回路，对于最优解来说与其花费更多镜子去产生回路，不如只放置一面镜子就使得方向偏转,而我们bfs出的结果一定是最优的。需要注意镜子不能摆放在起点，终点和’#’处。
+程序代码#include &lt;bits/stdc++.h&gt;
+using namespace std;
+typedef long long LL;
+int t;
+int n, m;
+char s[222][222];
+int walk[4][2] = {{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
+int vis[222][222
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/04/29/迷宫转弯问题/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/04/26/Choreographer-Problem/" itemprop="url">
                   Choreographer Problem
                 </a>
@@ -778,135 +907,6 @@ http://blog.csdn.net/dinosoft/article/details/5829550
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/04/24/World-is-Exploding/" itemprop="url">
-                  World is Exploding
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-04-24T21:05:34+08:00" content="2017-04-24">
-              2017-04-24
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/acm/" itemprop="url" rel="index">
-                    <span itemprop="name">acm</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          原题：World is Exploding
-原题大意给出一个长度为n的整数序列V，要求输出有多少个四元组{a,b,c,d}。满足1 &lt;=a &lt; b &lt;= n,1 &lt;=c &lt; d &lt;= n,a!=b!=c!=d 且 VaVd
-算法分析先用树状数组处理每个位置(离散化处理，否则10^9存不下)左边比它大或小的有几个，右边比它大或小的有几个，算出这个序列分正序数和逆序数，并乘起来，然后去掉a==c,a==d,b==d,b==d,四种情况的个数。
-程序代码#include&lt;iostream&gt;  
-#include&lt;stdio.h&gt;  
-#include&lt;string.h&gt;  
-#include&lt;algorithm&gt;  
-using namespace std;  
-typedef long long ll;  
-ll num,a[50005],zx[50005],zd[50005],yx[50005],yd[50005],C[50005],b[50005];  
-ll lowbit(ll x){  
-    r
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/04/24/World-is-Exploding/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -952,7 +952,7 @@ ll lowbit(ll x){
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">106</span>
+              <span class="site-state-item-count">107</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -969,7 +969,7 @@ ll lowbit(ll x){
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">73</span>
+                <span class="site-state-item-count">74</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

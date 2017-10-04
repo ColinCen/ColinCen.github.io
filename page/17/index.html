@@ -258,6 +258,149 @@
             
               
                 
+                <a class="post-title-link" href="/2017/02/11/machine-learning-exercise4-Coursera/" itemprop="url">
+                  machine learning exercise4 Coursera
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-02-11T12:09:28+08:00" content="2017-02-11">
+              2017-02-11
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/机器学习/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          第四次上机作业：
+sigmoidGradient.m
+randInitializeWeights.m
+nnCostFunction.m
+sigmoidGradient.m一个简单的求偏导数的公式
+
+g = sigmoid(z) .* (1 - sigmoid(z));
+randInitializeWeights.m随机初始权重函数。
+epsilon_init = 0.12;
+W = rand(L_out, 1 + L_in) * 2 * epsilon_init - epsilon_init;
+nnCostFunction.m后向传播算法的应用
+
+第一步，先用前向传播求出各层的特征值；
+
+a1 = [ones(m,1), X];
+z2 = a1 * Theta1&apos;;
+a2 = sigmoid(z2);
+a2 = [ones(m, 1),a2];
+z3 = a2 * Theta2&apos;;
+a3 = sigmoid(z3);
+Y = zeros(m, num_labels);
+%将y变成矩阵形式
+for i = 1:m
+  Y(i, y(i)) = 1;
+end
+第二步，求
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/02/11/machine-learning-exercise4-Coursera/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/02/07/machine-learning-exercise3-Coursera/" itemprop="url">
                   machine learning exercise3 Coursera
                 </a>
@@ -775,112 +918,6 @@ for(int i = 0; i &lt; cnt; i++){
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/12/28/c++课程设计第四题/" itemprop="url">
-                  c++课程设计
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-12-28T22:18:02+08:00" content="2016-12-28">
-              2016-12-28
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          原题要求：设计一个保留字的统计程序建立保留字文件；从源数据文件（C或C++语言程序）中，读取字符或字符串，与保留字文件中的保留字进行匹配比较，并统计计数。输出两张表文件：保留字计数，扫描程序的次数，非保留字计数。
-想法我先说说我是第一天是怎么弄的，第一天。。。什么也没写出来，我连 保留字 是什么都不知道，后来百度后才知道 保留字就是c/c++关键字比如 int short while for,然后再看看题目，要求已经很明确了，建一个保留字文件以及一个c/cpp的源代码（任意的），通过程序筛选出保留字与非保留字，并且计数，最后分别用两个文件输出。所以，这个程序可以分成3部分：
-
-文件读取
-筛选以及计数
-文件输出
-
-先说文件输入输出，这个我是有点头疼的，之前c里面是用fread，fwrite两个函数，但这里显然不合适，你无法预测文档的大小。无奈，拿起上学期的c++书，翻到了文件输入输出流，书上的太简略，没有合适的代码，于是就先放在了这里。再来想一想第二个步骤，第二个步骤也是最难的部分，首先看筛选，如何将保留字与非保留字从源码里区分开来，和周围同学讨论后，他们是这样想的：通过文件操作将源码读
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/12/28/c++课程设计第四题/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -926,7 +963,7 @@ for(int i = 0; i &lt; cnt; i++){
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">106</span>
+              <span class="site-state-item-count">107</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -943,7 +980,7 @@ for(int i = 0; i &lt; cnt; i++){
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">73</span>
+                <span class="site-state-item-count">74</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

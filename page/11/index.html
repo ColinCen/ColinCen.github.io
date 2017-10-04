@@ -258,6 +258,137 @@
             
               
                 
+                <a class="post-title-link" href="/2017/05/09/逃离迷宫II/" itemprop="url">
+                  逃离迷宫II
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-05-09T21:15:11+08:00" content="2017-05-09">
+              2017-05-09
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/acm/" itemprop="url" rel="index">
+                    <span itemprop="name">acm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          原题：逃离迷宫II
+原题大意小Hi被坏女巫抓进里一间有N x M个格子组成的矩阵迷宫。
+有些格子是小Hi可以经过的，我们用’.’表示；有些格子上有障碍物小Hi不能经过，我们用’#’表示。小Hi的起始位置用’S’表示，他需要到达用’T’表示的格子才能逃离迷宫。
+麻烦的是小Hi被坏女巫施了魔法，他只能选择上下左右某一个方向，沿着这个方向一直走，直到遇到障碍物或者迷宫边界才能改变方向。新的方向可以是上下左右四个方向之一。之后他还是只能沿着新的方向一直走直到再次遇到障碍物或者迷宫边界……  
+小Hi想知道他最少改变几次方向才能逃离这个迷宫。
+算法分析bfs，起初想用dfs，发现如果终点不在边界就不好判断了，所以改用bfs，但是由于考虑不周导致被卡了两天，这种题还是要细心一点。
+程序代码#include &lt;bits/stdc++.h&gt;
+using namespace std;
+const int maxn = 505;
+char g[maxn][maxn];
+int vis[maxn][maxn];
+int n, m;
+int sx, sy, ex, ey;
+int d[4][2]=
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/05/09/逃离迷宫II/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/05/09/Max-Score/" itemprop="url">
                   Max Score
                 </a>
@@ -769,135 +900,6 @@ int main(){
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/04/29/迷宫转弯问题/" itemprop="url">
-                  迷宫转弯问题
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-04-29T16:13:22+08:00" content="2017-04-29">
-              2017-04-29
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/acm/" itemprop="url" rel="index">
-                    <span itemprop="name">acm</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          走迷宫问题是图搜索的经典问题，这里给出两个和转弯有关的题。
-Laser原题：Laser
-原题大意有一个n×m的区域，有一个激光和一个传感器，其中有一些障碍，我们的目标就是在空白的区域放一些镜子，并且希望用最少数量的镜子，能够使激关经过反射后到达传感器。&lt;&gt;^v箭头指向激光的方向，C表示传感器，#表示障碍， . 表示空白区域。
-算法分析暴力模拟当前光线在何处时，放置了哪种镜子，搜下去就行了。光线通过的路径也被视作’#’，其实这个条件是没有意义的。假若光线产生了回路，对于最优解来说与其花费更多镜子去产生回路，不如只放置一面镜子就使得方向偏转,而我们bfs出的结果一定是最优的。需要注意镜子不能摆放在起点，终点和’#’处。
-程序代码#include &lt;bits/stdc++.h&gt;
-using namespace std;
-typedef long long LL;
-int t;
-int n, m;
-char s[222][222];
-int walk[4][2] = {{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
-int vis[222][222
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/04/29/迷宫转弯问题/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -943,7 +945,7 @@ int vis[222][222
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">106</span>
+              <span class="site-state-item-count">107</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -960,7 +962,7 @@ int vis[222][222
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">73</span>
+                <span class="site-state-item-count">74</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

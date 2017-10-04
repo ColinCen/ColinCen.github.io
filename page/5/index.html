@@ -258,6 +258,138 @@
             
               
                 
+                <a class="post-title-link" href="/2017/06/30/Okabe-and-City/" itemprop="url">
+                  Okabe and City
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-06-30T20:42:40+08:00" content="2017-06-30">
+              2017-06-30
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/acm/" itemprop="url" rel="index">
+                    <span itemprop="name">acm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          原题：Okabe and City
+原题大意bfs搜索题，从左上角到右下角，必须走在有灯的格子里，如果要去的格子没有灯，可以暂时照亮任意一行或者一列，但必须之前站在原来就是有灯的格子里，同时花费为1，问是否能到达目的地，如果能输出最小花费，否则输出-1。
+算法分析每次bfs都是在原始就是有灯的点之间移动（除了终点）
+一行或者一列最多被照亮一次
+ 当前点，与下一次可以到达的点的横坐标或纵坐标距离小于等于2
+程序代码#include &lt;bits/stdc++.h&gt;
+#define mem(a,b) memset(a,b,sizeof(a));
+#define pb push_back
+using namespace std;
+const int maxn = 10000 + 50;
+const int MAXN = (1&lt;&lt;30);
+typedef long long ll;
+typedef pair&lt;int, int&gt; pii;
+typedef vector&lt;int&gt; vi;
+priority_queue&lt;pii, vector&lt
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/06/30/Okabe-and-City/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/06/28/Exhausted/" itemprop="url">
                   Exhausted?
                 </a>
@@ -765,127 +897,6 @@ const int maxn = 1
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/06/17/Chef-and-Pairs/" itemprop="url">
-                  Chef and Pairs
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-06-17T16:41:28+08:00" content="2017-06-17">
-              2017-06-17
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/acm/" itemprop="url" rel="index">
-                    <span itemprop="name">acm</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          原题：Chef and Pairs
-原题大意定义一个函数maxMatching(A,B,y)，其输入包含两个整数数组 A 和 B 以及一个整数 y，返回一个整数。记数组 A 的大小为 N，数组 B 的大小为 M。考虑一个由 {a1, a2, … , aN } 和 {b1, b2, … , bM}两个顶点集构成的二分图。节点 ai 和 bj 之间存在边相连当且仅当 abs(Ai - Bj ) &lt;= y。函数maxMatching(A,B,y)便返回这个这个二分图的最大匹配。现在给你两个整数数组 C 和 D 和一个整数 e，请你输出下面这段程序的运行结果：
-ans = maxMatching(C, D, e)FOR x = -2e9..2e9    FOR i = 1..N    F[i] = C[i] + xans = max(ans, maxMatching(F, D, e))output ans
-算法分析先看看哪些X是有用的，即有用的事件点有哪些。对于c[i], d[j]，可以用的事件点只有两个，通过计算可得。然后把事件点排序，发现每个c能匹配的d是一段不断往下移的区间。因此可
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/06/17/Chef-and-Pairs/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -931,7 +942,7 @@ ans = maxMatching(C, D, e)FOR x = -2e9..2e9    FOR i = 1..N    F[i] = C[i] + xan
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">106</span>
+              <span class="site-state-item-count">107</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -948,7 +959,7 @@ ans = maxMatching(C, D, e)FOR x = -2e9..2e9    FOR i = 1..N    F[i] = C[i] + xan
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">73</span>
+                <span class="site-state-item-count">74</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

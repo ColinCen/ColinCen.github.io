@@ -258,6 +258,136 @@
             
               
                 
+                <a class="post-title-link" href="/2017/06/10/勤劳的ACgirls/" itemprop="url">
+                  勤劳的ACgirls
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-06-10T21:43:21+08:00" content="2017-06-10">
+              2017-06-10
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/acm/" itemprop="url" rel="index">
+                    <span itemprop="name">acm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          原题：勤劳的ACgirls
+原题大意zjc的ACgirls队的队员最近比较忙，为了能够取得更好的比赛成绩，他们制定了一个m天a掉n题的计划，a掉一题可以是这m天的任何时候。为了表示对acmer事业的热爱，队长wc要求每天必须至少要ac掉k题，这m天每天ac掉的题数可以用一个m元组表示。设不同的m元组一共有c个，请问c的末尾有多少个0？（如果c是0，输出0）
+算法分析用隔板法算出答案是C（n+(1-k)*m-1,m-1）,然后算出因子5和因子2的个数，取小的那个
+程序代码#include &lt;bits/stdc++.h&gt;
+using namespace std;
+typedef long long ll;
+ll m, n, k;
+int main(){
+    while(scanf(&quot;%lld%lld%lld&quot;, &amp;m, &amp;n, &amp;k) != EOF){
+        ll x = m - 1;
+        ll y = (n - m * k) + m - 1;
+        ll ans = 0;
+        if(x
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/06/10/勤劳的ACgirls/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/06/10/qwb与支教/" itemprop="url">
                   qwb与支教
                 </a>
@@ -771,136 +901,6 @@ struct E{
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/05/30/3N-Numbers/" itemprop="url">
-                  3N Numbers
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-05-30T20:37:46+08:00" content="2017-05-30">
-              2017-05-30
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/acm/" itemprop="url" rel="index">
-                    <span itemprop="name">acm</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          原题：3N Numbers
-原题大意给3n个数，要求去掉n个数，使得剩下的2n个数里，前n个数减后n个数的值最大，求最大值。
-算法分析将球分为三种颜色，被取走的标为黑色，剩下的前n个为红色，后n个为蓝色，所以观察后发现，红色一定只出现在前面，蓝色一定只出现在后面，红色的最后一个位置是n~2n，蓝色的第一个位置一定是n+1~2n+1。设k为分界线，红球从前k个里面取，蓝球从后3*n-k里面取，k的取值为(n&lt;=k&lt;=2n)，枚举k的取值，用优先队列维护最优值。
-程序代码#include&lt;stdio.h&gt;
-#include&lt;string.h&gt;
-#include&lt;algorithm&gt;
-#include&lt;stdlib.h&gt;
-#include&lt;iostream&gt;
-#include&lt;queue&gt;
-using namespace std;
-
-priority_queue&lt;int&gt;QD;//大根堆
-priority_queue&lt;int,vector&lt;int&gt;,greater&lt;int&
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/05/30/3N-Numbers/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -946,7 +946,7 @@ priority_queue&lt;int,vector&lt;int&gt;,greater&lt;int&
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">106</span>
+              <span class="site-state-item-count">107</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -963,7 +963,7 @@ priority_queue&lt;int,vector&lt;int&gt;,greater&lt;int&
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">73</span>
+                <span class="site-state-item-count">74</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
