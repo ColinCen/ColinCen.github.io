@@ -258,8 +258,8 @@
             
               
                 
-                <a class="post-title-link" href="/2017/03/22/区间价值/" itemprop="url">
-                  区间价值
+                <a class="post-title-link" href="/2017/04/05/Dome-of-Circus/" itemprop="url">
+                  Dome of Circus
                 </a>
               
             
@@ -272,8 +272,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-03-22T17:34:27+08:00" content="2017-03-22">
-              2017-03-22
+            <time itemprop="dateCreated" datetime="2017-04-05T22:11:34+08:00" content="2017-04-05">
+              2017-04-05
             </time>
           </span>
 
@@ -321,296 +321,32 @@
       
         
           
-          区间价值
-原题大意给定n个数A1…An，小Ho想了解AL..AR中有多少对元素值相同。小Ho把这个数目定义为区间[L,R]的价值，用v[L,R]表示。
-例如1 1 1 2 2这五个数所组成的区间的价值为4。
-现在小Ho想知道在所有的的v[L,R] (1 &lt;= L &lt;= R &lt;= n)中，第k小的值是多少。
-输入：
-2
-4 7
-1 1 2 3
-3 6
-100 100 100
-输出：
-03
-算法分析因为比较数字之间是否相同，所以与数字大小没有关系，先通过离散化将数据规模压缩，然后又因为最大的价值为 n*(n+1)/2，最小价值为 0，所以通过二分枚举价值，看是否有k个区间满足，然后通过区间的移动（尺取法），找到满足的解。
-程序代码#include &lt;iostream&gt;
-#include &lt;cstdio&gt;
-#include &lt;map&gt;
-#include &lt;algorithm&gt;
-#define ll long long
-using namespace std;
-
-const int maxn = 200000+5;
-ll n, 
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/03/22/区间价值/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
+          原题：Dome of Circus
+原题大意在一个三维空间里，已知有N个点，求一个最小的圆锥使所有的点都包含其中。
+算法分析
+试着只考虑一个点。
+R的最小值和H之间有，形如R=k*H+b的关系。
+令高度为H时体积最小值为f(H)，便会发现f(H)是单峰的
+考虑所有的点，那么高度为H时体积最小值为 max{f(H)}，归纳得，很多个单峰函数取max后仍是单峰函数所以就可以三分答案了。三分可以用来求出凸或凹函数的最值。
+http://blog.csdn.net/pi9nc/article/details/9666627
 
 
-    
-      
 
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/03/22/出勤记录2/" itemprop="url">
-                  出勤记录2
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-03-22T17:14:11+08:00" content="2017-03-22">
-              2017-03-22
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/acm/" itemprop="url" rel="index">
-                    <span itemprop="name">acm</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          出勤记录Ⅱ
-原题大意小Hi的算法课老师每次上课都会统计小Hi的出勤记录。迟到会被记录一个L，缺席会被记录一个A，按时上课会被记录一个O。
-一学期结束，小Hi的出勤记录可以看成是一个只包含LAO的字符串，例如”OOOOLOOOLALLO……”。
-如果小Hi整学期缺席不超过1次，并且没有连续3次迟到，小Hi的出勤记录就算合格。  
-现在给出字符串的长度N，小Hi想知道长度为N的出勤记录中，合格的记录总共有多少种。  
-例如长度为3的合格出勤记录有19种：OOO OOL OOA OLO OAO LOO AOO OLL OLA OAL LOL LOA AOL LLO LAO ALO LLA LAL ALL。
-算法分析状态dp[i][j][k]表示长度为i的组合中合格的个数，i表示长度，j表示A出现的个数，k表示连续L出现的个数。
 程序代码#include &lt;cstdio&gt;
-using namespace std;
-
-const int mod = 1e9 + 7;
-int dp[100005][2][3];
-
-int up(int &amp;a, int b){
-    a += 
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/03/22/出勤记录2/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/03/18/Chosing-Recipes/" itemprop="url">
-                  Chosing Recipes
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-03-18T09:46:35+08:00" content="2017-03-18">
-              2017-03-18
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/acm/" itemprop="url" rel="index">
-                    <span itemprop="name">acm</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          原题:Chosing Recipes
-原题大意有r种菜谱，有p种原料，每种原料都有相应的价格，已经有了m种原料，需要你做出n道菜，问最少需要花多少钱，注意：只要买了一种原料，下面如果还用到无需再买。输入的菜谱中，1表示需要这种原料，0表示不需要。
-算法分析刚开始，我想通过暴力+回溯，可是p的最大值可以取到13，结果，就超时了。后来看了网上的题解，算法应该这样设计：1.将菜谱当成2进制，然后用数组保存，因为最多有2^13种可能，数组开到9000就够了。2.用动态规划，每种菜谱要么选，要么不选，选了之后会对下面的选择造成影响，可以用记忆化搜索完成。
-程序代码#include &lt;cstdio&gt;
-#include &lt;iostream&gt;
-#include &lt;algorithm&gt;
 #include &lt;cmath&gt;
-#include &lt;vector&gt;
+#include &lt;algorithm&gt;
 using namespace std;
-
-
-const int INFI = (1 &lt;&lt; 20) - 1;
-int r;// 菜谱数
-int p;// 配料数
-int m;//已
+const int maxn = 10005;
+const double EPS = 1e-4;
+int T, n;
+double x[maxn], y[maxn], z[maxn];
+double f(double h){
+    double r = 0.0;
+    
           ...
 
           <div class="post-more-link text-center">
-            <a class="btn" href="/2017/03/18/Chosing-Recipes/#more" rel="contents">
+            <a class="btn" href="/2017/04/05/Dome-of-Circus/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -661,8 +397,8 @@ int m;//已
             
               
                 
-                <a class="post-title-link" href="/2017/02/18/machine-learning-exercise6-Coursera/" itemprop="url">
-                  machine learning exercise6 Coursera
+                <a class="post-title-link" href="/2017/04/05/Gems-Fight/" itemprop="url">
+                  Gems Fight
                 </a>
               
             
@@ -675,8 +411,8 @@ int m;//已
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-02-18T20:51:57+08:00" content="2017-02-18">
-              2017-02-18
+            <time itemprop="dateCreated" datetime="2017-04-05T10:32:48+08:00" content="2017-04-05">
+              2017-04-05
             </time>
           </span>
 
@@ -689,8 +425,8 @@ int m;//已
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/机器学习/" itemprop="url" rel="index">
-                    <span itemprop="name">机器学习</span>
+                  <a href="/categories/acm/" itemprop="url" rel="index">
+                    <span itemprop="name">acm</span>
                   </a>
                 </span>
 
@@ -724,35 +460,16 @@ int m;//已
       
         
           
-          第六次上机作业：
-gaussianKernel.m
-dataset3Params.m
-processEmail.m
-emailFeatures.m
-gaussianKernel.m高斯核函数
-
-sim = exp(-sum((x1 - x2) .^ 2) / (2 * sigma * sigma));
-dataset3Params.m求最优的C和sigma
-function [C, sigma] = dataset3Params(X, y, Xval, yval)
-C = 1;
-sigma = 0.3;
-
-right_c = C;
-right_sigma = sigma;
-error = 1;
-
-predictions = zeros(size(yval),1);
-t = [0.01;0.03;0.1;0.3;1;3;10;30];
-for i = 1:8
-  for j = 1:8
-    C = t(i);
-    sigma = t(j);
-    %调用包里的svmTrain函数
-    model = svmTrain(X, y , C, @(x1, x2) gaussian
+          原题：Gems Fight
+原题大意有 G 种颜色的宝石，放在 B 个袋子里（每种颜色可以放多个）。两人轮流选袋子（每个袋子只能被选 1 次），每次将选出来的袋子中的宝石放到 cooker 中，cooker 可能会起反应。反应条件是 cooker 中出现 S 个一样颜色的宝石，而且一旦起反应，每 S 个一样颜色的宝石就会获得 1 个魔法石（同时反应）。作为奖励，每次反应结束后当前玩家可以再选一个袋子继续游戏。游戏目标是自己获得的魔法石尽量多，双方都采取最优策略的情况下，问最终两个玩家的魔法石之差。
+算法分析数据范围很小，毫不犹豫地状压。dp[S]：集合S被取走，此景此境，先手最多能赢后手多少分。遍历不在集合中的袋子，如果拿了i号袋子后不能合成魔法石，那么dp[S] = max(dp[S], -dp[S|1 &lt;&lt; i]), 否则就可以连任dp[S] = max(dp[S], dp[S|1 &lt;&lt; i] + 拿i号袋子获得的收益。
+程序代码#include &lt;cstdio&gt;
+#include &lt;algorithm&gt;
+using namespac
           ...
 
           <div class="post-more-link text-center">
-            <a class="btn" href="/2017/02/18/machine-learning-exercise6-Coursera/#more" rel="contents">
+            <a class="btn" href="/2017/04/05/Gems-Fight/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -803,8 +520,8 @@ for i = 1:8
             
               
                 
-                <a class="post-title-link" href="/2017/02/18/machine-learning-exercise5-Coursera/" itemprop="url">
-                  machine learning exercise5 Coursera
+                <a class="post-title-link" href="/2017/04/02/A-Lot-of-Games/" itemprop="url">
+                  A Lot of Games
                 </a>
               
             
@@ -817,8 +534,8 @@ for i = 1:8
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-02-18T20:51:49+08:00" content="2017-02-18">
-              2017-02-18
+            <time itemprop="dateCreated" datetime="2017-04-02T23:24:09+08:00" content="2017-04-02">
+              2017-04-02
             </time>
           </span>
 
@@ -831,8 +548,8 @@ for i = 1:8
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/机器学习/" itemprop="url" rel="index">
-                    <span itemprop="name">机器学习</span>
+                  <a href="/categories/acm/" itemprop="url" rel="index">
+                    <span itemprop="name">acm</span>
                   </a>
                 </span>
 
@@ -866,28 +583,283 @@ for i = 1:8
       
         
           
-          第五次上机作业：
-linearRegCostFunction.m
-learningCurve.m
-polyFeatures.m
-validationCurve.m
-linearRegCostFunction.m线性回归的代价函数及梯度计算
-J = sum((X * theta - y) .^ 2) / (2 * m);
-J += sum(theta(2 : end) .^ 2) * lambda / (2 * m);
-
-
-p = X&apos; * (X * theta - y) / m;
-grad(1) = p(1) ;
-grad(2 : end) = p(2 : end) + (lambda / m) * theta(2 : end);
-learningCurve.m学习曲线，样本数量和错误的曲线。
-%求theta的函数
-function [theta] = trainLinearReg(X, y, lambda)
-initial_theta = zeros(size(X, 2), 1); 
-costFunction = @(t) linearRegCostFunction(X, 
+          原题：A Lot of Games
+原题大意给出N个字符串，有2名选手，s一开始是个空串，每回合轮流往里面填字母，使得s为N个字符串其中一个的字串，若不能再往里面填字母则输，输了的下回合先手，问最后一回合谁赢
+算法分析单局游戏可分成如下几种情况：1.先手必胜（1,0） 2.先手必败（0,1） 3.先手可决定游戏胜败（1,1） 4.游戏胜败由后手决定 （0,0）属于哪种情况，可种一棵字典树，然后dfs一遍，判断树上每个节点的状态。
+情况1:两个玩家轮流胜利，第k局谁是胜者，由k的奇偶性决定。情况2:很不幸，先手会一直输到底。情况3:先手可前k-1局都输掉，在第k局击杀对手。情况4:先手被后手按情况3的思路干掉。
+程序代码#include &lt;cstdio&gt;
+#include &lt;cstring&gt;
+#include &lt;iostream&gt;
+using namespace std;
+const int maxn = 1e5+5;
+const int SON = 26;
+int node_num = 0, n, k; 
+char s[maxn];
+struct N
           ...
 
           <div class="post-more-link text-center">
-            <a class="btn" href="/2017/02/18/machine-learning-exercise5-Coursera/#more" rel="contents">
+            <a class="btn" href="/2017/04/02/A-Lot-of-Games/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/04/02/The-Problem-to-Make-You-Happy/" itemprop="url">
+                  The Problem to Make You Happy
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-04-02T13:44:28+08:00" content="2017-04-02">
+              2017-04-02
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/acm/" itemprop="url" rel="index">
+                    <span itemprop="name">acm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          原题：The Problem to Make You Happy
+原题大意　　Bob和Alice在有向图内玩游戏，n个顶点，m条边。　　每人一颗棋子，初始位置分别是x，y。　　Bob先手，轮流操作，每次只能走一条有向边。　　结束条件: 1.不能操作的人输 2.两个棋子重合Bob输 3.游戏没有尽头Alice输　　问 Bob 能不能赢？　　2 &lt;= n &lt;= 100. 1 &lt;= m &lt;= n &lt;= n*(n-1) 1 &lt;= x , y &lt;= n, x != y.
+算法分析
+状态设计：两颗棋子的位置，下一步棋是谁走。因子我们可以用dp[x][y] [0/1]表示两枚棋子的状态,Alice在x，Bob在y处，0是下一步Alice走，1是下一步Bob走。
+思路：通过BFS，进行状态之间的转移。
+初始状态：两颗棋子重叠为必败状态，先令这些状态在dp数组中的值为0，其它的为1
+状态转移：a) 若是选手A打算行动，那么在他之前行动的是B，要让B能GG必须B能到达的所有状态均为必败。b) 若是选手B打算行动，那么在他之前行动的是A，时光倒流，A行动时的那个状态
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/04/02/The-Problem-to-Make-You-Happy/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/03/31/Anton-and-School-2/" itemprop="url">
+                  Anton and School - 2
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-03-31T10:24:25+08:00" content="2017-03-31">
+              2017-03-31
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/acm/" itemprop="url" rel="index">
+                    <span itemprop="name">acm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          原题：Anton and School - 2
+原题大意给出一组由“（”和“)”组成的字符串，问有多少种方法使得删除其中一些括号后，字符串会成为RSBS串，RSBS串是一种左右完全对称的串，如“（（（）））”，有一些则不是，如“（（（））”，“（（）（））”。
+算法分析删除几个，其实也就是算有几种成立。看了网上的代码，知道了如何通过逆元来算组合数，博客如下，本题中求1/(k!) 是通过 k^(MOD - 2) % MOD (MOD为素数);
+
+组合数学公式推导
+含MOD求逆元
+
+程序代码#include &lt;cstdio&gt;
+#include &lt;memory.h&gt;
+#include &lt;cstring&gt;
+using namespace std;
+typedef long long LL;
+const int maxn = 2e5+5;
+const LL mod = 1e9 + 7;
+
+int n;
+char s[maxn];
+int l[maxn], r[maxn];
+LL fac[maxn], inv[maxn];//fac[i] 保存阶乘，inv[i]
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/03/31/Anton-and-School-2/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -921,7 +893,7 @@ costFunction = @(t) linearRegCostFunction(X,
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/15/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><span class="page-number current">16</span><a class="page-number" href="/page/17/">17</a><span class="space">&hellip;</span><a class="page-number" href="/page/22/">22</a><a class="extend next" rel="next" href="/page/17/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/15/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><span class="page-number current">16</span><a class="page-number" href="/page/17/">17</a><span class="space">&hellip;</span><a class="page-number" href="/page/23/">23</a><a class="extend next" rel="next" href="/page/17/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -962,7 +934,7 @@ costFunction = @(t) linearRegCostFunction(X,
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">107</span>
+              <span class="site-state-item-count">112</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -979,7 +951,7 @@ costFunction = @(t) linearRegCostFunction(X,
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">74</span>
+                <span class="site-state-item-count">71</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

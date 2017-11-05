@@ -258,8 +258,8 @@
             
               
                 
-                <a class="post-title-link" href="/2017/04/29/迷宫转弯问题/" itemprop="url">
-                  迷宫转弯问题
+                <a class="post-title-link" href="/2017/05/09/逃离迷宫II/" itemprop="url">
+                  逃离迷宫II
                 </a>
               
             
@@ -272,8 +272,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-04-29T16:13:22+08:00" content="2017-04-29">
-              2017-04-29
+            <time itemprop="dateCreated" datetime="2017-05-09T21:15:11+08:00" content="2017-05-09">
+              2017-05-09
             </time>
           </span>
 
@@ -321,22 +321,24 @@
       
         
           
-          走迷宫问题是图搜索的经典问题，这里给出两个和转弯有关的题。
-Laser原题：Laser
-原题大意有一个n×m的区域，有一个激光和一个传感器，其中有一些障碍，我们的目标就是在空白的区域放一些镜子，并且希望用最少数量的镜子，能够使激关经过反射后到达传感器。&lt;&gt;^v箭头指向激光的方向，C表示传感器，#表示障碍， . 表示空白区域。
-算法分析暴力模拟当前光线在何处时，放置了哪种镜子，搜下去就行了。光线通过的路径也被视作’#’，其实这个条件是没有意义的。假若光线产生了回路，对于最优解来说与其花费更多镜子去产生回路，不如只放置一面镜子就使得方向偏转,而我们bfs出的结果一定是最优的。需要注意镜子不能摆放在起点，终点和’#’处。
+          原题：逃离迷宫II
+原题大意小Hi被坏女巫抓进里一间有N x M个格子组成的矩阵迷宫。
+有些格子是小Hi可以经过的，我们用’.’表示；有些格子上有障碍物小Hi不能经过，我们用’#’表示。小Hi的起始位置用’S’表示，他需要到达用’T’表示的格子才能逃离迷宫。
+麻烦的是小Hi被坏女巫施了魔法，他只能选择上下左右某一个方向，沿着这个方向一直走，直到遇到障碍物或者迷宫边界才能改变方向。新的方向可以是上下左右四个方向之一。之后他还是只能沿着新的方向一直走直到再次遇到障碍物或者迷宫边界……  
+小Hi想知道他最少改变几次方向才能逃离这个迷宫。
+算法分析bfs，起初想用dfs，发现如果终点不在边界就不好判断了，所以改用bfs，但是由于考虑不周导致被卡了两天，这种题还是要细心一点。
 程序代码#include &lt;bits/stdc++.h&gt;
 using namespace std;
-typedef long long LL;
-int t;
+const int maxn = 505;
+char g[maxn][maxn];
+int vis[maxn][maxn];
 int n, m;
-char s[222][222];
-int walk[4][2] = {{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
-int vis[222][222
+int sx, sy, ex, ey;
+int d[4][2]=
           ...
 
           <div class="post-more-link text-center">
-            <a class="btn" href="/2017/04/29/迷宫转弯问题/#more" rel="contents">
+            <a class="btn" href="/2017/05/09/逃离迷宫II/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -387,8 +389,8 @@ int vis[222][222
             
               
                 
-                <a class="post-title-link" href="/2017/04/26/Choreographer-Problem/" itemprop="url">
-                  Choreographer Problem
+                <a class="post-title-link" href="/2017/05/09/Max-Score/" itemprop="url">
+                  Max Score
                 </a>
               
             
@@ -401,8 +403,8 @@ int vis[222][222
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-04-26T11:53:57+08:00" content="2017-04-26">
-              2017-04-26
+            <time itemprop="dateCreated" datetime="2017-05-09T20:04:30+08:00" content="2017-05-09">
+              2017-05-09
             </time>
           </span>
 
@@ -450,171 +452,23 @@ int vis[222][222
       
         
           
-          原题：Choreographer Problem
-原题大意艺术团中，有n个舞者，i舞者和(i-1)舞者、(i+1)舞者相似，(i-1)和(i+1)舞者并不相似。如果n&gt; 1，那么第一个舞者只有相似的舞者，最后一个舞者只有相似的舞者，所有其他舞者都有两个相似的舞者。舞蹈开始和结束在一个空荡荡的舞台。舞蹈舞蹈不应该是空的。每一分钟，以下变化之一发生在舞台上：
-1.一个舞者（目前不在舞台上）出现;
-2.一个舞者（目前在舞台上）离开舞台;
-3.一个舞者代替另一个类似于他/她的舞者（基于舞者的切换-一个舞者离开舞台，而舞台上出现一个类似的舞者）同时，舞台上不能有超过k个舞者。
-现在编舞师正在考虑安排舞蹈，使得每一个不包含k个舞者的舞者都会在舞台上出现一次。你的工作是编写一个程序来帮助编舞。
-输出：+i表示i舞者出现在舞台上，-i表示i舞者离开舞台;++i表示i舞者离开舞台，同时(i+1)舞者出现在舞台上;–i表示i舞者离开舞台，同时(i-1)舞者出现在舞台上
-算法分析题目要我们生成组合 &amp;&amp; 相邻的两个组合必须很接近由这点，我们可以想到Gray码。
-注意到台上的人数不能超过
-          ...
+          原题：Max Score
+原题大意给一个数列A，每次从里面取一个数，然后用已经取出的数之和去mod这个数，得到的值加入score里，并且把这个数加入到已经取出的集合里，直到取完所有数，问score最大是多少？
+算法分析本想贪心来写发现完全错了，看了题解才知道用dp，题中给出的n最大为20，所以很容易用位运算进行状态压缩，然后用记忆型dp来写，题解中给出了转移方程：f(s) = max(f(subset(s,i))) + (∑ e) mod ai;subset(s,i)，指除了ai以外包含s里所有元素的集合这里的需要枚举i，e属于subset(s,i)。
+转移方程详见题解：
 
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/04/26/Choreographer-Problem/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
+https://www.hackerrank.com/contests/rookierank-3/challenges/max-score/editorial
 
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/04/26/Hamiltonian-Hypercube/" itemprop="url">
-                  Hamiltonian Hypercube
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-04-26T11:36:26+08:00" content="2017-04-26">
-              2017-04-26
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/acm/" itemprop="url" rel="index">
-                    <span itemprop="name">acm</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          原题：Hamiltonian Hypercube
-原题大意n维哈密尔顿超立方体
-
-想知道a到b之间的顶点数,1 &lt;= n &lt;= 60;a,b都出现在n位格雷码中;
-算法分析求出两个格雷码对应的二进制数的十进制表示做差即可。
-有关格雷码的模板：
-1. 二进制 -&gt; Gray
-
-LL to_gray(LL x)
-{
-    return x ^= (x&gt;&gt;1);//返回结果为Gray码的十进制表示。
-}
-
-2. Gray-二进制
-
-LL to_bin(LL x)
-{
-    LL y = x;
-    while(x&gt;&gt;=1)
-    {
-        y ^= x;
-    }
-    return y;
-}
-
-3. 构造长度为n的格雷码
-
-vector&lt;int&gt; G;
-for(int i=0;i&lt;(1&lt;&lt;n);i++)
-{
-    G.push_back(to_gray(i));
-}
-程序代码#include &lt;cstdio&gt;
+程序代码#include &lt;bits/stdc++.h&gt;
+#define mem(a,b) memset(a,b,sizeof(a))
 using namespace std;
-typedef long lon
+typedef long long ll;
+int n;
+ll a
           ...
 
           <div class="post-more-link text-center">
-            <a class="btn" href="/2017/04/26/Hamiltonian-Hypercube/#more" rel="contents">
+            <a class="btn" href="/2017/05/09/Max-Score/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -665,8 +519,8 @@ typedef long lon
             
               
                 
-                <a class="post-title-link" href="/2017/04/25/Product-it-again/" itemprop="url">
-                  Product it again
+                <a class="post-title-link" href="/2017/05/09/Culture-Conference/" itemprop="url">
+                  Culture Conference
                 </a>
               
             
@@ -679,8 +533,8 @@ typedef long lon
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-04-25T20:55:33+08:00" content="2017-04-25">
-              2017-04-25
+            <time itemprop="dateCreated" datetime="2017-05-09T19:46:20+08:00" content="2017-05-09">
+              2017-05-09
             </time>
           </span>
 
@@ -728,19 +582,26 @@ typedef long lon
       
         
           
-          原题：Product it again
-原题大意给出N，M，让你求出GCD(1, 1)  GCD(1, 2)  …  GCD(1, M)  GCD(2, 1)  GCD(2, 2)  …  GCD(2, M)  …  GCD(N, 1)  GCD(N, 2)  …  GCD(N, M) 结果mod10^9+7。
-算法分析考虑某一个质数p对答案的贡献ans。ans = p^((n/p  m/p) + ((n/p^2  m/p^2)) + ….)原理类比n!的质因子分解后，对某个质因子p的指数大小的计数。所以我们只需要一个线性筛即可，然后暴力计数。复杂度约为O((n/logn) logn  logn)。这里有关于n！质因子分解和素数快速筛法的相关博客：
+          原题： Culture Conference
+原题大意首先看一下什么是最小支配集：
 
-http://www.doc88.com/p-9159772516121.html
-http://blog.csdn.net/qq_31917799/article/details/51612654
-http://blog.csdn.net/dinosoft/article/details/5829550
+http://www.cnblogs.com/Ash-ly/p/5775934.html
+
+本题中也类似，给一棵树，n个人编号0~n-1，0为CEO，其余每个人都有一个直接上司，现在问题是有些人比较懒（用0表示），所以这些人需要去参加会议（估计是批斗大会什么的），当这些人回来后，他们就变得勤奋努力，认真踏实……，而且带动与他相连的结点也进入一样的状态（如果本来就是1，就没有什么变化，否则由0变成1），现在问最少喊几个人去开会，能使所有人变得不懒惰。（注意！CEO永远不会懒惰，且没有上司）
+算法分析本题是一个很好的模版题，填补了我对于最小支配集的空缺，官方题解也很详细。
+最小支配集的算法：
+
+http://www.cnblogs.com/Ash-ly/p/5783877.html
+
+官方题解：
+
+https://www.hackerrank.com/contests/rookierank-3/challenges/culture-conference/editorial
 
 程序代码#include &l
           ...
 
           <div class="post-more-link text-center">
-            <a class="btn" href="/2017/04/25/Product-it-again/#more" rel="contents">
+            <a class="btn" href="/2017/05/09/Culture-Conference/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -791,8 +652,8 @@ http://blog.csdn.net/dinosoft/article/details/5829550
             
               
                 
-                <a class="post-title-link" href="/2017/04/24/小Hi的烦恼/" itemprop="url">
-                  小Hi的烦恼
+                <a class="post-title-link" href="/2017/05/06/Font-Size/" itemprop="url">
+                  Font Size
                 </a>
               
             
@@ -805,8 +666,8 @@ http://blog.csdn.net/dinosoft/article/details/5829550
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-04-24T21:15:28+08:00" content="2017-04-24">
-              2017-04-24
+            <time itemprop="dateCreated" datetime="2017-05-06T10:03:47+08:00" content="2017-05-06">
+              2017-05-06
             </time>
           </span>
 
@@ -854,30 +715,162 @@ http://blog.csdn.net/dinosoft/article/details/5829550
       
         
           
-          原题：小Hi的烦恼
-原题大意描述小Hi从小的一大兴趣爱好就是学习，但是他发现尽管他认真学习，依旧有学神考的比他好。
-小Hi在高中期间参加了市里的期末考试，一共五门：语文、数学、英语、物理、化学。
-成绩出来之后，小Hi发现有些同学，所有科目都考的比他好，他很烦恼。所以他想知道所有科目都比自己名次靠前的同学的人数。
-为了方便，可以认为不存在两个人某一门名次是相同的。
-其他同学们也想知道有多少人全面碾压了他们，所以你需要对所有人输出答案。
-输入第一行，一个正整数N(N &lt;= 30000)，表示人数。
-接下来N行，每行五个整数，分别表示五门课依次的排名。
-输出输出共N行，每行一个整数，表示答案。
-样例输入4
-1 1 2 2 1
-2 3 3 3 2
-3 2 1 1 3
-4 4 4 4 4
-样例输出0
-1
-0
-3
-算法分析这一题主要是bitset的运用，算法题目已经给出了提示：
-小Ho：我想用集合的角度去考虑这个问题。对于每一维，比如说X维，我们能通过按X维的坐标排序，不难求出对i点来说X维比i点小的所有点的集合。现在的问题就转化成对点i来说，求出X维，Y维，Z维，Q维，W维分别比i所在那一
+          原题：Font Size
+原题大意史蒂文喜欢看书。他现在读的这本书由N个段落组成，第i个段落包含ai个字符。现在他决定增加字符的字体大小。但史蒂文手机屏幕的尺寸有限。其宽度为W，高度为H。因此，如果字符的字体大小为S，则只能在一行中显示⌊W/S⌋个字符，并在页面中显示⌊H/S⌋行。（⌊x⌋是不大于x的最大整数）所以这里的问题是，如果史蒂文想控制页数不超过P，他可以设置的最大字体大小是多少？请注意，段落必须以新行开头，段落之间没有空行。
+算法分析二分，但是二分有几种写法：
+规定范围里的最大值（如果连续两个数，偏向右边的数）m = l+(r-l+1)/2;
+if(check(m)) l = m;
+else r = m-1;
+规定范围里的最小值（如果连续两个数，偏向左边的数）m = l+(r-l)/2;
+if(check(m)) l = m+1;
+else r = m;
+小于一个精度while(r-l &lt; 1e-5){
+    m = (l+r)/2;
+    if(check(m)) l = m;
+    else r= m;
+}
+程序代码#include &lt;bits/stdc
           ...
 
           <div class="post-more-link text-center">
-            <a class="btn" href="/2017/04/24/小Hi的烦恼/#more" rel="contents">
+            <a class="btn" href="/2017/05/06/Font-Size/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/05/03/Atcoder-073/" itemprop="url">
+                  Atcoder 073
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-05-03T15:56:51+08:00" content="2017-05-03">
+              2017-05-03
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/acm/" itemprop="url" rel="index">
+                    <span itemprop="name">acm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          Sentou原题：Sentou
+原题大意一个水龙头，按一次开关会流T秒，再次按开关会刷新它的时间。给出n次按开关的时刻，问总共会流多少秒。
+算法分析水题，用一个数组记录两次开关的时间差，并判断前一个时刻加上水流的时间能否到达下次按开关的时刻，如果能则加上时间差，否则加上水流时间。
+程序代码#include &lt;cstdio&gt;
+#include &lt;cstring&gt;
+#define mem(a,b) memset(a,b,sizeof(a))
+using namespace std;
+const int maxn = 200000+5;
+typedef long long ll;
+ll sen[maxn], a[maxn];
+ll sum = 0;
+int n;
+ll t;
+int main(){
+    scanf(&quot;%lld%lld&quot;,&amp;n, &amp;t);
+    for(int i = 0; i &lt; n; i++)
+    {
+        scanf(&quot;%lld&quot;, &amp;sen[i]);
+
+  
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/05/03/Atcoder-073/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -911,7 +904,7 @@ http://blog.csdn.net/dinosoft/article/details/5829550
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/11/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><span class="page-number current">12</span><a class="page-number" href="/page/13/">13</a><span class="space">&hellip;</span><a class="page-number" href="/page/22/">22</a><a class="extend next" rel="next" href="/page/13/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/11/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><span class="page-number current">12</span><a class="page-number" href="/page/13/">13</a><span class="space">&hellip;</span><a class="page-number" href="/page/23/">23</a><a class="extend next" rel="next" href="/page/13/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -952,7 +945,7 @@ http://blog.csdn.net/dinosoft/article/details/5829550
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">107</span>
+              <span class="site-state-item-count">112</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -969,7 +962,7 @@ http://blog.csdn.net/dinosoft/article/details/5829550
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">74</span>
+                <span class="site-state-item-count">71</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

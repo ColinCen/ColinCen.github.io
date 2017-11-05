@@ -1,0 +1,1101 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="支持向量机,机器学习实战," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/tango.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="svm实现相关博客：
+
+http://www.cnblogs.com/dreamvibe/p/4349886.html
+http://blog.csdn.net/macyang/article/details/38782399/
+
+from numpy import *
+
+#文件操作
+def loadDataSet(fileName):
+    dataMat = []; labelMat = [">
+<meta property="og:type" content="article">
+<meta property="og:title" content="机器学习实战-svm">
+<meta property="og:url" content="http://yoursite.com/2017/11/03/机器学习实战-svm/index.html">
+<meta property="og:site_name" content="Colin's blog">
+<meta property="og:description" content="svm实现相关博客：
+
+http://www.cnblogs.com/dreamvibe/p/4349886.html
+http://blog.csdn.net/macyang/article/details/38782399/
+
+from numpy import *
+
+#文件操作
+def loadDataSet(fileName):
+    dataMat = []; labelMat = [">
+<meta property="og:updated_time" content="2017-11-03T09:49:10.364Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="机器学习实战-svm">
+<meta name="twitter:description" content="svm实现相关博客：
+
+http://www.cnblogs.com/dreamvibe/p/4349886.html
+http://blog.csdn.net/macyang/article/details/38782399/
+
+from numpy import *
+
+#文件操作
+def loadDataSet(fileName):
+    dataMat = []; labelMat = [">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: undefined,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/11/03/机器学习实战-svm/"/>
+
+  <title> 机器学习实战-svm | Colin's blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Colin's blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">A football fan,an English lover and a coder</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                机器学习实战-svm
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-11-03T17:10:28+08:00" content="2017-11-03">
+              2017-11-03
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/机器学习/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="svm实现"><a href="#svm实现" class="headerlink" title="svm实现"></a>svm实现</h1><p>相关博客：</p>
+<blockquote>
+<p><a href="http://www.cnblogs.com/dreamvibe/p/4349886.html" target="_blank" rel="external">http://www.cnblogs.com/dreamvibe/p/4349886.html</a></p>
+<p><a href="http://blog.csdn.net/macyang/article/details/38782399/" target="_blank" rel="external">http://blog.csdn.net/macyang/article/details/38782399/</a></p>
+</blockquote>
+<pre><code>from numpy import *
+</code></pre><hr>
+<pre><code>#文件操作
+def loadDataSet(fileName):
+    dataMat = []; labelMat = []
+    fr = open(fileName)
+    for line in fr.readlines():
+        lineArr = line.strip().split(&apos;\t&apos;)
+        dataMat.append([float(lineArr[0]), float(lineArr[1])])
+        labelMat.append(float(lineArr[2]))
+    return dataMat,labelMat
+</code></pre><hr>
+<pre><code>#随机选择另一个α优化
+def selectJrand(i,m):
+    j=i
+    while (j==i):
+        j = int(random.uniform(0,m))
+    return j
+</code></pre><hr>
+<pre><code>#控制范围在L和H之间
+def clipAlpha(aj,H,L):
+    if aj &gt; H: 
+        aj = H
+    if L &gt; aj:
+        aj = L
+    return aj
+</code></pre><hr>
+<pre><code>#简单版本的smo算法，随机选择aj
+def smoSimple(dataMatIn, classLabels, C, toler, maxIter):
+    dataMatrix = mat(dataMatIn); labelMat = mat(classLabels).transpose()
+    b = 0; m,n = shape(dataMatrix)
+    alphas = mat(zeros((m,1)))
+    iter = 0
+    while (iter &lt; maxIter):
+        alphaPairsChanged = 0
+        for i in range(m):
+            fXi = float(multiply(alphas,labelMat).T*(dataMatrix*dataMatrix[i,:].T)) + b
+            Ei = fXi - float(labelMat[i])
+            if ((labelMat[i]*Ei &lt; -toler) and (alphas[i] &lt; C)) or ((labelMat[i]*Ei &gt; toler) and (alphas[i] &gt; 0)):
+                j = selectJrand(i,m)
+                fXj = float(multiply(alphas,labelMat).T*(dataMatrix*dataMatrix[j,:].T)) + b
+                Ej = fXj - float(labelMat[j])
+                alphaIold = alphas[i].copy(); alphaJold = alphas[j].copy();
+                if (labelMat[i] != labelMat[j]):
+                    L = max(0, alphas[j] - alphas[i])
+                    H = min(C, C + alphas[j] - alphas[i])
+                else:
+                    L = max(0, alphas[j] + alphas[i] - C)
+                    H = min(C, alphas[j] + alphas[i])
+                if L==H: print &quot;L==H&quot;; continue
+                eta = 2.0 * dataMatrix[i,:]*dataMatrix[j,:].T - dataMatrix[i,:]*dataMatrix[i,:].T - dataMatrix[j,:]*dataMatrix[j,:].T
+                if eta &gt;= 0: print &quot;eta&gt;=0&quot;; continue
+                alphas[j] -= labelMat[j]*(Ei - Ej)/eta
+                alphas[j] = clipAlpha(alphas[j],H,L)
+                if (abs(alphas[j] - alphaJold) &lt; 0.00001): print &quot;j not moving enough&quot;; continue
+                alphas[i] += labelMat[j]*labelMat[i]*(alphaJold - alphas[j])
+                b1 = b - Ei- labelMat[i]*(alphas[i]-alphaIold)*dataMatrix[i,:]*dataMatrix[i,:].T - labelMat[j]*(alphas[j]-alphaJold)*dataMatrix[i,:]*dataMatrix[j,:].T
+                b2 = b - Ej- labelMat[i]*(alphas[i]-alphaIold)*dataMatrix[i,:]*dataMatrix[j,:].T - labelMat[j]*(alphas[j]-alphaJold)*dataMatrix[j,:]*dataMatrix[j,:].T
+                if (0 &lt; alphas[i]) and (C &gt; alphas[i]): b = b1
+                elif (0 &lt; alphas[j]) and (C &gt; alphas[j]): b = b2
+                else: b = (b1 + b2)/2.0
+                alphaPairsChanged += 1
+                print &quot;iter: %d i:%d, pairs changed %d&quot; % (iter,i,alphaPairsChanged)
+        if (alphaPairsChanged == 0): iter += 1
+        else: iter = 0
+        print &quot;iteration number: %d&quot; % iter
+    return b,alphas
+</code></pre><hr>
+<pre><code>#记录alphas值的数据结构，便于选取aj
+class optStruct:
+    def __init__(self, dataMatIn, classLabels, C, toler, kTup):
+        self.X = dataMatIn
+        self.labelMat = classLabels
+        self.C = C
+        self.tol = toler
+        self.m = shape(dataMatIn)[0]
+        self.alphas = mat(zeros((self.m, 1)))
+        self.b = 0
+        self.eCache = mat(zeros((self.m, 2)))
+        self.K = mat(zeros((self.m, self.m)))
+        for i in range(self.m):
+            self.K[:,i] = kernelTrans(self.X, self.X[i,:], kTup)
+</code></pre><hr>
+<pre><code>#计算错误的中间函数
+def calcEK(oS, k):
+    fXk = float(multiply(oS.alphas, oS.labelMat).T * \
+    oS.K[:, k] + oS.b)
+    Ek = fXk - float(oS.labelMat[k])
+    return Ek
+</code></pre><hr>
+<pre><code>#选取最佳的j
+def selectJ(i, oS, Ei):
+    maxK = -1; maxDeltaE = 0; Ej = 0
+    oS.eCache[i] = [1, Ei]
+    validEcacheList = nonzero(oS.eCache[: ,0].A)[0]
+    if(len(validEcacheList)) &gt; 1:
+        for k in validEcacheList:
+            if k == i: continue
+            Ek = calcEK(oS, k)
+            deltaE  =  abs(Ei - Ek)
+            if (deltaE &gt; maxDeltaE):
+                maxDeltaE = deltaE
+                maxK = k
+                Ej = Ek
+        return maxK, Ej
+    else:
+        j = selectJrand(i, oS.m)
+        Ej = calcEK(oS, j)
+    return j, Ej
+</code></pre><hr>
+<pre><code>def updateEk(oS, k):
+    Ek = calcEK(oS, k)
+    oS.eCache[k] = [1, Ek]
+</code></pre><hr>
+<pre><code>#迭代内循环
+def innerL(i, oS):
+    Ei = calcEK(oS, i)
+    if ((oS.labelMat[i] * Ei &lt; -oS.tol) and (oS.alphas[i] &lt; oS.C)) or \
+    ((oS.labelMat[i] * Ei &gt; oS.tol) and (oS.alphas[i] &gt; 0)):
+        j, Ej = selectJ(i, oS, Ei)
+        alphaIold = oS.alphas[i].copy(); alphaJold = oS.alphas[j].copy();
+        if (oS.labelMat[i] != oS.labelMat[j]):
+            L = max(0, oS.alphas[j] - oS.alphas[i])
+            H = min(oS.C, oS.C + oS.alphas[j] - oS.alphas[i])
+        else:
+            L = max(0, oS.alphas[j] + oS.alphas[i] - oS.C)
+            H = min(oS.C, oS.alphas[j] + oS.alphas[i])
+        if L == H: print &apos;L==H&apos;; return 0
+        eta = 2.0 * oS.K[i, j] - oS.K[i, i] - oS.K[j, j]
+       # eta = 2.0 * oS.X[i, :] * oS.X[j, :].T - oS.X[i, :]*oS.X[i, :].T - oS.X[j, :]*oS.X[j,:].T
+        if eta &gt;= 0: print &apos;eta&gt;=0&apos;;return 0
+        oS.alphas[j] -= oS.labelMat[j]*(Ei-Ej)/eta
+        oS.alphas[j] = clipAlpha(oS.alphas[j], H, L)
+        updateEk(oS, j)
+        if (abs(oS.alphas[j] - alphaJold) &lt; 0.00001):
+            print &apos;j not moving enough&apos;; return 0
+        oS.alphas[i] += oS.labelMat[j]*oS.labelMat[i]*(alphaJold - oS.alphas[j])
+        updateEk(oS, i)
+        b1 = oS.b - Ei - oS.labelMat[i] * (oS.alphas[i] - alphaIold) * oS.K[i, i] -\
+        oS.labelMat[j]*(oS.alphas[j] - alphaJold) * oS.K[i, j]
+        b2 = oS.b - Ej - oS.labelMat[i] * (oS.alphas[i] - alphaIold) *oS.K[i, j] -\
+        oS.labelMat[j]*(oS.alphas[j] - alphaJold) * oS.K[j, j]
+        # b1 = oS.b - Ei - oS.labelMat[i] * (oS.alphas[i] - alphaIold) * \
+        # oS.X[i,:]*oS.X[i,:].T - oS.labelMat[j]*\
+        # (oS.alphas[j] - alphaJold) * oS.X[i,:]* oS.X[j,:].T
+        # b2 = oS.b - Ej - oS.labelMat[i] * (oS.alphas[i] - alphaIold) * \
+        # oS.X[i,:]*oS.X[j,:].T - oS.labelMat[j]*\
+        # (oS.alphas[j] - alphaJold) * oS.X[j,:]* oS.X[j,:].T
+        if (0 &lt; oS.alphas[i]) and (oS.C &gt; oS.alphas[i]): oS.b = b1
+        elif (0 &lt; oS.alphas[j]) and (oS.C &gt; oS.alphas[j]): oS.b = b2
+        else: oS.b = (b1 + b2)/2.0
+        return 1
+    else: return 0
+</code></pre><hr>
+<pre><code>#完整版smo算法
+def smoP(dataMatIn, classLabels, C, toler, maxIter, kTup = (&apos;lin&apos;, 0)):
+    oS = optStruct(mat(dataMatIn), mat(classLabels).transpose(), C, toler, kTup)
+    iter = 0
+    entireSet = True; alphaPairsChanged = 0
+    while(iter &lt; maxIter) and ((alphaPairsChanged &gt; 0) or (entireSet)):
+        alphaPairsChanged = 0
+        if entireSet:
+            for i in range(oS.m):
+                alphaPairsChanged += innerL(i, oS)
+            print &apos;fullSet, iter: %d i: %d, pairs changed %d&apos; %\
+            (iter, i, alphaPairsChanged)
+            iter += 1
+        else:
+            nonBoundIs= nonzero((oS.alphas.A &gt; 0) * (oS.alphas.A &lt; C))[0]
+            for i in nonBoundIs:
+                alphaPairsChanged += innerL(i, oS)
+                print &apos;non-bound, iter: %d i: %d, pairs changed %d&apos; % \
+                (iter, i, alphaPairsChanged)
+            iter += 1
+        if entireSet: entireSet = False
+        elif (alphaPairsChanged == 0): entireSet = True
+        print &apos;iteration number: %d&apos; % iter
+    return oS.b, oS.alphas
+</code></pre><hr>
+<pre><code>#计算权值
+def calcWs(alphas, dataArr, classLabels):
+    X = mat(dataArr); labelMat = mat(classLabels).transpose()
+    m, n = shape(X)
+    w = zeros((n,1))
+    for i in range(m):
+        w += multiply(alphas[i] * labelMat[i], X[i, :].T)
+    return w
+</code></pre><hr>
+<pre><code>#根据核函数做出变换
+def kernelTrans(X, A, kTup):
+    m, n = shape(X)
+    K = mat(zeros((m, 1)))
+    if kTup[0] == &apos;lin&apos;: K = X * A.T
+    elif kTup[0] == &apos;rbf&apos;:
+        for j in range(m):
+            deltaRow = X[j,:] - A
+            K[j] = deltaRow * deltaRow.T
+        K = exp(K / (-1 * kTup[1] ** 2))
+    else: raise NameError(&apos;Houston We Have a Problem -- That Kernel is not recognized&apos;)
+    return K
+</code></pre><hr>
+<pre><code>#测试样例，并且比较效果
+def testRbf(k1 = 1.5):
+    dataArr, labelArr = loadDataSet(&apos;testSetRBF.txt&apos;)
+    b, alphas = smoP(dataArr, labelArr, 200, 0.0001, 10000, (&apos;rbf&apos;, k1))
+    dataMat = mat(dataArr); labelMat = mat(labelArr).transpose()
+    svInd = nonzero(alphas.A &gt; 0)[0]
+    sVs = dataMat[svInd]
+    labelSV = labelMat[svInd]
+    print &apos;there are %d Support Vectors&apos; % shape(sVs)[0]
+    m, n = shape(dataMat)
+    errorCount = 0
+    for i in range(m):
+        kernelEval = kernelTrans(sVs, dataMat[i, :], (&apos;rbf&apos;, k1))
+        predict = kernelEval.T * multiply(labelSV, alphas[svInd]) + b
+        if sign(predict) != sign(labelArr[i]): errorCount += 1
+    print &apos;the training error rate is: %f&apos; % (float(errorCount )/ m)
+    dataArr, labelArr = loadDataSet(&apos;testSetRBF2.txt&apos;)
+    errorCount = 0
+    dataMat = mat(dataArr); labelMat = mat(labelArr).transpose()
+    m, n = shape(dataMat)
+    for i in range(m):
+        kernelEval = kernelTrans(sVs, dataMat[i, :], (&apos;rbf&apos;, k1))
+        predict = kernelEval.T * multiply(labelSV, alphas[svInd]) + b
+        if sign(predict) != sign(labelArr[i]) : errorCount+=1
+    print &apos;the test error rate is: %f&apos; % (float(errorCount) / m)
+    # xcord0 = []
+    # ycord0 = []
+    # xcord1 = []
+    # ycord1 = []
+    # fr = open(&apos;testSetRBF.txt&apos;)
+    # for line in fr.readlines():
+    #     lineSplit = line.strip().split(&apos;\t&apos;)
+    #     xPt = float(lineSplit[0])
+    #     yPt = float(lineSplit[1])
+    #     label = float(lineSplit[2])
+    #     if (label &lt; 0):
+    #         xcord0.append(xPt)
+    #         ycord0.append(yPt)
+    #     else:
+    #         xcord1.append(xPt)
+    #         ycord1.append(yPt)
+
+    # fr.close()
+    # fig = plt.figure()
+    # ax = fig.add_subplot(111)
+    # ax.scatter(xcord0,ycord0, marker=&apos;s&apos;, s=90)
+    # ax.scatter(xcord1,ycord1, marker=&apos;o&apos;, s=50, c=&apos;red&apos;)
+    # plt.title(&apos;Support Vectors Circled&apos;)
+    # sv = array(sVs)
+    # for li in range(shape(sv)[0]):
+    #     circle = Circle((sv[li][0], sv[li][1]), 0.05, facecolor=&apos;none&apos;, edgecolor=(0,0.8,0.8), linewidth=3, alpha=0.5)
+    #     ax.add_patch(circle)
+    # ax.axis([-1,1,-1,1])
+    # plt.show()
+</code></pre><hr>
+<pre><code>#读取图像文件（手写识别）
+def img2vector(filename):
+    returnVect = zeros((1,1024))
+    fr = open(filename)
+    for i in range(32):
+        lineStr = fr.readline()
+        for j in range(32):
+            returnVect[0,32*i+j] = int(lineStr[j])
+    return returnVect
+def loadImages(dirName):
+    from os import listdir
+    hwLabels = []
+    trainingFileList = listdir(dirName)           #load the training set
+    m = len(trainingFileList)
+    trainingMat = zeros((m,1024))
+    for i in range(m):
+        fileNameStr = trainingFileList[i]
+        fileStr = fileNameStr.split(&apos;.&apos;)[0]     #take off .txt
+        classNumStr = int(fileStr.split(&apos;_&apos;)[0])
+        if classNumStr == 9: hwLabels.append(-1)
+        else: hwLabels.append(1)
+        trainingMat[i,:] = img2vector(&apos;%s/%s&apos; % (dirName, fileNameStr))
+    return trainingMat, hwLabels    
+</code></pre><hr>
+<pre><code>#测试核函数为高斯核的效果
+def testDigits(kTup=(&apos;rbf&apos;, 10)):
+    dataArr,labelArr = loadImages(&apos;trainingDigits&apos;)
+    b,alphas = smoP(dataArr, labelArr, 200, 0.0001, 10000, kTup)
+    datMat=mat(dataArr); labelMat = mat(labelArr).transpose()
+    svInd=nonzero(alphas.A&gt;0)[0]
+    sVs=datMat[svInd] 
+    labelSV = labelMat[svInd];
+    print &quot;there are %d Support Vectors&quot; % shape(sVs)[0]
+    m,n = shape(datMat)
+    errorCount = 0
+    for i in range(m):
+        kernelEval = kernelTrans(sVs,datMat[i,:],kTup)
+        predict=kernelEval.T * multiply(labelSV,alphas[svInd]) + b
+        if sign(predict)!=sign(labelArr[i]): errorCount += 1
+    print &quot;the training error rate is: %f&quot; % (float(errorCount)/m)
+    dataArr,labelArr = loadImages(&apos;testDigits&apos;)
+    errorCount = 0
+    datMat=mat(dataArr); labelMat = mat(labelArr).transpose()
+    m,n = shape(datMat)
+    for i in range(m):
+        kernelEval = kernelTrans(sVs,datMat[i,:],kTup)
+        predict=kernelEval.T * multiply(labelSV,alphas[svInd]) + b
+        if sign(predict)!=sign(labelArr[i]): errorCount += 1    
+    print &quot;the test error rate is: %f&quot; % (float(errorCount)/m) 
+testDigits((&apos;rbf&apos;, 10))
+</code></pre><hr>
+<pre><code>#测试代码
+# dataArr, labelArr = loadDataSet(&apos;testSet.txt&apos;);
+# b, alphas = smoP(dataArr, labelArr, 0.6, 0.01, 40)
+# ws = calcWs(alphas, dataArr, labelArr)
+# print(ws)
+# print(alphas)
+# print(b)
+# t1 = 0.0
+# t2 = 0.0
+# for i in range(len(alphas)):
+#     if alphas[i] &gt; 0.0:
+#         print dataArr[i]
+#         t1 += alphas[i] * dataArr[i][0] * labelArr[i]
+#         t2 += alphas[i] * dataArr[i][1] * labelArr[i]
+# print(t1)
+# print(t2)
+</code></pre><h1 id="svm数据可视化"><a href="#svm数据可视化" class="headerlink" title="svm数据可视化"></a>svm数据可视化</h1><h2 id="非线性可分的数据"><a href="#非线性可分的数据" class="headerlink" title="非线性可分的数据"></a>非线性可分的数据</h2><pre><code>from numpy import *
+import matplotlib
+import matplotlib.pyplot as plt
+
+xcord0 = []; ycord0 = []; xcord1 = []; ycord1 = []
+markers =[]
+colors =[]
+fr = open(&apos;testSet.txt&apos;)#this file was generated by 2normalGen.py
+for line in fr.readlines():
+    lineSplit = line.strip().split(&apos;\t&apos;)
+    xPt = float(lineSplit[0])
+    yPt = float(lineSplit[1])
+    label = int(lineSplit[2])
+    if (label == 0):
+        xcord0.append(xPt)
+        ycord0.append(yPt)
+    else:
+        xcord1.append(xPt)
+        ycord1.append(yPt)
+
+fr.close()
+fig = plt.figure()
+ax = fig.add_subplot(221)
+xcord0 = []; ycord0 = []; xcord1 = []; ycord1 = []
+for i in range(300):
+    [x,y] = random.uniform(0,1,2)
+    if ((x &gt; 0.5) and (y &lt; 0.5)) or ((x &lt; 0.5) and (y &gt; 0.5)):
+        xcord0.append(x); ycord0.append(y)
+    else:
+        xcord1.append(x); ycord1.append(y)
+ax.scatter(xcord0,ycord0, marker=&apos;s&apos;, s=90)
+ax.scatter(xcord1,ycord1, marker=&apos;o&apos;, s=50, c=&apos;red&apos;)
+plt.title(&apos;A&apos;)
+ax = fig.add_subplot(222)
+xcord0 = random.standard_normal(150); ycord0 = random.standard_normal(150)
+xcord1 = random.standard_normal(150)+2.0; ycord1 = random.standard_normal(150)+2.0
+ax.scatter(xcord0,ycord0, marker=&apos;s&apos;, s=90)
+ax.scatter(xcord1,ycord1, marker=&apos;o&apos;, s=50, c=&apos;red&apos;)
+plt.title(&apos;B&apos;)
+ax = fig.add_subplot(223)
+xcord0 = []; ycord0 = []; xcord1 = []; ycord1 = []
+for i in range(300):
+    [x,y] = random.uniform(0,1,2)
+    if (x &gt; 0.5):
+        xcord0.append(x*cos(2.0*pi*y)); ycord0.append(x*sin(2.0*pi*y))
+    else:
+        xcord1.append(x*cos(2.0*pi*y)); ycord1.append(x*sin(2.0*pi*y))
+ax.scatter(xcord0,ycord0, marker=&apos;s&apos;, s=90)
+ax.scatter(xcord1,ycord1, marker=&apos;o&apos;, s=50, c=&apos;red&apos;)
+plt.title(&apos;C&apos;)
+ax = fig.add_subplot(224)
+xcord1 = zeros(150); ycord1 = zeros(150)
+xcord0 = random.uniform(-3,3,350); ycord0 = random.uniform(-3,3,350);
+xcord1[0:50] = 0.3*random.standard_normal(50)+2.0; ycord1[0:50] = 0.3*random.standard_normal(50)+2.0
+
+xcord1[50:100] = 0.3*random.standard_normal(50)-2.0; ycord1[50:100] = 0.3*random.standard_normal(50)-3.0
+
+xcord1[100:150] = 0.3*random.standard_normal(50)+1.0; ycord1[100:150] = 0.3*random.standard_normal(50)
+ax.scatter(xcord0,ycord0, marker=&apos;s&apos;, s=90)
+ax.scatter(xcord1,ycord1, marker=&apos;o&apos;, s=50, c=&apos;red&apos;)
+plt.title(&apos;D&apos;)
+plt.show()
+</code></pre><h2 id="支持向量可视化"><a href="#支持向量可视化" class="headerlink" title="支持向量可视化"></a>支持向量可视化</h2><pre><code>#其中参数是有svm算法得出的结果
+from numpy import *
+import matplotlib
+import matplotlib.pyplot as plt
+from matplotlib.patches import Circle
+
+xcord0 = []
+ycord0 = []
+xcord1 = []
+ycord1 = []
+markers =[]
+colors =[]
+fr = open(&apos;testSet.txt&apos;)#this file was generated by 2normalGen.py
+for line in fr.readlines():
+    lineSplit = line.strip().split(&apos;\t&apos;)
+    xPt = float(lineSplit[0])
+    yPt = float(lineSplit[1])
+    label = int(lineSplit[2])
+    if (label == -1):
+        xcord0.append(xPt)
+        ycord0.append(yPt)
+    else:
+        xcord1.append(xPt)
+        ycord1.append(yPt)
+
+fr.close()
+fig = plt.figure()
+ax = fig.add_subplot(111)
+ax.scatter(xcord0,ycord0, marker=&apos;s&apos;, s=90)
+ax.scatter(xcord1,ycord1, marker=&apos;o&apos;, s=50, c=&apos;red&apos;)
+plt.title(&apos;Support Vectors Circled&apos;)
+circle = Circle((4.6581910000000004, 3.507396), 0.5, facecolor=&apos;none&apos;, edgecolor=(0,0.8,0.8), linewidth=3, alpha=0.5)
+ax.add_patch(circle)
+circle = Circle((3.4570959999999999, -0.082215999999999997), 0.5, facecolor=&apos;none&apos;, edgecolor=(0,0.8,0.8), linewidth=3, alpha=0.5)
+ax.add_patch(circle)
+circle = Circle((6.0805730000000002, 0.41888599999999998), 0.5, facecolor=&apos;none&apos;, edgecolor=(0,0.8,0.8), linewidth=3, alpha=0.5)
+ax.add_patch(circle)
+#plt.plot([2.3,8.5], [-6,6]) #seperating hyperplane
+b = -3.75567; w0=0.8065; w1=-0.2761
+x = arange(-2.0, 12.0, 0.1)
+y = (-w0*x - b)/w1
+ax.plot(x,y)
+ax.axis([-2,12,-8,6])
+plt.show()
+</code></pre><h2 id="随机生成非线性可分的数据"><a href="#随机生成非线性可分的数据" class="headerlink" title="随机生成非线性可分的数据"></a>随机生成非线性可分的数据</h2><pre><code>from numpy import *
+import matplotlib
+import matplotlib.pyplot as plt
+
+xcord0 = []; ycord0 = []; xcord1 = []; ycord1 = []
+fw = open(&apos;testSetRBF2.txt&apos;, &apos;w&apos;)#generate data
+
+fig = plt.figure()
+ax = fig.add_subplot(111)
+xcord0 = []; ycord0 = []; xcord1 = []; ycord1 = []
+for i in range(100):
+    [x,y] = random.uniform(0,1,2)
+    xpt=x*cos(2.0*pi*y); ypt = x*sin(2.0*pi*y)
+    if (x &gt; 0.5):
+        xcord0.append(xpt); ycord0.append(ypt)
+        label = -1.0
+    else:
+        xcord1.append(xpt); ycord1.append(ypt)
+        label = 1.0
+    fw.write(&apos;%f\t%f\t%f\n&apos; % (xpt, ypt, label))
+ax.scatter(xcord0,ycord0, marker=&apos;s&apos;, s=90)
+ax.scatter(xcord1,ycord1, marker=&apos;o&apos;, s=50, c=&apos;red&apos;)
+plt.title(&apos;Non-linearly Separable Data for Kernel Method&apos;)
+plt.show()
+fw.close()
+</code></pre>
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/支持向量机/" rel="tag">#支持向量机</a>
+          
+            <a href="/tags/机器学习实战/" rel="tag">#机器学习实战</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/10/04/机器学习实战-logistic回归/" rel="next" title="机器学习实战-logistic回归">
+                <i class="fa fa-chevron-left"></i> 机器学习实战-logistic回归
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/11/03/机器学习实战-Adaboost算法/" rel="prev" title="机器学习实战-Adaboost算法">
+                机器学习实战-Adaboost算法 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/assassin.jpg"
+               alt="Shen Hao" />
+          <p class="site-author-name" itemprop="name">Shen Hao</p>
+          <p class="site-description motion-element" itemprop="description">Colin's blog | acm |c++</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">112</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">71</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/colincen" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#svm实现"><span class="nav-number">1.</span> <span class="nav-text">svm实现</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#svm数据可视化"><span class="nav-number">2.</span> <span class="nav-text">svm数据可视化</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#非线性可分的数据"><span class="nav-number">2.1.</span> <span class="nav-text">非线性可分的数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#支持向量可视化"><span class="nav-number">2.2.</span> <span class="nav-text">支持向量可视化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#随机生成非线性可分的数据"><span class="nav-number">2.3.</span> <span class="nav-text">随机生成非线性可分的数据</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Shen Hao</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>

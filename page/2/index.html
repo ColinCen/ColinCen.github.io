@@ -258,8 +258,8 @@
             
               
                 
-                <a class="post-title-link" href="/2017/09/03/共线集-atcoder-082-E-ConvexScore/" itemprop="url">
-                  共线集 atcoder 082 E - ConvexScore
+                <a class="post-title-link" href="/2017/10/04/机器学习实战-logistic回归/" itemprop="url">
+                  机器学习实战-logistic回归
                 </a>
               
             
@@ -272,8 +272,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-09-03T20:28:55+08:00" content="2017-09-03">
-              2017-09-03
+            <time itemprop="dateCreated" datetime="2017-10-04T16:53:39+08:00" content="2017-10-04">
+              2017-10-04
             </time>
           </span>
 
@@ -286,8 +286,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/acm/" itemprop="url" rel="index">
-                    <span itemprop="name">acm</span>
+                  <a href="/categories/机器学习/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
                   </a>
                 </span>
 
@@ -321,24 +321,27 @@
       
         
           
-          原题：ConvexScore
-原题大意给出N个点，这N个点可以形成若干个子集S，每个S满足如下条件：S里的所有点正好形成一个凸多边形，每个点都是凸多边形的顶点。对于任意一个S，n是N个点散布在S的凸包内的个数（包括边界和顶点），S相对应的得分为2^(n-|s|)。求所有得分和，结果模998244353。
-算法分析令Ts = n - |S|,Ts即为集合S的凸包内的点组成的集合（除顶点以外），则题目要求的是合法的Ts子集的种数，Ts最多为2^n，然后减去不合格的集合个数。首先，减去一个空集，再减去n个单点集，然后减去共线的情况（集合全在一条线段上）。
-程序代码#include &lt;bits/stdc++.h&gt;
-using namespace std;
-typedef long long ll;
-const ll mod = 998244353;
-const int maxn = 200 + 50;
-int n;
-ll p[maxn];
-ll x[maxn], y[maxn];
-map&lt;pair&lt;ll, ll&gt;, ll&gt; mp;
-void pre(){
- 
+          from numpy import *
+def loadDataSet():
+    dataMat = []; labelMat = []
+    fr = open(&apos;testSet.txt&apos;)
+    for line in fr.readlines():
+        lineArr = line.strip().split()
+        dataMat.append([1.0, float(lineArr[0]), float(lineArr[1])])
+        labelMat.append(int(lineArr[2]))
+    return dataMat, labelMat
+
+def sigmoid(inX):
+    return 1.0/(1+exp(-inX))
+
+#梯度上升算法，运算次数多，准确度高
+def gradAscent(dataMatIn, classLabels):
+    dataMatrix = mat(dataMatIn)
+    labelMat = mat(classLabels).transpose
           ...
 
           <div class="post-more-link text-center">
-            <a class="btn" href="/2017/09/03/共线集-atcoder-082-E-ConvexScore/#more" rel="contents">
+            <a class="btn" href="/2017/10/04/机器学习实战-logistic回归/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -389,8 +392,8 @@ void pre(){
             
               
                 
-                <a class="post-title-link" href="/2017/08/31/最短路-dijkstra-spfa-专题/" itemprop="url">
-                  最短路 dijkstra spfa 专题
+                <a class="post-title-link" href="/2017/10/04/机器学习实战-朴素贝叶斯/" itemprop="url">
+                  机器学习实战-朴素贝叶斯
                 </a>
               
             
@@ -403,8 +406,8 @@ void pre(){
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-08-31T21:00:21+08:00" content="2017-08-31">
-              2017-08-31
+            <time itemprop="dateCreated" datetime="2017-10-04T10:11:52+08:00" content="2017-10-04">
+              2017-10-04
             </time>
           </span>
 
@@ -417,8 +420,8 @@ void pre(){
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/acm/" itemprop="url" rel="index">
-                    <span itemprop="name">acm</span>
+                  <a href="/categories/机器学习/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
                   </a>
                 </span>
 
@@ -452,26 +455,20 @@ void pre(){
       
         
           
-          图论的几个重要细节和思路
-
-分析原图建新图
-是否可以转化为DAG来dp解决
-用板子时端点从0开始而不是1
-加边的时候注意重边的处理
-注意输入一条边时，起点终点应该不一样（u != v）
-无向图的边具有双向性，如果涉及具体枚举某条边的时候，要注意u-&gt;v 和 v-&gt;u都枚举一遍
-
-Airport Express原题：Airport Express
-原题大意有两种车票，商务车票和经济车票。由于经济原因，商务车票只能买一张，经济车票可以买多张。车票都是双向的。现在问从起点到终点，的最短路径，以及商务车票在哪个站点用最划算和最后花费的总时间。
-算法分析对于每个给出的起点终点a，b；分别求出到a和到b的单源最短路f(x), g(X)，然后枚举商业线的边T，答案就是f(a) + T(a,b) + g(b)，如果不做商业线就是f(b)或者g(a)；维护最大值即可。注意每条边要枚举两次。
-程序代码#include &lt;bits/stdc++.h&gt;
-#define mem(a,b) memset(a,b,sizeof(a))
-#define pb push_back
-using n
+          下面的例子是用于文本分析
+import operator
+import numpy as np
+import feedparser as fp
+def loadDataSet():#0表示非侮辱言论，1表示侮辱言论
+    postingList = [[&apos;my&apos;, &apos;dog&apos;, &apos;has&apos;, &apos;flea&apos;,
+                    &apos;problems&apos;, &apos;helo&apos;, &apos;please&apos;],
+                    [&apos;maybe&apos;, &apos;not&apos;, &apos;take&apos;, &apos;him&apos;,
+                    &apos;to&apos;, &apos;dog&apos;, &apos;park&apos;, &apos;stupid&apos;],
+                    [&apos;my&apos;, &a
           ...
 
           <div class="post-more-link text-center">
-            <a class="btn" href="/2017/08/31/最短路-dijkstra-spfa-专题/#more" rel="contents">
+            <a class="btn" href="/2017/10/04/机器学习实战-朴素贝叶斯/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -522,8 +519,8 @@ using n
             
               
                 
-                <a class="post-title-link" href="/2017/08/28/spfa-二进制-It-s-not-a-BUG-it-s-a-feature/" itemprop="url">
-                  spfa 二进制 It's not a BUG, it's a feature
+                <a class="post-title-link" href="/2017/10/02/机器学习实战-决策树/" itemprop="url">
+                  机器学习实战-决策树
                 </a>
               
             
@@ -536,8 +533,8 @@ using n
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-08-28T16:57:36+08:00" content="2017-08-28">
-              2017-08-28
+            <time itemprop="dateCreated" datetime="2017-10-02T19:48:17+08:00" content="2017-10-02">
+              2017-10-02
             </time>
           </span>
 
@@ -550,8 +547,8 @@ using n
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/acm/" itemprop="url" rel="index">
-                    <span itemprop="name">acm</span>
+                  <a href="/categories/机器学习/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
                   </a>
                 </span>
 
@@ -585,32 +582,26 @@ using n
       
         
           
-          原题：Uva 658
-程序代码/*
-    ①判定某些位置是否为1，如判定2、4位置为1，则转化为判断x|0101是否等于x。
+          决策树算法from math import log
+import operator
+def createDataSet():
+    dataSet = [[1,0,&apos;yes&apos;],
+                [1,0,&apos;yes&apos;],
+                [0,1,&apos;no&apos;],
+                [0,1,&apos;no&apos;],
+                [1,0,&apos;no&apos;]]
+    labels = [&apos;no surfacing&apos;,&apos;flippers&apos;]#对应1,0的标签
+    return dataSet, labels
 
-    ②判定某些位置是否为0，如判定2、4位置为0，则转化为判断x&amp;1010是否等于x。
-
-    ③将某些位置转化为1，如2、4位置转化为1，则令x=x|0101。
-
-    ④将某些位置转化为0，如2、4位置转化为0，则令x=x&amp;1010。
-*/
-#include &lt;bits/stdc++.h&gt;
-#define mem(a,b) memset(a,b,sizeof(a))
-using namespace std;
-const int N = (1&lt;&lt;20)+5,K=105,INF = 1&lt;&lt;30;
-int d[N], s[K][2], t[K][2], w[K];
-int n, m;
-char s1[K], s2[K];
-bool inque[N];
-void spfa(int ss){
-    mem(inque,false);
-    queue&lt;int&gt; q;
-    q.push(
+def calcShannonEnt(dataSet):#计算香农熵的期望值
+    numEntries = len(dataSet)
+    labelCounts = {}
+    for featVec in dataSet:
+        currentLabel = featVec
           ...
 
           <div class="post-more-link text-center">
-            <a class="btn" href="/2017/08/28/spfa-二进制-It-s-not-a-BUG-it-s-a-feature/#more" rel="contents">
+            <a class="btn" href="/2017/10/02/机器学习实战-决策树/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -661,8 +652,8 @@ void spfa(int ss){
             
               
                 
-                <a class="post-title-link" href="/2017/08/28/2—SAT-Now-or-later/" itemprop="url">
-                  2—SAT Now or later
+                <a class="post-title-link" href="/2017/09/04/机器学习实战-kNN/" itemprop="url">
+                  机器学习实战-kNN
                 </a>
               
             
@@ -675,8 +666,8 @@ void spfa(int ss){
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-08-28T16:42:44+08:00" content="2017-08-28">
-              2017-08-28
+            <time itemprop="dateCreated" datetime="2017-09-04T22:28:37+08:00" content="2017-09-04">
+              2017-09-04
             </time>
           </span>
 
@@ -689,8 +680,8 @@ void spfa(int ss){
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/acm/" itemprop="url" rel="index">
-                    <span itemprop="name">acm</span>
+                  <a href="/categories/机器学习/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
                   </a>
                 </span>
 
@@ -724,19 +715,26 @@ void spfa(int ss){
       
         
           
-          原题：Now or later
-原题大意每架飞机有早晚起降两种方式，给定n架飞机两种方式的起落时间，为每架飞机安排起落时间（早或晚），使得所有飞机起降时间按照早到晚的顺序之间的间隔时间最小值尽量大。
-算法分析最小时间尽量大应该采用二分的方法比较好，然后就变成了判别某个时间间隔m是不是符合要求的了。为没加飞机设立一个变量xi，0表示早，1表示晚，然后每架飞机i用两个点2i,2i+1表示，前者如果被标记表示早，后者被标记表示晚降。 然后对不同的飞机的起降时间中间隔小于m的i，j建立约束条件，例如：i架飞机早降间隔和j架飞机的早降时间间隔小于m，那么约束条件就可以在图中这样表示：建立两条边2i—&gt;2j+1, 2j-&gt;2i+1，表示如果i早降则j必须晚降，j早降i必须晚降。
-程序代码#include &lt;bits/stdc++.h&gt;
-#define mem(a,b) memset(a,b,sizeof(a))
-#define pb push_back
-using namespace std;
-typedef long long ll;
-const int maxn = 2
+          from numpy import *
+import operator
+def createDataSet():
+    group = array([[1.0,1.1], [1.0, 1.0], [0,0], [0, 0.1]])
+    labels = [&apos;A&apos;, &apos;A&apos;, &apos;B&apos;, &apos;B&apos;]
+    return group, labels
+
+def classify0(inX, dataSet, labels, k):
+    #inX是输入值，dataset是训练集，labels是标签，k是前k个
+    dataSetSize = dataSet.shape[0]
+    #shape[0]表示数据集的行数
+    diffMat = tile(inX, (dataSetSize,1)) - dataSet
+    #tile是延展复制，将inX按 dataSetSize * 1 延展
+    sqDiffMat = diffMat**2
+    #方差中的平方差
+    sqDistance
           ...
 
           <div class="post-more-link text-center">
-            <a class="btn" href="/2017/08/28/2—SAT-Now-or-later/#more" rel="contents">
+            <a class="btn" href="/2017/09/04/机器学习实战-kNN/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -787,8 +785,8 @@ const int maxn = 2
             
               
                 
-                <a class="post-title-link" href="/2017/08/28/强连通分量-Proving-Equivalences/" itemprop="url">
-                  强连通分量 Proving Equivalences
+                <a class="post-title-link" href="/2017/09/04/函数模拟-Atcoder-082-F-Sandglass/" itemprop="url">
+                  函数模拟 Atcoder 082 F Sandglass
                 </a>
               
             
@@ -801,8 +799,8 @@ const int maxn = 2
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-08-28T16:38:41+08:00" content="2017-08-28">
-              2017-08-28
+            <time itemprop="dateCreated" datetime="2017-09-04T19:32:05+08:00" content="2017-09-04">
+              2017-09-04
             </time>
           </span>
 
@@ -850,21 +848,24 @@ const int maxn = 2
       
         
           
-          原题：Proving Equivalences
-原题大意给出N个命题，要求你证明这N个命题的等价性：比如有4个命题a,b,c,d，我们证明a&lt;-&gt;b, b&lt;-&gt;c,c&lt;-&gt;d，每次证明都是双向的，因此一共用了6次推导如果换成证明a-&gt;b,b-&gt;c,c-&gt;d,d-&gt;a,每次证明都是单向的，而只需4次就可以证明所有命题的等价性现在给出M个命题证明，问还需要证明几个，才可以保证N个命题等价。
-算法分析缩点后求DAG中入度为0和出度为0的联通块的较大值
+          原题：Sandglass
+原题大意给一个沙漏，一半叫A，另一边叫B，初始A在上B在下，A+B的沙子一共为X，每秒钟走一滴沙，再给出k个时刻，每个时刻都将沙漏倒置，现在有Q个询问，每个询问（t，a）代表若起始A中有a滴沙，t时刻时A中还有多少沙子，每个询问的时刻t是递增的给出。
+算法分析ft(x)表示若A中初始沙数量为x，在t时刻A中剩余的沙的数量。举几个例子之后会发现，ft(x)的函数都是这样的
+（x前面的斜率也可以为-1），同时函数上限不会超过X，下限不会低于0，模拟即可
 程序代码#include &lt;bits/stdc++.h&gt;
-#define mem(a,b) memset(a,b,sizeof(a))
-#define pb push_back
 using namespace std;
-typedef long long ll;
-const int maxn = 2e4+5;
-vector&lt;int&gt; G[maxn];
-int pre[maxn], lowlink[maxn], sccno[maxn], dfs_clock, sc
+const int maxn = 1e5+5;
+int X, K, Q, r[maxn], t[maxn], a[maxn], ub, lb, b, t1, t2, add, tmp, diff, sgn;
+void Add(int &amp;n, int num){
+    n+=num;
+    n = max(0, min(X, n));
+}
+int main(){
+    ios::sync_wi
           ...
 
           <div class="post-more-link text-center">
-            <a class="btn" href="/2017/08/28/强连通分量-Proving-Equivalences/#more" rel="contents">
+            <a class="btn" href="/2017/09/04/函数模拟-Atcoder-082-F-Sandglass/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -898,7 +899,7 @@ int pre[maxn], lowlink[maxn], sccno[maxn], dfs_clock, sc
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/22/">22</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/23/">23</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -939,7 +940,7 @@ int pre[maxn], lowlink[maxn], sccno[maxn], dfs_clock, sc
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">107</span>
+              <span class="site-state-item-count">112</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -956,7 +957,7 @@ int pre[maxn], lowlink[maxn], sccno[maxn], dfs_clock, sc
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">74</span>
+                <span class="site-state-item-count">71</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

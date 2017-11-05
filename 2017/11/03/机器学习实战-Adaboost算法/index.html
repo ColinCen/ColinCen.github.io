@@ -1,0 +1,793 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="机器学习实战," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/tango.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="相关博客：
+
+http://www.360doc.com/content/14/1109/12/20290918_423780183.shtml
+
+from numpy import *
+import matplotlib.pyplot as plt
+def loadSimpData():
+    datMat = matrix([
+        [1., 2.1],
+        [2.,">
+<meta property="og:type" content="article">
+<meta property="og:title" content="机器学习实战-Adaboost算法">
+<meta property="og:url" content="http://yoursite.com/2017/11/03/机器学习实战-Adaboost算法/index.html">
+<meta property="og:site_name" content="Colin's blog">
+<meta property="og:description" content="相关博客：
+
+http://www.360doc.com/content/14/1109/12/20290918_423780183.shtml
+
+from numpy import *
+import matplotlib.pyplot as plt
+def loadSimpData():
+    datMat = matrix([
+        [1., 2.1],
+        [2.,">
+<meta property="og:updated_time" content="2017-11-03T09:56:38.398Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="机器学习实战-Adaboost算法">
+<meta name="twitter:description" content="相关博客：
+
+http://www.360doc.com/content/14/1109/12/20290918_423780183.shtml
+
+from numpy import *
+import matplotlib.pyplot as plt
+def loadSimpData():
+    datMat = matrix([
+        [1., 2.1],
+        [2.,">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: undefined,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/11/03/机器学习实战-Adaboost算法/"/>
+
+  <title> 机器学习实战-Adaboost算法 | Colin's blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Colin's blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">A football fan,an English lover and a coder</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                机器学习实战-Adaboost算法
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-11-03T17:47:56+08:00" content="2017-11-03">
+              2017-11-03
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/机器学习/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>相关博客：</p>
+<blockquote>
+<p><a href="http://www.360doc.com/content/14/1109/12/20290918_423780183.shtml" target="_blank" rel="external">http://www.360doc.com/content/14/1109/12/20290918_423780183.shtml</a></p>
+</blockquote>
+<pre><code>from numpy import *
+import matplotlib.pyplot as plt
+def loadSimpData():
+    datMat = matrix([
+        [1., 2.1],
+        [2., 1.1],
+        [1.3, 1.],
+        [1., 1.],
+        [2., 1.]
+    ])
+    classLabels = [1.0, 1.0, -1.0, -1.0, 1.0]
+    return datMat, classLabels
+</code></pre><hr>
+<pre><code>#弱分类器分类，返回致函1/-1的numpy数组
+def stumpClassify(dataMatrix, dimen, threshVal, threshIneq):
+    retArray = ones((shape(dataMatrix)[0], 1))
+    if threshIneq == &apos;lt&apos;:
+        retArray[dataMatrix[:, dimen] &lt;= threshVal] = -1.0
+    else:
+        retArray[dataMatrix[:, dimen] &gt; threshVal] = -1.0
+    return  retArray
+</code></pre><hr>
+<pre><code>#构造弱分类器单层决策树
+def buildStupm(dataArr, classLabels, D):
+    dataMatrix = mat(dataArr); labelMat = mat(classLabels).T
+    m, n = shape(dataMatrix)
+    numSteps = 10.0; bestStump = {}; bestClasEst = mat(zeros((m,1)))
+    minError = inf
+    for i in range(n):
+        rangeMin = dataMatrix[:, i].min()
+        rangeMax = dataMatrix[:, i].max()
+        stepSize = (rangeMax - rangeMin)/numSteps
+        for j in range(-1, int(numSteps) + 1):
+            for inequal in [&apos;lt&apos;, &apos;gt&apos;]:
+                threshVal = (rangeMin + float(j) * stepSize)
+                predictedVals = \
+                    stumpClassify(dataMatrix, i, threshVal, inequal)
+                errArr = mat(ones((m,1)))
+                errArr[predictedVals == labelMat] = 0
+                weightedError = D.T * errArr
+                print &apos;split: dim %d, thresh %.2f, thresh ineqal:&apos; \
+                     &apos;%s, the weighted error is %.3f&apos; % (i, threshVal, inequal, weightedError)
+                if weightedError &lt; minError:
+                    minError = weightedError
+                    bestClasEst = predictedVals.copy()
+                    bestStump[&apos;dim&apos;] = i
+                    bestStump[&apos;thresh&apos;] = threshVal
+                    bestStump[&apos;ineq&apos;] = inequal
+    return bestStump, minError, bestClasEst
+</code></pre><hr>
+<pre><code>#结合弱分类器构造更强的分类器
+def adaBoostTrainDS(dataArr, classLabels, numIt = 40):
+    weakClassArr = []
+    m = shape(dataArr)[0]
+    D = mat(ones((m,1)) / m)
+    aggClassEst = mat(zeros((m,1)))
+    for i in range(numIt):
+        bestStump, error, classEst = buildStupm(dataArr, classLabels, D)
+        print &apos;D:&apos;, D.T
+        alpha = float(0.5 * log((1.0 - error)/ max(error, 1e-16)))
+        bestStump[&apos;alpha&apos;] = alpha
+        weakClassArr.append(bestStump)
+        print &apos;classEst: &apos;, classEst.T
+        expon = multiply(-1 * alpha * mat(classLabels).T, classEst)
+        D = multiply(D, exp(expon))
+        D = D/D.sum()
+        aggClassEst += alpha * classEst
+        print &apos;aggClassEst: &apos;, aggClassEst.T
+        aggErrors = multiply(sign(aggClassEst) != mat(classLabels).T, ones((m,1)))
+        errorRate = aggErrors.sum()/m
+        print &apos;total error: &apos;, errorRate, &apos;\n&apos;
+        if errorRate == 0.0: break
+    return weakClassArr, aggClassEst
+</code></pre><hr>
+<pre><code>#预测分类函数
+def adaClassify(datToClass, classifierArr):
+    dataMatrix = mat(datToClass)
+    m = shape(dataMatrix)[0]
+    aggClassEst = mat(zeros((m,1)))
+    for i in range(len(classifierArr)):
+        classEst = stumpClassify(dataMatrix, classifierArr[i][&apos;dim&apos;],\
+                                 classifierArr[i][&apos;thresh&apos;],\
+                                 classifierArr[i][&apos;ineq&apos;])
+        aggClassEst += classifierArr[i][&apos;alpha&apos;]*classEst
+        print aggClassEst
+    return sign(aggClassEst)
+</code></pre><hr>
+<pre><code>#读数据（病马分析）
+def loadDataSet(filename):
+    numFeat = len(open(filename).readline().split(&apos;\t&apos;))
+    dataMat = []; labelMat = []
+    fr = open(filename)
+    for line in fr.readlines():
+        lineArr = []
+        curLine = line.strip().split(&apos;\t&apos;)
+        for i in range(numFeat - 1):
+            lineArr.append(float(curLine[i]))
+        dataMat.append(lineArr)
+        labelMat.append(float(curLine[-1]))
+    return dataMat, labelMat
+</code></pre><hr>
+<pre><code>#ROC作图分析
+def plotROC(predStrengths, classLabels):
+    import matplotlib.pyplot as plt
+    cur = (1.0,1.0) #cursor
+    ySum = 0.0 #variable to calculate AUC
+    numPosClas = sum(array(classLabels)==1.0)
+    yStep = 1/float(numPosClas); xStep = 1/float(len(classLabels)-numPosClas)
+    sortedIndicies = predStrengths.argsort()#get sorted index, it&apos;s reverse
+    fig = plt.figure()
+    fig.clf()
+    ax = plt.subplot(111)
+    #loop through all the values, drawing a line segment at each point
+    for index in sortedIndicies.tolist()[0]:
+        if classLabels[index] == 1.0:
+            delX = 0; delY = yStep;
+        else:
+            delX = xStep; delY = 0;
+            ySum += cur[1]
+        #draw line from cur to (cur[0]-delX,cur[1]-delY)
+        ax.plot([cur[0],cur[0]-delX],[cur[1],cur[1]-delY], c=&apos;b&apos;)
+        cur = (cur[0]-delX,cur[1]-delY)
+    ax.plot([0,1],[0,1],&apos;b--&apos;)
+    plt.xlabel(&apos;False positive rate&apos;); plt.ylabel(&apos;True positive rate&apos;)
+    plt.title(&apos;ROC curve for AdaBoost horse colic detection system&apos;)
+    ax.axis([0,1,0,1])
+    plt.show()
+    print &quot;the Area Under the Curve is: &quot;,ySum*xStep
+</code></pre><hr>
+<pre><code>datArr, labelArr = loadDataSet(&apos;d:/horseColicTraining2.txt&apos;)
+classifierArray, aggClassEst = adaBoostTrainDS(datArr, labelArr, 10)
+plotROC(aggClassEst.T, labelArr)
+
+# print  classifierArray
+#
+# datMat, classLabels = loadSimpData()
+# D = mat(ones((5,1))/5)
+# #print buildStupm(datMat, classLabels, D)
+# fig = plt.figure()
+# ax = fig.add_subplot(111)
+# for i in range(len(classLabels)):
+#     if classLabels[i] == 1.0:
+#         print datMat[i,0]
+#         ax.scatter(datMat[i,0], datMat[i,1], marker=&apos;o&apos;)
+#     else:
+#         ax.scatter(datMat[i,0], datMat[i,1], marker=&apos;^&apos;)
+# plt.show()
+# classifierArray = adaBoostTrainDS(datMat, classLabels, 9)
+# print  classifierArray
+</code></pre>
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/机器学习实战/" rel="tag">#机器学习实战</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/11/03/机器学习实战-svm/" rel="next" title="机器学习实战-svm">
+                <i class="fa fa-chevron-left"></i> 机器学习实战-svm
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/11/05/Atcoder-Snuke-Festival/" rel="prev" title="Atcoder - Snuke Festival">
+                Atcoder - Snuke Festival <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/assassin.jpg"
+               alt="Shen Hao" />
+          <p class="site-author-name" itemprop="name">Shen Hao</p>
+          <p class="site-description motion-element" itemprop="description">Colin's blog | acm |c++</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">112</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">71</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/colincen" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">此文章未包含目录</p>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Shen Hao</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>

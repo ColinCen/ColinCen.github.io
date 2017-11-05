@@ -258,8 +258,8 @@
             
               
                 
-                <a class="post-title-link" href="/2017/10/04/机器学习实战-logistic回归/" itemprop="url">
-                  机器学习实战-logistic回归
+                <a class="post-title-link" href="/2017/11/05/Atcoder-Finite-Encyclopedia-of-Integer-Sequences/" itemprop="url">
+                  Atcoder - Finite Encyclopedia of Integer Sequences
                 </a>
               
             
@@ -272,535 +272,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-10-04T16:53:39+08:00" content="2017-10-04">
-              2017-10-04
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/机器学习/" itemprop="url" rel="index">
-                    <span itemprop="name">机器学习</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          from numpy import *
-def loadDataSet():
-    dataMat = []; labelMat = []
-    fr = open(&apos;testSet.txt&apos;)
-    for line in fr.readlines():
-        lineArr = line.strip().split()
-        dataMat.append([1.0, float(lineArr[0]), float(lineArr[1])])
-        labelMat.append(int(lineArr[2]))
-    return dataMat, labelMat
-
-def sigmoid(inX):
-    return 1.0/(1+exp(-inX))
-
-#梯度上升算法，运算次数多，准确度高
-def gradAscent(dataMatIn, classLabels):
-    dataMatrix = mat(dataMatIn)
-    labelMat = mat(classLabels).transpose
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/10/04/机器学习实战-logistic回归/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/10/04/机器学习实战-朴素贝叶斯/" itemprop="url">
-                  机器学习实战-朴素贝叶斯
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-10-04T10:11:52+08:00" content="2017-10-04">
-              2017-10-04
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/机器学习/" itemprop="url" rel="index">
-                    <span itemprop="name">机器学习</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          下面的例子是用于文本分析
-import operator
-import numpy as np
-import feedparser as fp
-def loadDataSet():#0表示非侮辱言论，1表示侮辱言论
-    postingList = [[&apos;my&apos;, &apos;dog&apos;, &apos;has&apos;, &apos;flea&apos;,
-                    &apos;problems&apos;, &apos;helo&apos;, &apos;please&apos;],
-                    [&apos;maybe&apos;, &apos;not&apos;, &apos;take&apos;, &apos;him&apos;,
-                    &apos;to&apos;, &apos;dog&apos;, &apos;park&apos;, &apos;stupid&apos;],
-                    [&apos;my&apos;, &a
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/10/04/机器学习实战-朴素贝叶斯/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/10/02/机器学习实战-决策树/" itemprop="url">
-                  机器学习实战-决策树
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-10-02T19:48:17+08:00" content="2017-10-02">
-              2017-10-02
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/机器学习/" itemprop="url" rel="index">
-                    <span itemprop="name">机器学习</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          决策树算法from math import log
-import operator
-def createDataSet():
-    dataSet = [[1,0,&apos;yes&apos;],
-                [1,0,&apos;yes&apos;],
-                [0,1,&apos;no&apos;],
-                [0,1,&apos;no&apos;],
-                [1,0,&apos;no&apos;]]
-    labels = [&apos;no surfacing&apos;,&apos;flippers&apos;]#对应1,0的标签
-    return dataSet, labels
-
-def calcShannonEnt(dataSet):#计算香农熵的期望值
-    numEntries = len(dataSet)
-    labelCounts = {}
-    for featVec in dataSet:
-        currentLabel = featVec
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/10/02/机器学习实战-决策树/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/09/04/机器学习实战-kNN/" itemprop="url">
-                  机器学习实战-kNN
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-09-04T22:28:37+08:00" content="2017-09-04">
-              2017-09-04
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/机器学习/" itemprop="url" rel="index">
-                    <span itemprop="name">机器学习</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          from numpy import *
-import operator
-def createDataSet():
-    group = array([[1.0,1.1], [1.0, 1.0], [0,0], [0, 0.1]])
-    labels = [&apos;A&apos;, &apos;A&apos;, &apos;B&apos;, &apos;B&apos;]
-    return group, labels
-
-def classify0(inX, dataSet, labels, k):
-    #inX是输入值，dataset是训练集，labels是标签，k是前k个
-    dataSetSize = dataSet.shape[0]
-    #shape[0]表示数据集的行数
-    diffMat = tile(inX, (dataSetSize,1)) - dataSet
-    #tile是延展复制，将inX按 dataSetSize * 1 延展
-    sqDiffMat = diffMat**2
-    #方差中的平方差
-    sqDistance
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/09/04/机器学习实战-kNN/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/09/04/函数模拟-Atcoder-082-F-Sandglass/" itemprop="url">
-                  函数模拟 Atcoder 082 F Sandglass
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-09-04T19:32:05+08:00" content="2017-09-04">
-              2017-09-04
+            <time itemprop="dateCreated" datetime="2017-11-05T17:13:24+08:00" content="2017-11-05">
+              2017-11-05
             </time>
           </span>
 
@@ -848,24 +321,559 @@ def classify0(inX, dataSet, labels, k):
       
         
           
-          原题：Sandglass
-原题大意给一个沙漏，一半叫A，另一边叫B，初始A在上B在下，A+B的沙子一共为X，每秒钟走一滴沙，再给出k个时刻，每个时刻都将沙漏倒置，现在有Q个询问，每个询问（t，a）代表若起始A中有a滴沙，t时刻时A中还有多少沙子，每个询问的时刻t是递增的给出。
-算法分析ft(x)表示若A中初始沙数量为x，在t时刻A中剩余的沙的数量。举几个例子之后会发现，ft(x)的函数都是这样的
-（x前面的斜率也可以为-1），同时函数上限不会超过X，下限不会低于0，模拟即可
+          原题：Finite Encyclopedia of Integer Sequences
+原题大意给出两个数K，N， 表示数列的取值范围为1~K，N表示数列长度的取值范围为1~N，问这样的所有序列按照字典序排序，第（X/2）个序列是什么
+算法分析如果是K是偶数，该序列一定是这样的：第一个数是（K/2），然后跟着(N-1)个K。如果是奇数，先看到这样一个序列B：n个（K+1）/2构成，排在这个序列之前的序列和排在这个序列之后的序列，他们的关系是满足函数(K+1-Xi)的（比如K=5时， 1234，4321），但是个数却不是相等的（比如K=5时， 3333只有一个，在前半段），所以前后序列差为(N-1)，从B开始往前数(N-1)/2个。
 程序代码#include &lt;bits/stdc++.h&gt;
 using namespace std;
-const int maxn = 1e5+5;
-int X, K, Q, r[maxn], t[maxn], a[maxn], ub, lb, b, t1, t2, add, tmp, diff, sgn;
-void Add(int &amp;n, int num){
-    n+=num;
-    n = max(0, min(X, n));
-}
-int main(){
-    ios::sync_wi
+const int maxn = 3e5+10;
+int n, k;
+
+void solve(int num){
+    stack&lt;int&gt; s;
+    int t = (k+1)/2;
+    for(int i = 0; i &
           ...
 
           <div class="post-more-link text-center">
-            <a class="btn" href="/2017/09/04/函数模拟-Atcoder-082-F-Sandglass/#more" rel="contents">
+            <a class="btn" href="/2017/11/05/Atcoder-Finite-Encyclopedia-of-Integer-Sequences/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/11/05/Atcoder-Small-Multiple/" itemprop="url">
+                  Atcoder - Small Multiple
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-11-05T17:01:20+08:00" content="2017-11-05">
+              2017-11-05
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/acm/" itemprop="url" rel="index">
+                    <span itemprop="name">acm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          原题：Small Multiple
+原题大意给一个数K，在K的整数倍里，找出数位和最小的，并输出和
+算法分析首先引入图论，求一个数的数位和，可以看成一张有向图求最短路，图上的每个顶点都是整数，起点是1，数字v到数字v+1之间的值为1，数字v到数字v*10的值为0，求x的数位和就是求1到x的最短路的距离加上1。
+这里求K的整数倍，可以把图压缩到K个点，因为如果两个数mod K的值相同，我们可以认为是同一个点（如2 和 20 mod 6），所以就是求从1到0的最短路。因为只含有1和0，所以可以用双端队列来优化（每个值取出来要么不变，要么加1，不变的放到队首，加1的放到队尾，队列里的值一定是非递减的）。
+程序代码#include &lt;bits/stdc++.h&gt;
+using namespace std;
+typedef long long ll;
+const int maxn = 1e5+50;
+typedef pair&lt;int, int&gt; ii;
+int solve(int K){
+    deque&lt;ii&gt; dq;
+    vector&lt;int&g
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/11/05/Atcoder-Small-Multiple/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/11/05/Atcoder-Snuke-Festival/" itemprop="url">
+                  Atcoder - Snuke Festival
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-11-05T16:54:05+08:00" content="2017-11-05">
+              2017-11-05
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/acm/" itemprop="url" rel="index">
+                    <span itemprop="name">acm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          原题：Snuke Festival
+原题大意给出长度为n的三个数组A，B，C，从A中取出a， 从B中取出b， 从C中取出c，使得a &lt; b &lt; c，问有多少种取法？
+算法分析把A，C 排序，对于B中的每一个元素，在A中找小于它的和在C中大于它的个数相乘，然后记录总和
+程序代码//lower_bound是大于等于，upper_bound是大于
+#include &lt;bits/stdc++.h&gt;
+using namespace std;
+typedef long long ll;
+const int maxn = 1e5+50;
+int a[maxn], b[maxn], c[maxn];
+int n;
+int main(){ 
+    while(cin &gt;&gt; n){
+        for(int i = 0; i &lt; n; i++)cin &gt;&gt; a[i];
+        for(int i = 0; i &lt; n; i++)cin &gt;&gt; b[i];
+        for(int i = 0; i &lt; n; 
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/11/05/Atcoder-Snuke-Festival/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/11/03/机器学习实战-Adaboost算法/" itemprop="url">
+                  机器学习实战-Adaboost算法
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-11-03T17:47:56+08:00" content="2017-11-03">
+              2017-11-03
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/机器学习/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          相关博客：
+
+http://www.360doc.com/content/14/1109/12/20290918_423780183.shtml
+
+from numpy import *
+import matplotlib.pyplot as plt
+def loadSimpData():
+    datMat = matrix([
+        [1., 2.1],
+        [2., 1.1],
+        [1.3, 1.],
+        [1., 1.],
+        [2., 1.]
+    ])
+    classLabels = [1.0, 1.0, -1.0, -1.0, 1.0]
+    return datMat, classLabels
+
+#弱分类器分类，返回致函1/-1的numpy数组
+def stumpClassify(dataMatrix, dimen, threshVal, threshIneq):
+    retArray = ones((shape(dataMatrix)[0], 1))
+    if threshIneq == &
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/11/03/机器学习实战-Adaboost算法/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/11/03/机器学习实战-svm/" itemprop="url">
+                  机器学习实战-svm
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-11-03T17:10:28+08:00" content="2017-11-03">
+              2017-11-03
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/机器学习/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          svm实现相关博客：
+
+http://www.cnblogs.com/dreamvibe/p/4349886.html
+http://blog.csdn.net/macyang/article/details/38782399/
+
+from numpy import *
+
+#文件操作
+def loadDataSet(fileName):
+    dataMat = []; labelMat = []
+    fr = open(fileName)
+    for line in fr.readlines():
+        lineArr = line.strip().split(&apos;\t&apos;)
+        dataMat.append([float(lineArr[0]), float(lineArr[1])])
+        labelMat.append(float(lineArr[2]))
+    return dataMat,labelMat
+
+#随机选择另一个α优化
+def selectJrand(i,m):
+    j=i
+    while (j
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/11/03/机器学习实战-svm/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -899,7 +907,7 @@ int main(){
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/22/">22</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/23/">23</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -940,7 +948,7 @@ int main(){
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">107</span>
+              <span class="site-state-item-count">112</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -957,7 +965,7 @@ int main(){
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">74</span>
+                <span class="site-state-item-count">71</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

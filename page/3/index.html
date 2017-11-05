@@ -258,8 +258,8 @@
             
               
                 
-                <a class="post-title-link" href="/2017/08/28/双连通分量-Knights-of-the-Round-Table/" itemprop="url">
-                  双连通分量 Knights of the Round Table
+                <a class="post-title-link" href="/2017/09/03/共线集-atcoder-082-E-ConvexScore/" itemprop="url">
+                  共线集 atcoder 082 E - ConvexScore
                 </a>
               
             
@@ -272,7 +272,271 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-08-28T16:34:00+08:00" content="2017-08-28">
+            <time itemprop="dateCreated" datetime="2017-09-03T20:28:55+08:00" content="2017-09-03">
+              2017-09-03
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/acm/" itemprop="url" rel="index">
+                    <span itemprop="name">acm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          原题：ConvexScore
+原题大意给出N个点，这N个点可以形成若干个子集S，每个S满足如下条件：S里的所有点正好形成一个凸多边形，每个点都是凸多边形的顶点。对于任意一个S，n是N个点散布在S的凸包内的个数（包括边界和顶点），S相对应的得分为2^(n-|s|)。求所有得分和，结果模998244353。
+算法分析令Ts = n - |S|,Ts即为集合S的凸包内的点组成的集合（除顶点以外），则题目要求的是合法的Ts子集的种数，Ts最多为2^n，然后减去不合格的集合个数。首先，减去一个空集，再减去n个单点集，然后减去共线的情况（集合全在一条线段上）。
+程序代码#include &lt;bits/stdc++.h&gt;
+using namespace std;
+typedef long long ll;
+const ll mod = 998244353;
+const int maxn = 200 + 50;
+int n;
+ll p[maxn];
+ll x[maxn], y[maxn];
+map&lt;pair&lt;ll, ll&gt;, ll&gt; mp;
+void pre(){
+ 
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/09/03/共线集-atcoder-082-E-ConvexScore/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/08/31/最短路-dijkstra-spfa-专题/" itemprop="url">
+                  最短路 dijkstra spfa 专题
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-08-31T21:00:21+08:00" content="2017-08-31">
+              2017-08-31
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/acm/" itemprop="url" rel="index">
+                    <span itemprop="name">acm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          图论的几个重要细节和思路
+
+分析原图建新图
+是否可以转化为DAG来dp解决
+用板子时端点从0开始而不是1
+加边的时候注意重边的处理
+注意输入一条边时，起点终点应该不一样（u != v）
+无向图的边具有双向性，如果涉及具体枚举某条边的时候，要注意u-&gt;v 和 v-&gt;u都枚举一遍
+
+Airport Express原题：Airport Express
+原题大意有两种车票，商务车票和经济车票。由于经济原因，商务车票只能买一张，经济车票可以买多张。车票都是双向的。现在问从起点到终点，的最短路径，以及商务车票在哪个站点用最划算和最后花费的总时间。
+算法分析对于每个给出的起点终点a，b；分别求出到a和到b的单源最短路f(x), g(X)，然后枚举商业线的边T，答案就是f(a) + T(a,b) + g(b)，如果不做商业线就是f(b)或者g(a)；维护最大值即可。注意每条边要枚举两次。
+程序代码#include &lt;bits/stdc++.h&gt;
+#define mem(a,b) memset(a,b,sizeof(a))
+#define pb push_back
+using n
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/08/31/最短路-dijkstra-spfa-专题/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/08/28/spfa-二进制-It-s-not-a-BUG-it-s-a-feature/" itemprop="url">
+                  spfa 二进制 It's not a BUG, it's a feature
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-08-28T16:57:36+08:00" content="2017-08-28">
               2017-08-28
             </time>
           </span>
@@ -321,21 +585,158 @@
       
         
           
-          原题：Knights of the Round Table
-原题大意有n个骑士经常举行圆桌会议，每次圆桌会议至少要有3个骑士参加(且每次参加的骑士数量是奇数个)，且所有互相憎恨的骑士不能坐在圆桌旁的相邻位置，问有多少个骑士不可能参加任何一个会议
-算法分析以骑士为点建立无向图G。如果两个骑士可以相邻(即他们并不互相憎恨)，即可连一条边。则题目就转化为求不在任何一个简单奇圈上的结点个数首先，圈就是一个双连通的分量，所以第一件事就是将所有的双连通分量求出来，接着再判定这个双连通分量是不是奇圈奇圈的判定就是用二分图染色判定，如果某个圈能被二分图染色，那么这个圈必然不是奇圈，因为二分图染色，染色的点是成对的，所以点的数量是偶数的
+          原题：Uva 658
+程序代码/*
+    ①判定某些位置是否为1，如判定2、4位置为1，则转化为判断x|0101是否等于x。
+
+    ②判定某些位置是否为0，如判定2、4位置为0，则转化为判断x&amp;1010是否等于x。
+
+    ③将某些位置转化为1，如2、4位置转化为1，则令x=x|0101。
+
+    ④将某些位置转化为0，如2、4位置转化为0，则令x=x&amp;1010。
+*/
+#include &lt;bits/stdc++.h&gt;
+#define mem(a,b) memset(a,b,sizeof(a))
+using namespace std;
+const int N = (1&lt;&lt;20)+5,K=105,INF = 1&lt;&lt;30;
+int d[N], s[K][2], t[K][2], w[K];
+int n, m;
+char s1[K], s2[K];
+bool inque[N];
+void spfa(int ss){
+    mem(inque,false);
+    queue&lt;int&gt; q;
+    q.push(
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/08/28/spfa-二进制-It-s-not-a-BUG-it-s-a-feature/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/08/28/2—SAT-Now-or-later/" itemprop="url">
+                  2—SAT Now or later
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-08-28T16:42:44+08:00" content="2017-08-28">
+              2017-08-28
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/acm/" itemprop="url" rel="index">
+                    <span itemprop="name">acm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          原题：Now or later
+原题大意每架飞机有早晚起降两种方式，给定n架飞机两种方式的起落时间，为每架飞机安排起落时间（早或晚），使得所有飞机起降时间按照早到晚的顺序之间的间隔时间最小值尽量大。
+算法分析最小时间尽量大应该采用二分的方法比较好，然后就变成了判别某个时间间隔m是不是符合要求的了。为没加飞机设立一个变量xi，0表示早，1表示晚，然后每架飞机i用两个点2i,2i+1表示，前者如果被标记表示早，后者被标记表示晚降。 然后对不同的飞机的起降时间中间隔小于m的i，j建立约束条件，例如：i架飞机早降间隔和j架飞机的早降时间间隔小于m，那么约束条件就可以在图中这样表示：建立两条边2i—&gt;2j+1, 2j-&gt;2i+1，表示如果i早降则j必须晚降，j早降i必须晚降。
 程序代码#include &lt;bits/stdc++.h&gt;
 #define mem(a,b) memset(a,b,sizeof(a))
 #define pb push_back
 using namespace std;
-const int maxn = 1e3+5;
-
-int color[maxn], odd[maxn];
-int pre[maxn], is
+typedef long long ll;
+const int maxn = 2
           ...
 
           <div class="post-more-link text-center">
-            <a class="btn" href="/2017/08/28/双连通分量-Knights-of-the-Round-Table/#more" rel="contents">
+            <a class="btn" href="/2017/08/28/2—SAT-Now-or-later/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -386,8 +787,8 @@ int pre[maxn], is
             
               
                 
-                <a class="post-title-link" href="/2017/08/28/无向图桥-Road-Construction/" itemprop="url">
-                  无向图桥 Road Construction
+                <a class="post-title-link" href="/2017/08/28/强连通分量-Proving-Equivalences/" itemprop="url">
+                  强连通分量 Proving Equivalences
                 </a>
               
             
@@ -400,7 +801,7 @@ int pre[maxn], is
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-08-28T16:22:20+08:00" content="2017-08-28">
+            <time itemprop="dateCreated" datetime="2017-08-28T16:38:41+08:00" content="2017-08-28">
               2017-08-28
             </time>
           </span>
@@ -449,438 +850,21 @@ int pre[maxn], is
       
         
           
-          原题：Road Construction
-原题大意某个企业想把一个热带天堂岛变成旅游胜地，岛上有N个旅游景点，任意2个旅游景点之间有路径连通（注意不一定是直接连通）。而为了给游客提供更方便的服务，该企业要求道路部门在某些道路增加一些设施。道路部门每次只会选择一条道路施工，在该条道路施工完毕前，其他道路依然可以通行。然而有道路部门正在施工的道路，在施工完毕前是禁止游客通行的。这就导致了在施工期间游客可能无法到达一些景点。为了在施工期间所有旅游景点依然能够正常对游客开放，该企业决定搭建一些临时桥梁，使得不管道路部门选在哪条路进行施工，游客都能够到达所有旅游景点。给出当下允许通行的R条道路，问该企业至少再搭建几条临时桥梁，才能使得游客无视道路部门的存在到达所有旅游景点？
-算法分析
-http://blog.csdn.net/lyy289065406/article/details/6762370
-
-程序代码#include &lt;iostream&gt;
-#include &lt;cstring&gt;
-#include &lt;vector&gt;
-#include &lt;algorit
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/08/28/无向图桥-Road-Construction/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/08/28/无向图割顶-Network/" itemprop="url">
-                  无向图割顶 Network
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-08-28T16:16:47+08:00" content="2017-08-28">
-              2017-08-28
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/acm/" itemprop="url" rel="index">
-                    <span itemprop="name">acm</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          原题：Network
-原题大意求割顶的模板题。
-程序代码#include &lt;iostream&gt;  
-#include &lt;cstdio&gt;  
-#include &lt;vector&gt;  
-#include &lt;sstream&gt;  
-#include &lt;cstring&gt;  
-#define pb push_back
+          原题：Proving Equivalences
+原题大意给出N个命题，要求你证明这N个命题的等价性：比如有4个命题a,b,c,d，我们证明a&lt;-&gt;b, b&lt;-&gt;c,c&lt;-&gt;d，每次证明都是双向的，因此一共用了6次推导如果换成证明a-&gt;b,b-&gt;c,c-&gt;d,d-&gt;a,每次证明都是单向的，而只需4次就可以证明所有命题的等价性现在给出M个命题证明，问还需要证明几个，才可以保证N个命题等价。
+算法分析缩点后求DAG中入度为0和出度为0的联通块的较大值
+程序代码#include &lt;bits/stdc++.h&gt;
 #define mem(a,b) memset(a,b,sizeof(a))
+#define pb push_back
 using namespace std;
-const int maxn = 1e5+5;
+typedef long long ll;
+const int maxn = 2e4+5;
 vector&lt;int&gt; G[maxn];
-int dfs_clock, iscut[maxn], pre[maxn], low[maxn];
-int dfs(int u, int fa){
-    int lowu = pre[u] = ++dfs_clock;
-    int child = 0;
-    for(int i = 0; i &lt; G[u].size(); i++){
-        int v = G[u][i];
-      
+int pre[maxn], lowlink[maxn], sccno[maxn], dfs_clock, sc
           ...
 
           <div class="post-more-link text-center">
-            <a class="btn" href="/2017/08/28/无向图割顶-Network/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/08/09/01-背包-度度熊的午饭时光/" itemprop="url">
-                  01-背包 度度熊的午饭时光
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-08-09T21:13:14+08:00" content="2017-08-09">
-              2017-08-09
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/acm/" itemprop="url" rel="index">
-                    <span itemprop="name">acm</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          原题：度度熊的午饭时光
-原题大意01背包，但是要输出路径，按照序号和最小，字典序最小输出。
-程序代码可以用vis[i][j]，来记录路径。
-#include &lt;cstdio&gt;
-#include &lt;cstring&gt;
-#include &lt;iostream&gt;
-
-#define clr(a, b) memset(a, b, sizeof(a))
-
-using namespace std;
-
-typedef long long ll;
-
-const int MAXN = 111;
-const int MAXB = 1111;
-
-struct meal
-{
-    int score, cost;
-} m[MAXN];
-
-int B, N;
-int dp[MAXB];
-bool tmp[MAXN];
-bool vis[MAXN][MAXB];
-
-int main()
-{
-    int T, ce = 1;
-    scanf(&quot;%d&quot;, &amp;T);
-    while (T--)
-    {
-        scanf(&quot;%
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/08/09/01-背包-度度熊的午饭时光/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/08/09/Kanade-s-sum/" itemprop="url">
-                  Kanade's sum
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-08-09T14:11:39+08:00" content="2017-08-09">
-              2017-08-09
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/acm/" itemprop="url" rel="index">
-                    <span itemprop="name">acm</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          原题：Kanade’s sum
-原题大意1~n的数组成了序列A，f(l,r,k)为[l, r]里第k大的数，如果r-l+1 &lt; k,那么f(l,r,k)就为0.现在求
-t = 0
-for l in 1 : n
-    for r in 1 : n
-        t+=f(l,r,k)
-即求t，注意k &lt; min(n, 80)
-算法分析考虑每个数被几个有效区间包含，每个数向左右各找最多k个比它大的数，然后按左边i个，右边k-i-1个这样讨论。这里可以用链表优化，先维护一个1~n的链表，记录每个数的位置，我们贪心的从1开始选，一直选到n，计算完之后就把它删除，这样就能保证每次选的数都是最小的。
-程序代码#include &lt;bits/stdc++.h&gt;
-using namespace std;
-const int maxn = 5e5+5;
-typedef long long ll;
-int pos[maxn], v[maxn], n, k, T;
-int pre[maxn], nxt[maxn];
-ll a[maxn], b[maxn];
-ll solve(int
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/08/09/Kanade-s-sum/#more" rel="contents">
+            <a class="btn" href="/2017/08/28/强连通分量-Proving-Equivalences/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -914,7 +898,7 @@ ll solve(int
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/22/">22</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/23/">23</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -955,7 +939,7 @@ ll solve(int
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">107</span>
+              <span class="site-state-item-count">112</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -972,7 +956,7 @@ ll solve(int
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">74</span>
+                <span class="site-state-item-count">71</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

@@ -258,8 +258,8 @@
             
               
                 
-                <a class="post-title-link" href="/2017/08/07/Tarjan-LCA/" itemprop="url">
-                  Tarjan-LCA
+                <a class="post-title-link" href="/2017/08/28/双连通分量-Knights-of-the-Round-Table/" itemprop="url">
+                  双连通分量 Knights of the Round Table
                 </a>
               
             
@@ -272,8 +272,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-08-07T16:06:47+08:00" content="2017-08-07">
-              2017-08-07
+            <time itemprop="dateCreated" datetime="2017-08-28T16:34:00+08:00" content="2017-08-28">
+              2017-08-28
             </time>
           </span>
 
@@ -321,32 +321,21 @@
       
         
           
-          Tarjan离线求LCA的博客
-
-http://www.cnblogs.com/JVxie/p/4854719.html
-
-例题1
-http://hihocoder.com/problemset/problem/1067
-
-给出n行父-子的名字，q个询问，输出最近公共祖先
+          原题：Knights of the Round Table
+原题大意有n个骑士经常举行圆桌会议，每次圆桌会议至少要有3个骑士参加(且每次参加的骑士数量是奇数个)，且所有互相憎恨的骑士不能坐在圆桌旁的相邻位置，问有多少个骑士不可能参加任何一个会议
+算法分析以骑士为点建立无向图G。如果两个骑士可以相邻(即他们并不互相憎恨)，即可连一条边。则题目就转化为求不在任何一个简单奇圈上的结点个数首先，圈就是一个双连通的分量，所以第一件事就是将所有的双连通分量求出来，接着再判定这个双连通分量是不是奇圈奇圈的判定就是用二分图染色判定，如果某个圈能被二分图染色，那么这个圈必然不是奇圈，因为二分图染色，染色的点是成对的，所以点的数量是偶数的
 程序代码#include &lt;bits/stdc++.h&gt;
+#define mem(a,b) memset(a,b,sizeof(a))
 #define pb push_back
 using namespace std;
-const int maxn = 100050;
-vector&lt;int&gt; g[maxn];
-vector&lt;int&gt; q[maxn];
-vector&lt;int&gt; num[maxn];
-int ans[maxn];
-int n, Q;
-map&lt;string,int&gt; dict;
-vector&lt;string&gt; v;
-int fa[maxn], r[maxn], ind[maxn];
-bool vis[maxn];
-int find(int x){return fa[x] == x ? x : fa[x] = fin
+const int maxn = 1e3+5;
+
+int color[maxn], odd[maxn];
+int pre[maxn], is
           ...
 
           <div class="post-more-link text-center">
-            <a class="btn" href="/2017/08/07/Tarjan-LCA/#more" rel="contents">
+            <a class="btn" href="/2017/08/28/双连通分量-Knights-of-the-Round-Table/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -397,8 +386,8 @@ int find(int x){return fa[x] == x ? x : fa[x] = fin
             
               
                 
-                <a class="post-title-link" href="/2017/08/07/Same-Occurrence/" itemprop="url">
-                  Same Occurrence
+                <a class="post-title-link" href="/2017/08/28/无向图桥-Road-Construction/" itemprop="url">
+                  无向图桥 Road Construction
                 </a>
               
             
@@ -411,8 +400,8 @@ int find(int x){return fa[x] == x ? x : fa[x] = fin
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-08-07T15:26:42+08:00" content="2017-08-07">
-              2017-08-07
+            <time itemprop="dateCreated" datetime="2017-08-28T16:22:20+08:00" content="2017-08-28">
+              2017-08-28
             </time>
           </span>
 
@@ -460,157 +449,19 @@ int find(int x){return fa[x] == x ? x : fa[x] = fin
       
         
           
-          原题：Same Occurrence
-原题大意给一个长度为n的序列，和q个询问，每个询问有两个数x，y。问在所有的子序列中x，y出现次数相同的序列个数有多少？
-算法分析首先观察数据范围可以得出一下结论：
+          原题：Road Construction
+原题大意某个企业想把一个热带天堂岛变成旅游胜地，岛上有N个旅游景点，任意2个旅游景点之间有路径连通（注意不一定是直接连通）。而为了给游客提供更方便的服务，该企业要求道路部门在某些道路增加一些设施。道路部门每次只会选择一条道路施工，在该条道路施工完毕前，其他道路依然可以通行。然而有道路部门正在施工的道路，在施工完毕前是禁止游客通行的。这就导致了在施工期间游客可能无法到达一些景点。为了在施工期间所有旅游景点依然能够正常对游客开放，该企业决定搭建一些临时桥梁，使得不管道路部门选在哪条路进行施工，游客都能够到达所有旅游景点。给出当下允许通行的R条道路，问该企业至少再搭建几条临时桥梁，才能使得游客无视道路部门的存在到达所有旅游景点？
+算法分析
+http://blog.csdn.net/lyy289065406/article/details/6762370
 
-n的长度最多有8000，可以用离散化缩小单个数据范围
-询问最多有500000，如果n小一点的话，肯定会有重复询问，可以有数组记录询问结果
-
-然后考虑具体的询问
-
-如果两个数相同或者都不在序列中，那么答案是n*(n+1)/2
-如果只有一个数 x存在于序列 a, b, c, x, e, f, x, g, h, i, x中，我们可以将序列分割成如下形式[a,b,c],[e,f],[g,h,i]，然后按上一种情况处理每个区间。
-如果两个数都存在于序列中，设前i个数里含x的有c个，含y的有d个，在前j（j &lt; i）处，含x的有a个，含y的有b个，若使得（i，j]可以被选中，那么c-a == d-b，变型一下就是c-d == a-b。那么现在维护前缀就好了。因为序列中存在大量的非x，y的数，我们可以用vector记录x,y出现的位置，然后vector里的后一个减去前一个，就得到了中间的值，
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/08/07/Same-Occurrence/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/07/27/相交的铁路线/" itemprop="url">
-                  相交的铁路线
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-07-27T21:52:28+08:00" content="2017-07-27">
-              2017-07-27
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/acm/" itemprop="url" rel="index">
-                    <span itemprop="name">acm</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          原题：相交的铁路线
-算法分析考虑朴素的算法t1 = lca(x1,y1), S1 = x1-&gt;t1 ∪ t1-&gt;y1;同理可得t2和S2。判断S1∩S2是否为空
-假设有交点t且假设经过y1,y2，所以x1-&gt;t1-&gt;t-&gt;y1,x2-&gt;t2-&gt;t-&gt;y2,因为t只有一个父亲，所以t1,t2一定是祖先关系，那么t1或t2一定是交点，假设t1是交点，即t2是t1的祖先，则需要两个判定条件：
-
-lca(t1,t2) = t2
-lca(t1,y2) = t1 或 lca(t1,x2) = t1
-
-程序代码#include &lt;cstdio&gt;
+程序代码#include &lt;iostream&gt;
 #include &lt;cstring&gt;
-#include &lt;algorithm&gt;
 #include &lt;vector&gt;
-using namespace std;
-const int maxn = 100050;
-struct nod{
-    int to, cost;
-    nod(int a=0,int b=0){to = a; cost = b;}
-};
-in
+#include &lt;algorit
           ...
 
           <div class="post-more-link text-center">
-            <a class="btn" href="/2017/07/27/相交的铁路线/#more" rel="contents">
+            <a class="btn" href="/2017/08/28/无向图桥-Road-Construction/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -661,8 +512,8 @@ in
             
               
                 
-                <a class="post-title-link" href="/2017/07/27/Misha-Grisha-and-Underground/" itemprop="url">
-                  Misha, Grisha and Underground
+                <a class="post-title-link" href="/2017/08/28/无向图割顶-Network/" itemprop="url">
+                  无向图割顶 Network
                 </a>
               
             
@@ -675,8 +526,8 @@ in
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-07-27T21:40:25+08:00" content="2017-07-27">
-              2017-07-27
+            <time itemprop="dateCreated" datetime="2017-08-28T16:16:47+08:00" content="2017-08-28">
+              2017-08-28
             </time>
           </span>
 
@@ -724,30 +575,29 @@ in
       
         
           
-          原题：Misha, Grisha and Underground
-原题大意给一棵树，在给给出3个点s，f，t问s到f与t到f经过相同的点有几个？输出最多的那种sft组合。
-算法分析分情况讨论：
-
-f是s的祖先，t在f到s的外面
-f是s的祖先，t在f到s的路径上
-s-&gt;lca(f,s)-&gt;f，lca(s,t)在s-&gt;lca(f,s)上
-s-&gt;lca(f,s)-&gt;f，lca(f,t)在lca(f,s)-&gt;f上
-
-另一种取巧的做法是(lca(a,b) + lca(c,b) - lca(a,c))/2
-程序代码#include &lt;cstdio&gt;
-#include &lt;algorithm&gt;
-#include &lt;vector&gt;
-
-using namespace std;
+          原题：Network
+原题大意求割顶的模板题。
+程序代码#include &lt;iostream&gt;  
+#include &lt;cstdio&gt;  
+#include &lt;vector&gt;  
+#include &lt;sstream&gt;  
+#include &lt;cstring&gt;  
 #define pb push_back
-const int maxn=100005;
-int n, q;
-int fir[maxn],no[2*maxn],se[2*maxn],st[2*maxn][20],lo[200005],dep[maxn];
-bool
+#define mem(a,b) memset(a,b,sizeof(a))
+using namespace std;
+const int maxn = 1e5+5;
+vector&lt;int&gt; G[maxn];
+int dfs_clock, iscut[maxn], pre[maxn], low[maxn];
+int dfs(int u, int fa){
+    int lowu = pre[u] = ++dfs_clock;
+    int child = 0;
+    for(int i = 0; i &lt; G[u].size(); i++){
+        int v = G[u][i];
+      
           ...
 
           <div class="post-more-link text-center">
-            <a class="btn" href="/2017/07/27/Misha-Grisha-and-Underground/#more" rel="contents">
+            <a class="btn" href="/2017/08/28/无向图割顶-Network/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -798,8 +648,8 @@ bool
             
               
                 
-                <a class="post-title-link" href="/2017/06/30/Okabe-and-El-Psy-Kongroo/" itemprop="url">
-                  Okabe and El Psy Kongroo
+                <a class="post-title-link" href="/2017/08/09/01-背包-度度熊的午饭时光/" itemprop="url">
+                  01-背包 度度熊的午饭时光
                 </a>
               
             
@@ -812,8 +662,8 @@ bool
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-06-30T20:46:30+08:00" content="2017-06-30">
-              2017-06-30
+            <time itemprop="dateCreated" datetime="2017-08-09T21:13:14+08:00" content="2017-08-09">
+              2017-08-09
             </time>
           </span>
 
@@ -861,25 +711,176 @@ bool
       
         
           
-          原题：Okabe and El Psy Kongroo
-原题大意从（0,0） 到（k，0），每个点可以到达右上，右，右下这三个点，但必须在c下方，0上方（包括0边界），问最终到达（k，0）有多少种方案。
-算法分析dp，因为ci是一条与x轴平行的线段，所以从ai到ai+1的每一次的贡献都是一样的，可以用矩阵加速，c最多为15，所以不会超时
+          原题：度度熊的午饭时光
+原题大意01背包，但是要输出路径，按照序号和最小，字典序最小输出。
+程序代码可以用vis[i][j]，来记录路径。
+#include &lt;cstdio&gt;
+#include &lt;cstring&gt;
+#include &lt;iostream&gt;
+
+#define clr(a, b) memset(a, b, sizeof(a))
+
+using namespace std;
+
+typedef long long ll;
+
+const int MAXN = 111;
+const int MAXB = 1111;
+
+struct meal
+{
+    int score, cost;
+} m[MAXN];
+
+int B, N;
+int dp[MAXB];
+bool tmp[MAXN];
+bool vis[MAXN][MAXB];
+
+int main()
+{
+    int T, ce = 1;
+    scanf(&quot;%d&quot;, &amp;T);
+    while (T--)
+    {
+        scanf(&quot;%
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/08/09/01-背包-度度熊的午饭时光/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/08/09/Kanade-s-sum/" itemprop="url">
+                  Kanade's sum
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-08-09T14:11:39+08:00" content="2017-08-09">
+              2017-08-09
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/acm/" itemprop="url" rel="index">
+                    <span itemprop="name">acm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          原题：Kanade’s sum
+原题大意1~n的数组成了序列A，f(l,r,k)为[l, r]里第k大的数，如果r-l+1 &lt; k,那么f(l,r,k)就为0.现在求
+t = 0
+for l in 1 : n
+    for r in 1 : n
+        t+=f(l,r,k)
+即求t，注意k &lt; min(n, 80)
+算法分析考虑每个数被几个有效区间包含，每个数向左右各找最多k个比它大的数，然后按左边i个，右边k-i-1个这样讨论。这里可以用链表优化，先维护一个1~n的链表，记录每个数的位置，我们贪心的从1开始选，一直选到n，计算完之后就把它删除，这样就能保证每次选的数都是最小的。
 程序代码#include &lt;bits/stdc++.h&gt;
 using namespace std;
+const int maxn = 5e5+5;
 typedef long long ll;
-const ll mod = 1e9+7;
-struct matrix{
-  ll val[16][16];
-  matrix(){memset(val,0,sizeof(val));}
-  matrix operator*(const matrix &amp; rhs)const{
-    matrix ret;
-    for(int i = 0; i &lt; 16; i++)
-      for(int j = 0; j &lt; 16; j++)
-        for(int k = 0
+int pos[maxn], v[maxn], n, k, T;
+int pre[maxn], nxt[maxn];
+ll a[maxn], b[maxn];
+ll solve(int
           ...
 
           <div class="post-more-link text-center">
-            <a class="btn" href="/2017/06/30/Okabe-and-El-Psy-Kongroo/#more" rel="contents">
+            <a class="btn" href="/2017/08/09/Kanade-s-sum/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -913,7 +914,7 @@ struct matrix{
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/22/">22</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/23/">23</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -954,7 +955,7 @@ struct matrix{
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">107</span>
+              <span class="site-state-item-count">112</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -971,7 +972,7 @@ struct matrix{
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">74</span>
+                <span class="site-state-item-count">71</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
