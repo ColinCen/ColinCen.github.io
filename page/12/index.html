@@ -258,6 +258,133 @@
             
               
                 
+                <a class="post-title-link" href="/2017/05/20/Determinant/" itemprop="url">
+                  Determinant
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-05-20T10:27:52+08:00" content="2017-05-20">
+              2017-05-20
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/acm/" itemprop="url" rel="index">
+                    <span itemprop="name">acm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          原题：Determinant
+原题大意给出n × (n-1) 的矩阵，要求从左到右，依次去掉一列后，剩余行列式的值，同时答案mod1e9+7。
+算法分析仔细分析后发现是求伴随矩阵的原值（不要求根据行和列的奇偶改变符号），根据方阵的公式：由逆矩阵和行列式值的乘积，可以求出伴随矩阵。
+所以先将矩阵补成n × n的（随机补全排除偶然性，否则可能有其他其他情况，比如不存在逆矩阵，行列式值为0），我补的是最下面一行（哪一行这个也任意）。关于求逆矩阵，先将原矩阵变成n ×（2n），并且右边是单位矩阵，将左边的变成单位矩阵，右边的就是逆矩阵。
+所以这里用到了高斯消元，但是由于是mod运算，所以不能用double，加减乘要mod，除就是乘以逆元，最后得到的矩阵乘以行列式的值，最后一列就是我们要求的答案，并且根据行列的和的奇偶将值改回来，所以依次输出最后一列的值。
+程序代码#include &lt;bits/stdc++.h&gt;
+using namespace std;
+const int maxn = 202;
+typedef long long ll;
+const ll mod = 1e9+7;
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/05/20/Determinant/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/05/09/逃离迷宫II/" itemprop="url">
                   逃离迷宫II
                 </a>
@@ -763,143 +890,6 @@ else r = m;
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/05/03/Atcoder-073/" itemprop="url">
-                  Atcoder 073
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-05-03T15:56:51+08:00" content="2017-05-03">
-              2017-05-03
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/acm/" itemprop="url" rel="index">
-                    <span itemprop="name">acm</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          Sentou原题：Sentou
-原题大意一个水龙头，按一次开关会流T秒，再次按开关会刷新它的时间。给出n次按开关的时刻，问总共会流多少秒。
-算法分析水题，用一个数组记录两次开关的时间差，并判断前一个时刻加上水流的时间能否到达下次按开关的时刻，如果能则加上时间差，否则加上水流时间。
-程序代码#include &lt;cstdio&gt;
-#include &lt;cstring&gt;
-#define mem(a,b) memset(a,b,sizeof(a))
-using namespace std;
-const int maxn = 200000+5;
-typedef long long ll;
-ll sen[maxn], a[maxn];
-ll sum = 0;
-int n;
-ll t;
-int main(){
-    scanf(&quot;%lld%lld&quot;,&amp;n, &amp;t);
-    for(int i = 0; i &lt; n; i++)
-    {
-        scanf(&quot;%lld&quot;, &amp;sen[i]);
-
-  
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/05/03/Atcoder-073/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -945,7 +935,7 @@ int main(){
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">112</span>
+              <span class="site-state-item-count">113</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

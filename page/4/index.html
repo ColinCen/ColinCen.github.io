@@ -258,6 +258,134 @@
             
               
                 
+                <a class="post-title-link" href="/2017/08/28/强连通分量-Proving-Equivalences/" itemprop="url">
+                  强连通分量 Proving Equivalences
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-08-28T16:38:41+08:00" content="2017-08-28">
+              2017-08-28
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/acm/" itemprop="url" rel="index">
+                    <span itemprop="name">acm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          原题：Proving Equivalences
+原题大意给出N个命题，要求你证明这N个命题的等价性：比如有4个命题a,b,c,d，我们证明a&lt;-&gt;b, b&lt;-&gt;c,c&lt;-&gt;d，每次证明都是双向的，因此一共用了6次推导如果换成证明a-&gt;b,b-&gt;c,c-&gt;d,d-&gt;a,每次证明都是单向的，而只需4次就可以证明所有命题的等价性现在给出M个命题证明，问还需要证明几个，才可以保证N个命题等价。
+算法分析缩点后求DAG中入度为0和出度为0的联通块的较大值
+程序代码#include &lt;bits/stdc++.h&gt;
+#define mem(a,b) memset(a,b,sizeof(a))
+#define pb push_back
+using namespace std;
+typedef long long ll;
+const int maxn = 2e4+5;
+vector&lt;int&gt; G[maxn];
+int pre[maxn], lowlink[maxn], sccno[maxn], dfs_clock, sc
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/08/28/强连通分量-Proving-Equivalences/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/08/28/双连通分量-Knights-of-the-Round-Table/" itemprop="url">
                   双连通分量 Knights of the Round Table
                 </a>
@@ -777,139 +905,6 @@ int main()
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/08/09/Kanade-s-sum/" itemprop="url">
-                  Kanade's sum
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-08-09T14:11:39+08:00" content="2017-08-09">
-              2017-08-09
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/acm/" itemprop="url" rel="index">
-                    <span itemprop="name">acm</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          原题：Kanade’s sum
-原题大意1~n的数组成了序列A，f(l,r,k)为[l, r]里第k大的数，如果r-l+1 &lt; k,那么f(l,r,k)就为0.现在求
-t = 0
-for l in 1 : n
-    for r in 1 : n
-        t+=f(l,r,k)
-即求t，注意k &lt; min(n, 80)
-算法分析考虑每个数被几个有效区间包含，每个数向左右各找最多k个比它大的数，然后按左边i个，右边k-i-1个这样讨论。这里可以用链表优化，先维护一个1~n的链表，记录每个数的位置，我们贪心的从1开始选，一直选到n，计算完之后就把它删除，这样就能保证每次选的数都是最小的。
-程序代码#include &lt;bits/stdc++.h&gt;
-using namespace std;
-const int maxn = 5e5+5;
-typedef long long ll;
-int pos[maxn], v[maxn], n, k, T;
-int pre[maxn], nxt[maxn];
-ll a[maxn], b[maxn];
-ll solve(int
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/08/09/Kanade-s-sum/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -955,7 +950,7 @@ ll solve(int
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">112</span>
+              <span class="site-state-item-count">113</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

@@ -258,6 +258,138 @@
             
               
                 
+                <a class="post-title-link" href="/2017/06/30/Okabe-and-El-Psy-Kongroo/" itemprop="url">
+                  Okabe and El Psy Kongroo
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-06-30T20:46:30+08:00" content="2017-06-30">
+              2017-06-30
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/acm/" itemprop="url" rel="index">
+                    <span itemprop="name">acm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          原题：Okabe and El Psy Kongroo
+原题大意从（0,0） 到（k，0），每个点可以到达右上，右，右下这三个点，但必须在c下方，0上方（包括0边界），问最终到达（k，0）有多少种方案。
+算法分析dp，因为ci是一条与x轴平行的线段，所以从ai到ai+1的每一次的贡献都是一样的，可以用矩阵加速，c最多为15，所以不会超时
+程序代码#include &lt;bits/stdc++.h&gt;
+using namespace std;
+typedef long long ll;
+const ll mod = 1e9+7;
+struct matrix{
+  ll val[16][16];
+  matrix(){memset(val,0,sizeof(val));}
+  matrix operator*(const matrix &amp; rhs)const{
+    matrix ret;
+    for(int i = 0; i &lt; 16; i++)
+      for(int j = 0; j &lt; 16; j++)
+        for(int k = 0
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/06/30/Okabe-and-El-Psy-Kongroo/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/06/30/Okabe-and-City/" itemprop="url">
                   Okabe and City
                 </a>
@@ -771,132 +903,6 @@ const ll maxn = 200
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/06/19/Scheme/" itemprop="url">
-                  Scheme
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-06-19T13:31:18+08:00" content="2017-06-19">
-              2017-06-19
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/acm/" itemprop="url" rel="index">
-                    <span itemprop="name">acm</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          原题：Scheme
-原题大意给出n个节点，以及和这个节点指向的节点fi，表示从i能够到达fi，问至少需要添加多少条边能够使得原图变为强连通分量，输出边数及添加的边，多解输出任意一组解。
-算法分析每个点的出度都是1，可以知道这个图的每个弱连通分量（取消定向后的连通块）都是一个有向环上挂很多棵有向树，如果只有一个弱连通分量，显然就是环上随便找一个点然后向所有入度为0的点连边，否则先考虑将所有分量连起来，假设有t个分量，对这些分量从0到t-1标号，对于第i个分量，如果第(i+1)%t个分量有入度为0的点，那么从第i个分量的环上任取一个点向第(i+1)%t个分量的任意一个入度为0的点连边，否则连到环上任意一个点，现在所有分量已经连成了一个分量，并且最小化了入度为0的点，接下来只需要任取一个环上的点向所有入度为0的点连边即可。
-
-程序代码#include &lt;bits/stdc++.h&gt;
-#define mem(a,b) memset(a,b,sizeof(a))
-using namespace std;
-typedef long long ll;
-const int maxn = 1
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/06/19/Scheme/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -942,7 +948,7 @@ const int maxn = 1
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">112</span>
+              <span class="site-state-item-count">113</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

@@ -258,6 +258,140 @@
             
               
                 
+                <a class="post-title-link" href="/2017/06/05/UCloud-的安全秘钥/" itemprop="url">
+                  UCloud 的安全秘钥
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-06-05T17:50:26+08:00" content="2017-06-05">
+              2017-06-05
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/acm/" itemprop="url" rel="index">
+                    <span itemprop="name">acm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          原题：UCloud 的安全秘钥
+原题大意对长度为n的数字组成的串，进行m次询问，询问的长度为k，求原串（长度为k）的字串与询问串近似匹配（可以理解成两个集合相同）的个数。
+算法分析对于n&lt;=50000，m &lt;= 100000，以及询问串的总长度不超过200000的数据来说，通过hash给每个元素赋值，然后按长度将询问的字串分组，并且按hash的和排序，可由双指针完成计数。
+
+https://www.jisuanke.com/article/9v3lgyb4
+
+程序代码#include &lt;bits/stdc++.h&gt;
+using namespace std;
+typedef long long ll;
+const int maxn = 200050;
+struct E{
+    int l;
+    int p;
+    int v;
+    bool friend operator &lt;(E ob1, E ob2){
+        return ob1.l == ob2.l ? ob1.v &lt; ob2.v : ob1.l &lt; ob2.l;
+  
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/06/05/UCloud-的安全秘钥/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/05/30/3N-Numbers/" itemprop="url">
                   3N Numbers
                 </a>
@@ -757,133 +891,6 @@ Input测试数据
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/05/21/丽娃河的狼人传说/" itemprop="url">
-                  丽娃河的狼人传说
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-05-21T09:52:48+08:00" content="2017-05-21">
-              2017-05-21
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/acm/" itemprop="url" rel="index">
-                    <span itemprop="name">acm</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          原题：丽娃河的狼人传说
-原题大意丽娃河可以看成是从 1 到 n的一条数轴。为了美观，路灯只能安装在整数点上，每个整数点只能安装一盏路灯。经专业勘测，有m个区间特别容易发生事故，所以至少要安装一定数量的路灯，请问至少还要安装多少路灯。
-Input第一行一个整数 T (1≤T≤300)，表示测试数据组数。
-对于每组数据：
-第一行三个整数 n,m,k (1≤n≤103,1≤m≤103,1≤k≤n)。
-第二行 k 个不同的整数用空格隔开，表示这些位置一开始就有路灯。
-接下来 m 行表示约束条件。第 i 行三个整数 li,ri,ti 表示：第 i 个区间 [li,ri]少要安装 ti 盏路灯 (1≤li≤ri≤n,1≤ti≤n)。
-Output对于每组数据，输出Casex:y。其中x表示测试数据编号（从1开始），y表示至少要安装的路灯数目。如果无解，y 为 −1。
-算法分析按右端点排序，然后对于不满足条件的尽量往右垒就好了。贪心的证明：由于左边的都已经垒满了，所以垒左边的肯定是没意义的。垒中间肯定没有垒右边的号，因为右边的区间不可能长得断开，使得垒在左边收益更大。这样就可以实现 O(n2)。
-程
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/05/21/丽娃河的狼人传说/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -929,7 +936,7 @@ Output对于每组数据，输出Casex:y。其中x表示测试数据编号（从
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">112</span>
+              <span class="site-state-item-count">113</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

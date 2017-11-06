@@ -258,6 +258,144 @@
             
               
                 
+                <a class="post-title-link" href="/2017/11/03/机器学习实战-svm/" itemprop="url">
+                  机器学习实战-svm
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-11-03T17:10:28+08:00" content="2017-11-03">
+              2017-11-03
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/机器学习/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          svm实现相关博客：
+
+http://www.cnblogs.com/dreamvibe/p/4349886.html
+http://blog.csdn.net/macyang/article/details/38782399/
+
+from numpy import *
+
+#文件操作
+def loadDataSet(fileName):
+    dataMat = []; labelMat = []
+    fr = open(fileName)
+    for line in fr.readlines():
+        lineArr = line.strip().split(&apos;\t&apos;)
+        dataMat.append([float(lineArr[0]), float(lineArr[1])])
+        labelMat.append(float(lineArr[2]))
+    return dataMat,labelMat
+
+#随机选择另一个α优化
+def selectJrand(i,m):
+    j=i
+    while (j
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/11/03/机器学习实战-svm/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/10/04/机器学习实战-logistic回归/" itemprop="url">
                   机器学习实战-logistic回归
                 </a>
@@ -764,137 +902,6 @@ def classify0(inX, dataSet, labels, k):
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/09/04/函数模拟-Atcoder-082-F-Sandglass/" itemprop="url">
-                  函数模拟 Atcoder 082 F Sandglass
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-09-04T19:32:05+08:00" content="2017-09-04">
-              2017-09-04
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/acm/" itemprop="url" rel="index">
-                    <span itemprop="name">acm</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          原题：Sandglass
-原题大意给一个沙漏，一半叫A，另一边叫B，初始A在上B在下，A+B的沙子一共为X，每秒钟走一滴沙，再给出k个时刻，每个时刻都将沙漏倒置，现在有Q个询问，每个询问（t，a）代表若起始A中有a滴沙，t时刻时A中还有多少沙子，每个询问的时刻t是递增的给出。
-算法分析ft(x)表示若A中初始沙数量为x，在t时刻A中剩余的沙的数量。举几个例子之后会发现，ft(x)的函数都是这样的
-（x前面的斜率也可以为-1），同时函数上限不会超过X，下限不会低于0，模拟即可
-程序代码#include &lt;bits/stdc++.h&gt;
-using namespace std;
-const int maxn = 1e5+5;
-int X, K, Q, r[maxn], t[maxn], a[maxn], ub, lb, b, t1, t2, add, tmp, diff, sgn;
-void Add(int &amp;n, int num){
-    n+=num;
-    n = max(0, min(X, n));
-}
-int main(){
-    ios::sync_wi
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/09/04/函数模拟-Atcoder-082-F-Sandglass/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -940,7 +947,7 @@ int main(){
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">112</span>
+              <span class="site-state-item-count">113</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

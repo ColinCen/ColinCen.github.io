@@ -258,6 +258,139 @@
             
               
                 
+                <a class="post-title-link" href="/2017/08/09/Kanade-s-sum/" itemprop="url">
+                  Kanade's sum
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-08-09T14:11:39+08:00" content="2017-08-09">
+              2017-08-09
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/acm/" itemprop="url" rel="index">
+                    <span itemprop="name">acm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          原题：Kanade’s sum
+原题大意1~n的数组成了序列A，f(l,r,k)为[l, r]里第k大的数，如果r-l+1 &lt; k,那么f(l,r,k)就为0.现在求
+t = 0
+for l in 1 : n
+    for r in 1 : n
+        t+=f(l,r,k)
+即求t，注意k &lt; min(n, 80)
+算法分析考虑每个数被几个有效区间包含，每个数向左右各找最多k个比它大的数，然后按左边i个，右边k-i-1个这样讨论。这里可以用链表优化，先维护一个1~n的链表，记录每个数的位置，我们贪心的从1开始选，一直选到n，计算完之后就把它删除，这样就能保证每次选的数都是最小的。
+程序代码#include &lt;bits/stdc++.h&gt;
+using namespace std;
+const int maxn = 5e5+5;
+typedef long long ll;
+int pos[maxn], v[maxn], n, k, T;
+int pre[maxn], nxt[maxn];
+ll a[maxn], b[maxn];
+ll solve(int
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/08/09/Kanade-s-sum/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/08/07/Tarjan-LCA/" itemprop="url">
                   Tarjan-LCA
                 </a>
@@ -777,138 +910,6 @@ bool
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/06/30/Okabe-and-El-Psy-Kongroo/" itemprop="url">
-                  Okabe and El Psy Kongroo
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-06-30T20:46:30+08:00" content="2017-06-30">
-              2017-06-30
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/acm/" itemprop="url" rel="index">
-                    <span itemprop="name">acm</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          原题：Okabe and El Psy Kongroo
-原题大意从（0,0） 到（k，0），每个点可以到达右上，右，右下这三个点，但必须在c下方，0上方（包括0边界），问最终到达（k，0）有多少种方案。
-算法分析dp，因为ci是一条与x轴平行的线段，所以从ai到ai+1的每一次的贡献都是一样的，可以用矩阵加速，c最多为15，所以不会超时
-程序代码#include &lt;bits/stdc++.h&gt;
-using namespace std;
-typedef long long ll;
-const ll mod = 1e9+7;
-struct matrix{
-  ll val[16][16];
-  matrix(){memset(val,0,sizeof(val));}
-  matrix operator*(const matrix &amp; rhs)const{
-    matrix ret;
-    for(int i = 0; i &lt; 16; i++)
-      for(int j = 0; j &lt; 16; j++)
-        for(int k = 0
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/06/30/Okabe-and-El-Psy-Kongroo/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -954,7 +955,7 @@ struct matrix{
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">112</span>
+              <span class="site-state-item-count">113</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

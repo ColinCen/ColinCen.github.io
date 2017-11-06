@@ -258,6 +258,130 @@
             
               
                 
+                <a class="post-title-link" href="/2017/04/10/Headmaster-s-Headache/" itemprop="url">
+                  Headmaster's Headache
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-04-10T19:23:21+08:00" content="2017-04-10">
+              2017-04-10
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/acm/" itemprop="url" rel="index">
+                    <span itemprop="name">acm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          原题：Headmaster’s Headache
+原题大意有一个学校想要聘请老师，要求每个学科都有两个以上的老师授课，并且要使总费用最小。有S（最多8个）个学科，现任的M（最多20个）个老师（你必须继续聘请他们），N（最多100个）份申请。后来的M行每行有至少两个整数，表示现任的老师的工资，和他所教授的课程（可能不止一个）。再后来的N行每行有也有至少两个整数表示聘请这个老师所需的费用，以及他所教授的课程（可能不止一个）。
+算法分析这题属于集合类型的动态规划,因为最多只有8门课，所以考虑状态压缩，用d(i,s1,s2)来表示状态，s1是恰好有一个人教的课程集合，s2是至少有两个人教的集合,i表示第i个决策阶段。状态转移方程为 d(i,s1,s2) = min{d(i+1,s1’,s2’) + c[i],d(i+1,s1,s2)}。把所有人一起编号0~m-1是在职教师，m~n+m-1是应聘者。
+程序代码#include &lt;cstdio&gt;
+#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+#include &lt;strin
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/04/10/Headmaster-s-Headache/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/04/05/Dome-of-Circus/" itemprop="url">
                   Dome of Circus
                 </a>
@@ -753,142 +877,6 @@ struct N
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/03/31/Anton-and-School-2/" itemprop="url">
-                  Anton and School - 2
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-03-31T10:24:25+08:00" content="2017-03-31">
-              2017-03-31
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/acm/" itemprop="url" rel="index">
-                    <span itemprop="name">acm</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          原题：Anton and School - 2
-原题大意给出一组由“（”和“)”组成的字符串，问有多少种方法使得删除其中一些括号后，字符串会成为RSBS串，RSBS串是一种左右完全对称的串，如“（（（）））”，有一些则不是，如“（（（））”，“（（）（））”。
-算法分析删除几个，其实也就是算有几种成立。看了网上的代码，知道了如何通过逆元来算组合数，博客如下，本题中求1/(k!) 是通过 k^(MOD - 2) % MOD (MOD为素数);
-
-组合数学公式推导
-含MOD求逆元
-
-程序代码#include &lt;cstdio&gt;
-#include &lt;memory.h&gt;
-#include &lt;cstring&gt;
-using namespace std;
-typedef long long LL;
-const int maxn = 2e5+5;
-const LL mod = 1e9 + 7;
-
-int n;
-char s[maxn];
-int l[maxn], r[maxn];
-LL fac[maxn], inv[maxn];//fac[i] 保存阶乘，inv[i]
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/03/31/Anton-and-School-2/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -934,7 +922,7 @@ LL fac[maxn], inv[maxn];//fac[i] 保存阶乘，inv[i]
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">112</span>
+              <span class="site-state-item-count">113</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

@@ -258,6 +258,137 @@
             
               
                 
+                <a class="post-title-link" href="/2017/09/04/函数模拟-Atcoder-082-F-Sandglass/" itemprop="url">
+                  函数模拟 Atcoder 082 F Sandglass
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-09-04T19:32:05+08:00" content="2017-09-04">
+              2017-09-04
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/acm/" itemprop="url" rel="index">
+                    <span itemprop="name">acm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          原题：Sandglass
+原题大意给一个沙漏，一半叫A，另一边叫B，初始A在上B在下，A+B的沙子一共为X，每秒钟走一滴沙，再给出k个时刻，每个时刻都将沙漏倒置，现在有Q个询问，每个询问（t，a）代表若起始A中有a滴沙，t时刻时A中还有多少沙子，每个询问的时刻t是递增的给出。
+算法分析ft(x)表示若A中初始沙数量为x，在t时刻A中剩余的沙的数量。举几个例子之后会发现，ft(x)的函数都是这样的
+（x前面的斜率也可以为-1），同时函数上限不会超过X，下限不会低于0，模拟即可
+程序代码#include &lt;bits/stdc++.h&gt;
+using namespace std;
+const int maxn = 1e5+5;
+int X, K, Q, r[maxn], t[maxn], a[maxn], ub, lb, b, t1, t2, add, tmp, diff, sgn;
+void Add(int &amp;n, int num){
+    n+=num;
+    n = max(0, min(X, n));
+}
+int main(){
+    ios::sync_wi
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/09/04/函数模拟-Atcoder-082-F-Sandglass/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/09/03/共线集-atcoder-082-E-ConvexScore/" itemprop="url">
                   共线集 atcoder 082 E - ConvexScore
                 </a>
@@ -766,134 +897,6 @@ const int maxn = 2
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/08/28/强连通分量-Proving-Equivalences/" itemprop="url">
-                  强连通分量 Proving Equivalences
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-08-28T16:38:41+08:00" content="2017-08-28">
-              2017-08-28
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/acm/" itemprop="url" rel="index">
-                    <span itemprop="name">acm</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          原题：Proving Equivalences
-原题大意给出N个命题，要求你证明这N个命题的等价性：比如有4个命题a,b,c,d，我们证明a&lt;-&gt;b, b&lt;-&gt;c,c&lt;-&gt;d，每次证明都是双向的，因此一共用了6次推导如果换成证明a-&gt;b,b-&gt;c,c-&gt;d,d-&gt;a,每次证明都是单向的，而只需4次就可以证明所有命题的等价性现在给出M个命题证明，问还需要证明几个，才可以保证N个命题等价。
-算法分析缩点后求DAG中入度为0和出度为0的联通块的较大值
-程序代码#include &lt;bits/stdc++.h&gt;
-#define mem(a,b) memset(a,b,sizeof(a))
-#define pb push_back
-using namespace std;
-typedef long long ll;
-const int maxn = 2e4+5;
-vector&lt;int&gt; G[maxn];
-int pre[maxn], lowlink[maxn], sccno[maxn], dfs_clock, sc
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/08/28/强连通分量-Proving-Equivalences/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -939,7 +942,7 @@ int pre[maxn], lowlink[maxn], sccno[maxn], dfs_clock, sc
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">112</span>
+              <span class="site-state-item-count">113</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
