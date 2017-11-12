@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="模拟,字符串," />
+  <meta name="keywords" content="机器学习实战," />
 
 
 
@@ -84,22 +84,34 @@
 
 
 
-<meta name="description" content="原题：L先生的回信
-原题大意L先生打算回复来自朋友Z的上一封信，可是他担心信的内容在网络传送过程中出现错误，于是打算采用CRC校验方式保证信息完整性，可是他不知道应该怎么做，请你为他求出应该发送的比特序列。
-循环冗余校验码（CRC）的基本原理是：在K位信息码后再拼接R位的校验码，整个编码长度为N位，因此，这种编码也叫（N，K）码。对于一个给定的（N，K）码，可以证明存在一个最高次幂为N-K=R的多">
+<meta name="description" content="from numpy import *
+def loadDataSet(filename):
+    dataMat = []
+    fr = open(filename)
+    for line in fr.readlines():
+        curLine = line.strip().split(&amp;apos;\t&amp;apos;)
+        fltLine = list(map(">
 <meta property="og:type" content="article">
-<meta property="og:title" content="L先生的回信">
-<meta property="og:url" content="http://yoursite.com/2017/06/10/L先生的回信/index.html">
+<meta property="og:title" content="机器学习实战-树回归">
+<meta property="og:url" content="http://yoursite.com/2017/11/12/机器学习实战-树回归/index.html">
 <meta property="og:site_name" content="Colin's blog">
-<meta property="og:description" content="原题：L先生的回信
-原题大意L先生打算回复来自朋友Z的上一封信，可是他担心信的内容在网络传送过程中出现错误，于是打算采用CRC校验方式保证信息完整性，可是他不知道应该怎么做，请你为他求出应该发送的比特序列。
-循环冗余校验码（CRC）的基本原理是：在K位信息码后再拼接R位的校验码，整个编码长度为N位，因此，这种编码也叫（N，K）码。对于一个给定的（N，K）码，可以证明存在一个最高次幂为N-K=R的多">
-<meta property="og:updated_time" content="2017-06-10T14:22:20.649Z">
+<meta property="og:description" content="from numpy import *
+def loadDataSet(filename):
+    dataMat = []
+    fr = open(filename)
+    for line in fr.readlines():
+        curLine = line.strip().split(&amp;apos;\t&amp;apos;)
+        fltLine = list(map(">
+<meta property="og:updated_time" content="2017-11-12T08:19:11.306Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="L先生的回信">
-<meta name="twitter:description" content="原题：L先生的回信
-原题大意L先生打算回复来自朋友Z的上一封信，可是他担心信的内容在网络传送过程中出现错误，于是打算采用CRC校验方式保证信息完整性，可是他不知道应该怎么做，请你为他求出应该发送的比特序列。
-循环冗余校验码（CRC）的基本原理是：在K位信息码后再拼接R位的校验码，整个编码长度为N位，因此，这种编码也叫（N，K）码。对于一个给定的（N，K）码，可以证明存在一个最高次幂为N-K=R的多">
+<meta name="twitter:title" content="机器学习实战-树回归">
+<meta name="twitter:description" content="from numpy import *
+def loadDataSet(filename):
+    dataMat = []
+    fr = open(filename)
+    for line in fr.readlines():
+        curLine = line.strip().split(&amp;apos;\t&amp;apos;)
+        fltLine = list(map(">
 
 
 
@@ -120,9 +132,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/06/10/L先生的回信/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/11/12/机器学习实战-树回归/"/>
 
-  <title> L先生的回信 | Colin's blog </title>
+  <title> 机器学习实战-树回归 | Colin's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -262,7 +274,7 @@
             
             
               
-                L先生的回信
+                机器学习实战-树回归
               
             
           </h1>
@@ -274,8 +286,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-06-10T22:18:09+08:00" content="2017-06-10">
-              2017-06-10
+            <time itemprop="dateCreated" datetime="2017-11-12T16:13:34+08:00" content="2017-11-12">
+              2017-11-12
             </time>
           </span>
 
@@ -288,8 +300,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/acm/" itemprop="url" rel="index">
-                    <span itemprop="name">acm</span>
+                  <a href="/categories/机器学习/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
                   </a>
                 </span>
 
@@ -321,79 +333,226 @@
       
 
       
-        <p><strong>原题：<a href="http://115.231.222.240:8081/JudgeOnline/problem.php?id=1465" target="_blank" rel="external">L先生的回信</a></strong></p>
-<h1 id="原题大意"><a href="#原题大意" class="headerlink" title="原题大意"></a>原题大意</h1><p>L先生打算回复来自朋友Z的上一封信，可是他担心信的内容在网络传送过程中出现错误，于是打算采用CRC校验方式保证信息完整性，可是他不知道应该怎么做，请你为他求出应该发送的比特序列。</p>
-<p>循环冗余校验码（CRC）的基本原理是：在K位信息码后再拼接R位的校验码，整个编码长度为N位，因此，这种编码也叫（N，K）码。对于一个给定的（N，K）码，可以证明存在一个最高次幂为N-K=R的多项式G(x)。根据G(x)可以生成K位信息的校验码，而G(x)叫做这个CRC码的生成多项式。 校验码的具体生成过程为：假设要发送的信息用多项式C(X)表示，将C(x)左移R位（可表示成C(x)<em>2^R），这样C(x)的右边就会空出R位，这就是校验码的位置。用 C(x)</em>2^R 除以(模2除法)生成多项式G(x)得到的余数就是校验码。 </p>
-<h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><p>多组测试例，处理到文件结束。（测试例&lt;5）</p>
-<p>每行有两个字符串，用空格隔开，分别为信的内容和生成多项式（长度&lt;=50）。<br>信的内容为二进制表示。<br>生成多项式可能用x的多项式,也可能用二进制表示(格式见样例)。</p>
-<h2 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h2><p>每行输出一个加入CRC后发送的二进制序列，该序列不会长度超过32。</p>
-<h1 id="算法分析"><a href="#算法分析" class="headerlink" title="算法分析"></a>算法分析</h1><p>模拟。</p>
-<h1 id="程序代码"><a href="#程序代码" class="headerlink" title="程序代码"></a>程序代码</h1><pre><code>#include &lt;bits/stdc++.h&gt;
-#define mem(a,b) memset(a,b,sizeof(a))
-using namespace std;
-string s, t, ss;
-int n, r, k;
-int read(int i,string t){
-    int rr = 0;
-    while(isdigit(t[i])){
-        rr = rr*10+(t[i] - &apos;0&apos;);
-        i++;
-    }
-    return rr;
-}
-int main(){
-    while(cin &gt;&gt; s &gt;&gt; t){
-        ss = s;
-        int num[100];
-        if(t[0] == &apos;0&apos; || t[0] == &apos;1&apos;){
-            r = t.length()-1;
-            for(int i = 0; i &lt;= r; i++)
-                num[i] = t[i] - &apos;0&apos;;
-        }
-        else{            
-            r = read(1,t);
-            for(int i = 0; i &lt;= r; i++)
-                num[i] = 0;
-            int size = t.length();
-            if(t[size - 1] == &apos;1&apos;) num[r] = 1,size-=2;
-            if(size &gt;0 &amp;&amp; (t[size - 1] == &apos;x&apos; || t[size - 1] ==&apos;X&apos;)) num[r-1] = 1,size-=2;
-            for(int i = 0; i &lt; size; i++){
-                int tt;
-                if(isdigit(t[i])) 
-                    {
-                        tt = read(i,t);
-                        num[r-tt] = 1;
-                        while(isdigit(t[i])) i++;
-                    }
-            }
+        <pre><code>from numpy import *
+def loadDataSet(filename):
+    dataMat = []
+    fr = open(filename)
+    for line in fr.readlines():
+        curLine = line.strip().split(&apos;\t&apos;)
+        fltLine = list(map(float, curLine))
+        dataMat.append(fltLine)
+    return dataMat
+</code></pre><hr>
+<pre><code>#根据阈值分割数据集
+def binSplitDataSet(dataSet, feature, value):
+    mat0 = dataSet[nonzero(dataSet[:,feature] &gt; value)[0], :]
+    mat1 = dataSet[nonzero(dataSet[:,feature] &lt;= value)[0], :]
+    return mat0, mat1
+</code></pre><hr>
+<pre><code>#叶子结点的平均值
+def regLeaf(dataSet):
+    return mean(dataSet[:, -1])
+</code></pre><hr>
+<pre><code>#总方差——误差
+def regErr(dataSet):
+    return var(dataSet[:,-1]) * shape(dataSet)[0]
+</code></pre><hr>
+<pre><code>def chooseBestSplit(dataSet, leafType = regLeaf, errType = regErr, ops = (1,4)):
+    tolS = ops[0]; tolN = ops[1]
+    if len(set(dataSet[:,-1].T.tolist()[0])) == 1:
+        return None, leafType(dataSet)
+    m, n = shape(dataSet)
+    S = errType(dataSet)
+    bestS = inf; bestIndex = 0; bestValue = 0
+    for featIndex in range(n-1):
+        for splitVal in set((dataSet[:, featIndex].T.A.tolist())[0]):
+            mat0, mat1 = binSplitDataSet(dataSet, featIndex, splitVal)
+            if (shape(mat0)[0] &lt; tolN) or (shape(mat1)[0] &lt; tolN): continue
+            newS = errType(mat0) + errType(mat1)
+            if newS &lt; bestS:
+                bestIndex = featIndex
+                bestValue = splitVal
+                bestS = newS
+    if (S -bestS) &lt; tolS:
+        return None, leafType(dataSet)
+    mat0, mat1 = binSplitDataSet(dataSet, bestIndex, bestValue)
+    if (shape(mat0)[0] &lt; tolN) or (shape(mat1)[0] &lt; tolN):
+        return None, leafType(dataSet)
+    return bestIndex, bestValue
+</code></pre><hr>
+<pre><code>def createTree(dataSet, leafType = regLeaf, errType = regErr, ops = (1, 4)):
+    feat, val = chooseBestSplit(dataSet, leafType, errType, ops)
+    if feat == None: return val
+    retTree = {}
+    retTree[&apos;spInd&apos;] = feat
+    retTree[&apos;spVal&apos;] = val
+    lSet, rSet = binSplitDataSet(dataSet, feat, val)
+    retTree[&apos;left&apos;] = createTree(lSet, leafType, errType, ops)
+    retTree[&apos;right&apos;] = createTree(rSet, leafType, errType, ops)
+    return retTree
+</code></pre><hr>
+<pre><code>def isTree(obj):
+    return (type(obj).__name__ == &apos;dict&apos;)
+</code></pre><hr>
+<pre><code>#坍塌结点的左右子树
+def getMean(tree):
+    if isTree(tree[&apos;right&apos;]):tree[&apos;right&apos;] = getMean(tree[&apos;right&apos;])
+    if isTree(tree[&apos;left&apos;]):tree[&apos;left&apos;] = getMean(tree[&apos;left&apos;])
+    return (tree[&apos;left&apos;] + tree[&apos;right&apos;]) / 2.0
+</code></pre><hr>
+<pre><code>#剪枝
+def prune(tree, testData):
+    if shape(testData)[0] == 0 : return getMean(tree)
+    if (isTree(tree[&apos;right&apos;]) or isTree(tree[&apos;left&apos;])):
+        lSet, rSet = binSplitDataSet(testData, tree[&apos;spInd&apos;],
+            tree[&apos;spVal&apos;])
+    if isTree(tree[&apos;left&apos;]):tree[&apos;left&apos;] = prune(tree[&apos;left&apos;], lSet)
+    if isTree(tree[&apos;right&apos;]):tree[&apos;right&apos;] = prune(tree[&apos;right&apos;], rSet)
+    if not isTree(tree[&apos;left&apos;]) and not isTree(tree[&apos;right&apos;]):
+        lSet, rSet = binSplitDataSet(testData, tree[&apos;spInd&apos;],
+            tree[&apos;spVal&apos;])
+        errorNoMerage = sum(power(lSet[:,-1] - tree[&apos;left&apos;], 2)) + \
+                    sum(power(rSet[:,-1] - tree[&apos;right&apos;], 2))
+        treeMean = (tree[&apos;left&apos;] + tree[&apos;right&apos;])/2.0
+        errorMerage = sum(power(testData[:,-1] - treeMean, 2))
+        if errorMerage &lt; errorNoMerage:
+            print(&apos;merging&apos;)
+            return treeMean
+        else: return tree
+    else: return tree
+</code></pre><hr>
+<pre><code>#模型树
+def linearSolve(dataSet):
+    m, n = shape(dataSet)
+    X = mat(ones((m, n))); Y = mat(ones((m,1)))
+    X[:,1:n] = dataSet[:,0:n-1];Y = dataSet[:,-1]
+    xTx = X.T * X
+    if linalg.det(xTx) == 0.0:
+        raise NameError(&apos;This matrix is singular, cannot do inverse,\n\
+            try increasing the second value of ops&apos;)
+    ws = xTx.I * (X.T * Y)
+    return ws, X, Y
+</code></pre><hr>
+<pre><code>def modelLeaf(dataSet):
+    ws, X, Y = linearSolve(dataSet)
+    return ws
+</code></pre><hr>
+<pre><code>def modelErr(dataSet):
+    ws, X, Y = linearSolve(dataSet)
+    yHat = X * ws
+    return sum(power(Y - yHat, 2))
+</code></pre><hr>
+<pre><code>def regTreeEval(model, inDat):
+    return float(model)
+</code></pre><hr>
+<pre><code>def modelTreeEval(model, inDat):
+    n = shape(inDat)[1]
+    X = mat(ones((1,n+1)))
+    X[:,1:n+1] = inDat
+    return float(X * model)
+</code></pre><hr>
+<pre><code>#预测函数
+def treeForeCast(tree, inData, modelEval = regTreeEval):
+    if not isTree(tree): return modelEval(tree, inData)
+    if inData[tree[&apos;spInd&apos;]] &gt; tree[&apos;spVal&apos;]:
+        if isTree(tree[&apos;left&apos;]):
+            return treeForeCast(tree[&apos;left&apos;], inData, modelEval)
+        else:
+            return modelEval(tree[&apos;left&apos;], inData)
+    else:
+        if isTree(tree[&apos;right&apos;]):
+            return treeForeCast(tree[&apos;right&apos;], inData, modelEval)
+        else:
+            return modelEval(tree[&apos;right&apos;], inData)
+</code></pre><hr>
+<pre><code>def createForeCast(tree, testData, modelEval = regTreeEval):
+    m = len(testData)
+    yHat = mat(zeros((m, 1)))
+    for i in range(m):
+        yHat[i, 0] = treeForeCast(tree, mat(testData[i]), modelEval)
+    return yHat
+</code></pre><hr>
+<pre><code># trainMat = mat(loadDataSet(&apos;bikeSpeedVsIq_train.txt&apos;))
+# testMat = mat(loadDataSet(&apos;bikeSpeedVsIq_test.txt&apos;))
+# myTree = createTree(trainMat, ops = (1, 20))
+# yHat = createForeCast(myTree, testMat[:,0])
+# print(corrcoef(yHat, testMat[:,1], rowvar = 0)[0,1])
+# myTree = createTree(trainMat, modelLeaf, modelErr, (1,20))
+# yHat = createForeCast(myTree, testMat[:,0], modelTreeEval)
+# print(corrcoef(yHat, testMat[:,1], rowvar = 0)[0,1])
+</code></pre><hr>
+<pre><code>#GUI调参数
+from numpy import *
+from tkinter import *
+import matplotlib
+matplotlib.use(&apos;TkAgg&apos;)
+from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
+from matplotlib.figure import Figure
+import regTrees
+def reDraw(tolS, tolN):
+    reDraw.f.clf()
+    reDraw.a = reDraw.f.add_subplot(111)
+    if chkBtnVar.get():
+        if tolN &lt; 2 : tolN = 2
+        myTree = regTrees.createTree(reDraw.rawDat, regTrees.modelLeaf,
+            regTrees.modelErr, (tolS, tolN))
+        yHat = regTrees.createForeCast(myTree, reDraw.testDat,
+            regTrees.modelTreeEval)
+    else:
+        myTree = regTrees.createTree(reDraw.rawDat, ops = (tolS, tolN))
+        yHat = regTrees.createForeCast(myTree, reDraw.testDat)
+    reDraw.a.scatter(reDraw.rawDat[:,0], reDraw.rawDat[:,1], s= 5)
+    reDraw.a.plot(reDraw.testDat, yHat, linewidth = 2.0)
+    reDraw.canvas.show()
 
-        }
-        k = s.length();
-        n = k + r;
-        for(int i = k; i &lt; n; i++){
-            s += &apos;0&apos;;
-        }
-        for(int i = 0; i &lt; n-r; i++){
-            if(s[i] != &apos;0&apos;){
-                int tmp;
-                int cnt = i, cur = 0;
-                while(cur &lt;= r){
-                    tmp = (s[cnt] - &apos;0&apos;) ^ num[cur];
-                    s[cnt] = tmp+&apos;0&apos;;
-                    cur++;
-                    cnt++;
-                }
-//                if(cnt == n) break;
-            }
-        }
-        cout &lt;&lt; ss;
-        for(int i  = k; i &lt; n; i++){
-            cout &lt;&lt; s[i];
-        }
-        cout &lt;&lt; endl;
-    }
-    return 0;
-}
+def getInputs():
+    try: tolN = int(tolNentry.get())
+    except:
+        tolN = 10
+        print(&apos;enter Integer for tolN&apos;)
+        tolNentry.delete(0, END)
+        tolNentry.insert(0, &apos;10&apos;)
+    try: tolS = float(tolSentry.get())
+    except:
+        tolS = 1.0
+        print(&apos;enter Float for tolS&apos;)
+        tolSentry.delete(0, END)
+        tolSentry.insert(0, &apos;1.0&apos;)
+    return tolN, tolS
+
+def drawNewTree():
+    tolN, tolS = getInputs()
+    reDraw(tolS, tolN)
+
+root = Tk()
+reDraw.f = Figure(figsize = (5,4), dpi = 100)
+reDraw.canvas = FigureCanvasTkAgg(reDraw.f, master = root)
+reDraw.canvas.show()
+reDraw.canvas.get_tk_widget().grid(row = 0, columnspan = 3)
+
+
+Label(root, text = &quot;tolN&quot;).grid(row = 1, column = 0)
+tolNentry = Entry(root)
+tolNentry.grid(row = 1, column = 1)
+tolNentry.insert(0, &apos;10&apos;)
+
+Label(root, text = &quot;tolS&quot;).grid(row = 2, column = 0)
+tolSentry = Entry(root)
+tolSentry.grid(row = 2, column = 1)
+tolSentry.insert(0, &apos;1.0&apos;)
+Button(root, text = &quot;ReDraw&quot;, command = drawNewTree).grid(
+    row = 1, column = 2, rowspan = 3)
+
+chkBtnVar = IntVar()
+chkBtn = Checkbutton(root, text = &quot;Model Tree&quot;, variable = chkBtnVar)
+chkBtn.grid(row = 3, column = 0, columnspan = 2)
+
+reDraw.rawDat = mat(regTrees.loadDataSet(&apos;sine.txt&apos;))
+reDraw.testDat = arange(min(reDraw.rawDat[:,0]),
+    max(reDraw.rawDat[:,0]), 0.01)
+
+reDraw(1.0, 10)
+root.mainloop()
 </code></pre>
       
     </div>
@@ -415,9 +574,7 @@ int main(){
       
         <div class="post-tags">
           
-            <a href="/tags/模拟/" rel="tag">#模拟</a>
-          
-            <a href="/tags/字符串/" rel="tag">#字符串</a>
+            <a href="/tags/机器学习实战/" rel="tag">#机器学习实战</a>
           
         </div>
       
@@ -426,17 +583,13 @@ int main(){
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/06/10/qwb与二叉树/" rel="next" title="qwb与二叉树">
-                <i class="fa fa-chevron-left"></i> qwb与二叉树
+              <a href="/2017/11/06/机器学习实战-回归/" rel="next" title="机器学习实战-回归">
+                <i class="fa fa-chevron-left"></i> 机器学习实战-回归
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/06/10/L先生与质数V4/" rel="prev" title="L先生与质数V4">
-                L先生与质数V4 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -561,7 +714,7 @@ int main(){
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#原题大意"><span class="nav-number">1.</span> <span class="nav-text">原题大意</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Input"><span class="nav-number">1.1.</span> <span class="nav-text">Input</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Output"><span class="nav-number">1.2.</span> <span class="nav-text">Output</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#算法分析"><span class="nav-number">2.</span> <span class="nav-text">算法分析</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#程序代码"><span class="nav-number">3.</span> <span class="nav-text">程序代码</span></a></li></ol></div>
+              <p class="post-toc-empty">此文章未包含目录</p>
             
           </div>
         </section>

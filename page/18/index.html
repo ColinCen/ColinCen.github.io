@@ -258,6 +258,148 @@
             
               
                 
+                <a class="post-title-link" href="/2017/02/18/machine-learning-exercise6-Coursera/" itemprop="url">
+                  machine learning exercise6 Coursera
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-02-18T20:51:57+08:00" content="2017-02-18">
+              2017-02-18
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/机器学习/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          第六次上机作业：
+gaussianKernel.m
+dataset3Params.m
+processEmail.m
+emailFeatures.m
+gaussianKernel.m高斯核函数
+
+sim = exp(-sum((x1 - x2) .^ 2) / (2 * sigma * sigma));
+dataset3Params.m求最优的C和sigma
+function [C, sigma] = dataset3Params(X, y, Xval, yval)
+C = 1;
+sigma = 0.3;
+
+right_c = C;
+right_sigma = sigma;
+error = 1;
+
+predictions = zeros(size(yval),1);
+t = [0.01;0.03;0.1;0.3;1;3;10;30];
+for i = 1:8
+  for j = 1:8
+    C = t(i);
+    sigma = t(j);
+    %调用包里的svmTrain函数
+    model = svmTrain(X, y , C, @(x1, x2) gaussian
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/02/18/machine-learning-exercise6-Coursera/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/02/18/machine-learning-exercise5-Coursera/" itemprop="url">
                   machine learning exercise5 Coursera
                 </a>
@@ -787,141 +929,6 @@ t =X&apos;*(sigmoid(X * theta) - y) / m;
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/01/26/machine-learning-exercise-Coursera/" itemprop="url">
-                  machine learning exercise - Coursera
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-01-26T16:08:49+08:00" content="2017-01-26">
-              2017-01-26
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/机器学习/" itemprop="url" rel="index">
-                    <span itemprop="name">机器学习</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          第一次上机作业的任务：
-warmUpExercise.m
-plotData.m
-gradientDescent.m
-computeCost.m
-gradientDescentMulti.m
-computeCostMulti.m
-featureNormalize.m
-normalEqn.m
-warmUpExercise.m热身练习很简单，就是写一个单位矩阵：
-A = eye(5);
-plotData.m画图题，标上x，y轴的变量意义。
-plot(x, y, &apos;rx&apos;, &apos;MarkerSize&apos;, 10); % Plot the data
-ylabel(&apos;Profit in $10,000s&apos;); % Set the y?axis label
-xlabel(&apos;Population of City in 10,000s&apos;); % Set the x?axis label
-computeCost.m代价函数
-J = sum((X * theta - y).^2)/(2*m);
-gradientDescent.m梯度
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/01/26/machine-learning-exercise-Coursera/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -967,7 +974,7 @@ gradientDescent.m梯度
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">113</span>
+              <span class="site-state-item-count">114</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

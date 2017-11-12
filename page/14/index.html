@@ -258,6 +258,132 @@
             
               
                 
+                <a class="post-title-link" href="/2017/04/25/Product-it-again/" itemprop="url">
+                  Product it again
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-04-25T20:55:33+08:00" content="2017-04-25">
+              2017-04-25
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/acm/" itemprop="url" rel="index">
+                    <span itemprop="name">acm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          原题：Product it again
+原题大意给出N，M，让你求出GCD(1, 1)  GCD(1, 2)  …  GCD(1, M)  GCD(2, 1)  GCD(2, 2)  …  GCD(2, M)  …  GCD(N, 1)  GCD(N, 2)  …  GCD(N, M) 结果mod10^9+7。
+算法分析考虑某一个质数p对答案的贡献ans。ans = p^((n/p  m/p) + ((n/p^2  m/p^2)) + ….)原理类比n!的质因子分解后，对某个质因子p的指数大小的计数。所以我们只需要一个线性筛即可，然后暴力计数。复杂度约为O((n/logn) logn  logn)。这里有关于n！质因子分解和素数快速筛法的相关博客：
+
+http://www.doc88.com/p-9159772516121.html
+http://blog.csdn.net/qq_31917799/article/details/51612654
+http://blog.csdn.net/dinosoft/article/details/5829550
+
+程序代码#include &l
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/04/25/Product-it-again/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/04/24/小Hi的烦恼/" itemprop="url">
                   小Hi的烦恼
                 </a>
@@ -779,142 +905,6 @@ int up(int a,int b){
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/04/22/LCA模板/" itemprop="url">
-                  LCA模板
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-04-22T14:06:38+08:00" content="2017-04-22">
-              2017-04-22
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/acm/" itemprop="url" rel="index">
-                    <span itemprop="name">acm</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          LCALCA 是最近公共祖先问题，一般是图变成树做的问题，如有n个点m-1条边等等这样的条件，LCA有在线离线算法，这里总结的是在线算法，而且用st算法加速。
-算法分析网上总结了一些博客：
-
-http://blog.csdn.net/liangzhaoyang1/article/details/52549822
-http://blog.csdn.net/insistgogo/article/details/9929103
-
-几题的变化都不大，可见模板的通用性。
-Distance Queries原题：poj 1986
-#include &lt;cstdio&gt;
-#include &lt;cstring&gt;
-#include &lt;algorithm&gt;
-#include &lt;vector&gt;
-using namespace std;
-const int maxn = 4e4+5;
-struct nod{
-    int to, cost;
-    nod(int a=0,int b=0){to = a; cost = b;}
-};
-int dep[maxn], se
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/04/22/LCA模板/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -960,7 +950,7 @@ int dep[maxn], se
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">113</span>
+              <span class="site-state-item-count">114</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

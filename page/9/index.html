@@ -258,6 +258,139 @@
             
               
                 
+                <a class="post-title-link" href="/2017/06/10/qwb与学姐/" itemprop="url">
+                  qwb与学姐
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-06-10T21:51:31+08:00" content="2017-06-10">
+              2017-06-10
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/acm/" itemprop="url" rel="index">
+                    <span itemprop="name">acm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          原题：qwb与学姐
+原题大意qwb打算向学姐表白，可是学姐已经受够了他的骚扰，于是出了一个题想难住他:已知一幅n个点m条边的无向图,定义 路径的值为这条路径上最短的边的长度，现在有k个询问，询问从A点到B点的所有路径的值的最大值。
+算法分析题目意思是查询图上两点的瓶颈路大小，这个训练指南上有讲解。先是求最大生成树，然后求树上两点路径的最小值，用LCA倍增法就可以了。
+
+http://blog.csdn.net/Janis_z/article/details/52937631?locationNum=6&amp;fps=1
+
+程序代码template &lt;class T&gt; inline void umin(T &amp;a,T b){a=min(a,b);}
+template &lt;class T&gt; inline void umax(T &amp;a,T b){a=max(a,b);}
+const int N=50005;
+struct Bian{  
+    int u;    
+    int v;
+    int w;
+};
+int p[N],ra[N]; 
+Bi
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/06/10/qwb与学姐/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/06/10/qwb和李主席/" itemprop="url">
                   qwb和李主席
                 </a>
@@ -766,137 +899,6 @@ int main(){
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/06/05/Widespread/" itemprop="url">
-                  Widespread
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-06-05T18:01:44+08:00" content="2017-06-05">
-              2017-06-05
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/acm/" itemprop="url" rel="index">
-                    <span itemprop="name">acm</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          原题：Widespread
-原题大意一条线上有N个怪兽，第i个怪兽有hi格血条，我们每次可以对其中一个怪发动攻击，使他损失A格血，同时，除他以外的怪兽要损失B格血（A&gt;B），问最少攻击几次使得怪兽全部gg。
-算法分析贪心的想，每次让血最多的怪受到直接攻击，直到所有怪都完蛋，下面考虑优化，每次攻击每个怪都会受到B的伤害，其中被直接攻击到的还要受到（A—B）的额外伤害，假设攻击次数为t，enough(t) = yes / no 为（t次攻击成功消灭怪兽）答案。t为单调函数，可以二分来做，t次攻击的额外伤害次数应该等于t，即为 ∑⌈(hi −B ×T)/(A−B)⌉  = t。
-程序代码#include &lt;bits/stdc++.h&gt;
-using namespace std;
-typedef long long ll;
-const int maxn = 1e5+5;
-int n;
-ll a, b;
-ll h[maxn];
-ll check(ll m){
-    ll ans = 0;
-    for(int i = 1; i &lt;= n; i++){
-        i
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/06/05/Widespread/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -942,7 +944,7 @@ ll check(ll m){
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">113</span>
+              <span class="site-state-item-count">114</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

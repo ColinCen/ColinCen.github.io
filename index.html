@@ -258,6 +258,141 @@
             
               
                 
+                <a class="post-title-link" href="/2017/11/12/机器学习实战-树回归/" itemprop="url">
+                  机器学习实战-树回归
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-11-12T16:13:34+08:00" content="2017-11-12">
+              2017-11-12
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/机器学习/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          from numpy import *
+def loadDataSet(filename):
+    dataMat = []
+    fr = open(filename)
+    for line in fr.readlines():
+        curLine = line.strip().split(&apos;\t&apos;)
+        fltLine = list(map(float, curLine))
+        dataMat.append(fltLine)
+    return dataMat
+
+#根据阈值分割数据集
+def binSplitDataSet(dataSet, feature, value):
+    mat0 = dataSet[nonzero(dataSet[:,feature] &gt; value)[0], :]
+    mat1 = dataSet[nonzero(dataSet[:,feature] &lt;= value)[0], :]
+    return mat0, mat1
+
+#叶子结点的平均值
+def regLea
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/11/12/机器学习实战-树回归/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/11/06/机器学习实战-回归/" itemprop="url">
                   机器学习实战-回归
                 </a>
@@ -761,144 +896,6 @@ int main(){
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/11/03/机器学习实战-Adaboost算法/" itemprop="url">
-                  机器学习实战-Adaboost算法
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-11-03T17:47:56+08:00" content="2017-11-03">
-              2017-11-03
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/机器学习/" itemprop="url" rel="index">
-                    <span itemprop="name">机器学习</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          相关博客：
-
-http://www.360doc.com/content/14/1109/12/20290918_423780183.shtml
-
-from numpy import *
-import matplotlib.pyplot as plt
-def loadSimpData():
-    datMat = matrix([
-        [1., 2.1],
-        [2., 1.1],
-        [1.3, 1.],
-        [1., 1.],
-        [2., 1.]
-    ])
-    classLabels = [1.0, 1.0, -1.0, -1.0, 1.0]
-    return datMat, classLabels
-
-#弱分类器分类，返回致函1/-1的numpy数组
-def stumpClassify(dataMatrix, dimen, threshVal, threshIneq):
-    retArray = ones((shape(dataMatrix)[0], 1))
-    if threshIneq == &
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/11/03/机器学习实战-Adaboost算法/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -944,7 +941,7 @@ def stumpClassify(dataMatrix, dimen, threshVal, threshIneq):
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">113</span>
+              <span class="site-state-item-count">114</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

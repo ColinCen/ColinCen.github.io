@@ -258,6 +258,139 @@
             
               
                 
+                <a class="post-title-link" href="/2017/06/10/L先生与质数V4/" itemprop="url">
+                  L先生与质数V4
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-06-10T22:24:22+08:00" content="2017-06-10">
+              2017-06-10
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/acm/" itemprop="url" rel="index">
+                    <span itemprop="name">acm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          原题：L先生与质数V4
+原题大意L先生想求出第n个质数（素数）是多少，你能帮助他吗？
+算法分析Meisell-Lehmer算法求素数
+
+http://blog.csdn.net/nemaleswang/article/details/52582684
+
+程序代码#include &lt;bits/stdtr1c++.h&gt;
+
+#define MAXN 100
+#define MAXM 10001
+#define MAXP 40000
+#define MAX 400000
+#define clr(ar) memset(ar, 0, sizeof(ar))
+#define read() freopen(&quot;lol.txt&quot;, &quot;r&quot;, stdin)
+#define dbg(x) cout &lt;&lt; #x &lt;&lt; &quot; = &quot; &lt;&lt; x &lt;&lt; endl
+#define chkbit(ar, i) (((ar[(i) &gt;&gt; 6]) &amp; (1 &lt;&lt; (((i) &
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/06/10/L先生与质数V4/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/06/10/L先生的回信/" itemprop="url">
                   L先生的回信
                 </a>
@@ -752,139 +885,6 @@ ll  lowbit(ll x){
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/06/10/qwb与学姐/" itemprop="url">
-                  qwb与学姐
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-06-10T21:51:31+08:00" content="2017-06-10">
-              2017-06-10
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/acm/" itemprop="url" rel="index">
-                    <span itemprop="name">acm</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          原题：qwb与学姐
-原题大意qwb打算向学姐表白，可是学姐已经受够了他的骚扰，于是出了一个题想难住他:已知一幅n个点m条边的无向图,定义 路径的值为这条路径上最短的边的长度，现在有k个询问，询问从A点到B点的所有路径的值的最大值。
-算法分析题目意思是查询图上两点的瓶颈路大小，这个训练指南上有讲解。先是求最大生成树，然后求树上两点路径的最小值，用LCA倍增法就可以了。
-
-http://blog.csdn.net/Janis_z/article/details/52937631?locationNum=6&amp;fps=1
-
-程序代码template &lt;class T&gt; inline void umin(T &amp;a,T b){a=min(a,b);}
-template &lt;class T&gt; inline void umax(T &amp;a,T b){a=max(a,b);}
-const int N=50005;
-struct Bian{  
-    int u;    
-    int v;
-    int w;
-};
-int p[N],ra[N]; 
-Bi
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/06/10/qwb与学姐/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -930,7 +930,7 @@ Bi
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">113</span>
+              <span class="site-state-item-count">114</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

@@ -258,6 +258,132 @@
             
               
                 
+                <a class="post-title-link" href="/2017/06/20/Karen-and-Test/" itemprop="url">
+                  Karen and Test
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-06-20T19:28:22+08:00" content="2017-06-20">
+              2017-06-20
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/acm/" itemprop="url" rel="index">
+                    <span itemprop="name">acm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          原题：Karen and Test
+原题大意n个正整数排成一行，每相邻两个数进行加或减操作：第一第二个数相加，第二第三个数相减，第三第四个数相加，第四第五个数相减……，得到的结果排成第二行，然后继续这样的操作，并且初始的前两个数是加还是减，与上一行最后两个数的操作符相反，问最后得到的结果是多少？
+算法分析考虑最简版本每个ai对最终式子的贡献，可以令ai的系数为1，其余为0，类似0,0,0…1…0,0,0，同时暂且不考虑减法，可以得出每个ai的贡献为C(n-1,k-1) ，然后通过下面这个过程，可以看出最终的式子，是两个奇偶序列和（最简版本），相加或做差得到的，n mod 4 = 2时相加，n mod 4 = 0时做差。（如果n是奇数，那么先暴力进行第一次变换使得n成为偶数）
+程序代码#include &lt;bits/stdc++.h&gt;
+#define mem(a,b) memset(a,b,sizeof(a))
+using namespace std;
+typedef long long ll;
+const ll mod = 1e9+7;
+const ll maxn = 200
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/06/20/Karen-and-Test/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/06/19/Scheme/" itemprop="url">
                   Scheme
                 </a>
@@ -733,139 +859,6 @@ void init() {
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/06/10/L先生与质数V4/" itemprop="url">
-                  L先生与质数V4
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-06-10T22:24:22+08:00" content="2017-06-10">
-              2017-06-10
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/acm/" itemprop="url" rel="index">
-                    <span itemprop="name">acm</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          原题：L先生与质数V4
-原题大意L先生想求出第n个质数（素数）是多少，你能帮助他吗？
-算法分析Meisell-Lehmer算法求素数
-
-http://blog.csdn.net/nemaleswang/article/details/52582684
-
-程序代码#include &lt;bits/stdtr1c++.h&gt;
-
-#define MAXN 100
-#define MAXM 10001
-#define MAXP 40000
-#define MAX 400000
-#define clr(ar) memset(ar, 0, sizeof(ar))
-#define read() freopen(&quot;lol.txt&quot;, &quot;r&quot;, stdin)
-#define dbg(x) cout &lt;&lt; #x &lt;&lt; &quot; = &quot; &lt;&lt; x &lt;&lt; endl
-#define chkbit(ar, i) (((ar[(i) &gt;&gt; 6]) &amp; (1 &lt;&lt; (((i) &
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/06/10/L先生与质数V4/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -911,7 +904,7 @@ http://blog.csdn.net/nemaleswang/article/details/52582684
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">113</span>
+              <span class="site-state-item-count">114</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
